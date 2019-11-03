@@ -1,0 +1,249 @@
+/**** imports ****/
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700);
+@import url(https://fonts.googleapis.com/css?family=Cairo:400,700);
+
+
+/**** responsive ****/
+@media screen and (max-width:1920px) {
+    body {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width:486px) {
+    body {
+        width: 486px;
+    }
+}
+
+@media screen and (max-width:377px) {
+    body {
+        width: 377px;
+    }
+
+}
+
+@media screen and (max-width:360px) {
+    body {
+        width: 360px;
+    }
+}
+
+
+@media screen and (max-width:320px) {
+    body {
+        width: 320px;
+    }
+
+}
+
+/***** General *****/
+
+* {
+    font-size: 14px;
+    box-sizing: border-box;
+    font-family: Cairo, Ubuntu, 'Arial', sans-serif;
+}
+
+body {
+    background-color: rgb(255, 255, 237);
+}
+
+
+
+
+
+/***** Classes *****/
+
+/***** footer *****/
+
+.footer {
+    position: relative;
+    width: 100%;
+    bottom: -20px;
+}
+
+/***** liens dans index *****/
+
+.menu-box {
+    height: 360px;
+}
+
+.menu-box .titular {
+    background: #11a8ab;
+}
+
+.menu-box-menu li {
+    height: 80px;
+    position: relative;
+}
+
+.menu-box-tab {
+    font-size: 1.5em;
+    line-height: 80px;
+    display: block;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    background: #6093ac;
+    padding-left: 20px;
+}
+
+.menu-box-tab:hover {
+    background: #fff;
+    border: 2px solid black;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-variant: small-caps;
+    line-height: 76px;
+    -webkit-transition: background .2s;
+    transition: background .2s;
+}
+
+
+ul,
+ol {
+    list-style-type: none;
+    margin-bottom: 1px;
+    padding-left: 0;
+}
+
+.a-li {
+    text-decoration: none;
+    font-size: 1.6em;
+    margin: 0;
+    color: white;
+}
+
+.a-li:hover {
+    border: 2px solid black;
+}
+
+
+.titular {
+    display: block;
+    line-height: 10px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 10px 0;
+    padding-right: 15px;
+    font-size: 1em;
+
+}
+
+
+
+.container {}
+
+.block {
+    margin-bottom: 25px;
+    background: #394264;
+    border-radius: 5px;
+}
+
+.left-container {}
+
+.left-container .social li {
+    width: 75px;
+    height: 110px;
+}
+
+.left-container .social li .icon {
+    text-align: center;
+    font-size: 20px;
+    margin: 0;
+    line-height: 75px;
+}
+
+.left-container .social li .number {
+    text-align: center;
+    margin: 0;
+    line-height: 34px;
+}
+
+.left-container .social .facebook {
+    background: #3468af;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.left-container .social .facebook .number {
+    background: #1a4e95;
+    border-bottom-left-radius: 5px;
+}
+
+.left-container .social .twitter {
+    background: #4fc4f6;
+}
+
+.left-container .social .twitter .icon {
+    font-size: 18px;
+}
+
+.left-container .social .twitter .number {
+    background: #35aadc;
+}
+
+.left-container .social .googleplus {
+    background: #e64c65;
+}
+
+.left-container .social .googleplus .number {
+    background: #cc324b;
+}
+
+.left-container .social .mailbox {
+    background: #50597b;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.left-container .social .mailbox .number {
+    background: #363f61;
+    border-bottom-right-radius: 5px;
+}
+
+
+.text-align-left {
+    text-align: left;
+    padding: 5px;
+}
+
+.spaced {
+    display: block;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.btn-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+    align-items: flex-start;
+
+
+}
+
+
+
+.titre-li {
+    background-color: #0099CC;
+    font-weight: bold;
+    color: white;
+    font-size: 1.5em;
+    margin: 0;
+    padding-left: 15px;
+    color: black;
+    padding-bottom: 70px;
+}
+
+.note-li {
+    font-size: .8em;
+    color: white;
+    padding: 50px;
+}
