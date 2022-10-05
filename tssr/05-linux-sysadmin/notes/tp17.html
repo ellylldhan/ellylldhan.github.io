@@ -1,0 +1,2007 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body {
+  max-width: 980px;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 45px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable,
+.markdown-body .highlighttable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr,
+.markdown-body .highlighttable {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite,
+.markdown-body .highlighttable pre,
+.markdown-body .highlighttable div.highlight {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td,
+.markdown-body .highlighttable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headerlink {
+  font: normal 400 16px fontawesome-mini;
+  vertical-align: middle;
+  margin-left: -16px;
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  opacity: 0;
+  color: #333;
+}
+
+.markdown-body .headerlink:focus {
+  outline: none;
+}
+
+.markdown-body h1 .headerlink {
+  margin-top: 0.8rem;
+}
+
+.markdown-body h2 .headerlink,
+.markdown-body h3 .headerlink {
+  margin-top: 0.6rem;
+}
+
+.markdown-body h4 .headerlink {
+  margin-top: 0.2rem;
+}
+
+.markdown-body h5 .headerlink,
+.markdown-body h6 .headerlink {
+  margin-top: 0;
+}
+
+.markdown-body .headerlink:hover,
+.markdown-body h1:hover .headerlink,
+.markdown-body h2:hover .headerlink,
+.markdown-body h3:hover .headerlink,
+.markdown-body h4:hover .headerlink,
+.markdown-body h5:hover .headerlink,
+.markdown-body h6:hover .headerlink {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite,
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* MultiMarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px fontawesome-mini;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\e157';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+.markdown-body diagram-div, .markdown-body div.uml-sequence-diagram, .markdown-body, div.uml-flowchart {
+  overflow: auto;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><style>/*GitHub*/
+.highlight {background-color:#fff;color:#333333;}
+.highlight .hll {background-color:#ffffcc;}
+.highlight .c{color:#999988;font-style:italic}
+.highlight .err{color:#a61717;background-color:#e3d2d2}
+.highlight .k{font-weight:bold}
+.highlight .o{font-weight:bold}
+.highlight .cm{color:#999988;font-style:italic}
+.highlight .cp{color:#999999;font-weight:bold}
+.highlight .c1{color:#999988;font-style:italic}
+.highlight .cs{color:#999999;font-weight:bold;font-style:italic}
+.highlight .gd{color:#000000;background-color:#ffdddd}
+.highlight .ge{font-style:italic}
+.highlight .gr{color:#aa0000}
+.highlight .gh{color:#999999}
+.highlight .gi{color:#000000;background-color:#ddffdd}
+.highlight .go{color:#888888}
+.highlight .gp{color:#555555}
+.highlight .gs{font-weight:bold}
+.highlight .gu{color:#800080;font-weight:bold}
+.highlight .gt{color:#aa0000}
+.highlight .kc{font-weight:bold}
+.highlight .kd{font-weight:bold}
+.highlight .kn{font-weight:bold}
+.highlight .kp{font-weight:bold}
+.highlight .kr{font-weight:bold}
+.highlight .kt{color:#445588;font-weight:bold}
+.highlight .m{color:#009999}
+.highlight .s{color:#dd1144}
+.highlight .n{color:#333333}
+.highlight .na{color:teal}
+.highlight .nb{color:#0086b3}
+.highlight .nc{color:#445588;font-weight:bold}
+.highlight .no{color:teal}
+.highlight .ni{color:purple}
+.highlight .ne{color:#990000;font-weight:bold}
+.highlight .nf{color:#990000;font-weight:bold}
+.highlight .nn{color:#555555}
+.highlight .nt{color:navy}
+.highlight .nv{color:teal}
+.highlight .ow{font-weight:bold}
+.highlight .w{color:#bbbbbb}
+.highlight .mf{color:#009999}
+.highlight .mh{color:#009999}
+.highlight .mi{color:#009999}
+.highlight .mo{color:#009999}
+.highlight .sb{color:#dd1144}
+.highlight .sc{color:#dd1144}
+.highlight .sd{color:#dd1144}
+.highlight .s2{color:#dd1144}
+.highlight .se{color:#dd1144}
+.highlight .sh{color:#dd1144}
+.highlight .si{color:#dd1144}
+.highlight .sx{color:#dd1144}
+.highlight .sr{color:#009926}
+.highlight .s1{color:#dd1144}
+.highlight .ss{color:#990073}
+.highlight .bp{color:#999999}
+.highlight .vc{color:teal}
+.highlight .vg{color:teal}
+.highlight .vi{color:teal}
+.highlight .il{color:#009999}
+.highlight .gc{color:#999;background-color:#EAF2F5}
+</style><title>tp17 - bonus récap 3</title></head><body><article class="markdown-body"><h2 id="05-linux-sysadmin">05 - Linux Sysadmin<a class="headerlink" href="#05-linux-sysadmin" title="Permanent link"></a></h2>
+<p><em>Du 21/02 au 04/03 - Formateur : Arnaud CORMIER</em></p>
+<div class="toc">
+<ul>
+<li><a href="#05-linux-sysadmin">05 - Linux Sysadmin</a><ul>
+<li><a href="#tp-17-recapitulatif-3">TP 17 - Récapitulatif 3</a><ul>
+<li><a href="#2-utilisation-du-terminal">2. Utilisation du terminal</a><ul>
+<li><a href="#21-utilisation-de-vi">2.1 Utilisation de vi</a></li>
+<li><a href="#22-utilisation-de-nano">2.2 Utilisation de nano</a></li>
+</ul>
+</li>
+<li><a href="#3-privileges">3. Privilèges</a></li>
+<li><a href="#4-privileges-dacces-aux-ressources-sur-srvlinux">4. Privilèges d&rsquo;accès aux ressources sur SRVLINUX</a></li>
+<li><a href="#5-installation-logicielle">5. Installation logicielle</a><ul>
+<li><a href="#5a-afficher-la-liste-des-paquets-installes-sur-svrlinux-dont-le-nom-commence-par-vim-utiliser-2-mehodes-differentes">5.a. Afficher la liste des paquets installés sur SVRLINUX dont le nom commence par vim. Utiliser 2 méhodes différentes.</a></li>
+<li><a href="#5b-compter-le-nombre-de-paquets-installes-sur-votre-machines-de-2-manieres-differentes">5.b. compter le nombre de paquets installés sur votre machines de 2 manieres différentes</a></li>
+<li><a href="#5c-afficher-la-liste-des-fichiers-et-leurs-chemins-present-sur-le-systeme-qui-sont-fournis-par-le-paquet-bash">5.c. afficher la liste des fichiers (et leurs chemins) présent sur le système qui sont fournis par le paquet bash</a></li>
+<li><a href="#5d-afficher-les-informations-relatives-au-paquet-cmatrix">5.d. afficher les informations relatives au paquet cmatrix</a></li>
+<li><a href="#5e-installer-le-paquet-cmatrix-et-executez-la-commande-cmatrix-puis-trouver-comment-afficher-la-couleur-en-rouge-et-gras">5.e. installer le paquet cmatrix et executez la commande cmatrix puis trouver comment afficher la couleur en rouge et gras.</a></li>
+<li><a href="#5f-desinstaller-ensuite-completement-le-paquet-cmatrix">5.f. désinstaller ensuite complètement le paquet cmatrix</a></li>
+<li><a href="#5g-ajouter-le-repos-contrib-puis-mettez-a-jour-la-liste-des-depots">5.g. ajouter le repos contrib puis mettez à jour la liste des depots.</a></li>
+<li><a href="#5h-installer-mariadb-server-avec-apt-puis-executer-la-commande-apt-remove-mariadb-server-apt-autoremove">5.h. installer mariadb-server avec apt puis executer la commande apt remove mariadb-server &amp;&amp; apt autoremove.</a></li>
+<li><a href="#5i-faites-une-recherche-dans-les-depots-avec-le-nom-du-paquet-mariadb-via-dpkg-quel-est-le-mot-marque-sur-la-1e-colonne-quest-ce-que-cela-signifie">5.i. Faites une recherche dans les dépôts avec le nom du paquet mariadb (via dpkg), quel est le mot marqué sur la 1e colonne, qu&rsquo;est ce que cela signifie ?</a></li>
+</ul>
+</li>
+<li><a href="#6-gestion-de-lespace-disque">6. Gestion de l&rsquo;espace disque</a><ul>
+<li><a href="#61-part-1">6.1 Part 1</a></li>
+<li><a href="#62-part-2">6.2 Part 2</a></li>
+<li><a href="#63-part-3">6.3 Part 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="tp-17-recapitulatif-3">TP 17 - Récapitulatif 3<a class="headerlink" href="#tp-17-recapitulatif-3" title="Permanent link"></a></h3>
+<div class="highlight"><pre>root@srvlinux:~# lsblk
+NAME              MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                 8:0    0   20G  0 disk 
+└─sda1              8:1    0   20G  0 part 
+  ├─racine-racine 254:0    0  7,5G  0 lvm  /
+  ├─racine-swap   254:1    0  1,9G  0 lvm  [SWAP]
+  ├─racine-var    254:2    0  952M  0 lvm  /var
+  ├─racine-srv    254:3    0  952M  0 lvm  /srv
+  ├─racine-tmp    254:4    0  952M  0 lvm  /tmp
+  └─racine-home   254:5    0  7,9G  0 lvm  /home
+sr0                11:0    1 55,9M  0 rom  /mnt/cdrom
+</pre></div>
+
+<h4 id="2-utilisation-du-terminal">2. Utilisation du terminal<a class="headerlink" href="#2-utilisation-du-terminal" title="Permanent link"></a></h4>
+<p>Démarrer votre VM et lancer le terminal sur SRVLINUX</p>
+<p>Trouver les commandes pour les questions :</p>
+<p>a) Quel est l’identifiant utilisateur correspondant à votre compte (UID) ?</p>
+<div class="highlight"><pre>root@srvlinux:~# id
+uid=0(root) gid=0(root) groupes=0(root)
+
+root@srvlinux:~# id reno
+uid=1000(reno) gid=1000(reno) groupes=1000(reno),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),109(netdev)
+</pre></div>
+
+<p>b) Quels sont vos groupes d’appartenance?</p>
+<div class="highlight"><pre>$ grep reno /etc/group
+  cdrom:x:24:reno
+  floppy:x:25:reno
+  audio:x:29:reno
+  dip:x:30:reno
+  video:x:44:reno
+  plugdev:x:46:reno
+  netdev:x:109:reno
+  reno:x:1000:
+
+$ groups
+  reno cdrom floppy sudo audio dip video plugdev netdev
+
+$ id
+  uid=1000(reno) gid=1000(reno) groupes=1000(reno),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),109(netdev)
+</pre></div>
+
+<p>c) Dans quel point d’arborescence êtes-vous positionné ?</p>
+<div class="highlight"><pre># pwd
+  /root
+</pre></div>
+
+<p>d) Combien y’a-t-il de services systemd actuellement en cours de fonctionnement ?</p>
+<div class="highlight"><pre># ps aux | grep &quot;d$&quot;
+root        281  0.0  0.4  32644  8592 ?        Ss   14:33   0:00 /lib/systemd/systemd-journald
+root        296  0.0  0.2  22068  5032 ?        Ss   14:33   0:00 /lib/systemd/systemd-udevd
+systemd+    440  0.0  0.3  93084  6448 ?        Ssl  14:33   0:00 /lib/systemd/systemd-timesyncd
+root        471  0.0  0.3  19536  7164 ?        Ss   14:33   0:00 /lib/systemd/systemd-logind
+# ps aux | grep -c &quot;d$&quot;
+4
+</pre></div>
+
+<div class="highlight"><pre>root@srvlinux:~# systemctl  --state=loaded | grep &quot;units listed&quot;
+142 loaded units listed. Pass --all to see loaded but inactive units, too.
+
+reno@srvlinux:~$ systemctl -t service
+[...]
+</pre></div>
+
+<p>d) Combien y’a-t-il de services systemd activés en démarrage automatique ?</p>
+<div class="highlight"><pre>root@srvlinux:~# systemctl list-unit-files --type=service --state=enabled
+UNIT FILE                              STATE 
+apparmor.service                       enabled
+autovt@.service                        enabled
+blk-availability.service               enabled
+console-setup.service                  enabled
+cron.service                           enabled
+dbus-org.freedesktop.timesync1.service enabled
+getty@.service                         enabled
+keyboard-setup.service                 enabled
+lvm2-monitor.service                   enabled
+networking.service                     enabled
+rsyslog.service                        enabled
+ssh.service                            enabled
+sshd.service                           enabled
+syslog.service                         enabled
+systemd-timesyncd.service              enabled
+
+15 unit files listed.
+</pre></div>
+
+<p>dbis) quel est le nom de votre machine ?</p>
+<div class="highlight"><pre>$ hostname
+  srvlinux
+</pre></div>
+
+<p>Dbis2) quel sont vos serveurs dns ?</p>
+<div class="highlight"><pre>$ cat /etc/resolv.conf 
+  domain ad.campus-eni.fr
+  search ad.campus-eni.fr
+  nameserver 10.35.0.3
+
+$ grep nameserver /etc/resolv.conf 
+  nameserver 10.35.0.3
+</pre></div>
+
+<p>Dbis3) quel est votre adresse ip ?</p>
+<div class="highlight"><pre>$ ip -br a
+  lo               UNKNOWN        127.0.0.1/8 ::1/128 
+  ens33            UP             10.51.101.25/16 fe80::20c:29ff:fe2e:3dd7/64 
+</pre></div>
+
+<p>Dbis4) quel est votre passerelle par défaut ?</p>
+<div class="highlight"><pre>$ ip route
+  default via 10.51.255.254 dev ens33 
+  10.51.0.0/16 dev ens33 proto kernel scope link src 10.51.101.25 
+
+$ ip r | grep default
+  default via 10.51.255.254 dev ens33 
+</pre></div>
+
+<p>Dbis5) verifiez l’espace disponible sur vos points de montages (disques) ?</p>
+<div class="highlight"><pre>$ lsblk -f
+  NAME              FSTYPE      LABEL        UUID                                   FSAVAIL FSUSE% MOUNTPOINT
+  sda 
+  └─sda1            LVM2_member              iNCIWq-eKpn-y6Iw-Gfdp-rznu-ovyd-FaVI6d 
+    ├─racine-racine ext4                     66faf763-8339-4781-960b-5931a4a0c8a2      5,7G    16% /
+    ├─racine-swap   swap                     9a55134b-d5ff-4216-aea8-9b57fc807e8a                  [SWAP]
+    ├─racine-var    ext4                     e17d43e8-ef36-4aa6-bb19-bffde5afd25c    595,8M    28% /var
+    ├─racine-srv    ext4                     c66be799-fb3c-423e-85e7-6db0f0876dfc    855,1M     0% /srv
+    ├─racine-tmp    ext4                     178859ee-6d82-4846-ba36-07ffb26ac7e9    855,1M     0% /tmp
+    └─racine-home   ext4                     6ac4e97d-cd94-4bcd-bccd-26cbbcd8606f      7,2G     0% /home
+  sr0               iso9660     VMware Tools 2019-10-01-13-07-03-00                       0   100% /mnt/cdrom
+</pre></div>
+
+<div class="highlight"><pre>$ df -h
+  Sys. de fichiers          Taille Utilisé Dispo Uti% Monté sur
+  udev                        970M       0  970M   0% /dev
+  tmpfs                       198M    5,6M  192M   3% /run
+  /dev/mapper/racine-racine   7,3G    1,2G  5,8G  17% /
+  tmpfs                       986M       0  986M   0% /dev/shm
+  tmpfs                       5,0M       0  5,0M   0% /run/lock
+  tmpfs                       986M       0  986M   0% /sys/fs/cgroup
+  /dev/mapper/racine-srv      922M    2,4M  856M   1% /srv
+  /dev/mapper/racine-home     7,7G     36M  7,3G   1% /home
+  /dev/mapper/racine-var      922M    251M  608M  30% /var
+  /dev/mapper/racine-tmp      922M    2,4M  856M   1% /tmp
+  tmpfs                       198M       0  198M   0% /run/user/1000
+</pre></div>
+
+<p>e) Créér un fichier vide nommé showkernelversion.sh (sans l’éditeur nano ou vi)</p>
+<div class="highlight"><pre>root@srvlinux:~# touch showkernelversion.sh
+</pre></div>
+
+<h5 id="21-utilisation-de-vi">2.1 Utilisation de vi<a class="headerlink" href="#21-utilisation-de-vi" title="Permanent link"></a></h5>
+<p>a) Editer avec vi le fichier showkernelversion.sh :</p>
+<ul>
+<li>Ajouter sur la 1e ligne : #!/bin/bash</li>
+<li>Ajouter sur la 2 e ligne : la commande qui permet d’afficher la version du noyau</li>
+<li>Enregistrer le fichier.</li>
+</ul>
+<div class="highlight"><pre>root@srvlinux:~# vim showkernelversion.sh 
+a
+[entrer texte]
+ECHAP
+:wq
+root@srvlinux:~# chmod 775 showkernelversion.sh 
+root@srvlinux:~# ./showkernelversion.sh 
+4.19.0-18-amd64
+</pre></div>
+
+<p>b) appelez le script avec la commande : bash showkernelversion.sh</p>
+<div class="highlight"><pre>root@srvlinux:~# bash showkernelversion.sh 
+4.19.0-18-amd64
+</pre></div>
+
+<p>b bis) Ajouter le droit execution pour tous sur le fichier showkernelversion.sh ? Et appelez de nouveau le script.</p>
+<div class="highlight"><pre>root@srvlinux:~# chmod 777 showkernelversion.sh &amp;&amp; bash showkernelversion.sh 
+4.19.0-18-amd64
+</pre></div>
+
+<h5 id="22-utilisation-de-nano">2.2 Utilisation de nano<a class="headerlink" href="#22-utilisation-de-nano" title="Permanent link"></a></h5>
+<p>a) Ouvrir en root avec nano le fichier /etc/passwd</p>
+<ul>
+<li>utiliser le raccourci nano pour chercher votre prénom et ajouter votre nom et prenom dans la zone commentaire (appelé champ GECOS) puis sauver le fichier.</li>
+</ul>
+<div class="highlight"><pre>CTRL-w
+reno 
+ENTREE
+Reno Reno
+CTRL-x
+o
+ENTREE
+</pre></div>
+
+<div class="highlight"><pre>sshd:x:105:65534::/run/sshd:/usr/sbin/nologin
+reno:x:1000:1000:reno Reno Reno,,,:/home/reno:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+</pre></div>
+
+<h4 id="3-privileges">3. Privilèges<a class="headerlink" href="#3-privileges" title="Permanent link"></a></h4>
+<p>Sur SRVLINUX</p>
+<p>a) Installer le paquet sudo</p>
+<div class="highlight"><pre># apt install sudo -y
+</pre></div>
+
+<p>b) Donner à votre utilisateur courant les privilèges superutilisateur lorsqu’il préfixe une commande avec « sudo »</p>
+<div class="highlight"><pre># usermod -aG sudo reno
+</pre></div>
+
+<p>c) tester avec votre utilisateur courant la commande sudo pour mettre à jour votre système. (S’il y’a un problème, cela vient-il de sudo ou d’autre chose ..)</p>
+<div class="highlight"><pre>root@srvlinux:~# su reno
+reno@srvlinux:/root$ sudo nano /etc/passwd
+(si ça passe, c&#39;est que sudo fonctionne)
+</pre></div>
+
+<p>c) Créer les comptes utilisateurs / groupes suivants :</p>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">uid</th>
+<th align="left">groupes</th>
+<th align="left">grp sec.</th>
+<th align="left">shell</th>
+<th align="left">home</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">etudiant</td>
+<td align="left">1002</td>
+<td align="left">stagiaires</td>
+<td align="left">rtssr</td>
+<td align="left">bash</td>
+<td align="left">Non</td>
+</tr>
+<tr>
+<td align="left">eric</td>
+<td align="left">1003</td>
+<td align="left">formation</td>
+<td align="left">reseau</td>
+<td align="left">dash</td>
+<td align="left">Non</td>
+</tr>
+<tr>
+<td align="left">arnaud</td>
+<td align="left">1004</td>
+<td align="left">sudo</td>
+<td align="left"></td>
+<td align="left">bash</td>
+<td align="left">Oui</td>
+</tr>
+<tr>
+<td align="left">sophie</td>
+<td align="left">2001</td>
+<td align="left">administratif</td>
+<td align="left">suivi</td>
+<td align="left">bash</td>
+<td align="left">Oui</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>useradd -m -d /home/$user -G $group_name -s $shell</code></li>
+<li><code>echo $user:$pass | chpasswd</code></li>
+<li><code>-M</code>, <code>--no-create-home</code></li>
+<li><code>-m</code>, <code>--create-home</code></li>
+<li><code>-u</code>, <code>--uid UID</code></li>
+<li><code>-G</code>, <code>--groups GP1[,[GP2,...[GPN]]]</code></li>
+<li><code>-s</code>, <code>--shell SHELL</code></li>
+<li><code>-g</code>, <code>--gid GROUP</code></li>
+<li><code>-d</code>, <code>--home-dir HOME_DIR</code></li>
+</ul>
+<div class="highlight"><pre>groupadd stagiaires
+groupadd formation
+groupadd administratif
+groupadd suivi
+groupadd rtssr
+groupadd reseau
+useradd -M -u 1002 -g stagiaires -G rtssr -s /bin/bash etudiant
+useradd -M -u 1003 -g formation -G reseau -s /bin/dash eric
+useradd -m -u 1004 -g sudo -G reseau -s /bin/bash arnaud
+useradd -m -u 2001 -g administratif -G suivi -s /bin/bash sophie
+</pre></div>
+
+<p>d) Connecter vous avec l’utilisateur <strong>etudiant</strong>. Vérifier que tous les comptes utilisateurs créés précédemment parviennent à ouvrir une session.</p>
+<div class="highlight"><pre>root@srvlinux:~# su etudiant
+etudiant@srvlinux:/root$ cd
+bash: cd: /home/etudiant: Aucun fichier ou dossier de ce type
+
+root@srvlinux:~# su eric
+$ cd
+dash: 4: cd: can&#39;t cd to /home/eric
+
+root@srvlinux:~# su arnaud
+arnaud@srvlinux:/root$ cd
+arnaud@srvlinux:~$ pwd
+/home/arnaud
+
+root@srvlinux:~# su sophie
+sophie@srvlinux:/root$ cd
+sophie@srvlinux:~$ pwd
+/home/sophie
+</pre></div>
+
+<div class="highlight"><pre>$ for u in etudiant eric arnaud sophie; do id $u ; done
+  uid=1002(etudiant) gid=1001(stagiaires) groupes=1001(stagiaires),1005(rtssr)
+  uid=1003(eric) gid=1002(formation) groupes=1002(formation),1006(reseau)
+  uid=1004(arnaud) gid=27(sudo) groupes=27(sudo),1006(reseau)
+  uid=2001(sophie) gid=1003(administratif) groupes=1003(administratif),1004(suivi)
+</pre></div>
+
+<h4 id="4-privileges-dacces-aux-ressources-sur-srvlinux">4. Privilèges d&rsquo;accès aux ressources sur SRVLINUX<a class="headerlink" href="#4-privileges-dacces-aux-ressources-sur-srvlinux" title="Permanent link"></a></h4>
+<p>a) Vous créerez l&rsquo;arborescence suivante :</p>
+<div class="highlight"><pre>/
+├── data
+│   ├── public
+│   ├── secret
+│   ├── stagiaires
+│   │   └── rtssr
+│   └── suivi
+├── etc
+│   └── backup
+├── srv
+│   ├── partage
+│   └── privé
+└── var
+    └── archlogs
+</pre></div>
+
+<div class="highlight"><pre>root@srvlinux:~# mkdir -pv /data/{public,suivi,secret,stagiaires/rtssr} /etc/backup /var/archlogs /srv/{partage,privé}
+mkdir: création du répertoire &#39;/data&#39;
+mkdir: création du répertoire &#39;/data/public&#39;
+mkdir: création du répertoire &#39;/data/suivi&#39;
+mkdir: création du répertoire &#39;/data/secret&#39;
+mkdir: création du répertoire &#39;/data/stagiaires&#39;
+mkdir: création du répertoire &#39;/data/stagiaires/rtssr&#39;
+mkdir: création du répertoire &#39;/etc/backup&#39;
+mkdir: création du répertoire &#39;/var/archlogs&#39;
+mkdir: création du répertoire &#39;/srv&#39;
+mkdir: création du répertoire &#39;/srv/partage&#39;
+mkdir: création du répertoire &#39;/srv/privé&#39;
+</pre></div>
+
+<p><strong>Les contraintes d&rsquo;accès sont les suivantes :</strong></p>
+<ul>
+<li><code>/data/public</code> sera accessible à tous en lecture / écriture<br><br></li>
+</ul>
+<p>Accessible à tous en rw </p>
+<div class="highlight"><pre>root@srvlinux:/# lld /data/public
+drwxr-xr-x 2 root root 4096 mars   3 16:49 /data/public
+root@srvlinux:/# chmod 777 /data/public
+root@srvlinux:/# lld /data/public
+drwxrwxrwx 2 root root 4096 mars   3 16:49 /data/public
+</pre></div>
+
+<ul>
+<li><code>/data/suivi</code> sera accessible en écriture pour <strong>Sophie</strong> et en lecture pour les membres du groupe <strong>suivi</strong>. Personne d&rsquo;autre n&rsquo;y aura accès<br><br></li>
+</ul>
+<p>Acces rw pour sophie
+Acces r pour gp suivi
+Acces - pour other</p>
+<div class="highlight"><pre>root@srvlinux:/# lld /data/public
+drwxr-xr-x 2 root root 4096 mars   3 16:49 /data/public
+root@srvlinux:/# chmod u=rwx,g=r-x,o=- /data/suivi
+root@srvlinux:/# lld /data/suivi
+drwxr----- 2 sophie suivi 4096 mars   3 16:49 /data/suivi
+
+root@srvlinux:/# su sophie
+sophie@srvlinux:/$ whoami &gt;&gt; /data/suivi/test.txt
+sophie@srvlinux:/$ cat /data/suivi/test.txt
+sophie
+sophie@srvlinux:/$ groups
+administratif suivi
+
+root@srvlinux:/# su etudiant
+etudiant@srvlinux:/$ whoami &gt;&gt; /data/suivi/test.txt
+bash: /data/suivi/test.txt: Permission non accordée
+etudiant@srvlinux:/$ ls /data/suivi/
+ls: impossible d&#39;ouvrir le répertoire &#39;/data/suivi/&#39;: Permission non accordée
+etudiant@srvlinux:/$ groups
+stagiaires rtssr
+</pre></div>
+
+<ul>
+<li><code>/data/secret</code> sera accessible uniquement aux membres du groupe <strong>administratif</strong><br><br></li>
+</ul>
+<p>Acces rwx pour gp administratif
+Acces - pour other</p>
+<div class="highlight"><pre>root@srvlinux:~# chown :administratif /data/secret
+root@srvlinux:~# lld /data/secret
+drwxr-xr-x 2 root administratif 4096 mars   3 16:49 /data/secret
+root@srvlinux:~# chmod g=rwx,o=- /data/secret
+root@srvlinux:~# lld /data/secret
+drwxrwx--- 2 root administratif 4096 mars   3 16:49 /data/secret
+
+root@srvlinux:~# su sophie
+sophie@srvlinux:/root$ groups
+administratif suivi
+sophie@srvlinux:/root$ whoami &gt;&gt; /data/secret/test.txt
+sophie@srvlinux:/root$ cat /data/secret/test.txt
+sophie
+sophie@srvlinux:/root$ exit
+exit
+
+root@srvlinux:~# su etudiant
+etudiant@srvlinux:/root$ groups
+stagiaires rtssr
+etudiant@srvlinux:/root$ whoami &gt;&gt; /data/secret
+bash: /data/secret: est un dossier
+etudiant@srvlinux:/root$ ls /data/secret/
+ls: impossible d&#39;ouvrir le répertoire &#39;/data/secret/&#39;: Permission non accordée
+etudiant@srvlinux:/root$ whoami &gt;&gt; /data/secret/test.txt
+bash: /data/secret/test.txt: Permission non accordée
+etudiant@srvlinux:/root$ exit
+exit
+</pre></div>
+
+<ul>
+<li><code>/etc/backup</code> tous les membres du groupe <strong>sudo</strong> devront pouvoir lire, modifier et y créer des éléments<br><br></li>
+</ul>
+<p>Acces rwx gp sudo 
+Acces other ? Laisse r-x par défaut (parcourir ok mais pas d&rsquo;ecriture).</p>
+<div class="highlight"><pre>root@srvlinux:~# chown :sudo /etc/backup
+root@srvlinux:~# lld /etc/backup
+drwxr-xr-x 2 root sudo 4096 mars   3 16:49 /etc/backup
+root@srvlinux:~# chmod g+w /etc/backup
+root@srvlinux:~# lld /etc/backup
+drwxrwxr-x 2 root sudo 4096 mars   3 16:49 /etc/backup
+
+root@srvlinux:~# su arnaud
+arnaud@srvlinux:/root$ groups
+sudo reseau
+arnaud@srvlinux:/root$ ls /etc/backup
+arnaud@srvlinux:/root$ whoami &gt;&gt; /etc/backup/test.txt
+arnaud@srvlinux:/root$ cat /etc/backup/test.txt
+arnaud
+arnaud@srvlinux:/root$ exit
+exit
+
+root@srvlinux:~# su etudiant
+etudiant@srvlinux:/root$ groups
+stagiaires rtssr
+etudiant@srvlinux:/root$ ls /etc/backup/
+test.txt
+etudiant@srvlinux:/root$ whoami &gt;&gt; /etc/backup/test.txt 
+bash: /etc/backup/test.txt: Permission non accordée
+etudiant@srvlinux:/root$ exit
+exit
+</pre></div>
+
+<ul>
+<li><code>/srv/partage</code> et tous les éléments s&rsquo;y trouvant devront être accessible en lecture / écriture pour tous mais seul l&rsquo;utilisateur ayant créé un document devra être en mesure de le supprimer<br><br></li>
+</ul>
+<p>Acces rwx pour tous
+Seul le proprio du doc pourra supprimer (sticky bit)</p>
+<div class="highlight"><pre>root@srvlinux:~# lld /srv/partage/
+drwxr-xr-x 2 root root 4096 mars   3 17:01 /srv/partage/
+root@srvlinux:~# chmod 1777 /srv/partage
+root@srvlinux:~# lld
+drwx------ 5 root root 4096 mars   3 17:00 .
+
+root@srvlinux:~# su sophie
+sophie@srvlinux:/root$ whoami &gt;&gt; /srv/partage/test.txt
+sophie@srvlinux:/root$ whoami &gt;&gt; /srv/partage/sophie.txt
+sophie@srvlinux:/root$ rm /srv/partage/test.txt
+sophie@srvlinux:/root$ ls -l /srv/partage/ 
+total 4
+-rw-r--r-- 1 sophie administratif 7 mars   4 10:45 sophie.txt
+sophie@srvlinux:/root$ exit
+exit
+
+root@srvlinux:~# su etudiant
+etudiant@srvlinux:/root$ ls -l /srv/partage
+total 4
+-rw-r--r-- 1 sophie administratif 7 mars   4 10:45 sophie.txt
+etudiant@srvlinux:/root$ whoami &gt;&gt; /srv/partage/etudiant.txt
+etudiant@srvlinux:/root$ ls -l /srv/partage
+total 8
+-rw-r--r-- 1 etudiant stagiaires    9 mars   4 10:47 etudiant.txt
+-rw-r--r-- 1 sophie   administratif 7 mars   4 10:45 sophie.txt
+etudiant@srvlinux:/root$ rm -v /srv/partage/sophie.txt 
+rm : supprimer &#39;/srv/partage/sophie.txt&#39; qui est protégé en écriture et est du type « fichier » ? y
+rm: impossible de supprimer &#39;/srv/partage/sophie.txt&#39;: Opération non permise
+etudiant@srvlinux:/root$ whoami &gt;&gt; /srv/partage/etudiant2.txt
+etudiant@srvlinux:/root$ rm /srv/partage/etudiant2.txt -v
+&#39;/srv/partage/etudiant2.txt&#39; supprimé
+</pre></div>
+
+<ul>
+<li><code>/var/archlogs</code> ne sera accessible que pour l&rsquo;utilisateur <strong>root</strong><br><br></li>
+</ul>
+<div class="highlight"><pre>root@srvlinux:~# lld /var/archlogs
+drwxr-xr-x 2 root root 4096 mars   3 16:49 /var/archlogs
+root@srvlinux:~# chmod 700 /var/archlogs/
+root@srvlinux:~# lld /var/archlogs 
+drwx------ 2 root root 4096 mars   3 16:49 /var/archlogs
+
+root@srvlinux:~# su etudiant
+etudiant@srvlinux:/root$ ls -l /var/archlogs
+ls: impossible d&#39;ouvrir le répertoire &#39;/var/archlogs&#39;: Permission non accordée
+etudiant@srvlinux:/root$ exit
+exit
+
+root@srvlinux:~# su arnaud
+arnaud@srvlinux:/root$ groups
+sudo reseau
+arnaud@srvlinux:/root$ ls -l /var/archlogs
+ls: impossible d&#39;ouvrir le répertoire &#39;/var/archlogs&#39;: Permission non accordée
+</pre></div>
+
+<p>Comme <strong>arnaud</strong> fait partie de <strong>sudo</strong>, ajoutons lui le mdp &lsquo;<strong>arnaud</strong>&lsquo; et testons s&rsquo;il a accès à <code>/var/logs</code> en mode sudo :</p>
+<div class="highlight"><pre>root@srvlinux:~# echo arnaud:arnaud | chpasswd 
+root@srvlinux:~# su arnaud
+arnaud@srvlinux:/root$ sudo ls -ld /var/archlogs
+[sudo] Mot de passe de arnaud : 
+drwx------ 2 root root 4096 mars   3 16:49 /var/archlogs
+</pre></div>
+
+<ul>
+<li>Le point d&rsquo;arborescence <code>/data/stagiaires</code> et tous les éléments s&rsquo;y trouvant seront accessibles en lecture pour tous et en écriture pour les <strong>stagiaires</strong>.<br><br></li>
+</ul>
+<p>acces tous r
+acces stagiaire rw</p>
+<div class="highlight"><pre>root@srvlinux:~# lld /data/stagiaires/
+drwxr-xr-x 3 root root 4096 mars   3 16:49 /data/stagiaires/
+root@srvlinux:~# chown -R :stagiaires /data/stagiaires/
+root@srvlinux:~# lld /data/stagiaires/
+drwxr-xr-x 3 root stagiaires 4096 mars   3 16:49 /data/stagiaires/
+root@srvlinux:~# chmod -R u=rwx,g=rwx,o=rx /data/stagiaires/
+root@srvlinux:~# lld /data/stagiaires/
+drwxrwxr-x 3 root stagiaires 4096 mars   3 16:49 /data/stagiaires/
+root@srvlinux:~# ll /data/stagiaires/
+total 4
+drwxrwxr-x 2 root stagiaires 4096 mars   3 16:49 rtssr
+
+root@srvlinux:~# su etudiant
+etudiant@srvlinux:/root$ groups
+stagiaires rtssr
+etudiant@srvlinux:/root$ whoami &gt;&gt; /data/stagiaires/stag.txt
+etudiant@srvlinux:/root$ whoami &gt;&gt; /data/stagiaires/rtssr/stag.txt
+etudiant@srvlinux:/root$ ls -lR /data/stagiaires/
+/data/stagiaires/:
+total 8
+drwxrwxr-x 2 root     stagiaires 4096 mars   4 11:20 rtssr
+-rw-r--r-- 1 etudiant stagiaires    9 mars   4 11:20 stag.txt
+
+/data/stagiaires/rtssr:
+total 4
+-rw-r--r-- 1 etudiant stagiaires 9 mars   4 11:20 stag.txt
+etudiant@srvlinux:/root$ exit
+exit
+
+root@srvlinux:~# su sophie
+sophie@srvlinux:/root$ groups
+administratif suivi
+sophie@srvlinux:/root$ ls -l /data/stagiaires/
+total 8
+drwxrwxr-x 2 root     stagiaires 4096 mars   4 11:20 rtssr
+-rw-r--r-- 1 etudiant stagiaires    9 mars   4 11:20 stag.txt
+sophie@srvlinux:/root$ ls -lR /data/stagiaires/
+/data/stagiaires/:
+total 8
+drwxrwxr-x 2 root     stagiaires 4096 mars   4 11:20 rtssr
+-rw-r--r-- 1 etudiant stagiaires    9 mars   4 11:20 stag.txt
+
+/data/stagiaires/rtssr:
+total 4
+-rw-r--r-- 1 etudiant stagiaires 9 mars   4 11:20 stag.txt
+sophie@srvlinux:/root$ cat /data/stagiaires/stag.txt 
+etudiant
+sophie@srvlinux:/root$ whoami &gt;&gt; /data/stagiaires/stag.txt 
+bash: /data/stagiaires/stag.txt: Permission non accordée
+sophie@srvlinux:/root$ rm /data/stagiaires/stag.txt 
+rm : supprimer &#39;/data/stagiaires/stag.txt&#39; qui est protégé en écriture et est du type « fichier » ? y
+rm: impossible de supprimer &#39;/data/stagiaires/stag.txt&#39;: Permission non accordée
+sophie@srvlinux:/root$ exit
+exit
+</pre></div>
+
+<p>Vous effectuerez les tests de création et modification de fichier nécessaires afin de s&rsquo;assurer que ces contraintes sont bien respectées.</p>
+<h4 id="5-installation-logicielle">5. Installation logicielle<a class="headerlink" href="#5-installation-logicielle" title="Permanent link"></a></h4>
+<h6 id="5a-afficher-la-liste-des-paquets-installes-sur-svrlinux-dont-le-nom-commence-par-vim-utiliser-2-mehodes-differentes">5.a. Afficher la liste des paquets installés sur <strong>SVRLINUX</strong> dont le nom commence par vim. Utiliser 2 méhodes différentes.<a class="headerlink" href="#5a-afficher-la-liste-des-paquets-installes-sur-svrlinux-dont-le-nom-commence-par-vim-utiliser-2-mehodes-differentes" title="Permanent link"></a></h6>
+<div class="highlight"><pre>$ apt list --installed | grep ^vim
+  vim-common/oldstable,now 2:8.1.0875-5 all  [installé]
+  vim-runtime/oldstable,now 2:8.1.0875-5 all  [installé, automatique]
+  vim-tiny/oldstable,now 2:8.1.0875-5 amd64  [installé]
+  vim/oldstable,now 2:8.1.0875-5 amd64  [installé]
+</pre></div>
+
+<div class="highlight"><pre>$ apt search ^vim | grep installé
+$ dpkg -l &quot;vim*&quot; | grep ii
+$ apt list –installed | grep ^vim
+</pre></div>
+
+<h6 id="5b-compter-le-nombre-de-paquets-installes-sur-votre-machines-de-2-manieres-differentes">5.b. compter le nombre de paquets installés sur votre machines de 2 manieres différentes<a class="headerlink" href="#5b-compter-le-nombre-de-paquets-installes-sur-votre-machines-de-2-manieres-differentes" title="Permanent link"></a></h6>
+<div class="highlight"><pre>$ apt list --installed | wc -l
+340
+
+$ dpkg -l | grep ^ii | wc -l
+339
+</pre></div>
+
+<p>Différence due au fait que la 1ere ligne de <code>apt list</code> est <em>En train de lister&hellip;</em></p>
+<h6 id="5c-afficher-la-liste-des-fichiers-et-leurs-chemins-present-sur-le-systeme-qui-sont-fournis-par-le-paquet-bash">5.c. afficher la liste des fichiers (et leurs chemins) présent sur le système qui sont fournis par le paquet <strong>bash</strong><a class="headerlink" href="#5c-afficher-la-liste-des-fichiers-et-leurs-chemins-present-sur-le-systeme-qui-sont-fournis-par-le-paquet-bash" title="Permanent link"></a></h6>
+<div class="highlight"><pre>$ dpkg -L bash
+/.
+/bin
+/bin/bash
+/etc
+/etc/bash.bashrc
+/etc/skel
+[...]
+</pre></div>
+
+<h6 id="5d-afficher-les-informations-relatives-au-paquet-cmatrix">5.d. afficher les informations relatives au paquet <strong>cmatrix</strong><a class="headerlink" href="#5d-afficher-les-informations-relatives-au-paquet-cmatrix" title="Permanent link"></a></h6>
+<div class="highlight"><pre>$ apt show cmatrix
+  Package: cmatrix
+  Version: 1.2a+git20181122-1
+  Priority: optional
+  Section: misc
+  Maintainer: Boyuan Yang &lt;byang@debian.org&gt;
+  Installed-Size: 52,2 kB
+  Depends: libc6 (&gt;= 2.4), libncurses6 (&gt;= 6), libtinfo6 (&gt;= 6)
+  Recommends: kbd
+  Suggests: cmatrix-xfont
+  Homepage: https://github.com/abishekvashok/cmatrix
+  Tag: game::toys, interface::text-mode, role::program, uitoolkit::ncurses,
+   use::entertaining
+  Download-Size: 16,8 kB
+  APT-Sources: http://ftp.fr.debian.org/debian buster/main amd64 Packages
+  Description: imitation de « Matrix » pour l’affichage
+   Il s’agit d’un économiseur d’écran pour le terminal, basé sur le film
+   « Matrix ». Il fonctionne dans des terminaux de toutes dimensions et possède
+   les fonctions suivantes :
+    — prise en charge des redimensionnements de terminal ;
+    — mode de l’économiseur : n’importe quelle clef l’interrompt ;
+    — couleur sélectionnable ;
+    — vitesse de défilement du texte modifiable.
+</pre></div>
+
+<h6 id="5e-installer-le-paquet-cmatrix-et-executez-la-commande-cmatrix-puis-trouver-comment-afficher-la-couleur-en-rouge-et-gras">5.e. installer le paquet <strong>cmatrix</strong> et executez la commande <code>cmatrix</code> puis trouver comment afficher la couleur en rouge et gras.<a class="headerlink" href="#5e-installer-le-paquet-cmatrix-et-executez-la-commande-cmatrix-puis-trouver-comment-afficher-la-couleur-en-rouge-et-gras" title="Permanent link"></a></h6>
+<ul>
+<li>Ajouter <code>contrib</code> dans les repos (<code>etc/apt/sources.list</code>) pour pouvoir installer cmatrix, qui n&rsquo;est pas dans les repos par défaut.</li>
+</ul>
+<div class="highlight"><pre>$ cmatrix --help
+ Usage: cmatrix -[abBfhlsVx] [-u delay] [-C color]
+ -a: Asynchronous scroll
+ -b: Bold characters on
+ -B: All bold characters (overrides -b)
+ -f: Force the linux $TERM type to be on
+ -l: Linux mode (uses matrix console font)
+ -L: Lock mode (can be closed from another terminal)
+ -o: Use old-style scrolling
+ -h: Print usage and exit
+ -n: No bold characters (overrides -b and -B, default)
+ -s: &quot;Screensaver&quot; mode, exits on first keystroke
+ -x: X window mode, use if your xterm is using mtx.pcf
+ -V: Print version information and exit
+ -u delay (0 - 10, default 4): Screen update delay
+ -C [color]: Use this color for matrix (default green)
+ -r: rainbow mode
+
+$ cmatrix -b -C red
+</pre></div>
+
+<h6 id="5f-desinstaller-ensuite-completement-le-paquet-cmatrix">5.f. désinstaller ensuite complètement le paquet <strong>cmatrix</strong><a class="headerlink" href="#5f-desinstaller-ensuite-completement-le-paquet-cmatrix" title="Permanent link"></a></h6>
+<div class="highlight"><pre># apt purge cmatrix
+
+# apt-get remove --purge cmatrix
+# apt-get purge cmatrix
+# aptitude remove cmatrix
+# aptitude purge cmatrix
+</pre></div>
+
+<h6 id="5g-ajouter-le-repos-contrib-puis-mettez-a-jour-la-liste-des-depots">5.g. ajouter le repos <strong>contrib</strong> puis mettez à jour la liste des depots.<a class="headerlink" href="#5g-ajouter-le-repos-contrib-puis-mettez-a-jour-la-liste-des-depots" title="Permanent link"></a></h6>
+<p><strong>/etc/apt/sources.list</strong></p>
+<div class="highlight"><pre><span class="c1"># </span>
+
+<span class="c1"># deb cdrom:[Debian GNU/Linux 10.2.0 _Buster_ - Official amd64 DVD Binary-1 20191116-09:57]/ buster contrib main</span>
+
+<span class="c1">#deb cdrom:[Debian GNU/Linux 10.2.0 _Buster_ - Official amd64 DVD Binary-1 20191116-09:57]/ buster contrib main</span>
+
+deb http://ftp.fr.debian.org/debian/ buster main contrib
+deb-src http://ftp.fr.debian.org/debian/ buster main contrib
+
+deb http://security.debian.org/debian-security buster/updates main contrib
+deb-src http://security.debian.org/debian-security buster/updates main contrib
+
+<span class="c1"># buster-updates, previously known as &#39;volatile&#39;</span>
+deb http://ftp.fr.debian.org/debian/ buster-updates main contrib
+deb-src http://ftp.fr.debian.org/debian/ buster-updates main contrib
+</pre></div>
+
+<h6 id="5h-installer-mariadb-server-avec-apt-puis-executer-la-commande-apt-remove-mariadb-server-apt-autoremove">5.h. installer <strong>mariadb-server</strong> avec apt puis executer la commande <code>apt remove mariadb-server &amp;&amp; apt autoremove</code>.<a class="headerlink" href="#5h-installer-mariadb-server-avec-apt-puis-executer-la-commande-apt-remove-mariadb-server-apt-autoremove" title="Permanent link"></a></h6>
+<div class="highlight"><pre># apt install mariadb-server 
+# apt remove mariadb-server &amp;&amp; apt autoremove
+</pre></div>
+
+<h6 id="5i-faites-une-recherche-dans-les-depots-avec-le-nom-du-paquet-mariadb-via-dpkg-quel-est-le-mot-marque-sur-la-1e-colonne-quest-ce-que-cela-signifie">5.i. Faites une recherche dans les dépôts avec le nom du paquet <strong>mariadb</strong> (via <code>dpkg</code>), quel est le mot marqué sur la 1e colonne, qu&rsquo;est ce que cela signifie ?<a class="headerlink" href="#5i-faites-une-recherche-dans-les-depots-avec-le-nom-du-paquet-mariadb-via-dpkg-quel-est-le-mot-marque-sur-la-1e-colonne-quest-ce-que-cela-signifie" title="Permanent link"></a></h6>
+<div class="highlight"><pre>$ dpkg -l *mariadb*
+  Souhait=inconnU/Installé/suppRimé/Purgé/H=à garder
+  | État=Non/Installé/fichier-Config/dépaqUeté/échec-conFig/H=semi-installé/W=attend-t
+  |/ Err?=(aucune)/besoin Réinstallation (État,Err: majuscule=mauvais)
+  ||/ Nom                        Version             Architecture Description
+  +++-==========================-===================-============-====================
+  un  mariadb-client-10.0        &lt;aucune&gt;            &lt;aucune&gt;     (aucune description 
+  un  mariadb-client-10.1        &lt;aucune&gt;            &lt;aucune&gt;     (aucune description 
+  [...]
+</pre></div>
+
+<p>La premiere colonne correspond au <em>Souhait</em> (VO: <em>Desired</em>): u=inconnu, i=installé, r=supprimé, p=purgé, h=à garder (?! - unknown, installed, removed, purged, hold). </p>
+<p><strong>Extrait de man dpkg-query</strong></p>
+<div class="highlight"><pre>The first three columns of the output show the desired action, the package status, and errors, in that order.
+
+Desired action:
+
+u = Unknown
+i = Install
+h = Hold
+r = Remove
+p = Purge
+
+Package status:
+
+n = Not-installed
+c = Config-files
+H = Half-installed
+U = Unpacked
+F = Half-configured
+W = Triggers-awaiting
+t = Triggers-pending
+i = Installed
+
+Error flags:
+
+&lt;empty&gt; = (none)
+R = Reinst-required
+
+An uppercase status or error letter indicates the package is likely to cause severe problems. Please refer to dpkg(1) for information about the above
+states and flags.
+</pre></div>
+
+<h4 id="6-gestion-de-lespace-disque">6. Gestion de l&rsquo;espace disque<a class="headerlink" href="#6-gestion-de-lespace-disque" title="Permanent link"></a></h4>
+<h5 id="61-part-1">6.1 Part 1<a class="headerlink" href="#61-part-1" title="Permanent link"></a></h5>
+<p>a. Afficher les informations de disque et partitions de SRVLINUX. Ces informations seront à conserver dans le fichier : diskconf.log dans votre répertoire personnel.</p>
+<div class="highlight"><pre># lsblk -f &gt; diskconf.log
+# fdisk -l &gt; diskconf.log
+</pre></div>
+
+<p>b. Ajouter physiquement un nouveau disque dur de 5Go à la machine virtuelle SRVLINUX..</p>
+<ul>
+<li>Dans VMWare, ajouter un disque SCSI de 5Go.</li>
+<li>Reboot la VM</li>
+</ul>
+<p>c. Créér une partition LVM sur ce nouveau disque.</p>
+<p><code>fdisk /dev/sdb</code> (option n:primaire et option t:8e)</p>
+<div class="highlight"><pre># fdisk -l
+  Disque /dev/sdb : 5 GiB, 5368709120 octets, 10485760 secteurs
+  Modèle de disque : VMware Virtual S
+  Unités : secteur de 1 × 512 = 512 octets
+  Taille de secteur (logique / physique) : 512 octets / 512 octets
+  taille d&#39;E/S (minimale / optimale) : 512 octets / 512 octets
+  [...]
+
+# fdisk /dev/sdb
+
+  Bienvenue dans fdisk (util-linux 2.33.1).
+  Les modifications resteront en mémoire jusqu&#39;à écriture.
+  Soyez prudent avant d&#39;utiliser la commande d&#39;écriture.
+
+  Le périphérique ne contient pas de table de partitions reconnue.
+  Création d&#39;une nouvelle étiquette pour disque de type DOS avec identifiant de disque 0x1348e796.
+
+  Commande (m pour l&#39;aide) : n
+  Type de partition
+     p   primaire (0 primaire, 0 étendue, 4 libre)
+     e   étendue (conteneur pour partitions logiques)
+  Sélectionnez (p par défaut) : p
+  Numéro de partition (1-4, 1 par défaut) : 1
+  Premier secteur (2048-10485759, 2048 par défaut) : 
+  Dernier secteur, +/-secteurs ou +/-taille{K,M,G,T,P} (2048-10485759, 10485759 par défaut) : 
+
+  Une nouvelle partition 1 de type « Linux » et de taille 5 GiB a été créée.
+
+  Commande (m pour l&#39;aide) : t
+  Partition 1 sélectionnée
+
+  Code Hexa (taper L pour afficher tous les codes) :8e
+  Type de partition « Linux » modifié en « Linux LVM ».
+
+  Commande (m pour l&#39;aide) : w
+  La table de partitions a été altérée.
+  Appel d&#39;ioctl() pour relire la table de partitions.
+  Synchronisation des disques.
+</pre></div>
+
+<p>d. Intégrer cette partition au groupe de volume LVM.</p>
+<div class="highlight"><pre># vgs
+  VG     #PV #LV #SN Attr   VSize   VFree
+  racine   1   6   0 wz--n- &lt;20,00g    0 
+
+# vgextend racine /dev/sdb1
+  Physical volume &quot;/dev/sdb1&quot; successfully created.
+  Volume group &quot;racine&quot; successfully extended
+</pre></div>
+
+<p>e. Agrandir le volume logique home avec l’espace restant.</p>
+<div class="highlight"><pre># lvextend -l +100%FREE /dev/racine/home
+  Size of logical volume racine/home changed from 7,85 GiB (2010 extents) to &lt;12,85 GiB (3289 extents).
+  Logical volume racine/home successfully resized.
+# resize2fs /dev/racine/home
+</pre></div>
+
+<p>f. Vérifier vos partitions LVM avec les commandes appropriés.</p>
+<p><div class="highlight"><pre># lvs
+  LV     VG     Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  home   racine -wi-ao---- &lt;12,85g
+  racine racine -wi-ao----  &lt;7,45g
+  srv    racine -wi-ao---- 952,00m
+  swap   racine -wi-ao----  &lt;1,91g
+  tmp    racine -wi-ao---- 952,00m 
+  var    racine -wi-ao---- 952,00m 
+</pre></div>
+- lvs / lvdisplay
+- vgs / vgdisplay
+- pvs / pvdisplay</p>
+<p>g. Afficher les informations de disque et partition et ajouter les au fichier :</p>
+<div class="highlight"><pre># fdisk -l &gt;&gt; diskconf.log
+</pre></div>
+
+<h5 id="62-part-2">6.2 Part 2<a class="headerlink" href="#62-part-2" title="Permanent link"></a></h5>
+<p>a. Ajouter un 3e disque de 5 GO et créér deux partitions principales linux lvm.</p>
+<p><code>fdisk /dev/sdc1</code> et <code>fdisk devsdc2</code> (option n:primaire et t:8e)</p>
+<p>b. Créér un nouveau groupe de volume nommé vgpartage en y integrant les 2 nouveaux Physcial Volume.</p>
+<div class="highlight"><pre># pvcreate /dev/sdc1 &amp;&amp; pvcreate /dev/sdc2
+# vgcreatevgpartage /dev/sdc1 /dev/sdc2
+</pre></div>
+
+<p>c. Créér 2 volumes logiques LVM nommé public et prive de 2GO chacun.</p>
+<div class="highlight"><pre># lvcreate -n partage -L 2G prive
+# lvcreate -n prive   -L 2G public
+</pre></div>
+
+<div class="highlight"><pre># vgcreate vgpartage /dev/sdc
+  Physical volume &quot;/dev/sdc&quot; successfully created.
+  Volume group &quot;vgpartage&quot; successfully created
+
+# vgs
+  VG        #PV #LV #SN Attr   VSize  VFree 
+  racine      2   6   0 wz--n- 24,99g     0 
+  vgpartage   1   0   0 wz--n- &lt;5,00g &lt;5,00g
+
+# lvcreate -n public -L 2G vgpartage
+  Logical volume &quot;public&quot; created.
+# lvcreate -n prive -L 2G vgpartage
+  Logical volume &quot;prive&quot; created.
+
+# vgs
+  VG        #PV #LV #SN Attr   VSize  VFree   
+  racine      2   6   0 wz--n- 24,99g       0 
+  vgpartage   1   2   0 wz--n- &lt;5,00g 1020,00m
+# lvs
+  LV     VG        Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  home   racine    -wi-ao---- &lt;12,85g                                                    
+  racine racine    -wi-ao----  &lt;7,45g                                                    
+  srv    racine    -wi-ao---- 952,00m                                                    
+  swap   racine    -wi-ao----  &lt;1,91g                                                    
+  tmp    racine    -wi-ao---- 952,00m                                                    
+  var    racine    -wi-ao---- 952,00m                                                    
+  prive  vgpartage -wi-a-----   2,00g                                                    
+  public vgpartage -wi-a-----   2,00g   
+
+# pvs
+  PV         VG        Fmt  Attr PSize   PFree 
+  /dev/sda1  racine    lvm2 a--  &lt;20,00g     0 
+  /dev/sdb1  racine    lvm2 a--   &lt;5,00g     0 
+  /dev/sdc1  vgpartage lvm2 a--   &lt;2,50g &lt;2,50g
+  /dev/sdc2  vgpartage lvm2 a--   &lt;2,50g &lt;2,50g
+</pre></div>
+
+<p>d. Formater les deux volumes logiques en ext4.</p>
+<div class="highlight"><pre># mkfs.ext4/dev/vgpartage/public &amp;&amp; mkfs.ext4 /dev/vgpartage/prive
+</pre></div>
+
+<p>e. Créér un point de montage au démarrage du système pour /srv/public et /srv/prive sur chaque volume logique correspondant. Modifier la fstab.</p>
+<div class="highlight"><pre>/dev/mapper/vgpartage/public  /srv/public ext4 defaults 0 2
+/dev/mapper/vgpartage/prive   /srv/prive  ext4 defaults 0 2
+</pre></div>
+
+<p>f. Vérification des points de montage.</p>
+<div class="highlight"><pre># reboot 
+# df -h 
+# findmnt /srv/public  
+# findmnt /srv/prive 
+</pre></div>
+
+<h5 id="63-part-3">6.3 Part 3<a class="headerlink" href="#63-part-3" title="Permanent link"></a></h5>
+<p>a. générer de la charge cpu et controller le resultat avec les outils de prise d’information</p>
+<div class="highlight"><pre># cat /dev/random &gt; generation_nb_aleatoire
+</pre></div>
+
+<p>lancer <code>htop</code></p>
+<p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/style.css"></p></article></body></html>

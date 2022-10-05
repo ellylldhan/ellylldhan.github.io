@@ -1,0 +1,3854 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body {
+  max-width: 980px;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 45px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAABE0AA8AAAAAHWwAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABWAAAADsAAABUIIslek9TLzIAAAGUAAAAQwAAAFY3d1HZY21hcAAAAdgAAACqAAACOvWLi0FjdnQgAAAChAAAABMAAAAgBtX/BGZwZ20AAAKYAAAFkAAAC3CKkZBZZ2FzcAAACCgAAAAIAAAACAAAABBnbHlmAAAIMAAABdQAAAjkYT9TNWhlYWQAAA4EAAAAMwAAADYQ6WvNaGhlYQAADjgAAAAfAAAAJAc6A1pobXR4AAAOWAAAACAAAAA0Kmz/7mxvY2EAAA54AAAAHAAAABwQPBJubWF4cAAADpQAAAAgAAAAIAEHC/NuYW1lAAAOtAAAAYQAAALxhQT4h3Bvc3QAABA4AAAAfgAAAMS3SYh9cHJlcAAAELgAAAB6AAAAhuVBK7x4nGNgZGBg4GIwYLBjYHJx8wlh4MtJLMljkGJgYYAAkDwymzEnMz2RgQPGA8qxgGkOIGaDiAIAJjsFSAB4nGNgZHZmnMDAysDAVMW0h4GBoQdCMz5gMGRkAooysDIzYAUBaa4pDA4Pwz+yMwf9z2KIYg5imAYUZgTJAQDcoQvQAHic7ZHNDYJAFIRnBXf94cDRIiyCKkCpwFCPJ092RcKNDoYKcN4+EmMPvpdvk539zQyAPYBCXEUJhBcCrJ5SQ9YLnLJe4qF5rdb+uWPDngNHTkta101pNyWa8lMhn6xx2dqUnW4q9YOIhAOOeueMSgsR/6ry+P7O5s6xVNg4chBsHUuFnWNJ8uZYwrw7chrsHXkODo7cB0dHOYCTY8kv0VE2WJKD6gOlWjsxAAB4nGNgQAMSEMgc9D8LhAESbAPdAHicrVZpd9NGFB15SZyELCULLWphxMRpsEYmbMGACUGyYyBdnK2VoIsUO+m+8Ynf4F/zZNpz6Dd+Wu8bLySQtOdwmpOjd+fN1czbZRJaktgL65GUmy/F1NYmjew8CemGTctRfCg7eyFlisnfBVEQrZbatx2HREQiULWusEQQ+x5ZmmR86FFGy7akV03KLT3pLlvjQb1V334aOsqxO6GkZjN0aD2yJVUYVaJIpj1S0qZlqPorSSu8v8LMV81QwohOImm8GcbQSN4bZ7TKaDW24yiKbLLcKFIkmuFBFHmU1RLn5IoJDMoHzZDyyqcR5cP8iKzYo5xWsEu20/y+L3mndzk/sV9vUbbkQB/Ijuzg7HQlX4RbW2HctJPtKFQRdtd3QmzZ7FT/Zo/ymkYDtysyvdCMYKl8hRArP6HM/iFZLZxP+ZJHo1qykRNB62VO7Es+gdbjiClxzRhZ0N3RCRHU/ZIzDPaYPh788d4plgsTAngcy3pHJZwIEylhczRJ2jByYCVliyqp9a6YOOV1WsRbwn7t2tGXzmjjUHdiPFsPHVs5UcnxaFKnmUyd2knNoykNopR0JnjMrwMoP6JJXm1jNYmVR9M4ZsaERCICLdxLU0EsO7GkKQTNoxm9uRumuXYtWqTJA/Xco/f05la4udNT2g70s0Z/VqdiOtgL0+lp5C/xadrlIkXp+ukZfkziQdYCMpEtNsOUgwdv/Q7Sy9eWHIXXBtju7fMrqH3WRPCkAfsb0B5P1SkJTIWYVYhWQGKta1mWydWsFqnI1HdDmla+rNMEinIcF8e+jHH9XzMzlpgSvt+J07MjLj1z7UsI0xx8m3U9mtepxXIBcWZ5TqdZlu/rNMfyA53mWZ7X6QhLW6ejLD/UaYHlRzodY3lBC5p038GQizDkAg6QMISlA0NYXoIhLBUMYbkIQ1gWYQjLJRjC8mMYwnIZhrC8rGXV1FNJ49qZWAZsQmBijh65zEXlaiq5VEK7aFRqQ54SbpVUFM+qf2WgXjzyhjmwFkiXyJpfMc6Vj0bl+NYVLW8aO1fAsepvH472OfFS1ouFPwX/1dZUJb1izcOTq/Abhp5sJ6o2qXh0TZfPVT26/l9UVFgL9BtIhVgoyrJscGcihI86nYZqoJVDzGzMPLTrdcuan8P9NzFCFlD9+DcUGgvcg05ZSVnt4KzV19uy3DuDcjgTLEkxN/P6VvgiI7PSfpFZyp6PfB5wBYxKZdhqA60VvNknMQ+Z3iTPBHFbUTZI2tjOBIkNHPOAefOdBCZh6qoN5E7hhg34BWFuwXknXKJ6oyyH7kXs8yik/Fun4kT2qGiMwLPZG2Gv70LKb3EMJDT5pX4MVBWhqRg1FdA0Um6oBl/G2bptQsYO9CMqdsOyrOLDxxb3lZJtGYR8pIjVo6Of1l6iTqrcfmYUl++dvgXBIDUxf3vfdHGQyrtayTJHbQNTtxqVU9eaQ+NVh+rmUfW94+wTOWuabronHnpf06rbwcVcLLD2bQ7SUiYX1PVhhQ2iy8WlUOplNEnvuAcYFhjQ71CKjf+r+th8nitVhdFxJN9O1LfR52AM/A/Yf0f1A9D3Y+hyDS7P95oTn2704WyZrqIX66foNzBrrblZugbc0HQD4iFHrY64yg18pwZxeqS5HOkh4GPdFeIBwCaAxeAT3bWM5lMAo/mMOT7A58xh0GQOgy3mMNhmzhrADnMY7DKHwR5zGHzBnHWAL5nDIGQOg4g5DJ4wJwB4yhwGXzGHwdfMYfANc+4DfMscBjFzGCTMYbCv6dYwzC1e0F2gtkFVoANTT1jcw+JQU2XI/o4Xhv29Qcz+wSCm/qjp9pD6Ey8M9WeDmPqLQUz9VdOdIfU3Xhjq7wYx9Q+DmPpMvxjLZQa/jHyXCgeUXWw+5++J9w/bxUC5AAEAAf//AA94nIVVX2hbZRQ/5/t7893s5ja9f7ouzdZ0TTqz3bRJmogbWya6bG6Cq0VbSV2ddIJjFtfIQHEig80Hda8yUN/0YQz8AyriiyD+xQd92R4HCnaCb3samnpumrpsCsLlfPf7zvedc37nL3CAtc/5W/wQZGA3tOBSY/g+TMjHmwzEoM1Q8+ZjRZY4oJhmBw5/YB6Za0yC5AkhlwA1A1yCBIBOwCII0Cj0U8BAMdUCzq05sKwkP7SlUY6fcJk4Fb/RyE79/6P5hjM/F4aZiXBoeMgzcqQ4Xi1hPqfDLG5FT+lchCVU3lYMyvuwhl1mqndQL0RsuloLywHtthLXI06OblTrhfWVnpSJ5+mwu/JdbtuN3IAnkW0LLMcRwaC7ktrlzridM6kVdyf9uO1UNBByI7JhwtG2sEwab07ORBeilWhqavJCqV0qzZTOl/7ZXQ5TbTcdcFelyGhhRDAQpdqp1FEX3w3cFTc1k9pJQkmm4ySCbSikxRP2QOfN+0tHS5MrpQuTU1Mk5nw0E5Xa0WvrOwDyGax9yB9ma6DAg82wHc43SAGTI4GjBWebOePAERFE8/AHaQpZASSTy8A4WwZiLQMQ82mFKATO0ILicRAoDm9p5P99E5b/fXG+kQYY3TYUuqmERWYoT0u/GNYL2q/4WB3LaVS+VynXsVYIcWw6DkCh3nX1D+VzlYN4LClF5yexSQos8exqZ3KVP+wtrC54u4Nznq6cq+xpMpUUnZ8FUYzE86ud0g28NOIv3Gj5/rmA3ABs7S/ywzFuQ4qyd6QxfNtiQIaEgp3w/entQg4Vcbqa16M5FfpeUB8t1+qeg7mI7cUyOe79wOk86gSxkVec4KPTX69++5x68Yubn5/F+w52z7u08sJX7fZXv8ekT/d2mILJxq6sn+SC6qEJknzLJCxyZEKwWVqYmAPBxBE/9DLeZiWHu7lcr/VytrCRuHojncNuTt9h46tmacmYisnSamdN2bZptcsmSysdVsy1PrOvOzF3xN64Rb937t/og9KHxYdcjIUqFAmIAHGHNzlns+RTPgeUYAQm9DwpNxfxbhhBHPaw3/gfTcXO2L+eJVIx5nsyGkvm9X4/f+bGkH45G0PaSjcMXTjcZyTvi3UdHoCDjQd3IDUVsgwYmUoJK/gp4JJxeRI0MKHZIkgynyIBqBTOUs6rOVCojvjZ4mCQz49ZMlMcp8QoYk6NoBfsxnJtsBohpa8iGJS+ZH7gU7NxME6cmF+t7cO9vB8d3jTWSct0ycW9ranXmolNDwmVkNnxe+8JtoztwS5rKJ0xWS95tQ/1zMYzg69MzUZnNtl1ofNbsml/OJm6f9wjRjpnu2o4MzHzn77IQkRd+1DjwMQ2pqSjGMMhyjrgTbBAKksuUm0iU7hI0aN2wOKOq7WYBSH0HGihj/jkiPxAfmwsEbfYrjMG+j3ij932Db/LV7I/xruNrhnroxjR9HRMb2nTvO0ZXOoHPk8H2ZhDPx93qcE/53sH5np/dkIP7zzhTVKdR/BAY/9ElkkR+A6lJGsqpJ4oQcTxpvBT3Kn58VkaJjgHyPEIws57xkaHh9KuVpDEpJZeMbZ5w/zBHi5NMQ4r5VphsFqID7TyB9eR4pX216c3AHxpdAwoqU9qg0ZJ6yVLKmMSz1iG2z27ifx18NkY0LPx1W/wCc2l5LrznrIsiKsqbmB78A9wIGx4tI8rjihVHJyY9pgMirenVq0yWg7Iw7eogG7ZgYM3qR9959A/fZkg6MnD/exlkmc+jWV4SB15XUR+eqC6l6ZmgPtN9z5JMfik05OV8ljylunJ4J+wA/FUaQSSKotsYsCWqaPBidBLcxkWx7XKFRIb45TGaEhjlF9uUVPqXOtcIwsXbBvfoZXIyRYFdkfnqjExH98xpnPczqzjX/uNdO1Y17Wpi5+6Ts8BXtjVFasp9KZ1mOiNbH65c5w6HgmyF2jFCZywM8mWjRc7T5Pmt0lRy7Y71+jYbpGyvwG4sH0XeJxjYGRgYADiwBB/53h+m68M3MwvgCIM1z5N/g6j///9v5H5BbMnkMvBwAQSBQCIcA9gAHicY2BkYGAO+p8FJF/8//v/F/MLBqAICuAFALYQB5kAeJxjfsHAwLwAiCNB+P9fbJjJmoGBMRUo/wKCAfO2EnQAAAAAANoBXgGcAgICVALaA1IDvAPkBAYEPARyAAEAAAANAF0ABAAAAAAAAgAUACQAcwAAAG4LcAAAAAB4nHWRzWrCQBSFT+pPqUIXLXTTzayKUohGKIibCoLuhbrrYtTRxCYZmYyKyz5Fd32HvlDfoO/QkziIFJtw9bvnnpl7ZwLgBt/wcHieGAf2UGd24Atcou+4RH3kuEweO66QXx1XyaHjGh6ROa7jFp/cwStfMVvhy7GHO+/e8QWuvcBxifqz4zL5xXGF/Oa4Sn53XMPE+3Bcx4P3M9DrvYmWoRWNQVN02kFXTPdCU4pSGQu5saE2meiLhU6timPtz3SSs9ypTCdqrJabWJoT5QQnymSRTkXgt0/UkUqVkVbN807ZdtmxdiEWRidi6HqItdErNbN+aO2612qd9sYAGmvsYRBhyUu0EGhQbfK/gzYCdElTOgSdB1eEFBIxFYkNV4RFJWPeZyyYpVQVHTHZx4y/yVGX2LGWFZri51TccUOn5B7nPefVCSPvGhVVwUl9znveO2KkhV8Wk82PZ8qwZf8OVcu1+fSmWCMw/HMOwXvKaysqM+p+cVuWag8tvv+c+xdd+4+teJxtjUEOwiAURJla24KliQfhUA2g/Sl+CKXx+loNrpzVezOLEY34Ron/0WhwQoszOvQYIKFwwQiNSbSBeO2SZ0tBP4j3zVjKNng32ZmtD1VVXCuOiw/pJ8S3WOU6l+K5UOTaDC4+2TjKMtN9KQf1ezLx/Sg/00FCvABHhjDjAAB4nGPw3sFwIihiIyNjX+QGxp0cDBwMyQUbGVidNjEwMmiBGJu5mBg5ICw+BjCLzWkX0wGgNCeQze60i8EBwmZmcNmowtgRGLHBoSNiI3OKy0Y1EG8XRwMDI4tDR3JIBEhJJBBs5mFi5NHawfi/dQNL70YmBhcADHYj9AAA) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable,
+.markdown-body .highlighttable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr,
+.markdown-body .highlighttable {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite,
+.markdown-body .highlighttable pre,
+.markdown-body .highlighttable div.highlight {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td,
+.markdown-body .highlighttable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headerlink {
+  font: normal 400 16px fontawesome-mini;
+  vertical-align: middle;
+  margin-left: -16px;
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  opacity: 0;
+  color: #333;
+}
+
+.markdown-body .headerlink:focus {
+  outline: none;
+}
+
+.markdown-body h1 .headerlink {
+  margin-top: 0.8rem;
+}
+
+.markdown-body h2 .headerlink,
+.markdown-body h3 .headerlink {
+  margin-top: 0.6rem;
+}
+
+.markdown-body h4 .headerlink {
+  margin-top: 0.2rem;
+}
+
+.markdown-body h5 .headerlink,
+.markdown-body h6 .headerlink {
+  margin-top: 0;
+}
+
+.markdown-body .headerlink:hover,
+.markdown-body h1:hover .headerlink,
+.markdown-body h2:hover .headerlink,
+.markdown-body h3:hover .headerlink,
+.markdown-body h4:hover .headerlink,
+.markdown-body h5:hover .headerlink,
+.markdown-body h6:hover .headerlink {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite,
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* MultiMarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px fontawesome-mini;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\e157';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+.markdown-body diagram-div, .markdown-body div.uml-sequence-diagram, .markdown-body, div.uml-flowchart {
+  overflow: auto;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><style>/*GitHub*/
+.highlight {background-color:#fff;color:#333333;}
+.highlight .hll {background-color:#ffffcc;}
+.highlight .c{color:#999988;font-style:italic}
+.highlight .err{color:#a61717;background-color:#e3d2d2}
+.highlight .k{font-weight:bold}
+.highlight .o{font-weight:bold}
+.highlight .cm{color:#999988;font-style:italic}
+.highlight .cp{color:#999999;font-weight:bold}
+.highlight .c1{color:#999988;font-style:italic}
+.highlight .cs{color:#999999;font-weight:bold;font-style:italic}
+.highlight .gd{color:#000000;background-color:#ffdddd}
+.highlight .ge{font-style:italic}
+.highlight .gr{color:#aa0000}
+.highlight .gh{color:#999999}
+.highlight .gi{color:#000000;background-color:#ddffdd}
+.highlight .go{color:#888888}
+.highlight .gp{color:#555555}
+.highlight .gs{font-weight:bold}
+.highlight .gu{color:#800080;font-weight:bold}
+.highlight .gt{color:#aa0000}
+.highlight .kc{font-weight:bold}
+.highlight .kd{font-weight:bold}
+.highlight .kn{font-weight:bold}
+.highlight .kp{font-weight:bold}
+.highlight .kr{font-weight:bold}
+.highlight .kt{color:#445588;font-weight:bold}
+.highlight .m{color:#009999}
+.highlight .s{color:#dd1144}
+.highlight .n{color:#333333}
+.highlight .na{color:teal}
+.highlight .nb{color:#0086b3}
+.highlight .nc{color:#445588;font-weight:bold}
+.highlight .no{color:teal}
+.highlight .ni{color:purple}
+.highlight .ne{color:#990000;font-weight:bold}
+.highlight .nf{color:#990000;font-weight:bold}
+.highlight .nn{color:#555555}
+.highlight .nt{color:navy}
+.highlight .nv{color:teal}
+.highlight .ow{font-weight:bold}
+.highlight .w{color:#bbbbbb}
+.highlight .mf{color:#009999}
+.highlight .mh{color:#009999}
+.highlight .mi{color:#009999}
+.highlight .mo{color:#009999}
+.highlight .sb{color:#dd1144}
+.highlight .sc{color:#dd1144}
+.highlight .sd{color:#dd1144}
+.highlight .s2{color:#dd1144}
+.highlight .se{color:#dd1144}
+.highlight .sh{color:#dd1144}
+.highlight .si{color:#dd1144}
+.highlight .sx{color:#dd1144}
+.highlight .sr{color:#009926}
+.highlight .s1{color:#dd1144}
+.highlight .ss{color:#990073}
+.highlight .bp{color:#999999}
+.highlight .vc{color:teal}
+.highlight .vg{color:teal}
+.highlight .vi{color:teal}
+.highlight .il{color:#009999}
+.highlight .gc{color:#999;background-color:#EAF2F5}
+</style><title>03-notes</title></head><body><article class="markdown-body"><h1 id="eni-03-services-client-windows">ENI 03 - Services Client Windows<a class="headerlink" href="#eni-03-services-client-windows" title="Permanent link"></a></h1>
+<table class="formateur">
+    <tbody>
+        <tr>
+            <th scope="row">Date</th>
+            <td>du 13/12 au 24/12/2021</td>
+        </tr>
+        <tr>
+            <th scope="row">Formateur</th>
+            <td>Jordan RONSAULT</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="toc">
+<ul>
+<li><a href="#eni-03-services-client-windows">ENI 03 - Services Client Windows</a><ul>
+<li><a href="#mod-1-les-os-windows-10">Mod 1 - Les OS &amp; Windows 10</a><ul>
+<li><a href="#definition">Définition</a></li>
+<li><a href="#composition-os">Composition OS</a></li>
+<li><a href="#fonctions-principales">Fonctions principales</a></li>
+<li><a href="#vocabulaire">Vocabulaire</a></li>
+<li><a href="#les-licences-windows">Les Licences Windows</a></li>
+</ul>
+</li>
+<li><a href="#aparte-virtu">Aparté virtu</a><ul>
+<li><a href="#les-differents-types-de-reseaux">Les differents types de réseaux</a></li>
+</ul>
+</li>
+<li><a href="#mod-2-installation-de-win10">Mod 2 - Installation de win10</a><ul>
+<li><a href="#tp01-installation-de-win10">TP01 - Installation de Win10</a></li>
+</ul>
+</li>
+<li><a href="#mod-3-interagir-avec-win10">Mod 3 - Intéragir avec win10</a><ul>
+<li><a href="#cli-powershell">CLI &amp; Powershell</a><ul>
+<li><a href="#cli">CLI</a></li>
+</ul>
+</li>
+<li><a href="#tp02-prise-en-main-de-linterface-graphique">TP02 - Prise en main de l&rsquo;interface graphique</a></li>
+<li><a href="#tp03-prise-en-main-de-la-cmd">TP03 - Prise en main de la cmd</a></li>
+<li><a href="#powershell">Powershell</a><ul>
+<li><a href="#aide-de-powershell">Aide de Powershell</a><ul>
+<li><a href="#astuces">Astuces</a></li>
+<li><a href="#cmdlet-de-base-et-objets">Cmdlet de base et objets</a><ul>
+<li><a href="#afficher-des-caracteristiques-de-lobjet">Afficher des caractéristiques de l&rsquo;objet</a></li>
+</ul>
+</li>
+<li><a href="#get-command">Get-Command</a></li>
+<li><a href="#modifier-un-object-monballon">Modifier un object monBallon</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#tp04-premier-pas-avec-powershell">TP04 - Premier pas avec PowerShell</a></li>
+<li><a href="#tp05-manipuler-laide-de-powershell">TP05 - Manipuler l&rsquo;aide de Powershell</a></li>
+<li><a href="#tp06-devenir-autonome-avec-powershell">TP06 - Devenir autonome avec PowerShell</a><ul>
+<li><a href="#win11">Win11</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#mod-4-gestion-du-stockage">Mod 4 - Gestion du stockage</a><ul>
+<li><a href="#table-de-partition">table de partition</a></li>
+<li><a href="#partitionnement">Partitionnement</a><ul>
+<li><a href="#partitionnement-de-base">partitionnement de base</a></li>
+<li><a href="#partitionnememnt-dynamique">partitionnememnt dynamique</a></li>
+<li><a href="#partitionnement-gpt">Partitionnement GPT</a></li>
+</ul>
+</li>
+<li><a href="#les-systemes-de-fichiers">Les systèmes de fichiers</a><ul>
+<li><a href="#ntfs">NTFS</a></li>
+<li><a href="#fat16fat32">FAT16/FAT32</a></li>
+<li><a href="#refs">ReFS</a></li>
+<li><a href="#etc">etc.</a></li>
+</ul>
+</li>
+<li><a href="#les-disques-durs-virtuels">Les disques durs virtuels</a></li>
+<li><a href="#stockage-et-gui">Stockage et GUI</a><ul>
+<li><a href="#les-outils-de-gestion">Les outils de gestion</a><ul>
+<li><a href="#powershell_1">powershell</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#tp07-gestion-du-stockage">TP07 - Gestion du stockage</a><ul>
+<li><a href="#utilisation-de-diskmgmtmsc">utilisation de diskmgmt.msc</a></li>
+<li><a href="#utilisation-de-diskpart">utilisation de diskpart</a></li>
+<li><a href="#investigation-sur-la-vm-win11-avec-powershell">Investigation sur la VM win11 avec Powershell</a></li>
+<li><a href="#bonus-sur-la-vm-win10">Bonus: sur la vm win10</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#mod-5-les-utilisateurs-et-les-groupes">Mod 5 - Les utilisateurs et les groupes</a><ul>
+<li><a href="#utilisateurs">Utilisateurs</a><ul>
+<li><a href="#acces-au-si-valide-par">Accès au SI validé par</a></li>
+<li><a href="#utilisateur-local">Utilisateur local</a></li>
+<li><a href="#utilisateur-du-domaine">Utilisateur du domaine</a></li>
+<li><a href="#ouverture-de-session">Ouverture de session</a></li>
+</ul>
+</li>
+<li><a href="#categories-dutilisateurs">Categories d&rsquo;utilisateurs</a></li>
+<li><a href="#tp08-les-utilisateurs-et-les-groupes">TP08 - Les utilisateurs et les groupes</a><ul>
+<li><a href="#cmdexe">CMD.EXE</a></li>
+<li><a href="#powershell-sur-win11">POWERSHELL sur WIN11</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#mod-6-la-securite-ntfs-et-les-acl">Mod 6 - La sécurité NTFS et les ACL</a><ul>
+<li><a href="#permissions">Permissions</a></li>
+<li><a href="#heritage">Héritage</a></li>
+<li><a href="#copie">Copie</a></li>
+<li><a href="#tp09-ntfs-acl">TP09 - NTFS &amp; ACL</a><ul>
+<li><a href="#vm-win10-gui">VM Win10 - GUI</a></li>
+<li><a href="#vm-win11-powershell">VM Win11 - Powershell</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#mod-7-la-gestion-du-reseau-et-du-pare-feu">Mod 7 - La gestion du réseau et du pare-feu</a><ul>
+<li><a href="#carte-reseau">Carte réseau</a><ul>
+<li><a href="#configuration">Configuration</a><ul>
+<li><a href="#quels-parametres">Quels paramètres ?</a></li>
+<li><a href="#le-type-dadressage">Le Type d&rsquo;adressage</a></li>
+<li><a href="#apipa-communication-temporaire-sur-le-reseau-local">APIPA : Communication temporaire sur le réseau local</a></li>
+</ul>
+</li>
+<li><a href="#type-de-reseau-possible">Type de réseau possible</a></li>
+<li><a href="#outils">Outils</a></li>
+</ul>
+</li>
+<li><a href="#pare-feu">Pare-feu</a></li>
+<li><a href="#tp10-configuration-du-reseau">TP10 - Configuration du réseau</a><ul>
+<li><a href="#win10">Win10</a><ul>
+<li><a href="#parefeu">Parefeu</a></li>
+</ul>
+</li>
+<li><a href="#bonus-win10-powershell">Bonus Win10 - powershell</a></li>
+</ul>
+</li>
+<li><a href="#tp-final-de-synthese-teams">TP final de synthèse (teams)</a><ul>
+<li><a href="#interface-graphique">Interface Graphique</a></li>
+<li><a href="#cmdexe_1">CMD.exe</a></li>
+<li><a href="#powershell_2">Powershell</a></li>
+<li><a href="#gestion-des-utilisateurs-et-des-groupes">Gestion des utilisateurs et des groupes</a><ul>
+<li><a href="#powershell_3">Powershell</a></li>
+</ul>
+</li>
+<li><a href="#gestion-des-dossiers-et-des-droits-ntfs">Gestion des dossiers et des droits NTFS</a><ul>
+<li><a href="#notes-icaclsexe">Notes ICACLS.EXE</a></li>
+<li><a href="#cmd">CMD</a></li>
+<li><a href="#gui">GUI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#mod-8-le-partage-des-ressources">Mod 8 - Le partage des ressources</a><ul>
+<li><a href="#principes-du-partage">Principes du partage</a></li>
+<li><a href="#acces">Accès</a></li>
+<li><a href="#comment-partager-des-fichiers">Comment partager des fichiers ?</a><ul>
+<li><a href="#depuis-lexplorateur-de-fichier">Depuis l&rsquo;explorateur de fichier</a></li>
+<li><a href="#depuis-le-composant-mmc-dossiers-partages-fsmgmtmsc">Depuis le composant MMC &ldquo;Dossiers Partagés&rdquo; (fsmgmt.msc)</a></li>
+<li><a href="#en-ligne-de-commande">En ligne de commande</a><ul>
+<li><a href="#cmd_1">CMD</a></li>
+<li><a href="#powershell_4">Powershell</a></li>
+</ul>
+</li>
+<li><a href="#demo-partage">Demo partage</a></li>
+</ul>
+</li>
+<li><a href="#session-a-distance">Session à Distance</a></li>
+<li><a href="#tp11-partage-et-session-distante">TP11 - Partage et session distante</a><ul>
+<li><a href="#win10_1">Win10</a></li>
+<li><a href="#win11_1">Win11</a><ul>
+<li><a href="#powershell_5">Powershell</a></li>
+<li><a href="#bureau-a-distance">Bureau à Distance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#mod-9-les-pilotes-et-les-imprimantes">Mod 9 - Les pilotes et les imprimantes</a><ul>
+<li><a href="#pilotes">Pilotes</a><ul>
+<li><a href="#pilotes-signes">Pilotes signés</a></li>
+<li><a href="#principaux-fichiers">Principaux fichiers</a></li>
+<li><a href="#fonctionnement">Fonctionnement</a></li>
+<li><a href="#utilitaires-cmd">Utilitaires CMD</a></li>
+</ul>
+</li>
+<li><a href="#gestionnaires-de-peripherique">Gestionnaires de périphérique</a></li>
+<li><a href="#imprimantes">Imprimantes</a><ul>
+<li><a href="#imprimante-locale">Imprimante Locale</a></li>
+<li><a href="#imprimante-reseau">Imprimante Réseau</a></li>
+<li><a href="#le-spouleur-dimpression">Le spouleur d&rsquo;impression</a><ul>
+<li><a href="#creer-un-spouler-dimpression">Créer un spouler d&rsquo;impression</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#tp12-pilote-et-imprimante">TP12 - Pilote et Imprimante</a><ul>
+<li><a href="#win10-avec-cmd">Win10 avec CMD</a></li>
+<li><a href="#win10-gui">Win10 GUI</a></li>
+<li><a href="#gestion-des-imprimantes">Gestion des imprimantes</a></li>
+<li><a href="#gestion-de-configurations-personnalisees">Gestion de configurations personnalisées</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#mod-10-la-maintenance-du-systeme">Mod 10 - La maintenance du système</a><ul>
+<li><a href="#outils-de-diagnostic">Outils de diagnostic</a><ul>
+<li><a href="#analyse-en-temps-reel">Analyse en temps réel</a></li>
+<li><a href="#analyse-sur-un-historique">Analyse sur un historique</a></li>
+<li><a href="#diagnostique-automatique">Diagnostique automatique</a></li>
+<li><a href="#autres-sources">Autres sources</a></li>
+</ul>
+</li>
+<li><a href="#points-de-restauration">Points de restauration</a></li>
+<li><a href="#recuperation-du-systeme-winre">Récuperation du Système : WinRE</a><ul>
+<li><a href="#comment-lancer-winre">Comment lancer WinRE ?</a></li>
+<li><a href="#chargement-automatique">Chargement automatique</a></li>
+<li><a href="#options-avancees">Options Avancées</a></li>
+</ul>
+</li>
+<li><a href="#tp13-maintenance-systeme">TP13 - Maintenance Système</a><ul>
+<li><a href="#analyse-des-evenements">Analyse des évènements</a></li>
+<li><a href="#analyse-en-temps-reel_1">Analyse en temps réel</a></li>
+<li><a href="#sauvegarde-de-letat-du-systeme-et-des-donnees">Sauvegarde de l&rsquo;état du système et des données</a></li>
+<li><a href="#restauration-du-systeme">Restauration du système</a></li>
+<li><a href="#bonus">Bonus</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#mod-11-plus-loin-avec-powershell">Mod 11 - Plus loin avec Powershell</a><ul>
+<li><a href="#redirection">Redirection</a><ul>
+<li><a href="#exemples">Exemples</a></li>
+</ul>
+</li>
+<li><a href="#pipeline">Pipeline</a></li>
+<li><a href="#filtre">Filtre</a><ul>
+<li><a href="#filtrage-basique">Filtrage basique</a></li>
+<li><a href="#filtrage-avance">Filtrage avancé</a></li>
+</ul>
+</li>
+<li><a href="#formatage">Formatage</a></li>
+<li><a href="#tp14-plus-loin-avec-powershell">TP14 - Plus loin avec Powershell</a><ul>
+<li><a href="#win10-afficher-les-proprietes">Win10 - Afficher les propriétés</a></li>
+<li><a href="#win11-afficher-des-proprietes-selon-plusieurs-criteres">Win11 - Afficher des propriétés selon plusieurs critères</a></li>
+</ul>
+</li>
+<li><a href="#bonus-sur-win11">Bonus sur Win11</a></li>
+<li><a href="#bonus-2-nombre-de-commandes-disponibles">Bonus 2 Nombre de commandes disponibles</a></li>
+</ul>
+</li>
+<li><a href="#mod-12-intro-a-la-capture-et-au-deploiement-dimage">Mod 12 - Intro à la capture et au déploiement d&rsquo;image</a><ul>
+<li><a href="#problematique">Problématique</a></li>
+<li><a href="#preparation-du-master">Préparation du master</a></li>
+<li><a href="#sysrep">Sysrep</a><ul>
+<li><a href="#parametres-necessaires">Paramètres nécessaires</a></li>
+<li><a href="#en-complement">En complément</a></li>
+<li><a href="#notes">Notes</a></li>
+</ul>
+</li>
+<li><a href="#exploitation-du-master">Exploitation du master</a></li>
+<li><a href="#deploiement">Déploiement</a></li>
+<li><a href="#tp15-introduction-a-la-capture-et-au-deploiement">TP15 - Introduction à la capture et au déploiement</a><ul>
+<li><a href="#preparation-win10">Préparation Win10</a></li>
+<li><a href="#creation-dun-clone-de-la-machine-de-reference">Création d&rsquo;un clone de la machine de référence</a></li>
+<li><a href="#configuration-observation-du-clone">Configuration / Observation du clone</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#bonus-les-strategies-de-groupe-local">Bonus - Les stratégies de groupe local</a><ul>
+<li><a href="#la-base-de-registre">La base de registre</a></li>
+<li><a href="#lgpo-local-group-policy-object">LGPO - Local Group Policy Object</a></li>
+<li><a href="#tp16-les-lgpo">TP16 - Les LGPO</a><ul>
+<li><a href="#taches-a-realiser-win10">Tâches à réaliser - Win10</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#index">Index</a></li>
+<li><a href="#recapitulatif-des-commandes-cmd-ps-outils-etc">Récapitulatif des commandes CMD, PS, outils, etc.</a><ul>
+<li><a href="#outils_1">Outils</a></li>
+<li><a href="#commandes">Commandes</a><ul>
+<li><a href="#help">help</a></li>
+<li><a href="#syntaxe">syntaxe</a></li>
+<li><a href="#mkdir">mkdir</a></li>
+<li><a href="#create-file-x2">Create file (x2)</a></li>
+<li><a href="#afficher-contenu-du-fichier">Afficher contenu du fichier</a></li>
+<li><a href="#copy-to-desktop">Copy to desktop</a></li>
+<li><a href="#list-folders-and-subfolders-ordered-by-size">List folders and subfolders ordered by size</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#index_1">Index</a></li>
+<li><a href="#outils_2">Outils</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="mod-1-les-os-windows-10">Mod 1 - Les OS &amp; Windows 10<a class="headerlink" href="#mod-1-les-os-windows-10" title="Permanent link"></a></h2>
+<h3 id="definition">Définition<a class="headerlink" href="#definition" title="Permanent link"></a></h3>
+<p>Un système d&rsquo;exploitation (OS) est un logiciel qui pilote les dispositifs matériels et reçoit des instructions de l&rsquo;utilisateur ou d&rsquo;autres logiciels (ou application).</p>
+<h3 id="composition-os">Composition OS<a class="headerlink" href="#composition-os" title="Permanent link"></a></h3>
+<ul>
+<li>un noyau</li>
+<li>un interprète de commande </li>
+<li>une interface graphique</li>
+<li>un système de fichier</li>
+</ul>
+<h3 id="fonctions-principales">Fonctions principales<a class="headerlink" href="#fonctions-principales" title="Permanent link"></a></h3>
+<ul>
+<li>gérer les processeurs et la RAM</li>
+<li>optimiser l&rsquo;execution des applications en leur attribuant les ressources</li>
+<li>fournir des info sur le fonctionnement de la machine</li>
+<li>utiliser les périphériques dans les meilleures conditions</li>
+<li>protéger l&rsquo;accès aux ressources</li>
+</ul>
+<h3 id="vocabulaire">Vocabulaire<a class="headerlink" href="#vocabulaire" title="Permanent link"></a></h3>
+<ul>
+<li>KB Knowledge Base : correctif de sécurité, fonctionnalités</li>
+<li>SP Service Pack : ensemble de KB</li>
+<li>Release : MàJ majeure</li>
+</ul>
+<p>Win7 : fin en janv 2020
+Win8 : fin en jan 2023</p>
+<p><strong>WaaS Windows as a Service</strong></p>
+<ul>
+<li>Windows Insider : communauté de beta-tester de win10</li>
+<li>Build : version de win10 id par un numero (ex. 1903, 21H2). Support de 18 mois.</li>
+<li>Feature updates : mise à dispo d&rsquo;une nouvelle build. 2 par an (majeure au printemps, mineur à l&rsquo;automne)</li>
+<li>Quality updates : mise à jour de qualité (patch de sécurité, bugfix). Tous les 2e mardis du mois (le <em>patch tuesday</em>)</li>
+</ul>
+<h3 id="les-licences-windows">Les Licences Windows<a class="headerlink" href="#les-licences-windows" title="Permanent link"></a></h3>
+<p><strong>Notes</strong>: la version Win Famille ne peut pas être mis dans un domaine.</p>
+<ul>
+<li><strong>OEM</strong> Original Equipment Manufacturer   : préinstallée, liée à la machine</li>
+<li><strong>Retail</strong>                                : Vente au détail (boîte ou numérique). Licence liée à l&rsquo;utilisateur, sinstalle sur un poste</li>
+<li><strong>MAK</strong> Multiple Activation Key           : une licence pour plusieurs poste clients</li>
+<li><strong>VLK</strong> Volume Licence Key                : pour déployer les systèmes clients. Nécessite le service KMS (Key Manager Service) et plus de 25 postes</li>
+<li><strong>CAL</strong> Client Access Licence             : licence permettant au client de solliciter le service d&rsquo;un serveur microsoft</li>
+</ul>
+<h2 id="aparte-virtu">Aparté virtu<a class="headerlink" href="#aparte-virtu" title="Permanent link"></a></h2>
+<p>un ordi c&rsquo;est minimum:
+- 1 proc
+- de la ram
+- un dd
+- une carte réseau</p>
+<p>Hyperviseur est indispensable à la virtualisation. fait le lien entre hôte et vm. Sous la forme d&rsquo;un logiciel ou d&rsquo;un OS</p>
+<h3 id="les-differents-types-de-reseaux">Les differents types de réseaux<a class="headerlink" href="#les-differents-types-de-reseaux" title="Permanent link"></a></h3>
+<p>Les switchs sont virtuels :</p>
+<ul>
+<li>Host-Only </li>
+<li>VMnet et Lan Segment</li>
+<li>Bridge</li>
+<li>NAT (translation d&rsquo;adresse)</li>
+</ul>
+<p>Workstation justte bon pour maquettage, pas pour de la prod.</p>
+<h2 id="mod-2-installation-de-win10">Mod 2 - Installation de win10<a class="headerlink" href="#mod-2-installation-de-win10" title="Permanent link"></a></h2>
+<p>Les 64 Bits c&rsquo;est quoi ? 
+- adaptation de l&rsquo;OS aux évolution des composants (meilleures perf)
+- prise en compte native de plus de 4 Go de RAM
+- meilleure protection du systeme car necessite des pilotes signés</p>
+<p>Un mini OS est requis pour installer Windows
+- os leger pour installer/réparer windows
+- dispo dans le fichier boot.wim du support d&rsquo;installation</p>
+<h3 id="tp01-installation-de-win10">TP01 - Installation de Win10<a class="headerlink" href="#tp01-installation-de-win10" title="Permanent link"></a></h3>
+<ul>
+<li>Installation d&rsquo;une VM win10 pro</li>
+<li>Importation d&rsquo;une VM Win11</li>
+</ul>
+<p>Outil natif permettant d&rsquo;enregistrer les clic et les écrans : <strong>psr</strong> (Step Recorder) est a disposition depuis Executer.</p>
+<h2 id="mod-3-interagir-avec-win10">Mod 3 - Intéragir avec win10<a class="headerlink" href="#mod-3-interagir-avec-win10" title="Permanent link"></a></h2>
+<p><strong>Objectifs</strong>
+- Intéragir avec le système
+- Découvrir l&rsquo;IHM
+- Administrer le systeme en CLI
+- Démarrer avec PowerShell</p>
+<h3 id="cli-powershell">CLI &amp; Powershell<a class="headerlink" href="#cli-powershell" title="Permanent link"></a></h3>
+<h4 id="cli">CLI<a class="headerlink" href="#cli" title="Permanent link"></a></h4>
+<div class="highlight"><pre>&gt; help shutdown
+&gt; shutdown /?
+</pre></div>
+
+<ul>
+<li><code>/</code> : option</li>
+<li><strong>quotes</strong> permettent de convertir les caractères spéciaux en caractères alphanumériques </li>
+<li><code>&gt;</code> : redirection de flux. Ex. <code>help shutdown &gt; aide.txt</code></li>
+</ul>
+<p><strong>Notation</strong> :</p>
+<div class="highlight"><pre>COPY [/D] [/V] [/N] [/Y | /-Y] [/Z] [/L] [/A | /B ] source [/A | /B]
+     [+ source [/A | /B] [+ ...]] [cible [/A | /B]]
+</pre></div>
+
+<ul>
+<li><code>foo</code> : obligatoire</li>
+<li><code>[foo]</code> : facultatif</li>
+<li><code>{foo}</code> : choisir un élément parmi ceux présents</li>
+<li><code>|</code> : pipeline (séparateur d&rsquo;éléments)</li>
+<li><code>...</code> : éléments qui peuvent être répétés et utilisés plusieurs fois</li>
+</ul>
+<h3 id="tp02-prise-en-main-de-linterface-graphique">TP02 - Prise en main de l&rsquo;interface graphique<a class="headerlink" href="#tp02-prise-en-main-de-linterface-graphique" title="Permanent link"></a></h3>
+<p>pass</p>
+<h3 id="tp03-prise-en-main-de-la-cmd">TP03 - Prise en main de la cmd<a class="headerlink" href="#tp03-prise-en-main-de-la-cmd" title="Permanent link"></a></h3>
+<div class="highlight"><pre><span class="n">REM</span> <span class="n">mkdir</span>
+<span class="n">cmd</span><span class="p">&gt;</span> <span class="n">md</span> <span class="n">CommandList</span>
+
+<span class="n">REM</span> <span class="n">Create</span> <span class="n">file</span> <span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+<span class="n">cmd</span><span class="p">&gt;</span> <span class="n">echo</span> <span class="p">&gt;</span> <span class="n">foo</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">cmd</span><span class="p">&gt;</span> <span class="n">help</span> <span class="p">&gt;</span> <span class="n">InternalCommands</span><span class="p">.</span><span class="n">txt</span>
+
+<span class="n">REM</span> <span class="n">Afficher</span> <span class="n">contenu</span> <span class="n">du</span> <span class="n">fichier</span>
+<span class="n">cmd</span><span class="p">&gt;</span> <span class="n">type</span> <span class="n">InternalCommands</span><span class="p">.</span><span class="n">txt</span>
+
+<span class="n">REM</span> <span class="n">Copy</span> <span class="n">to</span> <span class="n">desktop</span>
+<span class="n">cmd</span><span class="p">&gt;</span> <span class="n">copy</span> <span class="n">InternalCommands</span><span class="p">.</span><span class="n">txt</span> <span class="k">%</span><span class="n">userprofile</span><span class="p">%\</span><span class="n">Desktop</span> 
+
+<span class="n">REM</span> <span class="n">List</span> <span class="n">folders</span> <span class="n">and</span> <span class="n">subfolders</span> <span class="n">ordered</span> <span class="n">by</span> <span class="n">size</span>
+<span class="n">cmd</span><span class="p">&gt;</span> <span class="n">dir</span> <span class="p">/</span><span class="n">os</span> <span class="p">/</span><span class="n">s</span> <span class="k">%</span><span class="n">userprofile</span><span class="p">%\</span><span class="n">Desktop</span>
+</pre></div>
+
+<ul>
+<li><code>dir /o</code> : order + <code>s</code> pour ordre par taille croissante</li>
+<li><code>dir /s</code> : +subfolders</li>
+</ul>
+<h3 id="powershell">Powershell<a class="headerlink" href="#powershell" title="Permanent link"></a></h3>
+<ul>
+<li>Langage de script orienté objet. S&rsquo;appuie sur les bibliothèques .NET Framework.</li>
+<li>Console Graphique ISE (integrated Scripting Environment), pour manipuler les scripts.</li>
+<li>Des outils tiers existent et ressemblent  différentes consoles dans le même environnement (windows terminal, VSCode)</li>
+</ul>
+<p>La variable d&rsquo;env <code>$PSVersionTable</code> est une variable tableau des versions de PowerShell.</p>
+<ul>
+<li>PSVersion : version de powershell dispo sur le système</li>
+<li>PSCompatibleVersioons : rétro-compatibilité</li>
+</ul>
+<p>Les commandes de ps sont appelées les <strong>cmdlets</strong>.
+- constituées d&rsquo;un <strong>verbe</strong> et d&rsquo;un <strong>nom</strong> séparé par un <code>-</code>
+- verbes les plus courants: <code>Get</code>, <code>Set</code>, <code>Remove</code>, <code>Add</code>, <code>New</code>
+- Les noms dépendent du contexte d&rsquo;utilisation : <code>LocalUser</code>, <code>NetAdapter</code>, <code>Alias</code>, <code>variable</code>, etc.</p>
+<p><strong>Exemple</strong></p>
+<div class="highlight"><pre><span class="nb">Get-Alias</span>            <span class="n">REM</span> <span class="n">affiche</span> <span class="n">liste</span> <span class="n">des</span> <span class="k">alias</span>
+<span class="nb">New-LocalUser</span>        <span class="n">REM</span> <span class="n">crée</span> <span class="n">un</span> <span class="n">nouvel</span> <span class="n">utilisateur</span> <span class="n">local</span> <span class="n">dans</span> <span class="n">l</span><span class="err">&#39;</span><span class="n">ordinateur</span>
+</pre></div>
+
+<h4 id="aide-de-powershell">Aide de Powershell<a class="headerlink" href="#aide-de-powershell" title="Permanent link"></a></h4>
+<p>A besoin d&rsquo;être mise à jour mais attention, il y a une file d&rsquo;attente</p>
+<ul>
+<li>Mise à jour en ligne <code>Update-Help</code>, ajouter <code>-force</code>pour outrepasser la limite d&lsquo;1 màj par jour</li>
+</ul>
+<div class="highlight"><pre><span class="nb">Update-Help</span> <span class="p">[</span><span class="n">-force</span><span class="p">]</span>
+</pre></div>
+
+<ul>
+<li>Mise à jour hors ligne (pré-requis: posséder un dépot local) : <code>Update-help -SourcePath \\chemin\vers\aide\powershell -UIculture en-US -credential &lt;login&gt;</code></li>
+</ul>
+<p>Attention les traductions en FR sont pourraves et incomplètes.</p>
+<ul>
+<li>Aide est accessible depuis :</li>
+</ul>
+<div class="highlight"><pre><span class="nb">Get-Help</span> <span class="p">&lt;</span><span class="n">recherche</span><span class="p">&gt;</span>
+<span class="n">Help</span> <span class="p">&lt;</span><span class="n">recherche</span><span class="p">&gt;</span>         <span class="n">REM</span> <span class="n">affiche</span> <span class="n">l</span><span class="err">&#39;</span><span class="n">aide</span> <span class="n">page</span> <span class="n">par</span> <span class="n">page</span>
+<span class="n">Man</span> <span class="p">&lt;</span><span class="n">recherche</span><span class="p">&gt;</span>          <span class="n">REM</span> <span class="k">alias</span> <span class="n">de</span> <span class="n">Help</span>
+<span class="p">&lt;</span><span class="n">recherche</span><span class="p">&gt;</span> <span class="p">-?</span>           <span class="n">REM</span> <span class="n">dispo</span> <span class="n">depuis</span> <span class="n">tous</span> <span class="n">les</span> <span class="n">cmdlets</span>
+</pre></div>
+
+<p><strong>Exemples</strong>:</p>
+<dl>
+    <dt><code>Get-Help Disable-LocalUser</code></dt>
+    <dd>Affiche l'aide sur la cmdlet passée en arg</dd>
+    <dt><code>Help help</code></dt>
+    <dd>Affiche aide page par page</dd>
+    <dt><code>Man about_Variables</code></dt>
+    <dd>Affiche le manuel d'utilisation des variables PowerShell, page par page</dd>
+</dl>
+
+<h5 id="astuces">Astuces<a class="headerlink" href="#astuces" title="Permanent link"></a></h5>
+<dl>
+    <dt><code>Get-help -examples &lt;recherche&gt;</code></dt>
+    <dd>n'affiche que les examples d'utilisation d'une cmdlet</dd>
+    <dt><code>Get-help -ShowWindow &lt;recherche&gt;</code></dt>
+    <dd>affiche l'aide complète dans une fenêtre séparée</dd>
+    <dt><code>Get-help -Online &lt;recherche&gt;</code></dt>
+    <dd>affiche l'aide à jour détaillée disponible sur les serveurs Internet Microsoft (web browser requis)</dd>
+</dl>
+
+<h5 id="cmdlet-de-base-et-objets">Cmdlet de base et objets<a class="headerlink" href="#cmdlet-de-base-et-objets" title="Permanent link"></a></h5>
+<p>Constitution d&rsquo;un objet :
+- des propriétés
+- des méthodes</p>
+<p>Exemple avec un object monBallon.</p>
+<h6 id="afficher-des-caracteristiques-de-lobjet">Afficher des caractéristiques de l&rsquo;objet<a class="headerlink" href="#afficher-des-caracteristiques-de-lobjet" title="Permanent link"></a></h6>
+<ul>
+<li>Afficher certaines propriétés de l&rsquo;objet et leur valeurs associées. Toutes les autres propriétés sont présentes mais cachées pour faciliter la lecture</li>
+</ul>
+<div class="highlight"><pre><span class="nb">get-monBallon</span>
+</pre></div>
+
+<ul>
+<li>Afficher toutes les propriétés de l&rsquo;objet et leurs valeurs associées</li>
+</ul>
+<div class="highlight"><pre><span class="nb">get-monBallon</span> <span class="p">|</span> <span class="n">select</span> <span class="p">*</span>
+</pre></div>
+
+<ul>
+<li>Affiche seulement les propriétés demandées et leurs valeurs associées</li>
+</ul>
+<div class="highlight"><pre><span class="nb">get-monBallon</span> <span class="p">|</span> <span class="n">select</span> <span class="n">diametre</span><span class="p">,</span><span class="n">forme</span><span class="p">,</span><span class="n">couleur</span>
+</pre></div>
+
+<ul>
+<li>Affiche la propriété <em>description</em> de l&rsquo;objet <strong>monBallon</strong> et sa valeur. Equivaut à <code>get-monBallon|select description</code></li>
+</ul>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">get-monBallon</span><span class="p">).</span><span class="n">description</span>
+</pre></div>
+
+<h5 id="get-command">Get-Command<a class="headerlink" href="#get-command" title="Permanent link"></a></h5>
+<p>La commande la plus importante à connaître. Permet de découvrir toutes les commandes disponibles.</p>
+<div class="highlight"><pre><span class="nb">get-command</span>           <span class="n">REM</span> <span class="n">liste</span> <span class="n">toutes</span> <span class="n">les</span> <span class="n">commandes</span>
+<span class="nb">get-command</span> <span class="n">get</span><span class="p">-*</span>     
+<span class="nb">get-command</span> <span class="p">*</span><span class="n">printer</span><span class="p">*</span>
+<span class="nb">get-command</span> <span class="n">new</span><span class="p">-*</span><span class="n">user</span><span class="p">*</span>
+</pre></div>
+
+<p>Une fois ma commande trouvée, utiliser get-help pour en savoir plus.</p>
+<h5 id="modifier-un-object-monballon">Modifier un object monBallon<a class="headerlink" href="#modifier-un-object-monballon" title="Permanent link"></a></h5>
+<div class="highlight"><pre><span class="n">REM</span> <span class="n">Modification</span>
+<span class="nb">set-monBallon</span> <span class="n">-nom</span> <span class="s2">&quot;Basket&quot;</span> <span class="n">-description</span> <span class="s2">&quot;Ballon de basket&quot;</span>
+
+<span class="n">REM</span> <span class="n">Création</span>
+<span class="nb">new-monBallon</span> <span class="n">-nom</span> <span class="s2">&quot;Rugby&quot;</span> <span class="n">-Forme</span> <span class="s2">&quot;ovale&quot;</span> <span class="n">-Couleur</span> <span class="s2">&quot;blanc&quot;</span> <span class="n">-Description</span> <span class="s2">&quot;Ballon de rugby&quot;</span>
+
+<span class="n">REM</span> <span class="n">Delete</span>
+<span class="nb">Remove-monBallon</span> <span class="n">-Nom</span> <span class="s2">&quot;Football&quot;</span>
+</pre></div>
+
+<h3 id="tp04-premier-pas-avec-powershell">TP04 - Premier pas avec PowerShell<a class="headerlink" href="#tp04-premier-pas-avec-powershell" title="Permanent link"></a></h3>
+<ul>
+<li>Quelle version de Powershell ?</li>
+</ul>
+<div class="highlight"><pre><span class="nv">$PSVERSIONTABLE</span>
+</pre></div>
+
+<ul>
+<li>Afficher le contenu d&rsquo;un repertoire</li>
+</ul>
+<div class="highlight"><pre><span class="n">ls</span>
+<span class="n">dir</span>
+<span class="nb">get-childitem</span>
+</pre></div>
+
+<ul>
+<li>Afficher la liste des alias dans Powershell</li>
+</ul>
+<div class="highlight"><pre><span class="n">REM</span> <span class="n">Correction</span>
+<span class="nb">get-alias</span> <span class="n">-Definition</span> <span class="nb">get-childitem</span>
+
+<span class="n">REM</span> <span class="n">Moi</span>
+<span class="nb">get-alias</span> <span class="p">|</span> <span class="nb">where-object</span> <span class="n">ResolvedCommand</span> <span class="o">-like</span> <span class="nb">get-childitem</span>
+</pre></div>
+
+<ul>
+<li>Afficher contenu d&rsquo;un fichier foo.txt</li>
+</ul>
+<div class="highlight"><pre><span class="n">cat</span> <span class="n">foo</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">type</span> <span class="n">foo</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">more</span> <span class="n">foo</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">REM</span> <span class="n">less</span> <span class="n">ne</span> <span class="n">fonctionne</span> <span class="n">pas</span> 
+<span class="n">foo</span><span class="p">.</span><span class="n">txt</span>
+<span class="nb">get-content</span> <span class="n">foo</span><span class="p">.</span><span class="n">txt</span>
+</pre></div>
+
+<h3 id="tp05-manipuler-laide-de-powershell">TP05 - Manipuler l&rsquo;aide de Powershell<a class="headerlink" href="#tp05-manipuler-laide-de-powershell" title="Permanent link"></a></h3>
+<ul>
+<li>Afficher l&rsquo;aide complète de la cmdlet Get-Alias</li>
+</ul>
+<div class="highlight"><pre><span class="nb">get-help</span> <span class="n">-full</span> <span class="nb">get-alias</span>
+</pre></div>
+
+<ul>
+<li>Différence sur Win11 : oui parce que l&rsquo;update-help a été faite sur win10.</li>
+<li>Màj dépot local (mettre vm en bridge pour avoir accès au net). Attention c&rsquo;est le login AD machine hôte</li>
+</ul>
+<div class="highlight"><pre><span class="nb">update-help</span> <span class="n">-SourcePath</span> <span class="p">\\</span><span class="n">ad</span><span class="p">.</span><span class="n">campus-eni</span><span class="p">.</span><span class="n">fr</span><span class="p">\</span><span class="n">Campus</span><span class="p">\</span><span class="n">distrib</span><span class="p">\</span><span class="n">depot</span><span class="p">\</span><span class="n">powershell</span> <span class="n">-UICulture</span> <span class="n">en-us</span> <span class="n">-Credential</span> <span class="n">rlizot2019</span>
+</pre></div>
+
+<ul>
+<li>obtenir les exemples de get-help</li>
+</ul>
+<div class="highlight"><pre><span class="nb">get-help</span> <span class="n">-examples</span> <span class="nb">get-help</span>
+</pre></div>
+
+<ul>
+<li>afficher la liste de tous les concepts disponibles et utilisables</li>
+</ul>
+<div class="highlight"><pre><span class="nb">get-help</span> <span class="n">about_</span><span class="p">*</span>
+</pre></div>
+
+<ul>
+<li>en apprendre plus sur le concept d&rsquo;alias</li>
+</ul>
+<div class="highlight"><pre><span class="nb">get-help</span> <span class="n">-showwindow</span> <span class="n">about_alias</span>
+</pre></div>
+
+<ul>
+<li>The aliases you create are saved only in the current session</li>
+<li>Aliases can be imported/exported</li>
+<li>historique de commande : <code>get-history</code></li>
+<li>nombre maxi de ligne d&rsquo;historique conservée définie dans la variable <code>$MaximumHistoryCount</code>. Valeur par défaut : 4096 (lignes)</li>
+<li>modifiée cette valeur :</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-history</span> <span class="n">-count</span> <span class="p">&lt;</span><span class="n">int32</span><span class="p">&gt;</span>
+</pre></div>
+
+<h3 id="tp06-devenir-autonome-avec-powershell">TP06 - Devenir autonome avec PowerShell<a class="headerlink" href="#tp06-devenir-autonome-avec-powershell" title="Permanent link"></a></h3>
+<ul>
+<li>afficher les commandes disponibles sur le systeme</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span>
+</pre></div>
+
+<ul>
+<li>afficher seulement les cmdlets</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span> <span class="n">-type</span> <span class="n">cmdlet</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span> <span class="n">-comndtype</span> <span class="n">cmdlet</span>
+</pre></div>
+
+<ul>
+<li>afficher seulement les cmdlets commençant par get</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span> <span class="n">-commandtype</span> <span class="n">cmdlet</span> <span class="p">|</span> <span class="n">where</span> <span class="n">Name</span> <span class="o">-like</span> <span class="n">get</span><span class="p">*</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span> <span class="n">-commandtype</span> <span class="n">cmdlet</span> <span class="p">[</span><span class="n">-Name</span><span class="p">]</span> <span class="n">get</span><span class="p">*</span>  
+</pre></div>
+
+<ul>
+<li>afficher la liste des groupes locaux présents sur le système</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span> <span class="p">*</span><span class="n">group</span><span class="p">*</span>         <span class="n">REM</span> <span class="n">recherche</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-localgroup</span>              <span class="n">REM</span> <span class="n">trouvé</span>
+</pre></div>
+
+<ul>
+<li>quelles sont les 2 propriétés des groupes locaux que le système affiche par défaut : <strong>Name</strong>, <strong>Description</strong></li>
+<li>afficher les autres propriétés des groupes locaux qui ne sont pas affichés par le systeme </li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-localgroup</span> <span class="p">|</span> <span class="n">select</span> <span class="p">*</span>       <span class="n">REM</span> <span class="n">solution</span> <span class="n">1</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-localgroup</span> <span class="p">|</span> <span class="nb">format-list</span>    <span class="n">REM</span> <span class="n">solution</span> <span class="n">2</span>
+</pre></div>
+
+<ul>
+<li>Afficher SID etsource principale du groupe <strong>Utilisateurs du bureau à distance</strong>
+<div class="highlight"><pre>ps&gt; get-localgroup - name *bureau*distance | select SID,PrincipalSource
+</pre></div></li>
+</ul>
+<h4 id="win11">Win11<a class="headerlink" href="#win11" title="Permanent link"></a></h4>
+<ul>
+<li>afficher les disques dur de la vm ? combien de disques ?</li>
+</ul>
+<div class="highlight"><pre><span class="n">REM</span> <span class="n">Moi</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span> <span class="p">*</span><span class="n">drive</span><span class="p">*</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-psdrive</span> <span class="n">-provider</span> <span class="n">filesystem</span>
+
+<span class="n">REM</span> <span class="n">correction</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span> <span class="p">*</span><span class="n">disk</span><span class="p">*</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-disk</span>
+</pre></div>
+
+<ul>
+<li>afficher numéro et modele des disques</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-disk</span> <span class="p">|</span> <span class="n">select</span> <span class="n">Number</span><span class="p">,</span> <span class="n">Model</span>
+</pre></div>
+
+<ul>
+<li>Afficher seulement le nom, le type de bus et le fabricant du disque no. 2</li>
+</ul>
+<div class="highlight"><pre><span class="n">REM</span> <span class="n">Moi</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-disk</span> <span class="p">|</span> <span class="n">select</span> <span class="n">Name</span><span class="p">,</span> <span class="n">BusType</span><span class="p">,</span> <span class="n">Manufacturer</span> <span class="p">|</span> <span class="n">where</span> <span class="n">Number</span> <span class="o">-like</span> <span class="n">2</span>
+
+<span class="n">REM</span> <span class="n">Correction</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-disk</span> <span class="n">-Number</span> <span class="n">2</span> <span class="p">|</span> <span class="n">select</span> <span class="n">Name</span><span class="p">,</span> <span class="n">BusType</span><span class="p">,</span> <span class="n">Manufacturer</span>
+</pre></div>
+
+<ul>
+<li>afficher nom, status, edescription duu pilote de l&rsquo;adaptateur réseau de la vm</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-netadapter</span> <span class="p">|</span> <span class="n">select</span> <span class="n">name</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">driverdescription</span>
+</pre></div>
+
+<ul>
+<li>afficher les membres du groupe local Administrateurs de lal vm</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-localGroupMember</span> <span class="n">administrateurs</span>
+</pre></div>
+
+<h2 id="mod-4-gestion-du-stockage">Mod 4 - Gestion du stockage<a class="headerlink" href="#mod-4-gestion-du-stockage" title="Permanent link"></a></h2>
+<p>Partitionner un disque consiste à séparer un dsque en plusieurs portion logiques, étanches et indépendantes.</p>
+<h3 id="table-de-partition">table de partition<a class="headerlink" href="#table-de-partition" title="Permanent link"></a></h3>
+<ul>
+<li>détermine les caracteristiques des partitions du disque</li>
+<li>&ldquo;sommaire&rdquo; du disque</li>
+</ul>
+<p>Table de partition au format MBR</p>
+<ul>
+<li>master boot record</li>
+<li>format historique</li>
+<li>lecture du mbr par le bios</li>
+<li>stocké sur le premier secteur du disque  (512o)</li>
+<li>4 partitions maximum</li>
+<li>ne gere pas les disques de plus de 2.2 To</li>
+<li>compatible avec les os 32 &amp; 64 bits</li>
+</ul>
+<h3 id="partitionnement">Partitionnement<a class="headerlink" href="#partitionnement" title="Permanent link"></a></h3>
+<h4 id="partitionnement-de-base">partitionnement de base<a class="headerlink" href="#partitionnement-de-base" title="Permanent link"></a></h4>
+<ul>
+<li>possibilité d&rsquo;étendre une partition grâce à l&rsquo;espace libre contigu</li>
+<li>4 partitions maximum. Pour plus de partition, il faut faire des partitions logiques (partition étendue)</li>
+</ul>
+<p>Partition étendue = partition physique contenant des partitions logiques</p>
+<p>Le MBR ne connaît que les partitions physiques et sait l&rsquo;existence de partitions logiques</p>
+<h4 id="partitionnememnt-dynamique">partitionnememnt dynamique<a class="headerlink" href="#partitionnememnt-dynamique" title="Permanent link"></a></h4>
+<ul>
+<li>evolution du disque de base</li>
+<li>les partitions contenues dans une partition dynamiques s&rsquo;appellent des volumes (chez microsoft) et c&rsquo;est un faux amis</li>
+<li>possibilité d&rsquo;étendre les partitions sur des espaces non-contigus. Permet de gérer les disques par ensemble (RAID)</li>
+<li>Convertir un disque de base en disque dynamique ? Pas de perte de données.</li>
+</ul>
+<h4 id="partitionnement-gpt">Partitionnement GPT<a class="headerlink" href="#partitionnement-gpt" title="Permanent link"></a></h4>
+<p>Table de partitionnement au format GPT
+- GUID partition table
+- nouveau format qui gomme les inconvénients du MBR
+- dupliqué sur plusieurs secteurs du disque
+- lecture du GPT par l&rsquo;UEFI (évolution du Bios depuis 2013)
+- taille maxi des partitions : 256 To
+- seulement compatibles avec les OS 64bits et les puces UEFI</p>
+<p>[NDLR: reprendre les schemas du cours p39 et avant]</p>
+<h3 id="les-systemes-de-fichiers">Les systèmes de fichiers<a class="headerlink" href="#les-systemes-de-fichiers" title="Permanent link"></a></h3>
+<ul>
+<li>formater une partition ou un lecteur logique, c&rsquo;est installer un système de fichiers</li>
+<li>le FS organise les données. Une partition ou un lecteur logique formaté s&rsquo;appelle un volume</li>
+<li>Plusieurs FS existent</li>
+</ul>
+<h4 id="ntfs">NTFS<a class="headerlink" href="#ntfs" title="Permanent link"></a></h4>
+<ul>
+<li>FS par défaut chez microsoft</li>
+<li>nativement sécurisé (ACL Acces Control List)</li>
+<li>chiffrement intégré (EFS)</li>
+<li>compression intégrée </li>
+<li>support des fonctionnalités supplémentaires</li>
+<li>taille maxi du volume 256 To</li>
+</ul>
+<h4 id="fat16fat32">FAT16/FAT32<a class="headerlink" href="#fat16fat32" title="Permanent link"></a></h4>
+<ul>
+<li>File Allocation Table</li>
+<li>Historique standard</li>
+<li>pas d&rsquo;ACL</li>
+<li>volume de 4 Go maxi</li>
+<li>non sécurisé nativement</li>
+</ul>
+<h4 id="refs">ReFS<a class="headerlink" href="#refs" title="Permanent link"></a></h4>
+<ul>
+<li>Resilient File System</li>
+<li>evolution de NTFS</li>
+<li>taille des volumes quasi illimitée</li>
+<li>correction proactive des erreurs</li>
+</ul>
+<h4 id="etc">etc.<a class="headerlink" href="#etc" title="Permanent link"></a></h4>
+<ul>
+<li>ext4, VMFS, UDF&hellip; et des dizaines d&rsquo;autres</li>
+</ul>
+<h3 id="les-disques-durs-virtuels">Les disques durs virtuels<a class="headerlink" href="#les-disques-durs-virtuels" title="Permanent link"></a></h3>
+<ul>
+<li>VHD (Virtual Hard Drive) et VHDX</li>
+<li>bootable (monter le fichier disque comme une iso pour acceder à son contenu)</li>
+<li>taille fixe et dynamique</li>
+<li>manipulable comme un fichier</li>
+<li>montable comme un iso</li>
+<li>disque dur virtuel par defaut pour hyper-v</li>
+</ul>
+<h3 id="stockage-et-gui">Stockage et GUI<a class="headerlink" href="#stockage-et-gui" title="Permanent link"></a></h3>
+<h4 id="les-outils-de-gestion">Les outils de gestion<a class="headerlink" href="#les-outils-de-gestion" title="Permanent link"></a></h4>
+<ul>
+<li>Avec la console graphique <strong>diskmgmt.msc</strong></li>
+<li>Avec <strong>diskpart</strong> pour la gestion en CLI</li>
+<li>Avec PowerShell</li>
+</ul>
+<h5 id="powershell_1">powershell<a class="headerlink" href="#powershell_1" title="Permanent link"></a></h5>
+<dl>
+<dt><code>Get-disk</code></dt>
+<dd>relever le numero du nouveau disque</dd>
+
+<dt><code>initialize-disk -number</code></dt>
+<dd>par défaut en GPT. Il faut préciser le paramètre <code>-PartitionStyle MBR</code> pour la rétrocompatibilité</dd>
+
+<dt><code>New-partition -disknumber &lt;numero&gt; -UseMaximumSize -AssignDriveLetter</code></dt>
+<dd>on peut assigner la lettre apres avec <code>set-partition -diskNumber &lt;numero&gt; -PartitionNumber &lt;numero&gt; -NewDriveLetter &lt;newLetter&gt;</code></dd>
+
+<dt><code>format-volume -DriveLetter &lt;lettre&gt;</code></dt>
+<dd>format en NTFS par défaut<br>Votre volume est prêt à l'utilisation</dd>
+</dl>
+
+<h3 id="tp07-gestion-du-stockage">TP07 - Gestion du stockage<a class="headerlink" href="#tp07-gestion-du-stockage" title="Permanent link"></a></h3>
+<h4 id="utilisation-de-diskmgmtmsc">utilisation de diskmgmt.msc<a class="headerlink" href="#utilisation-de-diskmgmtmsc" title="Permanent link"></a></h4>
+<p>Rien de nouveau</p>
+<h4 id="utilisation-de-diskpart">utilisation de diskpart<a class="headerlink" href="#utilisation-de-diskpart" title="Permanent link"></a></h4>
+<p>Ouvrir PS ou CMD en admin et lancer <code>diskpart</code>
+- formater la 3e partition de 15Go en NTFS. La nommer <strong>COMMUN</strong>, assigner une lettre au choix.
+- étendre le volume <strong>COMMUN</strong> en utilisant l&rsquo;espace libre restant sur le <strong>disque 1</strong>
+- supprimer le volume <strong>DATA</strong>
+- recréer le volume <strong>DATA</strong> avec l&rsquo;ensemble de l&rsquo;espace libre de deux disques</p>
+<p>Voir <a href="tp07-diskpart.html">Déroulement verbatim</a></p>
+<p><strong>Résumé</strong></p>
+<div class="highlight"><pre>C:\Windows\system32&gt;diskpart
+
+DISKPART&gt; list disk
+DISKPART&gt; select disk 1
+
+DISKPART&gt; list volume
+DISKPART&gt; select volume 1
+
+# FORMAT + LABEL
+DISKPART&gt; format fs=ntfs label=&quot;COMMUN&quot; quick
+
+# ASSIGNER LETTRE
+DISKPART&gt; assign letter=Q
+
+# EXTEND COMMUN
+DISKPART&gt; select disk 1
+DISKPART&gt; extend
+
+# REMOVE DATA
+DISKPART&gt; select volume 3
+DISKPART&gt; remove                   (supprime la lettre du lecteur)
+DISKPART&gt; select disk 0
+DISKPART&gt; select volume 3
+DISKPART&gt; assign letter=D
+DISKPART&gt; delete volume
+
+# RECREATION OF &quot;DATA&quot; VOLUME
+DISKPART&gt; select disk 1
+DISKPART&gt; create volume simple disk=1
+DISKPART&gt; assign letter=D
+DISKPART&gt; format fs=ntfs label=&quot;Data&quot; quick
+DISKPART&gt; extend disk=2
+</pre></div>
+
+<h4 id="investigation-sur-la-vm-win11-avec-powershell">Investigation sur la VM win11 avec Powershell<a class="headerlink" href="#investigation-sur-la-vm-win11-avec-powershell" title="Permanent link"></a></h4>
+<ul>
+<li>afficher le numéro, la taille et le type de table de partitionnement des disques durs présents sur la VM</li>
+</ul>
+<div class="highlight"><pre><span class="n">REM</span> <span class="n">Moi</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-partition</span> <span class="p">|</span> <span class="n">select</span> <span class="n">DiskNumber</span><span class="p">,</span> <span class="n">Size</span><span class="p">,</span> <span class="n">Type</span>
+
+<span class="n">REM</span> <span class="n">Correction</span> <span class="p">(</span><span class="n">la</span> <span class="n">bonne</span> <span class="n">solution</span><span class="p">)</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-disk</span> <span class="p">|</span> <span class="n">select</span> <span class="n">DiskNumber</span><span class="p">,</span> <span class="n">PartitionStyle</span><span class="p">,</span> <span class="n">Size</span>
+</pre></div>
+
+<ul>
+<li>afficher la lettre de lecteur le nom, la taille totale des volumes qui possèdent un FriendlyName</li>
+</ul>
+<p><div class="highlight"><pre><span class="n">REM</span> <span class="n">Moi</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-volume</span> <span class="p">|</span> <span class="n">select</span> <span class="n">DriveLetter</span><span class="p">,</span> <span class="n">FileSystemLabel</span><span class="p">,</span> <span class="n">Size</span><span class="p">,</span> <span class="n">SizeRemaining</span>
+</pre></div>
+- attribuer le nom &ldquo;SYSTEM&rdquo; au disque C:</p>
+<div class="highlight"><pre><span class="n">REM</span> <span class="n">Moi</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">set-volume</span> <span class="n">-DriveLetter</span> <span class="s2">&quot;C&quot;</span> <span class="n">-NewFileSystemLabel</span> <span class="s2">&quot;SYSTEM&quot;</span>
+</pre></div>
+
+<h4 id="bonus-sur-la-vm-win10">Bonus: sur la vm win10<a class="headerlink" href="#bonus-sur-la-vm-win10" title="Permanent link"></a></h4>
+<p>Sur le lecteur ARCHIVE, créer des repertoires et des fichiers. Convertir le format du systeme de fichiers de FAT32 à NTFS sans perte de données.</p>
+<div class="highlight"><pre>REM Boucle
+cmd&gt; for($i=0;$i -lt 8;$i++) { md rep$i; echo $i &gt; file$i.txt }
+
+REM Formatage (/v:verbose)
+cmd&gt; convert A: /fs:nfts /v    
+</pre></div>
+
+<h2 id="mod-5-les-utilisateurs-et-les-groupes">Mod 5 - Les utilisateurs et les groupes<a class="headerlink" href="#mod-5-les-utilisateurs-et-les-groupes" title="Permanent link"></a></h2>
+<p>Les objets utilisateurs et groupes :
+- notions d&rsquo;uitilisateur
+- les profil utilisateurs
+- les groupes
+- le contrôle de compte utilisateurs</p>
+<h3 id="utilisateurs">Utilisateurs<a class="headerlink" href="#utilisateurs" title="Permanent link"></a></h3>
+<h4 id="acces-au-si-valide-par">Accès au SI validé par<a class="headerlink" href="#acces-au-si-valide-par" title="Permanent link"></a></h4>
+<ul>
+<li>couple login + mdp</li>
+<li>biométrie (Windows Hello)</li>
+<li>objet tiers (carte à puce, badge, etc.)</li>
+<li>2e authentification possible dans certains contexte spécifique (SMS, mail)</li>
+</ul>
+<h4 id="utilisateur-local">Utilisateur local<a class="headerlink" href="#utilisateur-local" title="Permanent link"></a></h4>
+<ul>
+<li>Propre à chaque machine</li>
+<li>stocké dans la bdd locales SAM ( Base Security Account Manager)</li>
+<li>l&rsquo;user ne peut pas exploiter que les ressources de l&rsquo;ordinateur source</li>
+</ul>
+<h4 id="utilisateur-du-domaine">Utilisateur du domaine<a class="headerlink" href="#utilisateur-du-domaine" title="Permanent link"></a></h4>
+<ul>
+<li>stocké dans la bdd commune (annuaire Active Directory). Sur un serveur de l&rsquo;entreprise (controleur de domaine) ou chez un prestataire (Microsoft Azure)</li>
+<li>authentification KKerberos sécurisée par le réseau</li>
+<li>un user peut ouvrir une session sur toutes les machines du domaine</li>
+<li>un user (local, de domaine) est identifiée par le système grâce à son SID (Security IDentifier)</li>
+</ul>
+<h4 id="ouverture-de-session">Ouverture de session<a class="headerlink" href="#ouverture-de-session" title="Permanent link"></a></h4>
+<ul>
+<li>pour les user locaux <ul>
+<li>utiliser un compte present dans la base SAM</li>
+<li>sont affichés par défaut sur l&rsquo;ecran d&rsquo;accueil</li>
+</ul>
+</li>
+<li>pour les user du domaine<ul>
+<li>jonction du poste au domaine de l&rsquo;entreprise indispensable au préalable</li>
+<li>domaine sélectionné par défaut (possibilité de changer de domaine)</li>
+</ul>
+</li>
+</ul>
+<h3 id="categories-dutilisateurs">Categories d&rsquo;utilisateurs<a class="headerlink" href="#categories-dutilisateurs" title="Permanent link"></a></h3>
+<ul>
+<li>Standard : <ul>
+<li>pour utiliser les ressources du pc</li>
+<li>être membre du groupe <strong>Utilisateurs</strong></li>
+</ul>
+</li>
+<li>Administrateur<ul>
+<li>pour utiliser et modifier les ressources du pc</li>
+<li>être membre du groupe <strong>Administrateurs</strong></li>
+<li>l&rsquo;utilisateur créé à l&rsquo;installation du système est membre du groupe <strong>Administrateurs</strong></li>
+<li>le compte <em>administrateur</em> est désactivé par défaut</li>
+</ul>
+</li>
+<li>Le compte Invité<ul>
+<li>pour une utilisation restreinte des ressources du pc</li>
+<li>pas besoin de mdp pour accèder aux ressources</li>
+<li>ce compte est desactivée par défaut</li>
+</ul>
+</li>
+</ul>
+<h3 id="tp08-les-utilisateurs-et-les-groupes">TP08 - Les utilisateurs et les groupes<a class="headerlink" href="#tp08-les-utilisateurs-et-les-groupes" title="Permanent link"></a></h3>
+<h4 id="cmdexe">CMD.EXE<a class="headerlink" href="#cmdexe" title="Permanent link"></a></h4>
+<ul>
+<li>Afficher les infos du user account François</li>
+</ul>
+<div class="highlight"><pre><span class="n">cmd</span><span class="p">&gt;</span> <span class="n">net</span> <span class="n">user</span> <span class="n">françois</span>
+</pre></div>
+
+<ul>
+<li>Afficher les membres du groupe Administrateurs</li>
+</ul>
+<div class="highlight"><pre><span class="n">cmd</span><span class="p">&gt;</span> <span class="n">net</span> <span class="n">localgroup</span> <span class="n">administrateurs</span>
+</pre></div>
+
+<ul>
+<li>Créer un utilisateur ROMAIN avec mdp. Attention le mdp ne devra pas être visible en CLI</li>
+</ul>
+<p><div class="highlight"><pre><span class="n">cmd</span><span class="p">&gt;</span> <span class="n">net</span> <span class="n">user</span> <span class="n">Romain</span> <span class="p">*</span> <span class="p">/</span><span class="n">ADD</span>
+</pre></div>
+(prompt pour mdp + confirmation)</p>
+<ul>
+<li>Ajouter Romain au groupe L_Responsables</li>
+</ul>
+<div class="highlight"><pre><span class="n">cmd</span><span class="p">&gt;</span> <span class="n">net</span> <span class="n">localgroup</span> <span class="n">L_Responsables</span> <span class="n">Romain</span> <span class="p">/</span><span class="n">ADD</span>
+</pre></div>
+
+<ul>
+<li>Afficher le SID du current user, puis les SID des groupes dont il est membre</li>
+</ul>
+<div class="highlight"><pre><span class="n">cmd</span><span class="p">&gt;</span> <span class="n">whoami</span> <span class="p">/</span><span class="n">USER</span>
+<span class="n">cmd</span><span class="p">&gt;</span> <span class="n">whoami</span> <span class="p">/</span><span class="n">USER</span> <span class="p">/</span><span class="n">GROUPS</span>
+</pre></div>
+
+<h4 id="powershell-sur-win11">POWERSHELL sur WIN11<a class="headerlink" href="#powershell-sur-win11" title="Permanent link"></a></h4>
+<ul>
+<li>Afficher la liste des utilisateurs sur le systeme (nom, sid, description)</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-localuser</span> <span class="p">|</span> <span class="n">select</span> <span class="n">name</span><span class="p">,</span><span class="n">sid</span><span class="p">,</span><span class="n">description</span>
+</pre></div>
+
+<ul>
+<li>Afficher les informations suivantes pour l&rsquo;utilisateur James</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-localuser</span> <span class="n">james</span> <span class="p">|</span> <span class="n">select</span> <span class="n">fullname</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">objectclass</span><span class="p">,</span> <span class="n">lastlogon</span> 
+</pre></div>
+
+<ul>
+<li>Ajouter la description &ldquo;Compte générique avec privilèges d&rsquo;administration&rdquo;</li>
+</ul>
+<p><div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">set-localuser</span> <span class="n">-Name</span> <span class="s2">&quot;adm&quot;</span> <span class="n">-Description</span> <span class="s2">&quot;Compte générique avec privilèges d&#39;admin&quot;</span>
+</pre></div>
+ATTENTION, il y a une limite de 50 caractères en powershell mais que sur la description, ici.</p>
+<ul>
+<li>Afficher le nom et le SID des membres du groupe local L_SupportInfo</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-LocalGroupMember</span> <span class="n">-Name</span> <span class="s2">&quot;L_SupportInfo&quot;</span> <span class="p">|</span> <span class="n">select</span> <span class="n">name</span><span class="p">,</span><span class="n">sid</span>
+</pre></div>
+
+<p><strong>Bonus</strong> : Création d&rsquo;utilisateur</p>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nv">$pswd</span><span class="p">=</span><span class="nb">Read-Host</span> <span class="n">-AsSecureString</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">New-LocalUser</span> <span class="s2">&quot;francois&quot;</span> <span class="n">-Password</span> <span class="nv">$pswd</span> <span class="n">-FullName</span> <span class="s2">&quot;François&quot;</span> <span class="n">-Description</span> <span class="s2">&quot;Responsable Info&quot;</span> <span class="n">-UserMayNotChangePassword</span> <span class="n">-PasswordNeverExpires</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&quot;L_Reesponsables&quot;</span> <span class="n">-Member</span> <span class="s2">&quot;francois&quot;</span>
+</pre></div>
+
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localuser</span> <span class="s2">&quot;francois&quot;</span> <span class="n">-Password</span> <span class="nv">$mdp</span> <span class="n">-FullName</span> <span class="s2">&quot;François&quot;</span> <span class="n">-UserMayNotChangePassword</span> <span class="n">-PasswordNeverExpires</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localuser</span> <span class="s2">&quot;romain&quot;</span> <span class="n">-Password</span> <span class="nv">$mdp</span> <span class="n">-FullName</span> <span class="s2">&quot;Romain&quot;</span> <span class="n">-UserMayNotChangePassword</span> <span class="n">-PasswordNeverExpires</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localuser</span> <span class="s2">&quot;yann&quot;</span> <span class="n">-Password</span> <span class="nv">$mdp</span> <span class="n">-FullName</span> <span class="s2">&quot;Yann&quot;</span> <span class="n">-UserMayNotChangePassword</span> <span class="n">-PasswordNeverExpires</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localuser</span> <span class="s2">&quot;voisin1&quot;</span> <span class="n">-Password</span> <span class="nv">$mdp</span> <span class="n">-FullName</span> <span class="s2">&quot;Voisin&quot;</span> <span class="n">-UserMayNotChangePassword</span> <span class="n">-PasswordNeverExpires</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localuser</span> <span class="s2">&quot;voisin2&quot;</span> <span class="n">-Password</span> <span class="nv">$mdp</span> <span class="n">-FullName</span> <span class="s2">&quot;Voisin&quot;</span> <span class="n">-UserMayNotChangePassword</span> <span class="n">-PasswordNeverExpires</span>
+
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localgroup</span> <span class="n">L_Responsables</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localgroup</span> <span class="n">L_Voisins</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localgroup</span> <span class="n">L_Informatique</span>
+
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&quot;L_Responsables&quot;</span> <span class="n">-Member</span> <span class="s2">&quot;francois&quot;</span> 
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&quot;L_Informatique&quot;</span> <span class="n">-Member</span> <span class="s2">&quot;francois&quot;</span> 
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&quot;Administrateurs&quot;</span> <span class="n">-Member</span> <span class="s2">&quot;francois&quot;</span>
+
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&quot;L_Voisins&quot;</span> <span class="n">-Member</span> <span class="s2">&quot;voisin1&quot;</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&quot;L_Voisins&quot;</span> <span class="n">-Member</span> <span class="s2">&quot;voisin2&quot;</span>
+
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&quot;L_Responsables&quot;</span> <span class="n">-Member</span> <span class="s2">&quot;romain&quot;</span>
+</pre></div>
+
+<p><strong>Bonus 2</strong>: Vos voisins pourront ouvrir une session uniquement du lundi au vendredi entre 9h et 17h</p>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="n">net</span> <span class="n">user</span> <span class="n">voisin1</span> <span class="p">/</span><span class="n">time</span><span class="err">:</span><span class="n">l-v</span><span class="p">,</span><span class="n">9</span><span class="err">:</span><span class="n">00</span><span class="p">,</span><span class="n">17</span><span class="err">:</span><span class="n">00</span>
+</pre></div>
+
+<p>Oui, les jours sont en français&hellip;</p>
+<h2 id="mod-6-la-securite-ntfs-et-les-acl">Mod 6 - La sécurité NTFS et les ACL<a class="headerlink" href="#mod-6-la-securite-ntfs-et-les-acl" title="Permanent link"></a></h2>
+<ul>
+<li>NTFS = New Technology File System</li>
+<li>ACL = ?</li>
+</ul>
+<p>Sur un volume formaté en NTFS :</p>
+<ul>
+<li>tous les repertoires et tous les fichiers sont soumis à la sécurité NTFS</li>
+<li>des <strong>autorisations</strong> définissent des <strong>privilèges d&rsquo;accès</strong></li>
+<li>l&rsquo;utilisateur présente son <strong>jeton d&rsquo;accès</strong>, qui est <strong>filtré</strong> par la ressource</li>
+<li>les autorisations sont stockées dans l&rsquo;index du système de fichier NTFS</li>
+<li>consultable, modifiable dans l&rsquo;<strong>onglet sécurité</strong> de chaque objet</li>
+</ul>
+<h3 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link"></a></h3>
+<p><strong>L&rsquo;onglet Sécurité</strong></p>
+<ul>
+<li>accessible via les propriétés d&rsquo;un objet</li>
+<li><strong>DACL</strong> (Liste des contrôles d&rsquo;accès discretionnaire)</li>
+<li>les DACL filtrent les groupes locaux, les groupes prédéfinis (généralement Administrateurs ou Utilisateurs), les entités de sécurités, les utilisateurs</li>
+<li><strong>ACE</strong> (Access Control Entry) privilèges d&rsquo;accès du groupe en question</li>
+</ul>
+<p><img alt="illu" src=".ressources/img/DACL-ACE.png" /></p>
+<ul>
+<li>Pour les <strong>besoins courants</strong>, les ACE de base sont utilisées et cumulatives</li>
+<li>Configurable depuis le menu modifier<ul>
+<li><strong>Lecture</strong> : affichage, lecture, lecture et execution</li>
+<li><strong>Modification</strong> : ecriture, modification</li>
+<li><strong>Contrôle total</strong></li>
+</ul>
+</li>
+</ul>
+<p><img alt="illustration" src=".ressources/img/ACE.png" /></p>
+<ul>
+<li>Pour les <strong>besoins spécifiques</strong>, des autorisations spéciales peuvent être configurées (via menu Avancé). <ul>
+<li>Permet d&rsquo;affiner les privilèges (création de fichier, suppression de subfolder, etc)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Permissions basées sur des règles explicites</strong></p>
+<ul>
+<li>un groupe absent de la DACL se verra l&rsquo;accès refusé (refus implicite)</li>
+<li>chaque règle peut accorder des privilèges (autoriser) ou les ôter (refuser)</li>
+<li>plusieurs règles d&rsquo;accès peuvent s&rsquo;appliquer à un même utilisateur (la règle la plus permissive l&rsquo;emporte)</li>
+<li>le refus explicite l&rsquo;emporte sur l&rsquo;autorisation</li>
+</ul>
+<h3 id="heritage">Héritage<a class="headerlink" href="#heritage" title="Permanent link"></a></h3>
+<p><strong>Heritage</strong></p>
+<ul>
+<li>Par défaut, un répertoire propage ses autorisations à ses objets enfants. </li>
+<li>Les autorisations héritées apparaissent grisées et ne sont pas modifiables.</li>
+<li>Une autorisation d&rsquo;accès l&rsquo;emporte sur un refus explicite hérité.</li>
+</ul>
+<p>Pour les modifier, il faut</p>
+<ul>
+<li>modifier les autorisations sur le dossier parent (voir parfois celles du volume racine) </li>
+<li>&ldquo;casser&rdquo; l&rsquo;héritage (à effectuer avec précaution)</li>
+</ul>
+<h3 id="copie">Copie<a class="headerlink" href="#copie" title="Permanent link"></a></h3>
+<p>Que se passe-t-il lors de la copie ? Du déplacement ?</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">Au sein d&rsquo;une même partition/volume</th>
+<th align="left">Entre 2 partitions/volumes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Déplacement</td>
+<td align="left"><strong>Conservation</strong></td>
+<td align="left">Héritage</td>
+</tr>
+<tr>
+<td align="left">Copie</td>
+<td align="left">Héritage</td>
+<td align="left">Héritage</td>
+</tr>
+</tbody>
+</table>
+<p>Une fois les ACL configurées, que faire ?
+- tester les accès avec les utilisateurs
+- et/ou vérifier les accès depuis l&rsquo;onglet <strong>Accès Effectif</strong> du menu <strong>Avancé</strong></p>
+<ul>
+<li>A manipuler avec précaution</li>
+<li>Bonne pratiques pour éviter les effets de bord et les mauvaises surprises<ul>
+<li>privilégier les groupes dans les DACL</li>
+<li>utiliser au max ACE de base</li>
+<li>garder en tête les mécanismes d&rsquo;héritage (attention aux copies, aux déplacements)</li>
+<li>privilégier l&rsquo;héritage</li>
+<li>privilégier le refus implicite</li>
+<li>toujours tester/vérifier les accès aux ressources</li>
+<li>attention au double jeton d&rsquo;accès des administrateurs</li>
+</ul>
+</li>
+</ul>
+<p><strong>Conclusion</strong></p>
+<ul>
+<li>La gestion des ACL est indispensable</li>
+<li>ACL = DACL + ACE<ul>
+<li>liste de controle d&rsquo;accès</li>
+<li>liste de contrôle d&rsquo;accès discrétionnaire</li>
+<li>entrées de contrôle d&rsquo;accès</li>
+</ul>
+</li>
+<li>Tester les accès</li>
+<li>Respecter les bonnes pratiques Microsoft</li>
+</ul>
+<p><strong>Notes</strong>: Toujours passer par des groupes, ne jamais ajouter un utilisateur directement dans un DACL</p>
+<h3 id="tp09-ntfs-acl">TP09 - NTFS &amp; ACL<a class="headerlink" href="#tp09-ntfs-acl" title="Permanent link"></a></h3>
+<h4 id="vm-win10-gui">VM Win10 - GUI<a class="headerlink" href="#vm-win10-gui" title="Permanent link"></a></h4>
+<p><strong>Objectif</strong>: Sur la VM win10, configurer les autorisations d&rsquo;accès sur les dossiers donnés.</p>
+<p>Sur le volume <strong>DATA</strong>, créer le dossier <strong>Echange</strong>.</p>
+<ul>
+<li>
+<p>Quelles sont les autorisations positionnées par défaut sur le dossier Echange .</p>
+<ul>
+<li>utilisateur authentifiés (autoriser)</li>
+<li>systeme (controle total)</li>
+<li>administrateur (control total)</li>
+<li>utilisateur (lecture &amp; exe + affichage + lecture)</li>
+</ul>
+</li>
+<li>
+<p>Configurer les autorisations d&rsquo;acces du dossier Echange</p>
+<ul>
+<li>Les voisins pourront modifier tous les objets et sous-objets du dossier</li>
+<li>Les admin auront le controle total</li>
+<li>Les utilisateurs du poste auront les droit en lecture</li>
+<li>Tester</li>
+</ul>
+</li>
+</ul>
+<p><strong>Notes</strong> :
+- Desactiver l&rsquo;héritage pour pouvoir modifier les permissions
+- Modifier &ldquo;Utilisateurs authentifiés&rdquo; (CORRECTION : supprimer complètement)</p>
+<ul>
+<li>Sur volume TOOLS, créer les dossiers &ldquo;logiciels&rdquo; et &ldquo;manuels d&rsquo;utilisation&rdquo;<ul>
+<li>Yann et François ont les droits en modif de ces dossiers</li>
+<li>Les utilisateurs standards ont les droits en lecture</li>
+<li>Les admin ont le contrôle total</li>
+</ul>
+</li>
+</ul>
+<p><strong>Pour tester le bons fonctionnement des autorisations</strong> : clic-droit sur le dossier partagé &gt; <em>propriétés</em> &gt; <em>sécurité</em> &gt; <em>accès effectif</em></p>
+<h4 id="vm-win11-powershell">VM Win11 - Powershell<a class="headerlink" href="#vm-win11-powershell" title="Permanent link"></a></h4>
+<ul>
+<li>Afficher la liste des droits d&rsquo;accès au dossier <strong>2022</strong> du lecteur <strong>M:</strong></li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-acl</span> <span class="n">m</span><span class="err">:</span><span class="p">\</span><span class="n">2022</span>
+</pre></div>
+
+<ul>
+<li>Modifier les ACL d&rsquo;un dossier</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">set-acl</span> <span class="p">[...]</span>
+</pre></div>
+
+<h2 id="mod-7-la-gestion-du-reseau-et-du-pare-feu">Mod 7 - La gestion du réseau et du pare-feu<a class="headerlink" href="#mod-7-la-gestion-du-reseau-et-du-pare-feu" title="Permanent link"></a></h2>
+<p><strong>Sommaire</strong></p>
+<ul>
+<li>rappel des bases de réseau</li>
+<li>configurer la carte et l&rsquo;emplacement réseau</li>
+<li>manipuler le pare-feu windows</li>
+</ul>
+<h3 id="carte-reseau">Carte réseau<a class="headerlink" href="#carte-reseau" title="Permanent link"></a></h3>
+<p>Accès carte réseau : <strong>ncpa.cpl</strong></p>
+<h4 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"></a></h4>
+<h5 id="quels-parametres">Quels paramètres ?<a class="headerlink" href="#quels-parametres" title="Permanent link"></a></h5>
+<ul>
+<li>Adresse IP et masque de sous-réseau</li>
+<li>Passerelle (ip du router)</li>
+<li>Serveurs DNS préféré et auxiliaire</li>
+</ul>
+<h5 id="le-type-dadressage">Le Type d&rsquo;adressage<a class="headerlink" href="#le-type-dadressage" title="Permanent link"></a></h5>
+<ul>
+<li><strong>Statique</strong> : configuré manuellement</li>
+<li><strong>Dynamique</strong> : fourni par le DHCP ou APIPA</li>
+</ul>
+<h5 id="apipa-communication-temporaire-sur-le-reseau-local">APIPA : Communication temporaire sur le réseau local<a class="headerlink" href="#apipa-communication-temporaire-sur-le-reseau-local" title="Permanent link"></a></h5>
+<ul>
+<li>obtenir automatiquement une adresse grâce à l&rsquo;OS Windows si aucun serveur DHCP n&rsquo;est joignable</li>
+<li>réseau 169.254.0.0/16</li>
+<li>communication sur le réseau local possible</li>
+</ul>
+<h4 id="type-de-reseau-possible">Type de réseau possible<a class="headerlink" href="#type-de-reseau-possible" title="Permanent link"></a></h4>
+<ul>
+<li><strong>Réseau privé</strong> sur un poste autonome</li>
+<li><strong>Réseau avec domaine</strong> non-modifiable si le poste est joint à un domaine</li>
+<li><strong>Réseau public</strong> si aucune passerelle n&rsquo;a été définie, si le domaine n&rsquo;a pas été détecté pour les postes en domaine, si vous refusez de rendre votre ordinateur visible sur le réseau, etc.</li>
+</ul>
+<h4 id="outils">Outils<a class="headerlink" href="#outils" title="Permanent link"></a></h4>
+<ul>
+<li><strong>ipconfig</strong> : afficher la config et intéragir avec la pile réseau </li>
+<li><strong>ping</strong> : tester la connectivité</li>
+<li><strong>tracert</strong> : tester la route empruntée par les paquets TCP/IP</li>
+<li><strong>nslookup</strong> : diagnostic de la résolution de nom d&rsquo;hôte</li>
+</ul>
+<h3 id="pare-feu">Pare-feu<a class="headerlink" href="#pare-feu" title="Permanent link"></a></h3>
+<p><strong>Rôles</strong> :</p>
+<ul>
+<li>délimiter quels flux réseau sont autorisés en entrée et en sortie</li>
+<li>protéger le poste contre les accès non autorisées</li>
+<li>élément de la stratégie globale de sécurité de l&rsquo;entreprise</li>
+</ul>
+<p>Activé par défaut</p>
+<p>3 Niveaux de configuration </p>
+<ul>
+<li>&ldquo;<em>Utilisateur</em>&rdquo; depuis le composant <strong>Vérifier l&rsquo;état du pare-feu</strong> pour l&rsquo;activation/désactivation</li>
+<li>&ldquo;<em>Programme</em>&rdquo; avec la fonction <strong>Autoriser une application via le pare-feu Windows</strong></li>
+<li>
+<p>&ldquo;<em>Avancé</em>&rdquo; avec la console <strong>Pare-feu windows defender avec fonctions avances de sécurité</strong></p>
+</li>
+<li>
+<p><strong>firewall.cpl</strong> : accès à l&rsquo;interface du pare-feu</p>
+</li>
+</ul>
+<h3 id="tp10-configuration-du-reseau">TP10 - Configuration du réseau<a class="headerlink" href="#tp10-configuration-du-reseau" title="Permanent link"></a></h3>
+<p><strong>Objectif</strong> : configurer le poste pour qu&rsquo;il communique sur le réseau.</p>
+<h4 id="win10">Win10<a class="headerlink" href="#win10" title="Permanent link"></a></h4>
+<p>Configurer les accès réseau</p>
+<ul>
+<li>ip (static) : 10.54.42.69</li>
+<li>masque      : 255.255.0.0</li>
+<li>réseau      : 10.54.0.0</li>
+<li>DNS préféré : 10.35.0.3</li>
+<li>passerelle  : 10.54.255.254</li>
+</ul>
+<p>Utilisation de <strong>ping</strong>, <strong>tracert</strong>, <strong>nslookup</strong></p>
+<h5 id="parefeu">Parefeu<a class="headerlink" href="#parefeu" title="Permanent link"></a></h5>
+<ul>
+<li>
+<p>Autoriser le bureau à distance : </p>
+<ol>
+<li><code>ps&gt; firewall</code></li>
+<li><em>Autoriser une appli</em> &gt; <em>bureau à distance</em> &gt; cocher <em>[x] privé</em></li>
+</ol>
+</li>
+<li>
+<p>Dans la console Pare-feu et fonctions avancées, utiliser la règle prédéfinie permettant d&rsquo;autoriser le ping</p>
+<ul>
+<li>&ldquo;<em>Diagnostic de réseau de base (ICMP) IPv4</em>&rdquo; &gt; <em>Activer</em></li>
+<li>à faire dans règles de trafic entrant, puis sortant</li>
+</ul>
+</li>
+</ul>
+<h4 id="bonus-win10-powershell">Bonus Win10 - powershell<a class="headerlink" href="#bonus-win10-powershell" title="Permanent link"></a></h4>
+<ul>
+<li>
+<p>Faire des test de connections réseaux (comme un ping mais sans visibilité sur la perte de réseau)
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">test-connection</span> <span class="n">www</span><span class="p">.</span><span class="n">nainwak</span><span class="p">.</span><span class="n">com</span>
+</pre></div></p>
+</li>
+<li>
+<p>Créer une régle personalisée dans le parefeu permettant d&rsquo;autoriser les requêtes ICMP Echo vers notre VM, requêtes provenant de notre réseau local
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="n">firewall</span>   <span class="c"># pour ouvrir l&#39;IHM du parefeu</span>
+</pre></div>
+Ensuite, ouvrir &ldquo;<em>Assistant nouvelle règle entrante</em>&rdquo; &gt; protocole ICMP &gt; nom ping entrant. Puis pareil dans le sens de la sortie. (?!)</p>
+</li>
+</ul>
+<h3 id="tp-final-de-synthese-teams">TP final de synthèse (teams)<a class="headerlink" href="#tp-final-de-synthese-teams" title="Permanent link"></a></h3>
+<p>Créer une VM Windows 11 avec WorkStation</p>
+<ul>
+<li>Configuration <strong>typique</strong></li>
+<li>OS invité : <strong>Windows 11 x64</strong></li>
+<li>Nom de la VM : <strong>winfinal-RL</strong></li>
+<li>Emplacement : dans un sous-dossier <strong>winfinal-RL</strong> du dossier <strong>VM</strong></li>
+<li>Disque dur : <strong>60 Go</strong></li>
+<li>RAM : <strong>4 GB</strong></li>
+<li>CPU : <strong>2 processeurs, 2 coeurs</strong></li>
+<li>Réseau : <strong>Host-Only</strong></li>
+<li>Options : dans onglet <em>options</em> &gt; <strong><em>contrôle d&rsquo;accès</em></strong> &gt; <strong><em>encrypter la VM</em></strong></li>
+<li>
+<p>Ajout périphérique : <strong>TPM (Trusted Platform Module)</strong></p>
+</li>
+<li>
+<p>Renommer l&rsquo;OS pour qu&rsquo;il porte le même nom que la VM. </p>
+</li>
+<li>Mettre les mise à jour en pause</li>
+</ul>
+<h4 id="interface-graphique">Interface Graphique<a class="headerlink" href="#interface-graphique" title="Permanent link"></a></h4>
+<ul>
+<li>Réduire le disque C: de 30 Go</li>
+<li>Créer une partition principale de 30 Go. Formater en NTFS, attribuer la lettre <strong>D:</strong> et le label <strong>TOOLS</strong></li>
+<li>Dans Workstation, ajouter un disque NVMe de 45 Go. Initialiser le disque graphiquement dans <em>diskmgmt.msc</em></li>
+</ul>
+<h4 id="cmdexe_1">CMD.exe<a class="headerlink" href="#cmdexe_1" title="Permanent link"></a></h4>
+<ul>
+<li>Créer un volume avec intégralité de l&rsquo;espace disponible sur le disque de 45 Go, attribuer la lettre <strong>E:</strong> et le label <strong>DATA</strong>
+<div class="highlight"><pre>cmd&gt; diskpart
+DISKPART&gt; list disk
+DISKPART&gt; select disk 1
+DISKPART&gt; create partition primary
+DISKPART&gt; format fs=ntfs label=&quot;DATA&quot; quick
+DISKPART&gt; assign letter=E
+</pre></div></li>
+</ul>
+<h4 id="powershell_2">Powershell<a class="headerlink" href="#powershell_2" title="Permanent link"></a></h4>
+<ul>
+<li>Dans Workstation, ajouter un disque de type SCSI de 20 Go</li>
+<li>Initialiser le disque dans powershell</li>
+<li>Créer une nouvelle partition de 20 Go ayant la lettre <strong>F:</strong> et le label <strong>Echange</strong></li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-disk</span>
+
+<span class="c"># Initialize</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="n">initialize-disk</span> <span class="n">-Number</span> <span class="n">2</span>
+
+<span class="c"># Partition + Format + Label</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-partition</span> <span class="n">-DiskNumber</span> <span class="n">2</span> <span class="n">-UseMaximumSize</span> <span class="p">|</span> <span class="nb">Format-Volume</span> <span class="n">-FileSystem</span> <span class="n">NTFS</span> <span class="n">-New-FileSystemLabel</span> <span class="n">Echange</span>
+
+<span class="c"># Assign Letter</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-Partition</span> <span class="n">-DiskNumber</span> <span class="n">2</span> <span class="n">-PartitionNumber</span> <span class="n">2</span> <span class="p">|</span> <span class="nb">Set-Partition</span> <span class="n">-NewDriveLetter</span> <span class="n">F</span>
+</pre></div>
+
+<ul>
+<li>
+<p>Afficher au format liste le nom, la lettre de lecteur, le type et la taille des volumes de type NTFS <strong>et</strong> ayant une taille supérieure à 20 Go
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-volume</span> <span class="p">|</span> <span class="n">where</span> <span class="n">-FilterScript</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">FileSystemType</span> <span class="o">-like</span> <span class="s2">&quot;NTFS&quot;</span> <span class="o">-and</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Size</span> <span class="o">-gt</span> <span class="s2">&quot;20GB&quot;</span><span class="p">}</span>
+</pre></div></p>
+</li>
+<li>
+<p>Affiner l&rsquo;affichage du résultat précédent
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-volume</span> <span class="p">|</span> <span class="n">where</span> <span class="n">-FilterScript</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">FileSystemType</span> <span class="o">-like</span> <span class="s2">&quot;NTFS&quot;</span> <span class="o">-and</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Size</span> <span class="o">-gt</span> <span class="s2">&quot;20GB&quot;</span><span class="p">}</span> <span class="p">|</span> <span class="n">select</span> <span class="n">DriveLetter</span><span class="p">,</span><span class="n">FileSystemType</span><span class="p">,</span><span class="n">FileSystemLabel</span><span class="p">,</span><span class="n">Size</span> <span class="p">|</span> <span class="n">fl</span>
+</pre></div></p>
+</li>
+</ul>
+<h4 id="gestion-des-utilisateurs-et-des-groupes">Gestion des utilisateurs et des groupes<a class="headerlink" href="#gestion-des-utilisateurs-et-des-groupes" title="Permanent link"></a></h4>
+<h5 id="powershell_3">Powershell<a class="headerlink" href="#powershell_3" title="Permanent link"></a></h5>
+<ul>
+<li>
+<p>Créer les groupes <strong>L_Info</strong> avec description &ldquo;<strong>Groupe informatique</strong>&rdquo;, et <strong>L_Compta</strong> avec &ldquo;<strong>Groupe Comptabilité</strong>&rdquo;
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localgroup</span> <span class="s2">&quot;L_Info&quot;</span> <span class="n">-Description</span> <span class="s2">&quot;Groupe Informatique&quot;</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localgroup</span> <span class="s2">&quot;L_Compta&quot;</span> <span class="n">-Description</span> <span class="s2">&quot;Groupe Comptabilité&quot;</span>
+</pre></div></p>
+</li>
+<li>
+<p>Créer les utilisateurs suivants, sachant qu&rsquo;ils ne pourront pas changer leur mdp et que celui-ci n&rsquo;expire pas</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">AD</th>
+<th align="left">Nom Complet</th>
+<th align="left">Description</th>
+<th align="left">Groupes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">adupond</td>
+<td align="left">Alex Dupond</td>
+<td align="left">Directeur Informatique</td>
+<td align="left">L_Info, Administrateurs</td>
+</tr>
+<tr>
+<td align="left">pmartin</td>
+<td align="left">Pierre Martin</td>
+<td align="left">Comptable Groupe</td>
+<td align="left">L_Compta</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span class="c"># Mot de passe</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nv">$mdp</span><span class="p">=</span><span class="nb">Read-Host</span> <span class="n">-AsSecureString</span>
+<span class="p">****</span>
+
+<span class="c"># Création utilisateurs</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nv">$user</span><span class="p">=</span><span class="s2">&quot;adupond&quot;</span><span class="p">;</span> <span class="nv">$fullname</span><span class="p">=</span><span class="s2">&quot;Alex Dupond&quot;</span><span class="p">;</span> <span class="nv">$descr</span><span class="p">=</span><span class="s2">&quot;Responsable SI&quot;</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">New-LocalUser</span> <span class="nv">$user</span> <span class="n">-Password</span> <span class="nv">$mdp</span> <span class="n">-FullName</span> <span class="nv">$fullname</span> <span class="n">-Description</span> <span class="nv">$descr</span> <span class="n">-UserMayNotChangePassword</span> <span class="n">-PasswordNeverExpires</span>
+
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nv">$user</span><span class="p">=</span><span class="s2">&quot;pmartin&quot;</span><span class="p">;</span> <span class="nv">$fullname</span><span class="p">=</span><span class="s2">&quot;Pierre Martin&quot;</span><span class="p">;</span> <span class="nv">$descr</span><span class="p">=</span><span class="s2">&quot;Comptable&quot;</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">New-LocalUser</span> <span class="nv">$user</span> <span class="n">-Password</span> <span class="nv">$mdp</span> <span class="n">-FullName</span> <span class="nv">$fullname</span> <span class="n">-Description</span> <span class="nv">$descr</span> <span class="n">-UserMayNotChangePassword</span> <span class="n">-PasswordNeverExpires</span>
+
+<span class="c"># Ajout aux groupes</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="n">L_Info</span> <span class="n">-member</span> <span class="n">adupond</span> <span class="n">-verbose</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="n">Administrators</span> <span class="n">-member</span> <span class="n">adupond</span> <span class="n">-verbose</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="n">L_Compta</span> <span class="n">-member</span> <span class="n">pmartin</span> <span class="n">-verbose</span>
+</pre></div>
+
+<ul>
+<li>Afficher au format liste le nom, le nom complet, le SID et la description de l&rsquo;utilisateur pmartin</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-localuser</span> <span class="n">pmartin</span> <span class="p">|</span> <span class="n">select</span> <span class="n">fullname</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">SID</span><span class="p">,</span> <span class="n">description</span> <span class="p">|</span> <span class="n">fl</span>
+
+<span class="n">FullName</span>    <span class="err">:</span> <span class="n">Pierre</span> <span class="n">Martin</span>
+<span class="n">Name</span>        <span class="err">:</span> <span class="n">pmartin</span>
+<span class="n">SID</span>         <span class="err">:</span> <span class="n">S</span><span class="p">-</span><span class="n">1</span><span class="p">-</span><span class="n">5</span><span class="p">-</span><span class="n">21</span><span class="p">-</span><span class="n">312851257</span><span class="p">-</span><span class="n">2639103893</span><span class="p">-</span><span class="n">4125210144</span><span class="p">-</span><span class="n">1005</span>
+<span class="n">Description</span> <span class="err">:</span> <span class="n">Comptable</span>
+</pre></div>
+
+<h4 id="gestion-des-dossiers-et-des-droits-ntfs">Gestion des dossiers et des droits NTFS<a class="headerlink" href="#gestion-des-dossiers-et-des-droits-ntfs" title="Permanent link"></a></h4>
+<h5 id="notes-icaclsexe">Notes ICACLS.EXE<a class="headerlink" href="#notes-icaclsexe" title="Permanent link"></a></h5>
+<div class="highlight"><pre>ps&gt; icacls.exe /?
+
+ICACLS name /save aclfile [/T] [/C] [/L] [/Q]
+    stores the DACLs for the files and folders that match the name
+    into aclfile for later use with /restore. Note that SACLs,
+    owner, or integrity labels are not saved.
+
+ICACLS directory [/substitute SidOld SidNew [...]] /restore aclfile
+                 [/C] [/L] [/Q]
+    applies the stored DACLs to files in directory.
+
+ICACLS name /setowner user [/T] [/C] [/L] [/Q]
+    changes the owner of all matching names. This option does not
+    force a change of ownership; use the takeown.exe utility for
+    that purpose.
+
+ICACLS name /findsid Sid [/T] [/C] [/L] [/Q]
+    finds all matching names that contain an ACL
+    explicitly mentioning Sid.
+
+ICACLS name /verify [/T] [/C] [/L] [/Q]
+    finds all files whose ACL is not in canonical form or whose
+    lengths are inconsistent with ACE counts.
+
+ICACLS name /reset [/T] [/C] [/L] [/Q]
+    replaces ACLs with default inherited ACLs for all matching files.
+
+ICACLS name [/grant[:r] Sid:perm[...]]
+       [/deny Sid:perm [...]]
+       [/remove[:g|:d]] Sid[...]] [/T] [/C] [/L] [/Q]
+       [/setintegritylevel Level:policy[...]]
+
+    /grant[:r] Sid:perm grants the specified user access rights. With :r,
+        the permissions replace any previously granted explicit permissions.
+        Without :r, the permissions are added to any previously granted
+        explicit permissions.
+
+    /deny Sid:perm explicitly denies the specified user access rights.
+        An explicit deny ACE is added for the stated permissions and
+        the same permissions in any explicit grant are removed.
+
+    /remove[:[g|d]] Sid removes all occurrences of Sid in the ACL. With
+        :g, it removes all occurrences of granted rights to that Sid. With
+        :d, it removes all occurrences of denied rights to that Sid.
+
+    /setintegritylevel [(CI)(OI)]Level explicitly adds an integrity
+        ACE to all matching files.  The level is to be specified as one
+        of:
+            L[ow]
+            M[edium]
+            H[igh]
+        Inheritance options for the integrity ACE may precede the level
+        and are applied only to directories.
+
+    /inheritance:e|d|r
+        e - enables inheritance
+        d - disables inheritance and copy the ACEs
+        r - remove all inherited ACEs
+
+
+Note:
+    Sids may be in either numerical or friendly name form. If a numerical
+    form is given, affix a * to the start of the SID.
+
+    /T indicates that this operation is performed on all matching
+        files/directories below the directories specified in the name.
+
+    /C indicates that this operation will continue on all file errors.
+        Error messages will still be displayed.
+
+    /L indicates that this operation is performed on a symbolic link
+       itself versus its target.
+
+    /Q indicates that icacls should suppress success messages.
+
+    ICACLS preserves the canonical ordering of ACE entries:
+            Explicit denials
+            Explicit grants
+            Inherited denials
+            Inherited grants
+
+    perm is a permission mask and can be specified in one of two forms:
+        a sequence of simple rights:
+                N - no access
+                F - full access
+                M - modify access
+                RX - read and execute access
+                R - read-only access
+                W - write-only access
+                D - delete access
+        a comma-separated list in parentheses of specific rights:
+                DE - delete
+                RC - read control
+                WDAC - write DAC
+                WO - write owner
+                S - synchronize
+                AS - access system security
+                MA - maximum allowed
+                GR - generic read
+                GW - generic write
+                GE - generic execute
+                GA - generic all
+                RD - read data/list directory
+                WD - write data/add file
+                AD - append data/add subdirectory
+                REA - read extended attributes
+                WEA - write extended attributes
+                X - execute/traverse
+                DC - delete child
+                RA - read attributes
+                WA - write attributes
+        inheritance rights may precede either form and are applied
+        only to directories:
+                (OI) - object inherit
+                (CI) - container inherit
+                (IO) - inherit only
+                (NP) - don&#39;t propagate inherit
+                (I) - permission inherited from parent container
+
+Examples:
+
+        icacls c:\windows\* /save AclFile /T
+        - Will save the ACLs for all files under c:\windows
+          and its subdirectories to AclFile.
+
+        icacls c:\windows\ /restore AclFile
+        - Will restore the Acls for every file within
+          AclFile that exists in c:\windows and its subdirectories.
+
+        icacls file /grant Administrator:(D,WDAC)
+        - Will grant the user Administrator Delete and Write DAC
+          permissions to file.
+
+        icacls file /grant *S-1-1-0:(D,WDAC)
+        - Will grant the user defined by sid S-1-1-0 Delete and
+          Write DAC permissions to file.
+</pre></div>
+
+<h5 id="cmd">CMD<a class="headerlink" href="#cmd" title="Permanent link"></a></h5>
+<ul>
+<li>
+<p>Sur le volume ECHANGE, créer les dossiers &ldquo;<strong>SRV_Info</strong>&rdquo; et &ldquo;<strong>SRV_Compta</strong>&rdquo;
+<div class="highlight"><pre>cmd&gt; cd /d F:
+cmd&gt; md srv_info
+cmd&gt; mkdir srv_compta
+</pre></div></p>
+</li>
+<li>
+<p>Accorder à adupond le contrôle total récursif sur le dossier F:\srv_info.
+<div class="highlight"><pre>cmd&gt; icacls f:\SRV_Info /grant L_Info:(OI)(CI)f /t
+processed file: f:\SRV_Info
+Successfully processed 1 files; Failed processing 0 files
+</pre></div></p>
+</li>
+</ul>
+<p><strong>Attention</strong> Ca ne marche qu&rsquo;avec cmd.exe. La commande est différente avec Powershell, ou ne marche juste pas&hellip;</p>
+<p><strong>Notes ICACLS.exe</strong></p>
+<ul>
+<li>(OI) - object inherit</li>
+<li>(CI) - container inherit</li>
+<li>(IO) - inherit only</li>
+<li>(NP) - don&rsquo;t propagate inherit</li>
+<li>(I) - permission inherited from parent container</li>
+<li>F - grants total control</li>
+<li>/T permission descend dans arborescence (sous-dossier etc.).</li>
+<li>Exemple : <code>icacls file /grant Administrator:(D,WDAC)</code>  <ul>
+<li>Will grant the user Administrator Delete and Write DAC permissions to file.</li>
+</ul>
+</li>
+</ul>
+<h5 id="gui">GUI<a class="headerlink" href="#gui" title="Permanent link"></a></h5>
+<ul>
+<li>Accorder à pmartin les droits en lecture/execution (récursif) sur le dossier F:\srv_compta<ul>
+<li>clic-droit sur dossier &gt; propriété &gt; sécurité </li>
+<li>avancé &gt; désactiver héritage (permet de modifier les droits)</li>
+<li>supprimer les utilisateurs authentifiés pour éviter les effets de bord</li>
+<li>ajouter les droits à pmartin</li>
+</ul>
+</li>
+</ul>
+<h2 id="mod-8-le-partage-des-ressources">Mod 8 - Le partage des ressources<a class="headerlink" href="#mod-8-le-partage-des-ressources" title="Permanent link"></a></h2>
+<p><strong>Objectifs</strong></p>
+<ul>
+<li>Utiliser le réseau pour accèder aux infos de l&rsquo;entreprise</li>
+<li>Accéder aux documents via des partages</li>
+<li>Accèder aux machines grâce aux Bureau à Distance</li>
+</ul>
+<h3 id="principes-du-partage">Principes du partage<a class="headerlink" href="#principes-du-partage" title="Permanent link"></a></h3>
+<p>Le partage permet d&rsquo;accèder à une ressource hébergée par <strong>un serveur</strong>, depuis <strong>un client</strong> ou à travers <strong>le réseau</strong></p>
+<ul>
+<li>Les ressources ? &hellip; peuvent être des fichiers, des imprimantes.</li>
+<li>Les serveurs ? &hellip; tout type de système connecté au réseau de l&rsquo;entreprise peut potentiellement partager ses ressources (serveur, poste client, copieur, tablette, etc.)</li>
+<li>Les clients ? &hellip; tout type de système connecté au réseau peut accéder aux ressources partagées de l&rsquo;entreprise (serveur, poste client, copieur, tablette, etc.)</li>
+</ul>
+<p>Qui peut partager ? Il faut avoir des droits admin car partager, c&rsquo;est modifier le système !</p>
+<p>Qui a accès au partage ? </p>
+<ul>
+<li>une authentification est requise (compte local du domaine)</li>
+<li>3 niveaux d&rsquo;accès sont définis sur la ressource partagée : <strong>Lecture</strong>, <strong>Modifier</strong>, <strong>Contrôle Total</strong></li>
+<li>2 vérifications d&rsquo;identité sont effectuées: 1) au niveau du partage, 2) puis au niveau des <strong>droits NFTS</strong></li>
+<li>Les autorisations du partage sont restrictives</li>
+</ul>
+<h3 id="acces">Accès<a class="headerlink" href="#acces" title="Permanent link"></a></h3>
+<p>Comment accéder aux fichiers partagés depuis Windows 10 ?
+- De façon momentanée depuis l&rsquo;explorateur avec le <strong>chemin UNC</strong> <code>\\serveur\partage</code>
+- Durablement avec la fonctionnalité <strong>Connecter un lecteur réseau</strong>. Les lecteurs mappés sont mémorisés avec le profil utilisateur.
+- En ligne de commande avec <strong><code>net use G: \\serveur\partage</code></strong>. La commande <strong><code>net view</code></strong> permet de lister les partages.
+- En powershell avec la cmdlet <strong><code>New-SmbMapping</code></strong>. Ex. <strong><code>New-SmbMapping -LocalPath 'R:' -RemotePath '\\srv-fic\Compta'</code></strong></p>
+<h3 id="comment-partager-des-fichiers">Comment partager des fichiers ?<a class="headerlink" href="#comment-partager-des-fichiers" title="Permanent link"></a></h3>
+<h4 id="depuis-lexplorateur-de-fichier">Depuis l&rsquo;explorateur de fichier<a class="headerlink" href="#depuis-lexplorateur-de-fichier" title="Permanent link"></a></h4>
+<ul>
+<li>ouverture du partage sur le conteneur</li>
+<li><strong>partage de base</strong> : partage simplifié orienté utilisateur (à éviter)</li>
+<li><strong>partage avancé</strong> : onglet <strong>Partage</strong> depuis les propriétés du conteneur</li>
+<li>Par défaut, l&rsquo;entité <strong>Tout le monde</strong> est en <strong>Lecture</strong></li>
+</ul>
+<p>Bonne pratique : préférez l&rsquo;entité sécurité <strong>Utilisateurs Authentifiés</strong></p>
+<p><img alt="illu3" src=".ressources/img/partage-01.png" /></p>
+<h4 id="depuis-le-composant-mmc-dossiers-partages-fsmgmtmsc">Depuis le composant MMC &ldquo;Dossiers Partagés&rdquo; (fsmgmt.msc)<a class="headerlink" href="#depuis-le-composant-mmc-dossiers-partages-fsmgmtmsc" title="Permanent link"></a></h4>
+<ul>
+<li><strong>fsmgmt.msc</strong> : Composant MMC</li>
+<li>Virtualisation des partages actifs</li>
+<li>assistant de création de partages</li>
+<li>Vues <strong>Sessions</strong> et <strong>Fichiers Ouverts</strong></li>
+<li>Affichage des partages administratirs générés par le système</li>
+</ul>
+<p><img alt="illu4" src=".ressources/img/partage-02.png" /></p>
+<h4 id="en-ligne-de-commande">En ligne de commande<a class="headerlink" href="#en-ligne-de-commande" title="Permanent link"></a></h4>
+<h5 id="cmd_1">CMD<a class="headerlink" href="#cmd_1" title="Permanent link"></a></h5>
+<ul>
+<li><code>cmd&gt; net share</code> permet de lister et configurer les partages</li>
+</ul>
+<p>Exemple :</p>
+<div class="highlight"><pre>cmd&gt; net share commun=d:\Note_de_Service /grant:&quot;utilisateurs authentifiés&quot;,FULL
+</pre></div>
+
+<h5 id="powershell_4">Powershell<a class="headerlink" href="#powershell_4" title="Permanent link"></a></h5>
+<ul>
+<li>cmdlet équivalente : <code>ps&gt; New-SmbShare</code></li>
+</ul>
+<p>Exemple :</p>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">New-SmbShare</span> <span class="n">-Name</span> <span class="s2">&quot;VMSFiles&quot;</span> <span class="n">-Path</span> <span class="s2">&quot;C:\ClusterStorage\Volume1\VMFiles&quot;</span> <span class="n">-FullAccess</span> <span class="s2">&quot;Authenticated Users&quot;</span>
+</pre></div>
+
+<p>Types d&rsquo;accès disponibles:
+- <code>-FullAccess monUser</code>
+- <code>-ChangeAccess monUser</code>
+- <code>-ReadAccess monUser</code>
+- <code>-NoAccess monUser</code></p>
+<h4 id="demo-partage">Demo partage<a class="headerlink" href="#demo-partage" title="Permanent link"></a></h4>
+<div class="highlight"><pre>cmd&gt; net share
+cmd&gt; net share commun
+cmd&gt; net share commun /delete
+cmd&gt; net share commun=G:\demopartage /grant:utilisateurs,full
+</pre></div>
+
+<p>Même chose que :</p>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">New-SmbShare</span> <span class="n">-Name</span> <span class="s2">&quot;Commun&quot;</span> <span class="n">-Path</span> <span class="s2">&quot;G:\demopartage&quot;</span> <span class="n">-FullAccess</span> <span class="s2">&quot;Utilisateurs&quot;</span>
+</pre></div>
+
+<h3 id="session-a-distance">Session à Distance<a class="headerlink" href="#session-a-distance" title="Permanent link"></a></h3>
+<ul>
+<li>Accès distant au poste <ul>
+<li>avec <strong>Bureau à Distance</strong></li>
+<li>authentification avec un compte valide (local ou domaine)</li>
+<li>Nécessite des privilèges spécifiques</li>
+<li>Même niveau de fonctionnement qu&rsquo;une session locale</li>
+</ul>
+</li>
+<li>Utilisation courante<ul>
+<li>maintenance de serveur à distance</li>
+<li>accès à son poste de travail (VPN)</li>
+</ul>
+</li>
+<li>
+<p>Les Limites</p>
+<ul>
+<li>mode maintenance sur un poste client (pas d&rsquo;intéraction possible avec l&rsquo;utilisateur)</li>
+<li>sur les serveurs, seulement 2 sessions simultanées sont permises</li>
+</ul>
+</li>
+<li>
+<p>Connection via l&rsquo;outil <strong>Connexion Bureau à Distance</strong> (en ligne de commande : <strong>mstsc</strong>)</p>
+</li>
+<li>Connection en ligne de commande, ex. <strong>mstsc /v:serveur</strong></li>
+</ul>
+<p>Le poste cible a besoin d&rsquo;être configuré pour permettre le bureau à distance
+- activer l&rsquo;<strong>Assistance à distance</strong>
+    + Système &gt; menu Paramètres systeme avancés &gt; onglet Utilisation à distance
+- 2 niveaux d&rsquo;authentification : authentification standard ou authentification NLA
+- par défaut, l&rsquo;accès est autorisé pour les admin</p>
+<p>Il faut parfois aussi autoriser le protocole RDP dans le parefeu (port 3389). Voir la règle prédéfinie à activer dans le sens sortant et entrant.</p>
+<h3 id="tp11-partage-et-session-distante">TP11 - Partage et session distante<a class="headerlink" href="#tp11-partage-et-session-distante" title="Permanent link"></a></h3>
+<h4 id="win10_1">Win10<a class="headerlink" href="#win10_1" title="Permanent link"></a></h4>
+<ul>
+<li>Partager le dossier Echange, y qué s&rsquo;apélorio NeighborShare. Permettre aux voisins de modifier le contenu.</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-smbshare</span> <span class="n">-Name</span> <span class="s2">&quot;Echange&quot;</span> <span class="n">-Path</span> <span class="s2">&quot;F:\Echange&quot;</span> <span class="n">-ChangeAccess</span> <span class="s2">&quot;L_Voisins&quot;</span>
+</pre></div>
+
+<h4 id="win11_1">Win11<a class="headerlink" href="#win11_1" title="Permanent link"></a></h4>
+<h5 id="powershell_5">Powershell<a class="headerlink" href="#powershell_5" title="Permanent link"></a></h5>
+<ul>
+<li>Lister les partages disponibles </li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-smbshare</span>
+</pre></div>
+
+<ul>
+<li>Quel dossier de l&rsquo;arborescence du système est partagé par le nom <strong>ADMIN$</strong></li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-smbshare</span> <span class="n">ADMIN</span><span class="p">$</span>
+</pre></div>
+
+<ul>
+<li>Qui peut accéder au partage <strong>N$</strong></li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-SmbShareAccess</span> <span class="n">N</span><span class="p">$</span>
+</pre></div>
+
+<h5 id="bureau-a-distance">Bureau à Distance<a class="headerlink" href="#bureau-a-distance" title="Permanent link"></a></h5>
+<ul>
+<li>Activer le bureau à distance : 
+    <em>Systeme</em> &gt; <em>Bureau à distance</em> &gt; <em>Activer</em></li>
+<li>Permettre aux utilisateurs lebron et giannys d&rsquo;ouvrir une session RDP sur la vm win11
+    <em>Systeme</em> &gt; <em>Bureau à distance</em> &gt; <em>Utilisateur du BàD</em> &gt; <em>Ajouter</em> &gt; <em>nom utilisateur</em></li>
+</ul>
+<h2 id="mod-9-les-pilotes-et-les-imprimantes">Mod 9 - Les pilotes et les imprimantes<a class="headerlink" href="#mod-9-les-pilotes-et-les-imprimantes" title="Permanent link"></a></h2>
+<h3 id="pilotes">Pilotes<a class="headerlink" href="#pilotes" title="Permanent link"></a></h3>
+<ul>
+<li>Prise en charge du matériel<ul>
+<li>plug n play (prise en charge à chaud)</li>
+<li>non plug n play : necessite un redémarrage (plus rare)</li>
+</ul>
+</li>
+<li>Plusieurs mode de prise en charge<ul>
+<li>detection et installation automatique</li>
+<li>Detection et installation manuelle</li>
+</ul>
+</li>
+<li>
+<p>Affichage et paramétrage</p>
+<ul>
+<li>Outil <strong>Gestionnaire de périphérique</strong> (<strong>devmgmt.msc</strong>)</li>
+</ul>
+</li>
+<li>
+<p>Pour la gestion des composants matériel et logiciel</p>
+</li>
+<li>Spécifiques à chaque architecture, 32 bits &amp; 64 bits</li>
+</ul>
+<h4 id="pilotes-signes">Pilotes signés<a class="headerlink" href="#pilotes-signes" title="Permanent link"></a></h4>
+<ul>
+<li>Les pilotes signés sont privilégiés par Microsoft ou généré en suivant les procédures fournies par Microsoft</li>
+<li>Ils permettent de garantir la stabilité des systèmes </li>
+<li>Ils sont obligatoires pour les éditions 64 bits</li>
+</ul>
+<h4 id="principaux-fichiers">Principaux fichiers<a class="headerlink" href="#principaux-fichiers" title="Permanent link"></a></h4>
+<ul>
+<li><strong>.inf</strong>: définition du pilote au format texte</li>
+<li><strong>.sys</strong>: pilote lui-même</li>
+<li><strong>.cat</strong>: certificat fourni par Microsoft ou un tiers de confiance</li>
+<li><strong>.exe</strong>, <strong>.dll</strong>, <strong>.xml</strong>, etc. fichiers complémentaires selon les besoins</li>
+</ul>
+<h4 id="fonctionnement">Fonctionnement<a class="headerlink" href="#fonctionnement" title="Permanent link"></a></h4>
+<ul>
+<li>La prise en charge se fait à partir du fichier <strong>.inf</strong><ul>
+<li>directement depuis le fichier (clic-droit &gt; <strong>Installer</strong>)</li>
+<li>à partir d&rsquo;un assistant d&rsquo;installation (setup.exe) ou de mise à jour</li>
+</ul>
+</li>
+<li>Une fois installé, le pilote est mémorisé par le système<ul>
+<li>permet sa réinstallation automatique</li>
+<li>fichier INF dans <strong>C:\Windows\inf</strong>. Chaque pilote installé manuellement génère un fichier <strong>oemXX.inf</strong></li>
+<li>autres fichiers dans <strong>C:\Windows\system32</strong> et <strong>C:\Windows\sysWOW64</strong></li>
+</ul>
+</li>
+<li>Le magasin de pilotes Windows<ul>
+<li>pour une prise en charge immédiate du matériel (installation du systeme)</li>
+<li>emplacement : <strong>C:\Windows\System32\DriverStore</strong></li>
+<li>gestion du magasin en ligne de commande avec <strong>pnputil</strong> (utilitaire Plug N Play Microsoft)</li>
+</ul>
+</li>
+</ul>
+<h4 id="utilitaires-cmd">Utilitaires CMD<a class="headerlink" href="#utilitaires-cmd" title="Permanent link"></a></h4>
+<ul>
+<li><strong>msinfo32</strong>: pour le détail du matériel</li>
+<li><strong>driverquery</strong>: outil cmd pour lister les pilotes installés (voir TP)</li>
+<li><strong>pnputil</strong>: gestion du magasin de pilote (ajout, suppression, information)<ul>
+<li><code>pnputil /enum-driver</code> pour lister les pilotes tiers (<strong>oemXX.inf</strong>)</li>
+<li><code>pnputil /add-driver pilote.inf</code> pour ajouter un pilote au magasin</li>
+</ul>
+</li>
+</ul>
+<h3 id="gestionnaires-de-peripherique">Gestionnaires de périphérique<a class="headerlink" href="#gestionnaires-de-peripherique" title="Permanent link"></a></h3>
+<ul>
+<li>affichage des composants pris en charge et non pris en charge</li>
+<li>mettre à jour, désactiver, désinstaller</li>
+<li>fonctionnalités avancées: restaurer le pilote, informations détaillées, paramètre</li>
+</ul>
+<h3 id="imprimantes">Imprimantes<a class="headerlink" href="#imprimantes" title="Permanent link"></a></h3>
+<h4 id="imprimante-locale">Imprimante Locale<a class="headerlink" href="#imprimante-locale" title="Permanent link"></a></h4>
+<ul>
+<li>Directement reconnue par le système</li>
+<li>Utilisation d&rsquo;un pilote générique du magasin de pilote</li>
+<li>Possibilité d&rsquo;installer le pilote signé ddu constructeur pour plus de fonctionnalités</li>
+<li>Sécurité NTFS de l&rsquo;imprimante : <strong>Propriété de l&rsquo;imprimante</strong> &gt; onglet <strong>Sécurité</strong></li>
+</ul>
+<p>L&rsquo;imprimante locale est disponible via le composant du <strong>Panneau de configuration</strong>. Permet de visualiser la file d&rsquo;attente, éditer les propriétés de l&rsquo;imprimante, partager l&rsquo;imprimante local sur le réseau (onglet <strong>Partage</strong>).</p>
+<ul>
+<li>Partager l&rsquo;imprimante locale sur le réseau<ul>
+<li>dispo et utilisable depuis le réseau de l&rsquo;entreprise</li>
+<li>accessible depuis chemin UNC <strong>\serveur\imprimante</strong></li>
+<li><strong>Dispo si l&rsquo;ordi hôte est allumé</strong></li>
+<li>les droits NTFS s&rsquo;appliquent</li>
+</ul>
+</li>
+</ul>
+<h4 id="imprimante-reseau">Imprimante Réseau<a class="headerlink" href="#imprimante-reseau" title="Permanent link"></a></h4>
+<ul>
+<li>Les imprimantes sont généralement connectées au réseau de l&rsquo;entreprise</li>
+<li>Le service de rôle <strong>Serveur d&rsquo;impression</strong> pour <ul>
+<li>partager plusieurs imprimantes</li>
+<li>centraliser la gestion des imprimantes</li>
+<li>simplifier l&rsquo;accès et la gestion des imprimantes</li>
+</ul>
+</li>
+</ul>
+<p>Depuis le client : accès via le chemin UNC, puis connecter</p>
+<h4 id="le-spouleur-dimpression">Le spouleur d&rsquo;impression<a class="headerlink" href="#le-spouleur-dimpression" title="Permanent link"></a></h4>
+<ul>
+<li>gère la file d&rsquo;attente</li>
+<li>envoie les travaux d&rsquo;impression au périphérique d&rsquo;impression</li>
+<li>peut être déplacé via une clé de la base de registre</li>
+</ul>
+<h5 id="creer-un-spouler-dimpression">Créer un spouler d&rsquo;impression<a class="headerlink" href="#creer-un-spouler-dimpression" title="Permanent link"></a></h5>
+<ul>
+<li>imprimante connectée à plusieurs périphriques d&rsquo;impression</li>
+<li>distribuer automatiquement les travaux d&rsquo;impression à la prochaine imprimante disponible</li>
+<li>réduit les délais d&rsquo;attente des documents pour les utilisateurs</li>
+</ul>
+<h3 id="tp12-pilote-et-imprimante">TP12 - Pilote et Imprimante<a class="headerlink" href="#tp12-pilote-et-imprimante" title="Permanent link"></a></h3>
+<p><strong>Objectifs</strong>: Gérer les pilotes et les imprimantes</p>
+<h4 id="win10-avec-cmd">Win10 avec CMD<a class="headerlink" href="#win10-avec-cmd" title="Permanent link"></a></h4>
+<ul>
+<li>Générer la liste des pilotes détaillée au format csv, puis la liste des pilotes signés</li>
+</ul>
+<div class="highlight"><pre>cmd&gt; help driverquery
+cmd&gt; driverquery /FO CSV /V &gt; D:\pilotes_detailles.csv
+cmd&gt; driverquery /FO CSV /SI &gt; D:\pilotes_signes.csv
+</pre></div>
+
+<ul>
+<li><code>/FO</code> : format</li>
+<li><code>/V</code>  : détaillé, y compris les pilotes non signés</li>
+<li><code>/SI</code> : pilotes signés uniquement</li>
+</ul>
+<h4 id="win10-gui">Win10 GUI<a class="headerlink" href="#win10-gui" title="Permanent link"></a></h4>
+<ul>
+<li>afficher les infos détaillée sur le pilote graphique avec la console MMC adaptée (gestionnaire de périphériques). </li>
+<li>Retrouver le VENDOR_ID et le DEVICE_ID du périphérique.</li>
+</ul>
+<p><strong>Propriétés</strong> &gt; <strong>Détails</strong> &gt; <strong>ID Compatible</strong></p>
+<p><strong>AJOUTER SCREENCAP</strong></p>
+<h4 id="gestion-des-imprimantes">Gestion des imprimantes<a class="headerlink" href="#gestion-des-imprimantes" title="Permanent link"></a></h4>
+<ul>
+<li>
+<p>Quelles sont les 4 imprimantes dispo par défaut sur Win10 ?</p>
+<ul>
+<li>Fax, Microsoft to PDF, Microsoft XPS to Doc Writer, OneNote</li>
+</ul>
+</li>
+<li>
+<p>Depuis la VM Win10, se connecter à l&rsquo;imprimante partagée <strong>HP_LaserJet_Accueil_RDC_Bat2</strong> disponible via Discovery</p>
+<ul>
+<li>Allumé Discovery</li>
+<li>Récupérer son IP (10.54.101.43)</li>
+<li>Modifier/créér la clé de registre <strong>HKLM\System\CurrentControlSet\Control\Print</strong>, ajouter/modifer la clé DWORD32 RpcAuthnLevelPrivacyEnabled, la mettre à 0. C&rsquo;est dû aux MàJ windows qui perturbe les impressions. Voir <a href="https://www.it-connect.fr/windows-et-les-impressions-comment-corriger-lerreur/?nowprocket=1">https://www.it-connect.fr/windows-et-les-impressions-comment-corriger-lerreur/?nowprocket=1</a> </li>
+<li>Sur Win10, ajouter une imprimante</li>
+<li>entrer le chemin UNC (<code>\\10.54.10.43\HP_LaserJet_Accueil_RDC_Bat2</code>)</li>
+<li>entre les identifiant AD de Discovery.</li>
+<li>L&rsquo;imprimante sera dispo que si Discovery est allumée</li>
+</ul>
+</li>
+</ul>
+<h4 id="gestion-de-configurations-personnalisees">Gestion de configurations personnalisées<a class="headerlink" href="#gestion-de-configurations-personnalisees" title="Permanent link"></a></h4>
+<p>Sur Win11, en powershell, afficher les info par défaut concernant l&rsquo;imprimante &ldquo;HP Laserjet&rdquo;</p>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-printer</span> <span class="n">-name</span> <span class="s2">&quot;HP Laserjet&quot;</span> <span class="p">|</span> <span class="n">select</span> <span class="n">name</span><span class="p">,</span><span class="n">sharename</span><span class="p">,</span><span class="n">portname</span><span class="p">,</span><span class="n">location</span><span class="p">,</span><span class="n">priority</span>
+</pre></div>
+
+<h2 id="mod-10-la-maintenance-du-systeme">Mod 10 - La maintenance du système<a class="headerlink" href="#mod-10-la-maintenance-du-systeme" title="Permanent link"></a></h2>
+<ul>
+<li>Les outils de diagnostic</li>
+<li>Les points de restauration</li>
+<li>La récupération du système</li>
+</ul>
+<h3 id="outils-de-diagnostic">Outils de diagnostic<a class="headerlink" href="#outils-de-diagnostic" title="Permanent link"></a></h3>
+<p>Les méthodes disponibles
+- analyse en <strong>temps réel</strong>
+- analyse sur <strong>historique</strong> 
+- diagnostic <strong>automatique</strong> (proposé par Windows)</p>
+<p>Certains outils proposent de résoudre automatiquement les problèmes mais sans préciser la solution qui va être appliquée !</p>
+<h4 id="analyse-en-temps-reel">Analyse en temps réel<a class="headerlink" href="#analyse-en-temps-reel" title="Permanent link"></a></h4>
+<ul>
+<li><strong>Gestionnaire des tâches</strong> (taskmgr.exe) : processus, services, perf CPU &amp; RAM</li>
+<li><strong>Observateur d&rsquo;évènements</strong> (eventvwr.exe): tous les évènements enregistrés par le système</li>
+<li><strong>Moniteur de ressources</strong> (resmon.exe) : affichage détaillé pour les 4 composants principaux (Processeur, Mémoire, Disque, Réseau) </li>
+<li><strong>Analyseur de performance</strong> (perfmon.exe): affichage des performances à partir de compteurs</li>
+</ul>
+<h4 id="analyse-sur-un-historique">Analyse sur un historique<a class="headerlink" href="#analyse-sur-un-historique" title="Permanent link"></a></h4>
+<ul>
+<li><strong>Historique de fiabilité</strong>: vue synthétique de l&rsquo;état de santé du système dans le temps</li>
+<li><strong>Observateur d&rsquo;évènements</strong> (eventvwr.exe): les évènements sont mémorisés dans des journaux (fichiers de 20 Mo par défaut)</li>
+<li><strong>Analyseur de performance</strong> (perfmon.exe): permet de planifier des compteurs ddans des plages horaires pour une analyse a posteriori</li>
+</ul>
+<h4 id="diagnostique-automatique">Diagnostique automatique<a class="headerlink" href="#diagnostique-automatique" title="Permanent link"></a></h4>
+<ul>
+<li><strong>diagnostic de mémoire windows</strong>: redémarre automatiquement le système eet lance une serie de tests surla mémoire physique</li>
+<li>Composant <strong>Résolution de problème</strong> (<code>control.exe /name Microsoft.Troubleshooting</code>): série de packs de résolution de problèmes intégrés à Windows. Ils sont orientés utilisateur, il n&rsquo;est pas possible de choisir ou consulter la solution trouvée.</li>
+</ul>
+<h4 id="autres-sources">Autres sources<a class="headerlink" href="#autres-sources" title="Permanent link"></a></h4>
+<p>Tecnet, etc.</p>
+<h3 id="points-de-restauration">Points de restauration<a class="headerlink" href="#points-de-restauration" title="Permanent link"></a></h3>
+<p>Enregistrement des modifications du système
+- propose de les restaurer à un état antérieur
+- plus rapide qu&rsquo;une restauration complète
+- sauvegarde le registre, certains fichiers système et les programmes
+- ne sauvegarde pas les données
+- désactivé par défaut
+- s&rsquo;active sur un lecteur</p>
+<ul>
+<li>Outil disponible via <strong>sysdm.cpl</strong></li>
+<li>espace protégé alloué au stockage des points de restauration (méthode FIFO)</li>
+<li>restauration possible via WinRE</li>
+<li>Création des points de restaurations chaque jour + à chaque modification importante, ou manuellement</li>
+</ul>
+<h3 id="recuperation-du-systeme-winre">Récuperation du Système : WinRE<a class="headerlink" href="#recuperation-du-systeme-winre" title="Permanent link"></a></h3>
+<ul>
+<li>WinRE est un environnement de récupération de l&rsquo;OS principal de la machine</li>
+<li>OS, léger, de réparation du système orsquele principal ne peut plus démarrer</li>
+<li>embarque des outils de diagnostics et des outils de réparation</li>
+<li>Offre la possibilité de réinitialiser le PC (reinit, retour à la config d&rsquo;usine, etc.)</li>
+</ul>
+<h4 id="comment-lancer-winre">Comment lancer WinRE ?<a class="headerlink" href="#comment-lancer-winre" title="Permanent link"></a></h4>
+<ul>
+<li>Depuis le menu démarrer : <kbd>MAJ</kbd> + <kbd>Redémarrer</kbd></li>
+<li>En ligne de commande : <strong>shutdown /r /o</strong></li>
+<li>Menu <strong>Paramètres</strong> &gt; <strong>Mise à jour et sécurité</strong> &gt; <strong>Récupération</strong> &gt; <strong>Redémarrer maintenant</strong></li>
+<li>Depuis le support d&rsquo;installation, menu <strong>Réparer l&rsquo;ordinateur</strong></li>
+</ul>
+<h4 id="chargement-automatique">Chargement automatique<a class="headerlink" href="#chargement-automatique" title="Permanent link"></a></h4>
+<ul>
+<li>Après 2 échecs consécutifs du démarrage du système d&rsquo;exploitation</li>
+<li>Après 2 arrêts imprévus survenus moins de 2 minutes après le démarrage</li>
+</ul>
+<h4 id="options-avancees">Options Avancées<a class="headerlink" href="#options-avancees" title="Permanent link"></a></h4>
+<p><img alt="&quot;Récupération&quot;" src=".ressources/img/recuperation.png" /></p>
+<ul>
+<li>Restauration du système<ul>
+<li>utilisation d&rsquo;un point de restauration système</li>
+<li>privilège d&rsquo;administration requis</li>
+</ul>
+</li>
+<li>Récupération de l&rsquo;image systeme<ul>
+<li>utilisation d&rsquo;une sauvegarde de l&rsquo;image système valide &ldquo;si elle existe&rdquo;</li>
+<li>média source requis (DVD, disque dur, etc.)</li>
+</ul>
+</li>
+<li>Invite de commandes<ul>
+<li>pour utiliser des outils de diagnostic ou de réparation</li>
+<li><strong>cmd</strong> exécuté en tant qu&rsquo;administrateur</li>
+</ul>
+</li>
+<li>Restorer vers la version précédente<ul>
+<li>si win10 est une MAN, possibilité de retrouver Win7 ou Win8.1 source</li>
+<li>impossibilité de retrograder vers la build Win10 précédente</li>
+</ul>
+</li>
+<li>Paramètres<ul>
+<li>Redemarrage du poste et choix du démarrage spécifique (sans echec, mode vidéo basse résolution, désactiver le contrôle obligatoire des signatures de pilotes)</li>
+</ul>
+</li>
+<li>Outil de redémarrage système<ul>
+<li>Reconstruit/répare le MBR éventuellement manquant ou corrompu</li>
+<li>Reconstruit/répare le magasin BCD</li>
+</ul>
+</li>
+</ul>
+<h3 id="tp13-maintenance-systeme">TP13 - Maintenance Système<a class="headerlink" href="#tp13-maintenance-systeme" title="Permanent link"></a></h3>
+<p><strong>Objectifs</strong>: Connaître les bases de la maintenance du système</p>
+<h4 id="analyse-des-evenements">Analyse des évènements<a class="headerlink" href="#analyse-des-evenements" title="Permanent link"></a></h4>
+<p>Sur Win10, afficher et analyser les problèmes majeurs survenus sur le système</p>
+<ul>
+<li>depuis le démarrage de votre VM et de manière synthétique</li>
+<li>de manière détaillée sur le dernier évènement critique (si aucun évènement critique n&rsquo;est survenu, proceder à un arret brutal avec PowerOff dans Workstation)</li>
+</ul>
+<h4 id="analyse-en-temps-reel_1">Analyse en temps réel<a class="headerlink" href="#analyse-en-temps-reel_1" title="Permanent link"></a></h4>
+<ul>
+<li>Lancer plusieurs tâches: copier un gros fichier depuis le partage distrib, démarrer les applications console Powershell, taskmgr, Edge, etc.</li>
+<li>Avec les outils adaptés et en temps réel, rechercher les processus qui consomment le plus sur les 4 composants principaux</li>
+</ul>
+<h4 id="sauvegarde-de-letat-du-systeme-et-des-donnees">Sauvegarde de l&rsquo;état du système et des données<a class="headerlink" href="#sauvegarde-de-letat-du-systeme-et-des-donnees" title="Permanent link"></a></h4>
+<ul>
+<li>Vérifier la config de la Protection du système</li>
+<li>Verifier les points de restaurations dispo</li>
+<li>créer un point de restauration manuellement</li>
+<li>creer des fichiers dans le repertoire Documents de l&rsquo;utilisateur en cours d&rsquo;utilisation</li>
+<li>supprimer des composants installés sur le systme (Lecteur Windows Media, IE11)</li>
+</ul>
+<h4 id="restauration-du-systeme">Restauration du système<a class="headerlink" href="#restauration-du-systeme" title="Permanent link"></a></h4>
+<ul>
+<li>A l&rsquo;aide de WinRE, restaurez l&rsquo;état du système au dernier point de restauration. </li>
+<li>Retrouve-t-on les fichiers surpprimés ? (Non parce que ne sauvegarde pas les fichiers)</li>
+</ul>
+<h4 id="bonus">Bonus<a class="headerlink" href="#bonus" title="Permanent link"></a></h4>
+<ul>
+<li>Tenter une sauvegarde/restauration système avec l&rsquo;outil Veeam Endpoint disponible sur distrib</li>
+</ul>
+<h2 id="mod-11-plus-loin-avec-powershell">Mod 11 - Plus loin avec Powershell<a class="headerlink" href="#mod-11-plus-loin-avec-powershell" title="Permanent link"></a></h2>
+<p><strong>Objectifs</strong> :
+- Savoir rediriger les flux des cmdlets
+- Utiliser le pipeline
+- Filtrer puis formater le résultat</p>
+<h3 id="redirection">Redirection<a class="headerlink" href="#redirection" title="Permanent link"></a></h3>
+<ul>
+<li>entree standard <strong>stdin:0</strong> (par défaut le clavier)</li>
+<li>sortie standard <strong>stdout:1</strong> (par défaut l&rsquo;écran)</li>
+<li>sortie erreur standard <strong>stderr:2</strong> (par défaut l&rsquo;écran)</li>
+</ul>
+<p><strong>Redirection du flux de sortie standard</strong></p>
+<ul>
+<li><code>cmdlet &gt; foo.txt</code>, <code>cmdlet 1&gt; foo.txt</code> : redir vers fichier</li>
+<li><code>cmdlet &gt;&gt; foo.txt</code>, <code>cmdlet 1&gt;&gt; foo.txt</code> : redir à la fin du fichier</li>
+<li><code>cmdlet 2&gt; foo.txt</code> : redir vers fichier</li>
+<li><code>cmdlet 2&gt;&gt; foo.txt</code> : redir à la fin du fichier</li>
+<li><code>cmdlet &gt; foo.txt 2&gt;&amp;1</code> : redirige stdout et stderr vers le fichier</li>
+<li><code>cmdlet 2&gt;$null</code> : équivalent de <code>dostuff 2&gt; /dev/null</code></li>
+</ul>
+<h4 id="exemples">Exemples<a class="headerlink" href="#exemples" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span class="c"># Redirection du stdout vers un fichier</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-LocalUser</span> <span class="p">&gt;</span> <span class="n">foo</span><span class="p">.</span><span class="n">txt</span> 
+
+<span class="c"># Lecture d&#39;un fichier</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-Content</span> <span class="n">foo</span><span class="p">.</span><span class="n">txt</span>
+</pre></div>
+
+<h3 id="pipeline">Pipeline<a class="headerlink" href="#pipeline" title="Permanent link"></a></h3>
+<p>Le pipeline transmet le résultat de la sortie standard d&rsquo;une cmdlet à une entrée standard d&rsquo;une autre cmdlet.</p>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-NetAdapter</span> <span class="p">|</span> <span class="n">Select</span> <span class="n">Name</span><span class="p">,</span><span class="n">Status</span><span class="p">,</span><span class="n">LinkSpeed</span> <span class="p">|</span> <span class="nb">Format-List</span>
+</pre></div>
+
+<h3 id="filtre">Filtre<a class="headerlink" href="#filtre" title="Permanent link"></a></h3>
+<p>Permet de filtrer les nombreux éléments fournis par une pipeline. Prérequis: connaître les <strong>opérateurs de comparaison</strong>.</p>
+<p>Les Opérateurs de comparaison :
+- par défaut insensible à la casse
+- les prefixer de &ldquo;c&rdquo; pour les rendre sensibles
+- <strong>Get-Help about_comparison_operator</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">Comparaison</th>
+<th align="left">Insensible à la casse</th>
+<th align="left">Sensibilité à la casse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Egal</td>
+<td align="left">-eq</td>
+<td align="left">-ceq</td>
+</tr>
+<tr>
+<td align="left">Inégalité</td>
+<td align="left">-ne</td>
+<td align="left">-cne</td>
+</tr>
+<tr>
+<td align="left">Supérieur à</td>
+<td align="left">-gt</td>
+<td align="left">-cgt</td>
+</tr>
+<tr>
+<td align="left">Sup ou égal à</td>
+<td align="left">-ge</td>
+<td align="left">-cge</td>
+</tr>
+<tr>
+<td align="left">Inférieur</td>
+<td align="left">-lt</td>
+<td align="left">-clt</td>
+</tr>
+<tr>
+<td align="left">Inf ou égal à</td>
+<td align="left">-le</td>
+<td align="left">-cle</td>
+</tr>
+<tr>
+<td align="left">Comparaison d&rsquo;égalité d&rsquo;expression</td>
+<td align="left">-like</td>
+<td align="left">-clike</td>
+</tr>
+<tr>
+<td align="left">Comparaison d&rsquo;inégalité d&rsquo;expression</td>
+<td align="left">-notlike</td>
+<td align="left">-cnotlike</td>
+</tr>
+</tbody>
+</table>
+<h4 id="filtrage-basique">Filtrage basique<a class="headerlink" href="#filtrage-basique" title="Permanent link"></a></h4>
+<ul>
+<li>Ne peut filtrer qu&rsquo;une seule propriété</li>
+<li>Nécessité la cmdlet <strong>Where-Object</strong></li>
+<li>Ex. <strong>Get-NetAdapter | select Name,Status,Linkspeed</strong></li>
+<li>Ex. <strong>Get-NetAdapter | select Name,Status,Linkspeed | Where Status -like Up</strong></li>
+</ul>
+<h4 id="filtrage-avance">Filtrage avancé<a class="headerlink" href="#filtrage-avance" title="Permanent link"></a></h4>
+<ul>
+<li>Pour filtrer plusieurs propriétés</li>
+<li>Nécessité aussi la cmdlet <strong>Where-Object</strong></li>
+<li>Nécessité un script de filtrage <strong>-FilterScript {}</strong> dans la cmdlet <strong>Where-Object</strong></li>
+<li>Possibilité d&rsquo;utiliser la variable <strong>$PSITEM</strong> (ou <strong>$_</strong>) pour être plus productif</li>
+<li><strong>$_</strong> contient tous les objets transmis à <strong>Where-Object</strong></li>
+</ul>
+<p><strong>Exemples</strong></p>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-NetAdapter</span> <span class="p">|</span> <span class="n">select</span> <span class="n">Name</span><span class="p">,</span><span class="n">Status</span><span class="p">,</span><span class="n">Linkspeed</span> <span class="p">|</span> <span class="n">Where</span> <span class="n">-FilterScript</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">Status</span> <span class="o">-like</span> <span class="s2">&quot;Up&quot;</span> <span class="o">-and</span> <span class="nv">$_</span><span class="p">.</span><span class="n">LinkSpeed</span> <span class="o">-gt</span> <span class="s2">&quot;100 Mbps&quot;</span><span class="p">}</span>
+</pre></div>
+
+<h3 id="formatage">Formatage<a class="headerlink" href="#formatage" title="Permanent link"></a></h3>
+<p>Par défaut, Powershell &ldquo;formate&rdquo; les résultats des cmdlets avant de les afficher à l&rsquo;écran. Le format peut être modifié à l&rsquo;aide des cmdlets suivantes :
+- <strong>Format-List</strong>
+- <strong>Format-Table</strong>
+- <strong>Format-Wide</strong></p>
+<p>Ces cmdlet sont à mettre en dernier lieu. </p>
+<ul>
+<li>Affichage sous forme de liste</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-Service</span> <span class="p">|</span> <span class="nb">Format-List</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-Service</span> <span class="p">|</span> <span class="nb">Format-List</span> <span class="n">-Property</span> <span class="p">*</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-Service</span> <span class="p">|</span> <span class="n">FL</span> <span class="n">-Property</span> <span class="n">Name</span><span class="p">,</span><span class="n">Status</span><span class="p">,</span><span class="n">DisplayName</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-Service</span> <span class="p">|</span> <span class="n">select</span> <span class="n">Name</span><span class="p">,</span><span class="n">Status</span><span class="p">,</span><span class="n">DisplayName</span> <span class="p">|</span> <span class="n">FL</span>    <span class="c"># equivalent</span>
+</pre></div>
+
+<ul>
+<li>Affichage sous forme de tableau</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-TimeZone</span> <span class="p">|</span> <span class="nb">Format-Table</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-TimeZone</span> <span class="p">|</span> <span class="nb">Format-Table</span> <span class="n">-Property</span> <span class="p">*</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-TimeZone</span> <span class="p">|</span> <span class="n">FT</span> <span class="n">-Property</span> <span class="n">DisplayName</span><span class="p">,</span><span class="n">StandardName</span> <span class="n">-autosize</span>
+</pre></div>
+
+<ul>
+<li>Affichage sous forme de liste élargie<ul>
+<li>Afficher une liste sur une ou plusieurs colonnes</li>
+<li>une seule propriété de la collection d&rsquo;objet est séléctionnée</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-Process</span> <span class="p">|</span> <span class="nb">Format-Wide</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-Process</span> <span class="p">|</span> <span class="nb">Format-Wide</span> <span class="n">-Property</span> <span class="n">ID</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-Process</span> <span class="p">|</span> <span class="n">FW</span> <span class="n">-Property</span> <span class="n">ID</span> <span class="n">-column</span> <span class="n">5</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-Process</span> <span class="p">|</span> <span class="n">FW</span> <span class="n">-Property</span> <span class="n">ID</span> <span class="n">-autosize</span>
+</pre></div>
+
+<h3 id="tp14-plus-loin-avec-powershell">TP14 - Plus loin avec Powershell<a class="headerlink" href="#tp14-plus-loin-avec-powershell" title="Permanent link"></a></h3>
+<h4 id="win10-afficher-les-proprietes">Win10 - Afficher les propriétés<a class="headerlink" href="#win10-afficher-les-proprietes" title="Permanent link"></a></h4>
+<ul>
+<li>Afficher la date du jour, puis le quantième de l&rsquo;année (numéro du jour)</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-date</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-date</span> <span class="p">|</span> <span class="n">select</span> <span class="n">dayofyear</span>
+</pre></div>
+
+<ul>
+<li>Afficher la liste des évènements ayant été enregistrés dans le journal <strong>security</strong></li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-eventlog</span> <span class="n">security</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-eventlog</span> <span class="n">-LogName</span> <span class="n">security</span>
+</pre></div>
+
+<ul>
+<li>Afficher l&rsquo;event dont l&rsquo;EventId est 4624</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-eventlog</span> <span class="n">security</span> <span class="p">|</span> <span class="n">where</span> <span class="n">eventid</span> <span class="o">-eq</span> <span class="n">4624</span>
+</pre></div>
+
+<ul>
+<li>Afficher l&rsquo;event d&rsquo;id 4624 en ne montrant que l&rsquo;eventid, la date d&rsquo;écriture de l&rsquo;event et le message</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-eventlog</span> <span class="n">security</span> <span class="p">|</span> <span class="n">where</span> <span class="n">eventid</span> <span class="o">-eq</span> <span class="n">4624</span> <span class="p">|</span> <span class="n">fl</span> <span class="n">-Property</span> <span class="n">EventID</span><span class="p">,</span> <span class="n">TimeWritten</span><span class="p">,</span> <span class="n">Message</span>
+</pre></div>
+
+<ul>
+<li>Afficher la liste des règles de pare-feu activées</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-NetFirewallRule</span> <span class="n">-enabled</span> <span class="n">true</span>                 <span class="c"># version courte</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-NetFirewallRule</span> <span class="p">|</span> <span class="n">where</span> <span class="n">enabled</span> <span class="o">-like</span> <span class="n">true</span>    <span class="c"># version longue</span>
+</pre></div>
+
+<ul>
+<li>Afficher les règles de pare-feu activées en ne montrant que leurs noms, le profil réseau à laquelle elles appartiennent, leur directions et si elles autorisent l&rsquo;accès ou non</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-NetFirewallRule</span> <span class="n">-enabled</span> <span class="n">true</span> <span class="p">|</span> <span class="n">select</span> <span class="n">DisplayName</span><span class="p">,</span> <span class="n">Profile</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Action</span>
+</pre></div>
+
+<h4 id="win11-afficher-des-proprietes-selon-plusieurs-criteres">Win11 - Afficher des propriétés selon plusieurs critères<a class="headerlink" href="#win11-afficher-des-proprietes-selon-plusieurs-criteres" title="Permanent link"></a></h4>
+<ul>
+<li>Afficher la liste des volumes qui possèdent plus de 8 Go d&rsquo;espace libre</li>
+</ul>
+<p><div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-volume</span> <span class="p">|</span> <span class="n">where</span> <span class="n">SizeRemaining</span> <span class="o">-gt</span> <span class="s2">&quot;8GB&quot;</span>
+</pre></div>
+<strong>Notes</strong>: Attention &ldquo;8GB&rdquo;=ok mais &ldquo;8 GB&rdquo; pas ok ! Pas mettre d&rsquo;espace.</p>
+<ul>
+<li>Afficher la liste des volumes dont la taille maximum ne dépasse pas 25 Go</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-volume</span> <span class="p">|</span> <span class="n">where</span> <span class="n">size</span> <span class="o">-lt</span> <span class="s2">&quot;25GB&quot;</span> 
+</pre></div>
+
+<ul>
+<li>Afficher la liste des volumes qui possèdent plus de 8 Go d&rsquo;espace libre et dont la taille maximale ne dépasse pas 25 Go</li>
+</ul>
+<div class="highlight"><pre><span class="c"># Methode sûre mais longuette</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-volume</span> <span class="p">|</span> <span class="n">where</span> <span class="n">-filterscript</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">size</span> <span class="o">-lt</span> <span class="s2">&quot;25GB&quot;</span> <span class="o">-and</span> <span class="nv">$_</span><span class="p">.</span><span class="n">sizeremaining</span> <span class="o">-gt</span> <span class="s2">&quot;8GB&quot;</span><span class="p">}</span>
+
+<span class="c"># C&#39;est un AND donc on peut aussi enchaîner les pipelines</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-volume</span> <span class="p">|</span> <span class="n">where</span> <span class="n">size</span> <span class="o">-lt</span> <span class="s2">&quot;25GB&quot;</span> <span class="p">|</span> <span class="n">where</span> <span class="n">SizeRemaining</span> <span class="o">-gt</span> <span class="s2">&quot;8GB&quot;</span>
+</pre></div>
+
+<ul>
+<li>Même commande mais l&rsquo;afficher que le nom, la lettre du lecteur et le type de systeme de fichier. Le tout sous forme de liste.</li>
+</ul>
+<p><div class="highlight"><pre><span class="c"># Methode sûre mais longuette</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-volume</span> <span class="p">|</span> <span class="n">where</span> <span class="n">-filterscript</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">size</span> <span class="o">-lt</span> <span class="s2">&quot;25GB&quot;</span> <span class="o">-and</span> <span class="nv">$_</span><span class="p">.</span><span class="n">sizeremaining</span> <span class="o">-gt</span> <span class="s2">&quot;8GB&quot;</span><span class="p">}</span> <span class="p">|</span> <span class="n">fl</span> <span class="n">-Property</span> <span class="n">FileSystemLabel</span><span class="p">,</span> <span class="n">DriveLetter</span><span class="p">,</span> <span class="n">FileSystemType</span>
+
+<span class="c"># C&#39;est un AND donc on peut aussi enchaîner les pipelines</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-volume</span> <span class="p">|</span> <span class="n">where</span> <span class="n">size</span> <span class="o">-lt</span> <span class="s2">&quot;25GB&quot;</span> <span class="p">|</span> <span class="n">where</span> <span class="n">SizeRemaining</span> <span class="o">-gt</span> <span class="s2">&quot;8GB&quot;</span> <span class="p">|</span> <span class="n">fl</span> <span class="n">-Property</span> <span class="n">FileSystemLabel</span><span class="p">,</span> <span class="n">DriveLetter</span><span class="p">,</span> <span class="n">FileSystemType</span>
+</pre></div>
+<strong>Note</strong>: un select avec les noms des propriétés ne fonctionne pas, il faudrait ajouter size et SizeRemaining au select pour que ça marche&hellip; Peut-être placer le select en bout de chaîne à la place du fl ?</p>
+<ul>
+<li>Afficher le nom et le status des services qui sont actuellement démarrés et qui démarrent automatiquement au lancement de l&rsquo;OS</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-service</span> <span class="p">|</span> <span class="n">select</span> <span class="n">name</span><span class="p">,</span><span class="n">status</span><span class="p">,</span><span class="n">starttype</span> <span class="p">|</span> <span class="n">where</span> <span class="n">status</span> <span class="o">-like</span> <span class="s2">&quot;running&quot;</span> <span class="p">|</span> <span class="n">where</span> <span class="n">starttype</span> <span class="o">-like</span> <span class="s2">&quot;automatic&quot;</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-service</span> <span class="p">|</span> <span class="n">where</span> <span class="n">-filterScript</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">status</span> <span class="o">-like</span> <span class="s2">&quot;running&quot;</span> <span class="o">-and</span> <span class="nv">$_</span><span class="p">.</span><span class="n">starttype</span> <span class="o">-like</span> <span class="s2">&quot;automatic&quot;</span><span class="p">}</span> <span class="p">|</span> <span class="n">fl</span> <span class="n">-Property</span> <span class="n">name</span><span class="p">,</span><span class="n">status</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-service</span> <span class="p">|</span> <span class="n">where</span> <span class="n">status</span> <span class="o">-like</span> <span class="s2">&quot;running&quot;</span> <span class="p">|</span> <span class="n">where</span> <span class="n">starttype</span> <span class="o">-like</span> <span class="s2">&quot;automatic&quot;</span> <span class="p">|</span> <span class="n">fl</span> <span class="n">-Property</span> <span class="n">name</span><span class="p">,</span><span class="n">status</span>
+</pre></div>
+
+<h3 id="bonus-sur-win11">Bonus sur Win11<a class="headerlink" href="#bonus-sur-win11" title="Permanent link"></a></h3>
+<ul>
+<li>Afficher les membres et leur SID du groupe <strong>L_HA_Ventes</strong></li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-LocalGroupMember</span> <span class="p">|</span> <span class="n">select</span> <span class="n">name</span><span class="p">,</span><span class="n">sid</span>
+</pre></div>
+
+<ul>
+<li>Afficher le nom et le chemin des partages administratifs sous forme de liste</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-SMBShare</span> <span class="p">|</span> <span class="n">Select</span> <span class="n">Name</span><span class="p">,</span><span class="n">Path</span> <span class="n">Where</span> <span class="o">-like</span> <span class="p">*$</span>
+</pre></div>
+
+<ul>
+<li>Afficher la lettre de lecteur, le type de lecteur et l&rsquo;état de santé des volumes dont l&rsquo;état est sain et de type CD-Rom</li>
+</ul>
+<div class="highlight"><pre><span class="c"># Pipelines</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-volume</span> <span class="p">|</span> <span class="n">where</span> <span class="n">DriveType</span> <span class="o">-like</span> <span class="s2">&quot;cd-rom&quot;</span> <span class="p">|</span> <span class="n">where</span> <span class="n">healthstatus</span> <span class="o">-like</span> <span class="s2">&quot;healthy&quot;</span> <span class="p">|</span> <span class="n">fl</span> <span class="n">-Property</span> <span class="n">DriveLetter</span><span class="p">,</span><span class="n">DriveType</span><span class="p">,</span><span class="n">HealthStatus</span>
+
+<span class="c"># Filter</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-Volume</span> <span class="p">|</span> <span class="n">Where</span> <span class="n">-FilterScript</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">DriveType</span> <span class="o">-eq</span> <span class="s1">&#39;CD-ROM&#39;</span> <span class="o">-and</span> <span class="nv">$_</span><span class="p">.</span><span class="n">HealthStatus</span> <span class="o">-eq</span> <span class="s1">&#39;Healthy&#39;</span><span class="p">}</span> <span class="p">|</span> <span class="n">Select</span> <span class="n">DriveLetter</span><span class="p">,</span><span class="n">DriveType</span><span class="p">,</span><span class="n">HealthStatus</span>
+</pre></div>
+
+<ul>
+<li>Afficher le nom, le type, le nom du pilote et le nom du partage de l&rsquo;imprimante <strong>HP LaserJet</strong>, le tout sous forme de liste</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-printer</span> <span class="s2">&quot;HP LaserJet&quot;</span> 
+
+<span class="c"># Correction</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Get-Printer</span> <span class="p">*</span><span class="n">Laser</span><span class="p">*</span> <span class="p">|</span> <span class="n">FL</span> <span class="n">Name</span><span class="p">,</span><span class="n">Type</span><span class="p">,</span><span class="n">DriverName</span><span class="p">,</span><span class="n">ShareName</span>
+</pre></div>
+
+<h3 id="bonus-2-nombre-de-commandes-disponibles">Bonus 2 Nombre de commandes disponibles<a class="headerlink" href="#bonus-2-nombre-de-commandes-disponibles" title="Permanent link"></a></h3>
+<ul>
+<li>Quelle cmdlet permet de mesurer le nombre d&rsquo;objets renvoyé par une autre cmdlet : <strong>measure-object</strong></li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="p">...</span> <span class="p">|</span> <span class="n">measure</span> <span class="p">[</span><span class="n">-Line</span><span class="p">|</span><span class="n">-Word</span><span class="p">|</span><span class="n">etc</span><span class="p">.]</span>
+</pre></div>
+
+<ul>
+<li>Combien de cmdlets sont actuellement dispo dans powershell</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span> <span class="p">|</span> <span class="n">where</span> <span class="n">CommandType</span> <span class="o">-like</span> <span class="n">cmdlet</span> <span class="p">|</span> <span class="n">measure</span> <span class="n">-line</span>
+<span class="n">665</span>
+</pre></div>
+
+<ul>
+<li>Afficher les 10 dernières entrées du journal d&rsquo;events système</li>
+</ul>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-WinEvent</span> <span class="n">-LogName</span> <span class="s2">&quot;System&quot;</span> <span class="n">-maxevents</span> <span class="n">10</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-EventLog</span> <span class="n">-LogName</span> <span class="s2">&quot;System&quot;</span> <span class="n">-maxevents</span> <span class="n">10</span> 
+</pre></div>
+
+<h2 id="mod-12-intro-a-la-capture-et-au-deploiement-dimage">Mod 12 - Intro à la capture et au déploiement d&rsquo;image<a class="headerlink" href="#mod-12-intro-a-la-capture-et-au-deploiement-dimage" title="Permanent link"></a></h2>
+<p><strong>Objectifs</strong></p>
+<ul>
+<li>Introduction à l&rsquo;industrialisation de l&rsquo;utilisation de Windows</li>
+<li>Créer un système modèle</li>
+<li>Déployer des clones</li>
+</ul>
+<h3 id="problematique">Problématique<a class="headerlink" href="#problematique" title="Permanent link"></a></h3>
+<ul>
+<li>Recherche de productivité dans le SI<ul>
+<li>avoir un parc homogène pour réduire les configurations</li>
+<li>avoir un ensemble d&rsquo;OS homogènes pour réduire le maintien</li>
+<li>posséder des OS clés en main pour les nouvelles installations</li>
+</ul>
+</li>
+<li>Solution : posséder des images de références</li>
+</ul>
+<h3 id="preparation-du-master">Préparation du master<a class="headerlink" href="#preparation-du-master" title="Permanent link"></a></h3>
+<ul>
+<li>Installation du poste de référence</li>
+<li>Configuration initiale de son OS</li>
+<li>Installation d&rsquo;applications validées par la DSI</li>
+<li>Préparation pour le clonage avec l&rsquo;outil <strong>sysrep</strong></li>
+</ul>
+<h3 id="sysrep">Sysrep<a class="headerlink" href="#sysrep" title="Permanent link"></a></h3>
+<p>Pour rendre les postes uniques dans l&rsquo;entreprise :
+- les paramètres personnalisés du Master sont remis à zéro
+- une version par générations de systèmes
+- outils graphiques et en ligne de commande</p>
+<h4 id="parametres-necessaires">Paramètres nécessaires<a class="headerlink" href="#parametres-necessaires" title="Permanent link"></a></h4>
+<ul>
+<li><strong>OOBE</strong> (Out-of-the-box Experience) : intéraction utilisateur au redémarrage</li>
+<li><strong>Généraliser</strong></li>
+<li><strong>Arrêter le système</strong></li>
+</ul>
+<p><strong>En ligne de commande</strong></p>
+<div class="highlight"><pre>cmd&gt; C:\Windows\System32\sysprep\sysprep.exe /oobe /generalize /shutdown
+
+cmd&gt; sysprep.exe /oobe /generalize /shutdown
+</pre></div>
+
+<h4 id="en-complement">En complément<a class="headerlink" href="#en-complement" title="Permanent link"></a></h4>
+<ul>
+<li><strong>Audit</strong> : pré-paramétrages spécifiques au poste avant OOBE</li>
+<li><strong>Journaux</strong> consultables après redémarrage dans les répertoires <strong>Panther</strong> (dans <kbd>C:\Windows\System32\Sysprep</kbd>, fichiers TXT et EVT)</li>
+</ul>
+<p><strong>INSERER CAPTURE DU COURS P.104</strong></p>
+<h4 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link"></a></h4>
+<p>Sysprep est&hellip;</p>
+<ul>
+<li>incompatible avec toutes les configurations (certains rôles serveur, jonction, etc.)</li>
+<li>incompatible avec des Apps installées depuis le Microsoft Store</li>
+<li>Pilotes installés manuellement <ul>
+<li>supprimés par défaut par sysprep</li>
+<li>non supprimés avec le paramètre <strong>/PersistAllDeviceInstalls</strong> en ligne de commande</li>
+</ul>
+</li>
+<li>Les comptes utilisateurs ne sont pas supprimés par sysprep</li>
+<li>Activez et utilisez le compte administrateur pour un paramètrage plus précis (il sera réinitialisé par sysprep)</li>
+</ul>
+<h3 id="exploitation-du-master">Exploitation du master<a class="headerlink" href="#exploitation-du-master" title="Permanent link"></a></h3>
+<p>Une fois le système de référence éteint :</p>
+<ul>
+<li>Ne pas redémarrer avant d&rsquo;avoir capturé l&rsquo;image du système !</li>
+<li>Récupérer l&rsquo;image systme grâce au serveur de déploiement <ul>
+<li>méthode automatisée</li>
+<li>amorçage PXE</li>
+<li>images d&rsquo;amorçage à disposition sur le serveur de déploiement</li>
+<li>déploiement possible grâce au serveur</li>
+</ul>
+</li>
+<li>Récupérer l&rsquo;image système grâce à <strong>dism</strong><ul>
+<li>Méthode manuelle </li>
+<li>nécessite un support <strong>WinPE amorçable</strong> (DVD, Clé USB, etc.)</li>
+<li>Léger, contient des outils spécifiques pour la capture et le déploiement</li>
+<li>commande puissante</li>
+</ul>
+</li>
+<li>Mise à jour des images<ul>
+<li>possible en mode &ldquo;déconnecté&rdquo; (<em>offline</em>) avec le format WIM et l&rsquo;outil en ligne de commande <strong>dism</strong> (présent dans WinPE et dans Windows)</li>
+</ul>
+</li>
+<li>Le poste cible est-il prêt<ul>
+<li>des outils microsoft permettent d&rsquo;évaluer la comptabilité du matériel et des logiciels cibles (Conseiller de mise à niveau, <em>Application Comptability Toolkit</em>, etc.)</li>
+<li>WinPE comprend des outils de préparation (<strong>diskpart</strong>, <strong>mount</strong>, <strong>drvload</strong>, <strong>net use</strong>, <strong>powershell</strong>, etc.)</li>
+</ul>
+</li>
+</ul>
+<h3 id="deploiement">Déploiement<a class="headerlink" href="#deploiement" title="Permanent link"></a></h3>
+<ul>
+<li>Automatisé grâce au serveur de déploiement<ul>
+<li>déploiement en masse</li>
+<li>démarrer les postes sur le réseau (<strong>Boot PXE</strong>)</li>
+<li>les clients requêtent puis se connectent au serveur de déploiement (ici <strong>WDS</strong>)</li>
+<li>choix de l&rsquo;image à déployer</li>
+</ul>
+</li>
+<li>Manuel grâce à <strong>dism</strong><ul>
+<li>déploiement au cas par cas</li>
+<li>démarrer les postes sur le support amorçable WinPE</li>
+<li>partitionnement du stockage d&rsquo;accueil</li>
+</ul>
+</li>
+</ul>
+<h3 id="tp15-introduction-a-la-capture-et-au-deploiement">TP15 - Introduction à la capture et au déploiement<a class="headerlink" href="#tp15-introduction-a-la-capture-et-au-deploiement" title="Permanent link"></a></h3>
+<p><strong>Objectifs</strong>: Connaître les principes de capture et de déploiement d&rsquo;image Windows.</p>
+<h4 id="preparation-win10">Préparation Win10<a class="headerlink" href="#preparation-win10" title="Permanent link"></a></h4>
+<ul>
+<li>Activer le compte utilisateur <strong>Administrateur</strong> et lui fixer un mot de passe.</li>
+<li>Fermer la session actuelle et ouvrir une session avec le compte Administrateur</li>
+<li>Effectuer un snapshot de sauvegarde avant de faire les manipulations suivantes</li>
+<li>Supprimer tous les utilisateurs créés au cours du TP08 qui traitait des utilisateurs et des groupes. Y compris l&rsquo;utilisateur créé lors de l&rsquo;installation. </li>
+<li>Supprimer aussi leur profil  (?)
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">remove-localuser</span> <span class="n">monUser</span>
+</pre></div></li>
+<li>Procéder à un <strong>sysprep</strong> généralisé en mode OOBE suivi d&rsquo;une extinction de la machine
+<div class="highlight"><pre><span class="n">cmd</span><span class="p">&gt;</span> <span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Windows</span><span class="p">\</span><span class="n">system32</span><span class="p">\</span><span class="n">SysPrep</span><span class="p">\</span><span class="n">sysprep</span><span class="p">.</span><span class="n">exe</span> <span class="p">/</span><span class="n">oobe</span> <span class="p">/</span><span class="n">generalize</span> <span class="p">/</span><span class="n">shutdown</span> 
+</pre></div></li>
+</ul>
+<h4 id="creation-dun-clone-de-la-machine-de-reference">Création d&rsquo;un clone de la machine de référence<a class="headerlink" href="#creation-dun-clone-de-la-machine-de-reference" title="Permanent link"></a></h4>
+<p>Dans WorkStation, créer un clone de la vm Win10-RL :
+- <strong>full clone</strong>, dans son <strong>état actuel</strong>
+- sauvegarder dans dossier des vm, dans un dossier <strong>Win10-RL-Clone</strong></p>
+<h4 id="configuration-observation-du-clone">Configuration / Observation du clone<a class="headerlink" href="#configuration-observation-du-clone" title="Permanent link"></a></h4>
+<ul>
+<li>Allumer la vm Win10-RL </li>
+<li>Appliquer le dernier snapshot</li>
+<li>Allumer la vm Win10-RL-Clone</li>
+<li>Procéder à sa configuration initiale</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">Originale</th>
+<th align="left">Clone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Vmware Tools présents ?</td>
+<td align="left">Oui</td>
+<td align="left">Oui</td>
+</tr>
+<tr>
+<td align="left">Nom de la machine</td>
+<td align="left">WIN10-RL</td>
+<td align="left">DESKTOP-GIRGV4F</td>
+</tr>
+<tr>
+<td align="left">Nb de volumes</td>
+<td align="left">5</td>
+<td align="left">5</td>
+</tr>
+<tr>
+<td align="left">Nb users dans la base SAM</td>
+<td align="left">6</td>
+<td align="left">1 (celui crée à l&rsquo;init)</td>
+</tr>
+<tr>
+<td align="left">Adresse IP</td>
+<td align="left">ip fixe attribuée dans TP</td>
+<td align="left">ip attribuée par DHCP</td>
+</tr>
+<tr>
+<td align="left">Date et heure du dernier event système</td>
+<td align="left">date install TP1</td>
+<td align="left">Date démarrage du clone</td>
+</tr>
+<tr>
+<td align="left">Nb de point de restauration</td>
+<td align="left">Activé dans TP</td>
+<td align="left">Désactivée par défaut</td>
+</tr>
+<tr>
+<td align="left">Compte Admin activé ?</td>
+<td align="left">Oui</td>
+<td align="left">Non</td>
+</tr>
+<tr>
+<td align="left">Pilote de l&rsquo;imprimante HP LaserJet</td>
+<td align="left">Oui</td>
+<td align="left">Non</td>
+</tr>
+<tr>
+<td align="left">Règle entrant IMCP</td>
+<td align="left">Oui</td>
+<td align="left">Oui</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bonus-les-strategies-de-groupe-local">Bonus - Les stratégies de groupe local<a class="headerlink" href="#bonus-les-strategies-de-groupe-local" title="Permanent link"></a></h2>
+<p>Les stratégies de groupe local permettent de personnaliser l&rsquo;environnement des utilisateurs, de personnaliser Windows 10, et de sécuriser le système.</p>
+<ul>
+<li>La base de registre Windows <ul>
+<li>base de données hiérarchique et centrale</li>
+<li><strong>stocke toutes les informations de configuration du système</strong> pour un ou plusieurs utilisateurs, programmes et périphériques matériels</li>
+<li>utilisée depuis Windows 98</li>
+<li>contient des milliers de paramètres</li>
+</ul>
+</li>
+<li>Lors de son execution, Windows consulte en permanence les informations contenues dans le Registre</li>
+<li>Consultation et modification du registre: commande <strong>regedit</strong></li>
+<li><strong>Careful now!</strong></li>
+</ul>
+<h3 id="la-base-de-registre">La base de registre<a class="headerlink" href="#la-base-de-registre" title="Permanent link"></a></h3>
+<p>Les paramètres sont regroups en 5 catégories (ou <strong>ruches</strong>)</p>
+<table>
+<thead>
+<tr>
+<th align="left">Ruche/Cat.</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">HKEY_CLASSES_ROOT</td>
+<td align="left">Information sur les application (objets OLE, extensions)</td>
+</tr>
+<tr>
+<td align="left">HKEY_CURRENT_USER</td>
+<td align="left">Configuration relative à l&rsquo;utilisateur qui a ouvert la session</td>
+</tr>
+<tr>
+<td align="left">HKEY_LOCAL_MACHINE</td>
+<td align="left">Informations de configuration spécifiques à la machine</td>
+</tr>
+<tr>
+<td align="left">HKEY_USERS</td>
+<td align="left">Tous les profils utilisateurs chargés activement sur le PC</td>
+</tr>
+<tr>
+<td align="left">HKEY_CURRENT_CONFIG</td>
+<td align="left">Profile matériel utilisé par l&rsquo;ordinateur</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lgpo-local-group-policy-object">LGPO - Local Group Policy Object<a class="headerlink" href="#lgpo-local-group-policy-object" title="Permanent link"></a></h3>
+<p>Gérer le comportement du poste de travail et des utilisateurs avec une seule et même console</p>
+<ul>
+<li>console <strong>mmc</strong> personnalisé composant logiciel enfichable</li>
+<li><strong>éditeur d&rsquo;objets de stratégie de groupe</strong></li>
+<li>console <strong>mmc</strong> <strong>Stratégie de sécurité locale</strong> (outil <strong>secpol.msc</strong>) </li>
+<li>Réduire le temps consacré à la gestion du poste de travail</li>
+<li>Agir sur la base de registre de façon plus conviviale</li>
+</ul>
+<p>Concrètement, que peut-on faire par LGPO ?</p>
+<ul>
+<li>modifier les stratégies de mots de passe</li>
+<li>agir sur les privilèges d&rsquo;administration du système</li>
+<li>uniformiser l&rsquo;aspet du poste de travail (bureau, barre des tâches)</li>
+<li>restreindre l&rsquo;accès à certains paramètres (panneau de config, ligne de commande)</li>
+<li>démarrer des scripts à l&rsquo;ouverture, à la fermeture de session utilisateur</li>
+<li>Possibilité d&rsquo;agir sur le poste local ou sur un poste distant</li>
+<li>possibilité d&rsquo;agir sur différents objets de la base SAM</li>
+</ul>
+<p><strong>INSERER SCREEN P112</strong></p>
+<p>Chaque Parametres :</p>
+<ul>
+<li>peut être activer ou désactiver</li>
+<li>peut être non configuré (ie. comportement par défaut du système)</li>
+<li>peut être commenté</li>
+<li>possède des conditions</li>
+<li>peut possèder des options supplémentaires</li>
+<li>possède surtout une aide précieuse</li>
+</ul>
+<p><strong>inserer screen p112</strong></p>
+<h3 id="tp16-les-lgpo">TP16 - Les LGPO<a class="headerlink" href="#tp16-les-lgpo" title="Permanent link"></a></h3>
+<p><strong>Objectifs</strong>: Gérer les stratégies de groupe local</p>
+<h4 id="taches-a-realiser-win10">Tâches à réaliser - Win10<a class="headerlink" href="#taches-a-realiser-win10" title="Permanent link"></a></h4>
+<p>A l&rsquo;aide des consoles appropriée, réaliser les tâches suivantes :</p>
+<ul>
+<li>
+<p>Pour augmenter le niveau de scurité d&rsquo;accès aux ressources de votre VM, tous les utilisateurs devront utiliser un mot de passe avec les caractéristiques suivantes :</p>
+<ul>
+<li>7 car. minimum</li>
+<li>3 mdp conservés dans l&rsquo;histoprique</li>
+<li>devra respecter les exigences de complexité</li>
+</ul>
+</li>
+<li>
+<p>Creer une GPO non-administrateurs</p>
+<ul>
+<li>interdire l&rsquo;accès au panneau de config et l&rsquo;application Paramètres du PC</li>
+<li>Verrouiller la barre des tâches</li>
+<li>Mettre un fond d&rsquo;écran de son choix</li>
+</ul>
+</li>
+<li>
+<p>Creer une GPO pour l&rsquo;utilisateur Romain</p>
+<ul>
+<li>accès au panneau de config et à Paramètres OK</li>
+<li>supprimer l&rsquo;accès au taskmgr</li>
+</ul>
+</li>
+</ul>
+<h2 id="index">Index<a class="headerlink" href="#index" title="Permanent link"></a></h2>
+<h2 id="recapitulatif-des-commandes-cmd-ps-outils-etc">Récapitulatif des commandes CMD, PS, outils, etc.<a class="headerlink" href="#recapitulatif-des-commandes-cmd-ps-outils-etc" title="Permanent link"></a></h2>
+<h3 id="outils_1">Outils<a class="headerlink" href="#outils_1" title="Permanent link"></a></h3>
+<h3 id="commandes">Commandes<a class="headerlink" href="#commandes" title="Permanent link"></a></h3>
+<h4 id="help">help<a class="headerlink" href="#help" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span class="n">cmd</span><span class="p">&gt;</span> <span class="n">help</span> <span class="n">shutdown</span>
+<span class="n">cmd</span><span class="p">&gt;</span> <span class="n">help</span> <span class="n">shutdown</span> <span class="p">&gt;</span> <span class="n">aide</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">cmd</span><span class="p">&gt;</span> <span class="n">shutdown</span> <span class="p">/?</span>
+</pre></div>
+
+<h4 id="syntaxe">syntaxe<a class="headerlink" href="#syntaxe" title="Permanent link"></a></h4>
+<div class="highlight"><pre>cmd&gt; COPY [/D] [/V] [/N] [/Y | /-Y] [/Z] [/L] [/A | /B ] source [/A | /B]
+     [+ source [/A | /B] [+ ...]] [cible [/A | /B]]
+</pre></div>
+
+<ul>
+<li><code>foo</code> : obligatoire</li>
+<li><code>[foo]</code> : facultatif</li>
+<li><code>{foo|bar|zob}</code> : choix obligatoire</li>
+<li><code>|</code> : pipeline</li>
+<li><code>...</code> : éléments qui peuvent être répétés</li>
+</ul>
+<h4 id="mkdir">mkdir<a class="headerlink" href="#mkdir" title="Permanent link"></a></h4>
+<div class="highlight"><pre>cmd&gt; md fooDir
+cmd&gt; mkdir fooDir
+</pre></div>
+
+<h4 id="create-file-x2">Create file (x2)<a class="headerlink" href="#create-file-x2" title="Permanent link"></a></h4>
+<div class="highlight"><pre>cmd&gt; echo &gt; foo.txt
+cmd&gt; help &gt; InternalCommands.txt
+</pre></div>
+
+<h4 id="afficher-contenu-du-fichier">Afficher contenu du fichier<a class="headerlink" href="#afficher-contenu-du-fichier" title="Permanent link"></a></h4>
+<div class="highlight"><pre>cmd&gt; type InternalCommands.txt
+</pre></div>
+
+<h4 id="copy-to-desktop">Copy to desktop<a class="headerlink" href="#copy-to-desktop" title="Permanent link"></a></h4>
+<div class="highlight"><pre>cmd&gt; copy InternalCommands.txt %userprofile%\Desktop 
+</pre></div>
+
+<h4 id="list-folders-and-subfolders-ordered-by-size">List folders and subfolders ordered by size<a class="headerlink" href="#list-folders-and-subfolders-ordered-by-size" title="Permanent link"></a></h4>
+<div class="highlight"><pre>cmd&gt; dir /os /s %userprofile%\Desktop
+</pre></div>
+
+<ul>
+<li><code>/o</code> : order</li>
+<li><code>/os</code> : <code>/o</code> pour order + <code>s</code> pour par ordre de taille croissante</li>
+<li><code>/s</code> : subfolders</li>
+</ul>
+<h2 id="index_1">Index<a class="headerlink" href="#index_1" title="Permanent link"></a></h2>
+<ul>
+<li>mkdir </li>
+<li>md</li>
+<li>afficher contenu d&rsquo;un fichier</li>
+<li>copy to desktop</li>
+<li>lister les dossiers et sous-dossiers</li>
+<li>créer un fichier</li>
+<li>help</li>
+<li>dir</li>
+<li>type</li>
+<li>copy</li>
+<li>get-alias</li>
+<li>get-command</li>
+<li>new-localuser</li>
+<li>update-help</li>
+<li>man</li>
+<li>get-help</li>
+<li>about_*</li>
+<li>creation d&rsquo;objet perso<ul>
+<li>remove-monObjet</li>
+<li>set-monObjet</li>
+<li>new-monObjet</li>
+</ul>
+</li>
+<li>version de powershell</li>
+<li>get-childitem</li>
+<li>where-object, where<ul>
+<li>-FilterScript</li>
+<li>filtre</li>
+<li>-and, -gt, -lt, etc.</li>
+</ul>
+</li>
+<li>select-object, select</li>
+<li>cat</li>
+<li>more</li>
+<li>get-content</li>
+<li>get-history</li>
+<li>history, voir get-history</li>
+<li>get-localgroup</li>
+<li>format-list</li>
+<li>get-psdrive</li>
+<li>get-disk</li>
+<li>get-netadapter</li>
+<li>get-localgroupmember</li>
+<li>get-partition</li>
+<li>get-volume</li>
+<li>set-volume</li>
+<li>cmd boucle for </li>
+<li>cmd convert</li>
+<li>net user<ul>
+<li>net user /time</li>
+</ul>
+</li>
+<li>net localgroup</li>
+<li>whoami</li>
+<li>variable</li>
+<li>new-localuser</li>
+<li>add-localgroupmember</li>
+<li>get-acl</li>
+<li>set-acl</li>
+<li>test-connection</li>
+<li>firewall</li>
+<li>diskpart</li>
+<li>New-SmbMapping</li>
+<li>net view</li>
+<li>net use</li>
+<li>net share</li>
+<li>new-SmbShare</li>
+<li>driverquery </li>
+<li>shutdown /r /o : redemarrage en mode WinRE</li>
+<li>format-list, fl</li>
+<li>format-table, ft</li>
+<li>$PSITEM, $_</li>
+<li>$PSVERSION</li>
+<li>Format-Wide</li>
+<li>get-date</li>
+<li>get-eventlog</li>
+<li>get-WinEvent</li>
+<li>measure-object, measure</li>
+<li>get-NetFirewallRule</li>
+<li>get-SmbShare</li>
+<li>get-volume</li>
+<li>get-printer</li>
+<li>mount</li>
+<li>drvload</li>
+<li>diskpart</li>
+<li>net use</li>
+</ul>
+<h2 id="outils_2">Outils<a class="headerlink" href="#outils_2" title="Permanent link"></a></h2>
+<ul>
+<li>diskmgmt : gestion de disque (screencap)</li>
+<li>diskpart : gestion de disque en ligne de commande</li>
+<li>ncpa.cpl : carte réseau</li>
+<li>ipconfig : (cmd) config réseau</li>
+<li>ping : (cmd) test de connectivité</li>
+<li>tracert : test des routes employées par les paquets TCP/IP</li>
+<li>nslookup : diagnostic de la résolution de nom d&rsquo;hôte</li>
+<li>firewall.cpl : pare-feu</li>
+<li>firewall (ps) : lancer le pare-feu depuis une ligne de commande</li>
+<li>icacls.exe : gestion des dossiers et des droits NTFS</li>
+<li>fsmgmt.msc : composant MMC</li>
+<li>pnputil : utilitaire Plug N Play Microsoft, gestion du magasin de pilotes</li>
+<li>msinfo32 : la machine dans tous ses détails</li>
+<li>taskmgr : gestionnaire des tâches</li>
+<li>eventvwr : observateur d&rsquo;évènements</li>
+<li>perfmon : anaylseur de performance</li>
+<li>control.exe /name Microsoft.Troubleshooting : troubleshooting</li>
+<li>sysdm.cpl : gestion des points de restauration</li>
+<li>sysprep.exe : outil de préparation du système en vue de le répliquer</li>
+<li>dism : récupération d&rsquo;image système</li>
+</ul>
+<p><link rel="stylesheet" href=".ressources/css/bootstrap.min.css">
+<link rel="stylesheet" href=".ressources/css/style.css"></p></article></body></html>
