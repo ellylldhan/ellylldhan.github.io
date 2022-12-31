@@ -1,0 +1,2864 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body {
+  max-width: 980px;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 45px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable,
+.markdown-body .highlighttable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr,
+.markdown-body .highlighttable {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite,
+.markdown-body .highlighttable pre,
+.markdown-body .highlighttable div.highlight {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td,
+.markdown-body .highlighttable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headerlink {
+  font: normal 400 16px fontawesome-mini;
+  vertical-align: middle;
+  margin-left: -16px;
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  opacity: 0;
+  color: #333;
+}
+
+.markdown-body .headerlink:focus {
+  outline: none;
+}
+
+.markdown-body h1 .headerlink {
+  margin-top: 0.8rem;
+}
+
+.markdown-body h2 .headerlink,
+.markdown-body h3 .headerlink {
+  margin-top: 0.6rem;
+}
+
+.markdown-body h4 .headerlink {
+  margin-top: 0.2rem;
+}
+
+.markdown-body h5 .headerlink,
+.markdown-body h6 .headerlink {
+  margin-top: 0;
+}
+
+.markdown-body .headerlink:hover,
+.markdown-body h1:hover .headerlink,
+.markdown-body h2:hover .headerlink,
+.markdown-body h3:hover .headerlink,
+.markdown-body h4:hover .headerlink,
+.markdown-body h5:hover .headerlink,
+.markdown-body h6:hover .headerlink {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite,
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* MultiMarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px fontawesome-mini;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\e157';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+.markdown-body diagram-div, .markdown-body div.uml-sequence-diagram, .markdown-body, div.uml-flowchart {
+  overflow: auto;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><style>/*GitHub*/
+.highlight {background-color:#fff;color:#333333;}
+.highlight .hll {background-color:#ffffcc;}
+.highlight .c{color:#999988;font-style:italic}
+.highlight .err{color:#a61717;background-color:#e3d2d2}
+.highlight .k{font-weight:bold}
+.highlight .o{font-weight:bold}
+.highlight .cm{color:#999988;font-style:italic}
+.highlight .cp{color:#999999;font-weight:bold}
+.highlight .c1{color:#999988;font-style:italic}
+.highlight .cs{color:#999999;font-weight:bold;font-style:italic}
+.highlight .gd{color:#000000;background-color:#ffdddd}
+.highlight .ge{font-style:italic}
+.highlight .gr{color:#aa0000}
+.highlight .gh{color:#999999}
+.highlight .gi{color:#000000;background-color:#ddffdd}
+.highlight .go{color:#888888}
+.highlight .gp{color:#555555}
+.highlight .gs{font-weight:bold}
+.highlight .gu{color:#800080;font-weight:bold}
+.highlight .gt{color:#aa0000}
+.highlight .kc{font-weight:bold}
+.highlight .kd{font-weight:bold}
+.highlight .kn{font-weight:bold}
+.highlight .kp{font-weight:bold}
+.highlight .kr{font-weight:bold}
+.highlight .kt{color:#445588;font-weight:bold}
+.highlight .m{color:#009999}
+.highlight .s{color:#dd1144}
+.highlight .n{color:#333333}
+.highlight .na{color:teal}
+.highlight .nb{color:#0086b3}
+.highlight .nc{color:#445588;font-weight:bold}
+.highlight .no{color:teal}
+.highlight .ni{color:purple}
+.highlight .ne{color:#990000;font-weight:bold}
+.highlight .nf{color:#990000;font-weight:bold}
+.highlight .nn{color:#555555}
+.highlight .nt{color:navy}
+.highlight .nv{color:teal}
+.highlight .ow{font-weight:bold}
+.highlight .w{color:#bbbbbb}
+.highlight .mf{color:#009999}
+.highlight .mh{color:#009999}
+.highlight .mi{color:#009999}
+.highlight .mo{color:#009999}
+.highlight .sb{color:#dd1144}
+.highlight .sc{color:#dd1144}
+.highlight .sd{color:#dd1144}
+.highlight .s2{color:#dd1144}
+.highlight .se{color:#dd1144}
+.highlight .sh{color:#dd1144}
+.highlight .si{color:#dd1144}
+.highlight .sx{color:#dd1144}
+.highlight .sr{color:#009926}
+.highlight .s1{color:#dd1144}
+.highlight .ss{color:#990073}
+.highlight .bp{color:#999999}
+.highlight .vc{color:teal}
+.highlight .vg{color:teal}
+.highlight .vi{color:teal}
+.highlight .il{color:#009999}
+.highlight .gc{color:#999;background-color:#EAF2F5}
+</style><title>notes tout</title></head><body><article class="markdown-body"><h1 id="eni-tssr-12-virtualisation">ENI TSSR 12 - Virtualisation<a class="headerlink" href="#eni-tssr-12-virtualisation" title="Permanent link"></a></h1>
+<p>Des concepts de la virtualisation à leur mise en oeuvre.</p>
+<p><strong>Sommaire</strong></p>
+<ol>
+<li><strong>Module 1</strong> - Présentation </li>
+<li><strong>Module 2</strong> - Les applications de virtualisation d&rsquo;environnements sur un poste de travail </li>
+<li><strong>Module 3</strong> - La virtualisation de serveurs </li>
+<li>Module 4 - Découverte d&rsquo;Hyper V </li>
+<li>Module 5 - Les composants d&rsquo;une infrastructure vSphère</li>
+<li>Module 6 - Gestion du réseau</li>
+<li>Module 7 - Gestion du stockage </li>
+<li>Module 8 - Gestion du datacenter</li>
+</ol>
+<div class="toc">
+<ul>
+<li><a href="#eni-tssr-12-virtualisation">ENI TSSR 12 - Virtualisation</a><ul>
+<li><a href="#objectifs">Objectifs</a></li>
+<li><a href="#module-1-presentation">Module 1 - Présentation</a><ul>
+<li><a href="#un-peu-de-reflexion">Un peu de réfléxion</a><ul>
+<li><a href="#consigne-de-lactivite">Consigne de l&rsquo;activité</a></li>
+<li><a href="#caracteristiques-de-solutions">Caractéristiques de solutions</a></li>
+<li><a href="#caracteristiques-communes-definition">Caractéristiques communes / définition</a><ul>
+<li><a href="#caracteristiques-communes">Caractéristiques communes</a></li>
+<li><a href="#definition">Définition :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#la-virtualisation-en-8-dates">La virtualisation en 8 dates</a></li>
+<li><a href="#utilisation">Utilisation</a></li>
+<li><a href="#les-acteurs">Les acteurs</a></li>
+<li><a href="#les-secteurs-de-la-virtualisation">Les secteurs de la virtualisation</a></li>
+<li><a href="#les-principales-solutions">Les principales solutions</a></li>
+<li><a href="#les-outils">Les outils</a></li>
+<li><a href="#les-types-dhyperviseurs">Les types d&rsquo;hyperviseurs</a></li>
+<li><a href="#virtualisation-paravirtualisation">Virtualisation &amp; Paravirtualisation</a></li>
+</ul>
+</li>
+<li><a href="#module-2-les-applications-de-virtualisation-denvironnements-sur-un-poste-de-travail">Module 2 - Les applications de virtualisation d&rsquo;environnements sur un poste de travail</a><ul>
+<li><a href="#vmware-workstation">VMware Workstation</a><ul>
+<li><a href="#prerequis-et-installation">Prérequis et installation</a></li>
+<li><a href="#outils-et-composants-installes">Outils et composants installés</a><ul>
+<li><a href="#la-console-de-gestion-vmware-workstation">La console de gestion VMware Workstation</a></li>
+<li><a href="#gestion-des-vm">Gestion des VM</a></li>
+</ul>
+</li>
+<li><a href="#interactions-avec-lhote">Interactions avec l&rsquo;hôte</a><ul>
+<li><a href="#gestion-du-materiel">Gestion du matériel</a></li>
+<li><a href="#gestion-du-reseau">Gestion du réseau</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#etapes-de-creation">Etapes de création</a></li>
+<li><a href="#gestion-de-la-vm-workstation-pro">Gestion de la VM - Workstation Pro</a></li>
+<li><a href="#parametrages-materiels">Paramétrages matériels</a></li>
+<li><a href="#problemes-courants">Problèmes courants</a></li>
+<li><a href="#atelier-1-workstation">Atelier 1 - Workstation</a></li>
+</ul>
+</li>
+<li><a href="#module-3-la-virtualisation-de-serveurs">Module 3 - La virtualisation de serveurs</a><ul>
+<li><a href="#type-de-serveurs-et-concentration">Type de serveurs et concentration</a></li>
+<li><a href="#les-fournisseurs-de-solutions-de-virtualisation">Les fournisseurs de solutions de virtualisation</a></li>
+<li><a href="#discussion">Discussion</a></li>
+<li><a href="#les-composantes-dune-infrastructure-de-virtualisation">Les composantes d&rsquo;une infrastructure de virtualisation</a><ul>
+<li><a href="#la-machine-hote">La machine hôte</a></li>
+<li><a href="#au-coeur-de-la-solution-lhyperviseur">Au coeur de la solution : l&rsquo;hyperviseur</a></li>
+<li><a href="#loutil-de-gestion-de-la-solution">L&rsquo;outil de gestion de la solution</a></li>
+<li><a href="#les-machines-virtuelles">Les machines virtuelles</a></li>
+<li><a href="#la-solution-de-gestion-globale-dhyperviseurs">La solution de gestion globale d&rsquo;hyperviseurs</a></li>
+<li><a href="#recapitulatif-visuel-des-elements">Récapitulatif visuel des éléments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#module-4-decouverte-dhyper-v">Module 4 - Découverte d&rsquo;HYPER-V</a><ul>
+<li><a href="#prerequis-et-installation_1">Prérequis et installation</a></li>
+<li><a href="#utilisation-et-mise-en-oeuvre">Utilisation et mise en oeuvre</a></li>
+<li><a href="#parametrages-reseau">Paramétrages réseau</a></li>
+<li><a href="#console-de-gestion">Console de gestion</a></li>
+<li><a href="#etapes-de-configuration">Etapes de configuration</a><ul>
+<li><a href="#definition-des-reseaux-virtuels">Définition des réseaux virtuels</a></li>
+<li><a href="#creation-des-vm">Création des VM</a></li>
+</ul>
+</li>
+<li><a href="#console-dordinateur-virtuel">Console d&rsquo;ordinateur virtuel</a></li>
+<li><a href="#exportation-et-importation">Exportation et importation</a></li>
+<li><a href="#atelier-2-hyper-v">Atelier 2 - Hyper-V</a></li>
+</ul>
+</li>
+<li><a href="#module-5-les-composantes-dune-infrastructure-vsphere">Module 5 - Les composantes d&rsquo;une infrastructure vSphere</a><ul>
+<li><a href="#de-vsphere-5-a-vsphere-6">De vSphere 5 à vSphere 6</a></li>
+<li><a href="#composantes-dune-solution-vsphere">Composantes d&rsquo;une solution vSphere</a></li>
+<li><a href="#les-principales-fonctionnalites">Les principales fonctionnalités</a></li>
+<li><a href="#les-tarifs-de-vmware">Les tarifs de VMware</a></li>
+<li><a href="#demo-decouverte-de-la-gestion-desxi-depuis-le-client-vsphere">Démo : découverte de la gestion d&rsquo;ESXi depuis le client vSphere</a></li>
+<li><a href="#atelier-3-vsphere">Atelier 3 - vSphere</a></li>
+</ul>
+</li>
+<li><a href="#module-6-gestion-du-reseau">Module 6 - Gestion du Réseau</a><ul>
+<li><a href="#les-vlans">Les VLANS</a><ul>
+<li><a href="#definition_1">Définition</a></li>
+<li><a href="#interet-de-mise-en-oeuvre">Intérêt de mise en oeuvre</a></li>
+<li><a href="#prise-en-charge-8021q">Prise en charge 802.1Q</a></li>
+<li><a href="#integration-dun-identifiant-de-vlan">Intégration d&rsquo;un identifiant de VLAN</a></li>
+<li><a href="#propagation-des-flux-entre-commutateurs">Propagation des flux entre commutateurs</a></li>
+<li><a href="#criteres-de-configuration-sur-les-switchs">Critères de configuration sur les switchs</a></li>
+<li><a href="#configuration-sur-les-equipements-terminaux">Configuration sur les équipements terminaux</a></li>
+</ul>
+</li>
+<li><a href="#les-composantes-vsphere-du-reseau">Les composantes vSphere du réseau</a><ul>
+<li><a href="#le-vsphere-standard-switch-vss">Le vSphere Standard Switch (vSS)</a></li>
+<li><a href="#le-vsphere-distribue-vds">Le vSphere Distribué (vDS)</a></li>
+<li><a href="#les-groupements-de-ports">Les groupements de ports</a></li>
+<li><a href="#les-vmnic-ou-pnic">Les vmNIC ou pNIC</a></li>
+<li><a href="#le-regroupement-de-carte-reseau-teaming">Le regroupement de carte réseau (Teaming)</a></li>
+<li><a href="#teaming-repartition-de-charge">Teaming - Répartition de charge</a></li>
+<li><a href="#les-vnic">Les vNIC</a></li>
+<li><a href="#liens-entre-les-vmnic-et-les-besoins-reseau">Liens entre les vmNIC et les besoins réseau</a></li>
+<li><a href="#illustration-de-raccordement-reseau-global">Illustration de raccordement réseau global</a></li>
+<li><a href="#les-vlan-en-environnement-virtualise">Les VLAN en environnement virtualisé</a></li>
+</ul>
+</li>
+<li><a href="#atelier-4-gestion-reseaux">Atelier 4 - Gestion Réseaux</a></li>
+</ul>
+</li>
+<li><a href="#module-7-gestion-du-stockage">Module 7 - Gestion du stockage</a><ul>
+<li><a href="#les-solutions-de-stockage">Les solutions de stockage</a><ul>
+<li><a href="#mode-bloc">Mode bloc</a></li>
+<li><a href="#san-storage-area-network">SAN - Storage Area Network</a></li>
+<li><a href="#nas">NAS</a></li>
+<li><a href="#das">DAS</a></li>
+<li><a href="#services-et-donnees">Services et données</a></li>
+<li><a href="#stockage-local-et-acces-aux-donnees">Stockage local et accès aux données</a></li>
+<li><a href="#peripheriques-disques-et-modes-dacces">Périphériques disques et modes d&rsquo;accès</a><ul>
+<li><a href="#le-protocole-scsi">Le protocole SCSI</a></li>
+<li><a href="#les-limites-du-stockage-local">Les limites du stockage local</a></li>
+</ul>
+</li>
+<li><a href="#comparaison-san-nas">Comparaison SAN / NAS</a></li>
+<li><a href="#iscsc">iSCSC</a></li>
+</ul>
+</li>
+<li><a href="#vsphere-et-le-stockage">vSphere et le stockage</a><ul>
+<li><a href="#les-composantes-de-stockage">Les composantes de stockage</a></li>
+<li><a href="#choix-dune-solution-de-stockage">Choix d&rsquo;une solution de stockage</a></li>
+</ul>
+</li>
+<li><a href="#les-adaptateurs-de-stockage">Les adaptateurs de stockage</a><ul>
+<li><a href="#raccordement-de-la-solution-de-stockage">Raccordement de la solution de stockage</a></li>
+<li><a href="#zoom-sur-liscsi">Zoom sur l&rsquo;iSCSI</a><ul>
+<li><a href="#hote-et-mtu">Hôte et MTU</a></li>
+<li><a href="#iscsi-en-environnement-vsphere">iSCSI en environnement vSphere</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#les-banques-de-donnees">Les banques de données</a><ul>
+<li><a href="#les-datastores">Les datastores</a></li>
+<li><a href="#la-configuration-de-banques-de-donnees">La configuration de banques de données</a></li>
+<li><a href="#gestion-des-datastores">Gestion des datastores</a></li>
+</ul>
+</li>
+<li><a href="#les-disques-de-vm">Les disques de VM</a><ul>
+<li><a href="#la-mise-a-disposition-despace-disque-aux-vm">La mise à disposition d&rsquo;espace disque aux VM</a></li>
+<li><a href="#vmdk-ou-rdm">VMDK ou RDM</a></li>
+<li><a href="#creation-dun-disque-vmdk">Création d&rsquo;un disque VMDK</a></li>
+<li><a href="#demonstrations-datastore-disques-de-vm">Démonstrations - Datastore &amp; Disques de VM</a></li>
+</ul>
+</li>
+<li><a href="#atelier-5-gestion-de-stockage">Atelier 5 - Gestion de stockage</a></li>
+</ul>
+</li>
+<li><a href="#module-8-gestion-du-datacenter">Module 8 - Gestion du DataCenter</a><ul>
+<li><a href="#contextes-et-actions-de-gestion">Contextes et actions de gestion</a></li>
+<li><a href="#la-gestion-des-ressources">La gestion des ressources</a><ul>
+<li><a href="#la-reservation-de-ressources">La réservation de ressources</a></li>
+<li><a href="#gestion-des-pools-de-ressources">Gestion des pools de ressources</a></li>
+</ul>
+</li>
+<li><a href="#vcenter-et-le-contexte-de-datacenter">vCenter et le contexte de Datacenter</a><ul>
+<li><a href="#vcenter-serveur-vs-vcsa">vCenter Serveur -vs- vCSA</a></li>
+<li><a href="#methodes-dacces-a-lappliance-vcenter">Méthodes d&rsquo;accès à l&rsquo;appliance vCenter</a></li>
+</ul>
+</li>
+<li><a href="#les-modeles-de-vm">Les modèles de VM</a><ul>
+<li><a href="#les-modeles-vmtx">Les modèles VMTX</a><ul>
+<li><a href="#gestion-des-modeles-vmtx">Gestion des modèles VMTX</a></li>
+<li><a href="#personnalisation-des-modeles">Personnalisation des modèles</a></li>
+<li><a href="#etapes-de-mise-en-oeuvre-de-templates-vmtx">Etapes de mise en oeuvre de templates VMTX</a></li>
+</ul>
+</li>
+<li><a href="#les-modeles-ovf">Les modèles OVF</a></li>
+</ul>
+</li>
+<li><a href="#utilisateurs-et-privileges">Utilisateurs et privilèges</a><ul>
+<li><a href="#gestion-des-utilisateurs-groupes-et-privileges">Gestion des utilisateurs, groupes et privilèges</a></li>
+<li><a href="#methodologie-daffectation-des-privileges">Méthodologie d&rsquo;affectation des privilèges</a></li>
+<li><a href="#privileges-dacces-bonnes-pratiques">Privilèges d&rsquo;accès - bonnes pratiques</a></li>
+</ul>
+</li>
+<li><a href="#deplacement-de-machines-virtuelles">Déplacement de machines virtuelles</a><ul>
+<li><a href="#les-actions-de-migration-deplacement">Les actions de migration / déplacement</a></li>
+<li><a href="#vmotion-storage-vmotion-mise-en-oeuvre">vMotion / Storage vMotion - mise en oeuvre</a></li>
+</ul>
+</li>
+<li><a href="#atelier-6-datacenter">Atelier 6 - DataCenter</a></li>
+</ul>
+</li>
+<li><a href="#glossaire">Glossaire</a></li>
+<li><a href="#notes">Notes</a><ul>
+<li><a href="#nfs">NFS</a><ul>
+<li><a href="#avantages-du-stockage-nfs">Avantages du stockage NFS</a></li>
+<li><a href="#inconvenients-du-stockage-nfs">Inconvénients du stockage NFS</a></li>
+</ul>
+</li>
+<li><a href="#san">SAN</a><ul>
+<li><a href="#lun-masking">Lun Masking</a></li>
+<li><a href="#zoning">Zoning</a><ul>
+<li><a href="#soft-zoning">Soft Zoning</a></li>
+<li><a href="#hard-zoning">Hard Zoning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link"></a></h2>
+<ul>
+<li>Définir les termes de mutualisation, consolidation et rationalisation et différencier les hyperviseurs de type 1 et 2</li>
+<li>Enoncer les caractéristiques des offres de SaaS, PaaS et SaaS </li>
+<li>Lister un ensemble de solutions de virtualisation et de services virtualisés</li>
+<li>Décrire les composants d&rsquo;une infrastructure vSphère </li>
+<li>Configurer le réseau d&rsquo;un ESXi afin de répondre à des besoins ciblés</li>
+<li>Configurer le stockage local ou partagé </li>
+</ul>
+<h2 id="module-1-presentation">Module 1 - Présentation<a class="headerlink" href="#module-1-presentation" title="Permanent link"></a></h2>
+<h3 id="un-peu-de-reflexion">Un peu de réfléxion<a class="headerlink" href="#un-peu-de-reflexion" title="Permanent link"></a></h3>
+<p>La virtualisation, de quoi il s&rsquo;agit ? </p>
+<p>Avec 1 seule machine on fait tourner plusieurs systèmes d&rsquo;exploitation.</p>
+<p>Dans quel contexte l&rsquo;utilise-t-on ?</p>
+<p>Pour faire des tests.</p>
+<h4 id="consigne-de-lactivite">Consigne de l&rsquo;activité<a class="headerlink" href="#consigne-de-lactivite" title="Permanent link"></a></h4>
+<ul>
+<li>
+<p>Le domaine de la virtualisation est vaste, il englobe un ensemble de solutions très diverses.</p>
+</li>
+<li>
+<p>Faites les recherches nécessaires afin de découvrir et appréhender les solutions suivantes :</p>
+<ul>
+<li>L&rsquo;application VMware Workstation utilisée dans votre formation </li>
+<li>Les outils de virtualisation de serveurs</li>
+<li>Les services dans le Cloud </li>
+</ul>
+</li>
+<li>
+<p>A l&rsquo;issue de vos recherches, vous complèterez les tableaux de report à suivre </p>
+<ul>
+<li>En y renseignant la description et l&rsquo;utilité de l&rsquo;élément</li>
+<li>En ciblant le lien de celui-ci avec le domaine de la virtualisation</li>
+<li>En établissant une définition de la virtualisation </li>
+</ul>
+</li>
+</ul>
+<p>En complément (si le temps le permet), vous retracerez en 10 étapes maximum les évènements importants liés au sujet.</p>
+<h4 id="caracteristiques-de-solutions">Caractéristiques de solutions<a class="headerlink" href="#caracteristiques-de-solutions" title="Permanent link"></a></h4>
+<table>
+    <caption class="text-center">Caractéristiques de solutions</caption>
+        <tr>
+            <th>VMware Workstation</td>
+            <td>est une gamme de produits d'hyperviseurs de poste de travail qui permettent aux utilisateurs d'executer des VM, des conteneurs et des clusters Kubernetes.<br>Type de Hyperviseurs:<ul><li>type 2: VMWare. (Hosté) S’exécute à l’intérieur d'un OS.</li><li>    Type 1: (natif) S’exécute directement sur la plateforme matériel</li></ul><br>Entreprise = VMWare donc une des solutions est Worstation.
+        </tr>
+        <tr>
+            <th>Les outils de virtualisation de serveurs</th>
+            <td><ul><li>Virtual Box</li><li>Serveur VMWare (VSphère)</li><li>Parallels Desktop (Faire fonctionner de Windows sur Mac)</li><li>Hypr-V</li><li>VMLite Workstation</li></ul></td>
+        </tr>
+        <tr>
+            <th>Les services dans le Cloud</th>
+            <td>Avec la virtualisation, une ressource peut jouer le rôle de plusieurs ressources, tandis qu'avec le cloud computing, différents services (via un cloud privé) ou entreprises (via un cloud public) ont accès à un même ensemble de ressources qui sont approvisionnées de manière automatique.<br>IAS comme service. => Ces sont de prestataires externes. Nous profitons uniquement des services</td>
+        </tr>
+</table>
+
+<h4 id="caracteristiques-communes-definition">Caractéristiques communes / définition<a class="headerlink" href="#caracteristiques-communes-definition" title="Permanent link"></a></h4>
+<h5 id="caracteristiques-communes">Caractéristiques communes<a class="headerlink" href="#caracteristiques-communes" title="Permanent link"></a></h5>
+<ul>
+<li>Abstraction des ressources communes</li>
+<li>Solution des gestion centralisée et groupement de ressources. D&rsquo;une seule machine on peut contrôler les serveurs distants.</li>
+<li>Avec 1 seule machine = plusieurs S.E</li>
+<li>Création d&rsquo;environnements virtuelles.</li>
+<li>Mutualisation des ressources.</li>
+</ul>
+<p>Sur le Serveur on peut monter entre 200 à 700 Go</p>
+<h5 id="definition">Définition :<a class="headerlink" href="#definition" title="Permanent link"></a></h5>
+<ul>
+<li>
+<p>La virtualisation est un processus qui permet de regrouper des ressources physiques afin des les gérer d&rsquo;une manière centralisée.</p>
+</li>
+<li>
+<p>Les ensemble obtenus sont organisés au sein d&rsquo;environnements virtuels.</p>
+</li>
+<li>
+<p>Elle permet de percevoir une ressource physique comme plusieurs ressources logiques et inversement, de percevoir plusieurs ressources physiques comme une seule ressources logique.</p>
+</li>
+</ul>
+<h3 id="la-virtualisation-en-8-dates">La virtualisation en 8 dates<a class="headerlink" href="#la-virtualisation-en-8-dates" title="Permanent link"></a></h3>
+<p><strong>Années 60/70</strong></p>
+<ul>
+<li>IBM: embryon de la virtualisation en test puis en production sur des Mainframes. </li>
+<li>Un ordinateur central ou un macroordinateur (mainframe computer) est un ordinateur de grande puissance de traitement et qui sert d&rsquo;unité centrale à un réseau de terminaux.</li>
+</ul>
+<p><strong>Milieu des années 90</strong></p>
+<ul>
+<li>Les émulateurs font leur apparition en microinformatique. Ils rendent possible l&rsquo;émulation des machines ATARI, AMIGA, AMSTRAD et des consoles.</li>
+</ul>
+<p><strong>Début des années 2000</strong></p>
+<ul>
+<li>VMware développe et popularise son système propriétaire de virtualisation logicielle pour les architectures x86. </li>
+</ul>
+<p><strong>2006</strong></p>
+<ul>
+<li>Prise en charge matérielle par le CPU d&rsquo;instructions de virtualisation.</li>
+</ul>
+<p><strong>2007</strong></p>
+<ul>
+<li>XenSource racheté par Citrix </li>
+<li>KVM est intégré au noyau Linux</li>
+<li>Virtual Desktop Infrastructure VMware : VDI = Bureau Virtuelle héberger, sans OS dans la machine = client léger. Là, on dépend d&rsquo;un serveur qui faudra qui supporte la charge.</li>
+</ul>
+<p><strong>2009</strong></p>
+<ul>
+<li>Plus de serveurs virtuels que physiques KVM est intégré au noyau Linux. KVM =Kernel-based Virtual Machine. Commutateur KVM, un dispositif qui permet de partager un clavier, une souris et un écran entre plusieurs ordinateurs</li>
+</ul>
+<h3 id="utilisation">Utilisation<a class="headerlink" href="#utilisation" title="Permanent link"></a></h3>
+<p><strong>Pour quels usages ?</strong></p>
+<ul>
+<li>Les serveurs d&rsquo;infrastructure locaux et distants (le Cloud&hellip;)</li>
+<li>Les environnements de test et les problématiques de comptabilité </li>
+<li>Les scénarios de PRA (<strong>Plan de Reprise d&rsquo;Activité</strong>)</li>
+</ul>
+<p><strong>Quels avantages ?</strong></p>
+<ul>
+<li>Optimisation des taux d&rsquo;utilisation du matériel </li>
+<li>Economies sur les coûts matériels et de gestion </li>
+<li>Gestion facilitée des systèmes (<strong>granularité</strong>)</li>
+<li>Economies d&rsquo;énergie (<strong>green computing</strong>)</li>
+</ul>
+<p><strong>Des inconvénients ?</strong></p>
+<ul>
+<li>Concentration et dépendance vis-à-vis d&rsquo;une solution </li>
+<li>Mise en oeuvre complexe avec un investissement initial important </li>
+<li>Contraintes d&rsquo;administration spécifiques (déploiement, sauvegarde, &hellip;)</li>
+</ul>
+<h3 id="les-acteurs">Les acteurs<a class="headerlink" href="#les-acteurs" title="Permanent link"></a></h3>
+<ul>
+<li>Les grands éditeurs : VMware, Microsoft, Citrix, Oracle, RedHat </li>
+<li>Des logiciels libres : GNU/Linux </li>
+<li>D&rsquo;autres solutions : Parallels, Proxmox, Docker </li>
+</ul>
+<h3 id="les-secteurs-de-la-virtualisation">Les secteurs de la virtualisation<a class="headerlink" href="#les-secteurs-de-la-virtualisation" title="Permanent link"></a></h3>
+<p>La virtualisation est un domaine transverse qui peut être mis en oeuvre à plusieurs niveaux au sein d&rsquo;une infrastructure.</p>
+<ul>
+<li>Virtualisation d&rsquo;environnements sur un poste de travail </li>
+<li>Virtualisation de serveurs </li>
+<li>Virtualisation d&rsquo;applications </li>
+<li>Virtualisation de stations de travail </li>
+</ul>
+<p>On retrouve aussi la virtualisation dans des domaines plus ciblés :</p>
+<ul>
+<li>Le réseau </li>
+<li>Le stockage</li>
+<li>Les services </li>
+</ul>
+<h3 id="les-principales-solutions">Les principales solutions<a class="headerlink" href="#les-principales-solutions" title="Permanent link"></a></h3>
+<p><strong>Pour le poste de travail</strong></p>
+<ul>
+<li>VMware Player, VMWare Workstation</li>
+<li>Oracle VM VirtualBox</li>
+<li>Windows Virtual PC (Windows 7 Mode XP)</li>
+<li>Hyper-V Client (W8 x64 SLAT)</li>
+<li>QEMU</li>
+</ul>
+<p><strong>Pour les serveurs</strong></p>
+<ul>
+<li>vSphère (VMware)</li>
+<li>Hyper-V (Windows Server)</li>
+<li>Xen (utilisé par Citrix avec Xenserver)</li>
+<li>KVM (utilisé par RedHat)</li>
+</ul>
+<h3 id="les-outils">Les outils<a class="headerlink" href="#les-outils" title="Permanent link"></a></h3>
+<p><strong>Les outils</strong></p>
+<ul>
+<li>L&rsquo;<strong>hyperviseur</strong></li>
+<li>La <strong>console de gestion</strong> des VM </li>
+<li>La <strong>console d&rsquo;accès</strong> à la VM </li>
+<li>Les <strong>composants</strong> complémentaires</li>
+</ul>
+<p><strong>Principes de base</strong></p>
+<ul>
+<li>Paramétrage matériel : architecture, BIOS, processeur, mémoire, disque, etc.</li>
+<li>Gestion des médias amovibles : DVD au format ISO, USB &ldquo;transmis&rdquo; à la VM, disquette au format FLP ou IMG </li>
+<li>Réseaux virtuels : interne, NAT, pont, LAN dédié </li>
+<li>Format des disques : selon la solution, VHD, VMDK, VDI, etc.</li>
+<li>Fichier de configuration : selon la solution, XML, VMX, VBOX, etc.</li>
+</ul>
+<h3 id="les-types-dhyperviseurs">Les types d&rsquo;hyperviseurs<a class="headerlink" href="#les-types-dhyperviseurs" title="Permanent link"></a></h3>
+<p><strong>Hyperviseur de type 1</strong> :</p>
+<ul>
+<li>Implémentation : fait office de système d&rsquo;exploitation. </li>
+<li>1 niveau intermédiaire</li>
+<li>Solutions : Hyper-V, KVM, VMware ESXi, Xen Server </li>
+</ul>
+<p><img alt="18" src=".ressources/img/notes-18.png" /></p>
+<p><strong>Hyperviseur de type 2</strong></p>
+<ul>
+<li>Implémentation: installé en tant qu&rsquo;application sur un OS </li>
+<li>2 niveaux intermédiaire</li>
+<li>Solutions : VirtualBox, VirtualPC, VMware Player &amp; Workstation utilisée</li>
+<li>Avantages : ?</li>
+<li>inconvénients : ?</li>
+</ul>
+<p><img alt="19" src=".ressources/img/notes-19.png" /></p>
+<h3 id="virtualisation-paravirtualisation">Virtualisation &amp; Paravirtualisation<a class="headerlink" href="#virtualisation-paravirtualisation" title="Permanent link"></a></h3>
+<p>Dans un contexte de virtualisation, les VM s&rsquo;adressent au <em>matériel présenté</em> par l&rsquo;hyperviseur. Elles n&rsquo;ont pas connaissance de sa présence.</p>
+<p>La <strong>paravirtualisation</strong> est une technique de virtualisation dans laquelle les VM sont préparées pour faire appel directement à un hyperviseur. Les appels système sont alors redirigés et non traduits. </p>
+<table>
+    <caption class="caption">Comparaison</caption>
+    <tr>
+        <th style="text-align: center">Solution de virtualisation</th>
+        <th style="text-align: center">Solution de paravirtualisation</th>
+    </tr>
+    <tr>
+        <td>
+            <a href=".ressources/img/notes-16.png" target="_blank">
+                <img src=".ressources/img/notes-16.png" alt="virtualisation" style="width:100%">
+            </a>
+        </td>
+        <td>
+            <a href=".ressources/img/notes-17.png" target="_blank">
+                <img src=".ressources/img/notes-17.png" alt="paravirtualisation" style="width:100%">
+            </a>
+        </td>
+    </tr>
+</table>
+
+<h2 id="module-2-les-applications-de-virtualisation-denvironnements-sur-un-poste-de-travail">Module 2 - Les applications de virtualisation d&rsquo;environnements sur un poste de travail<a class="headerlink" href="#module-2-les-applications-de-virtualisation-denvironnements-sur-un-poste-de-travail" title="Permanent link"></a></h2>
+<h3 id="vmware-workstation">VMware Workstation<a class="headerlink" href="#vmware-workstation" title="Permanent link"></a></h3>
+<h4 id="prerequis-et-installation">Prérequis et installation<a class="headerlink" href="#prerequis-et-installation" title="Permanent link"></a></h4>
+<p><strong>Prérequis matériel</strong> </p>
+<ul>
+<li>Processeur Intel VT-x ou AMD-V (attention aux réglages BIOS/UEFI)</li>
+<li>RAM et espace disque adaptés </li>
+</ul>
+<p><strong>Installation</strong></p>
+<ul>
+<li>Attention il n&rsquo;y a pas de rétrocompatibilité : une vieille VM ne fonctionnera pas avec la version la plus récente de VMware, mais les nouvelles VM peuvent tourner sur un vieux VMware. </li>
+<li>Utiliser les paramètres d&rsquo;installation par défaut </li>
+</ul>
+<p><strong>Notes</strong>: La dernier version est préférable mais il peut y avoir des problèmes de fonctionnement suivant les systèmes hôtes (ex. WS 2012 R2 + v15)</p>
+<h4 id="outils-et-composants-installes">Outils et composants installés<a class="headerlink" href="#outils-et-composants-installes" title="Permanent link"></a></h4>
+<h5 id="la-console-de-gestion-vmware-workstation">La console de gestion VMware Workstation<a class="headerlink" href="#la-console-de-gestion-vmware-workstation" title="Permanent link"></a></h5>
+<p><img alt="VMware" max-width="300px" src=".ressources/img/notes-01.png" /></p>
+<ul>
+<li>Affiche la liste des VM </li>
+<li>Permet d&rsquo;ajouter ou de créer des VM </li>
+<li>Lors de la sélection d&rsquo;une VM, elle permet le démarrage ou le réglage des paramètres matériel</li>
+</ul>
+<h5 id="gestion-des-vm">Gestion des VM<a class="headerlink" href="#gestion-des-vm" title="Permanent link"></a></h5>
+<ul>
+<li>Créer ou importer une nouvelle VM</li>
+<li>Une fois créée / importée, elle s&rsquo;affiche dans la librairie </li>
+<li>La console affichhera le système virtualisé une fois la VM démarrée. </li>
+</ul>
+<h4 id="interactions-avec-lhote">Interactions avec l&rsquo;hôte<a class="headerlink" href="#interactions-avec-lhote" title="Permanent link"></a></h4>
+<h5 id="gestion-du-materiel">Gestion du matériel<a class="headerlink" href="#gestion-du-materiel" title="Permanent link"></a></h5>
+<ul>
+<li>Les médias amovibles (USB, CD/DVD, disquette)</li>
+<li>Par défaut, la VM capture la souris et le clavier (<kbd>CTRL</kbd> + <kbd>ALT</kbd> pour reprendre la main)</li>
+<li>Des composants additionnels peuvent être installés pour améliorer l&rsquo;intéraction </li>
+<li>La fonction <strong>Shared Folder</strong> permet de mapper un dossier de l&rsquo;hôte dans la VM en tant que lecteur réseau. </li>
+<li>Pour faire un <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>SUPPR</kbd> dans la V, taper <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>INSER</kbd></li>
+</ul>
+<h5 id="gestion-du-reseau">Gestion du réseau<a class="headerlink" href="#gestion-du-reseau" title="Permanent link"></a></h5>
+<p>VMware met en place des <strong>cartes réseau virtuelles</strong> pour permettre les différents modes de connexion :</p>
+<ul>
+<li>VMnet1 pour le réseau <strong>Host-Only</strong> (privé + accès à l&rsquo;hôte)</li>
+<li>VMnet8 pour le réseau <strong>NAT</strong> (accès à internet via l&rsquo;hôte)</li>
+</ul>
+<p>Des services privés sont présents pour gérer l&rsquo;adressage de ces réseaux : <strong>VMware DHCP Service</strong> pour le réseau privé et <strong>VMware NAT Service</strong> pour le réseau NAT.</p>
+<p><strong>Notes</strong>: il peut être nécessaire de désactiver ces services si l&rsquo;on veut utiliser ces réseaux avec son propre adressage dynamique. </p>
+<h3 id="etapes-de-creation">Etapes de création<a class="headerlink" href="#etapes-de-creation" title="Permanent link"></a></h3>
+<ul>
+<li>Mode d&rsquo;installation : avec ou sans iso dès le départ. On peut choisir <em>&ldquo;I will install OS later</em> pour ne pas laisser VMware gérer tous les paramètres d&rsquo;installation.</li>
+<li>Choix du système : définir l&rsquo;architecture matérielle selon le système</li>
+<li>Nom de la VM dans l&rsquo;interface et choix de l&rsquo;emplacement : prévoir 1 dossier par VM. </li>
+<li>Taille du disque virtuel &amp; mode de stockage<ul>
+<li>Par défaut, VMware utilise l&rsquo;espace au fur et à mesure des besoins </li>
+<li>Préférer le mode <strong>Store virtual disk in a single file</strong> pour des besoins de performance</li>
+</ul>
+</li>
+<li>Paramétrage matériel : &ldquo;<em>Customize Hardware</em>&ldquo;<ul>
+<li>Pour ajouter ou supprimer des composants</li>
+<li>Pour régler le nombre de CPU et la quantité de RAM </li>
+<li>Pour définir le média d&rsquo;installation et le mode de connection réseau </li>
+</ul>
+</li>
+</ul>
+<h3 id="gestion-de-la-vm-workstation-pro">Gestion de la VM - Workstation Pro<a class="headerlink" href="#gestion-de-la-vm-workstation-pro" title="Permanent link"></a></h3>
+<p><img alt="Workstation Pro" max-height="300px" src=".ressources/img/notes-02.png" /></p>
+<ol>
+<li>Gestion de base </li>
+<li>Gestion directe du matériel (disque, reseau, média)</li>
+<li>Gestion de la fenêtre (X = pause la VM)</li>
+<li>Paramètres et fonctions complémentaires</li>
+</ol>
+<h3 id="parametrages-materiels">Paramétrages matériels<a class="headerlink" href="#parametrages-materiels" title="Permanent link"></a></h3>
+<p>Après la création de la VM, les paramétrages sont accessibles depuis la fonction &ldquo;<strong>Virtual Machine settings</strong>&rdquo;. Permet de modifier les paramètres initiaux. Certains composants sont paramétrables à chaud.</p>
+<p><strong>Connection au réseau : 4 modes disponibles</strong></p>
+<ol>
+<li><strong>Bridged</strong> : mode pont, connecté au réseau physique.</li>
+<li><strong>NAT</strong> : utilise la configuration réseau de l&rsquo;hôte pour accèder à internet.</li>
+<li><strong>Host-Only</strong> : mode interne avec connection à l&rsquo;hôte. Les VM ne peuvent communiquer qu&rsquo;entre elles et avec l&rsquo;hôte.</li>
+<li><strong>LAN Segment</strong> : permet d&rsquo;utiliser des segments réseau spécifiques et indépendant, à condition de les déclarer avec le bouton LAN Segments.</li>
+</ol>
+<p>Chacun de ces modes est indépendant des autres. Ils agissent comme des commutateurs permettant d&rsquo;isoler les VM dans des réseaux spécifiques.</p>
+<h3 id="problemes-courants">Problèmes courants<a class="headerlink" href="#problemes-courants" title="Permanent link"></a></h3>
+<p><strong>Démarrer sur un média CD/DVD une fois le système installé</strong></p>
+<ul>
+<li>s&rsquo;assurer que la VM a bien capturé le clavier et redémarrer </li>
+<li>Appuyer 1 fois sur la touche <kbd>ECHAP</kbd> dès l&rsquo;apparition du logo VMware s&rsquo;affiche</li>
+<li>VM éteint, il est possible de démarrer directement dans le BIOS: clic droit sur VM éteinte &gt; <strong>Power</strong> &gt; <strong>Power on Firmware</strong></li>
+<li>Il est possible de paramétrer la séquence de démarrage dans le BIOS de la VM</li>
+</ul>
+<p><strong>Fonctionnement du réseau aléatoire</strong></p>
+<ul>
+<li>Le fonctionnement du réseau est un point sensible, notamment lors de paramétrages fréquents</li>
+<li>Désactiver puis réactiver les cartes réseau de la machine physique</li>
+</ul>
+<p><strong>Espace disque hôte insuffisant</strong></p>
+<ul>
+<li>Vérifier l&rsquo;emplacement du dossier de la VM et le déplacer si nécessaire.</li>
+<li>Surveiller l&rsquo;espace disponible dans le volume de données </li>
+</ul>
+<p><strong>Espace disque invité insuffisant</strong></p>
+<ul>
+<li>Ajouter un disque depuis les paramétrages de la VM ou redimensionner (plus fastidieux)</li>
+<li>Le dimensionnement initial est important !</li>
+</ul>
+<h3 id="atelier-1-workstation">Atelier 1 - Workstation<a class="headerlink" href="#atelier-1-workstation" title="Permanent link"></a></h3>
+<p>Voir TP1</p>
+<h2 id="module-3-la-virtualisation-de-serveurs">Module 3 - La virtualisation de serveurs<a class="headerlink" href="#module-3-la-virtualisation-de-serveurs" title="Permanent link"></a></h2>
+<h3 id="type-de-serveurs-et-concentration">Type de serveurs et concentration<a class="headerlink" href="#type-de-serveurs-et-concentration" title="Permanent link"></a></h3>
+<p>Choix du type de serveur et volume occupé.</p>
+<p>Tour (serveur) &gt; Rack (contient des serveurs) &gt; Lame (contient des racks)</p>
+<h3 id="les-fournisseurs-de-solutions-de-virtualisation">Les fournisseurs de solutions de virtualisation<a class="headerlink" href="#les-fournisseurs-de-solutions-de-virtualisation" title="Permanent link"></a></h3>
+<p>VMware, KVM, Xen, Windows Server Hyper-V </p>
+<h3 id="discussion">Discussion<a class="headerlink" href="#discussion" title="Permanent link"></a></h3>
+<p>La virtualisation des serveurs : solution et contexte.</p>
+<p>Un ensemble de solutions sont disponibles, d&rsquo;après vous quels sont les critères justifiant le choix d&rsquo;une solution ?</p>
+<h3 id="les-composantes-dune-infrastructure-de-virtualisation">Les composantes d&rsquo;une infrastructure de virtualisation<a class="headerlink" href="#les-composantes-dune-infrastructure-de-virtualisation" title="Permanent link"></a></h3>
+<h4 id="la-machine-hote">La machine hôte<a class="headerlink" href="#la-machine-hote" title="Permanent link"></a></h4>
+<p>C&rsquo;est le serveur physique qui dispose des ressources matérielles. </p>
+<p><img alt="Hôte" src=".ressources/img/notes-03.png" /></p>
+<table>
+    <caption class="caption">Processeurs et technologies de virtualisation</caption>
+    <thead>
+        <tr>
+            <td></td>
+            <th>Intel</th>
+            <th>AMD</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Mécanisme de prise en charge de la virtualisation</th>
+            <td>VT-x</td>
+            <td>AMD-v</td>
+        </tr>
+        <tr>
+            <th>Mécanisme de prise en charge de SLAT</th>
+            <td>EPT</td>
+            <td>NPT/RVI</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="au-coeur-de-la-solution-lhyperviseur">Au coeur de la solution : l&rsquo;hyperviseur<a class="headerlink" href="#au-coeur-de-la-solution-lhyperviseur" title="Permanent link"></a></h4>
+<p>L&rsquo;hyperviseur correspond à la solution logicielle installée sur la machine hôte et sur lequel seront hébergées des machines virtuelles. </p>
+<p>Il est chargé de la gestion du matériel de l&rsquo;hôte et de l&rsquo;hébergement des machines virtuelles.</p>
+<p><img alt="Hyperviseur" src=".ressources/img/notes-04.png" /></p>
+<table>
+<thead>
+<tr>
+<th align="center">Solution Microsoft</th>
+<th align="center">Solution VMware</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Hyper-V</td>
+<td align="center">ESX / ESXi</td>
+</tr>
+</tbody>
+</table>
+<h4 id="loutil-de-gestion-de-la-solution">L&rsquo;outil de gestion de la solution<a class="headerlink" href="#loutil-de-gestion-de-la-solution" title="Permanent link"></a></h4>
+<p>Le composant de gestion intégré à un hyperviseur est nommé <strong>Virtual Machine Manager</strong> (VMM).</p>
+<p>Le <strong>VMM</strong> permet notamment :</p>
+<ul>
+<li>La création / gestion / suppression de VM </li>
+<li>La gestion du matériel, des pilotes</li>
+<li>La gestion des réseaux et de l&rsquo;espace disque pour les VM </li>
+<li>La configuration des fonctionnalités de l&rsquo;hyperviseur L&rsquo;hyperviseur</li>
+</ul>
+<p>Les actions de gestion associées sont réalisées au moyen d&rsquo;outils. </p>
+<ul>
+<li>Solution : Outil de gestion</li>
+<li>Hyper-V : Gestionnaire Hyper-V </li>
+<li>vSphere : client vSphere </li>
+</ul>
+<h4 id="les-machines-virtuelles">Les machines virtuelles<a class="headerlink" href="#les-machines-virtuelles" title="Permanent link"></a></h4>
+<p>Les VM sont créées et hébergées sur l&rsquo;hyperviseur. </p>
+<p><img alt="VM" src=".ressources/img/notes-05.png" /></p>
+<p>Les éléments de constitution d&rsquo;une VM :</p>
+<ul>
+<li>un fichier de caractéristiques matérielles </li>
+<li>un fichier d&rsquo;image disque par disque dur dans la VM </li>
+<li>des ressources RAM et une image en RAM </li>
+<li>des ressources CPU </li>
+<li>Une ou plusieurs cartes réseau virtuelles </li>
+</ul>
+<h4 id="la-solution-de-gestion-globale-dhyperviseurs">La solution de gestion globale d&rsquo;hyperviseurs<a class="headerlink" href="#la-solution-de-gestion-globale-dhyperviseurs" title="Permanent link"></a></h4>
+<p>Les hyperviseurs peuvent être gérés de manière autonome ou peuvent être regroupés au sein d&rsquo;un même contexte de gestion.</p>
+<p>Ce regroupement, qui en simplifie l&rsquo;administration, se traduit par :</p>
+<ul>
+<li>l&rsquo;intégration à un contexte de domaine AD des serveurs sur lesquels le rôle Hyper-V est installé (en environnement Microsoft).</li>
+<li>L&rsquo;ajout du composant vCenter (en environnement vSphere)</li>
+</ul>
+<div class="img-row">
+    <div class="img-col">
+        <a href=".ressources/img/notes-06.png" target="_blank">
+            <img src=".ressources/img/notes-06.png" alt=".ressources/img/notes-06.png" style="width:100%">
+        </a>
+    </div>
+    <div class="img-col">
+        <a href=".ressources/img/notes-07.png" target="_blank">
+            <img src=".ressources/img/notes-07.png" alt=".ressources/img/notes-07.png" style="width:100%">
+        </a>
+    </div>
+</div>
+
+<h4 id="recapitulatif-visuel-des-elements">Récapitulatif visuel des éléments<a class="headerlink" href="#recapitulatif-visuel-des-elements" title="Permanent link"></a></h4>
+<p>Le schéma suivant illustre les principaux éléments nécessaires à une infrastructure de virtualisation.</p>
+<p><img alt="Recap" src=".ressources/img/notes-08.png" /></p>
+<p><em>Next : Module 4 - Découverte d&rsquo;HYPER-V</em> (p47/156)</p>
+<p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/headings.css"></p>
+<h2 id="module-4-decouverte-dhyper-v">Module 4 - Découverte d&rsquo;HYPER-V<a class="headerlink" href="#module-4-decouverte-dhyper-v" title="Permanent link"></a></h2>
+<h3 id="prerequis-et-installation_1">Prérequis et installation<a class="headerlink" href="#prerequis-et-installation_1" title="Permanent link"></a></h3>
+<p><strong>Prérequis matériel</strong></p>
+<ul>
+<li>Processeur 64 bits Intel VT-x ou AMD-V (attention aux réglages BIOS/UEFI)</li>
+<li>CPU, RAM et espace disque adaptés </li>
+</ul>
+<p><strong>Prérequis logiciel</strong></p>
+<ul>
+<li>Un système Windows Server (W2008 ou supérieur)</li>
+<li>ou un système W8 Pro x64 bits (+ SLAT Secont Level Address Translation)</li>
+</ul>
+<p><strong>Installation</strong></p>
+<ul>
+<li>Versions : Hyper-V v2 (W2008 R2), Hyper-V v3 (W8, W2012)</li>
+<li>Pour les serveurs, rôle intégré à installer avec le <strong>gestionnaire de serveur</strong></li>
+<li>Pour le client Windows 8, fonctionnalité intégrée à activer</li>
+</ul>
+<p>Lors de l&rsquo;installation du rôle, 2 redémarrages sont nécessaires pour permettre le redémarrage de l&rsquo;hyperviseur en mode natif (type 1). </p>
+<h3 id="utilisation-et-mise-en-oeuvre">Utilisation et mise en oeuvre<a class="headerlink" href="#utilisation-et-mise-en-oeuvre" title="Permanent link"></a></h3>
+<p><strong>Intéraction avec le système hôte</strong></p>
+<ul>
+<li>Les médias amovibles USB ne sont pas gérés avec la v2 (W2008 R2)</li>
+<li>Touche de bascule : <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>GAUCHE</kbd></li>
+<li>Services d&rsquo;intégration (selon la compatibilité des systèmes hôtes)</li>
+</ul>
+<p><strong>Fonctionnalités</strong></p>
+<ul>
+<li>Chaque VM peut être affichée dans une console séparée</li>
+<li>Gestion poussée des paramètres matériels (BIOS, mémoire, etc.)</li>
+<li>Capture instantanée </li>
+<li>Importation et exportation (obligatoire avec la v2 pour la copie ou le transfert)</li>
+</ul>
+<p><strong>Spécificités</strong></p>
+<ul>
+<li>Outil &ldquo;serveur&rdquo; orienté administrateur, moins convivial</li>
+<li>Fichiers des VM difficilement manipulables manuellement</li>
+<li>Pour faire <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>SUPPR</kbd> dans la VM, <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>FIN</kbd></li>
+</ul>
+<h3 id="parametrages-reseau">Paramétrages réseau<a class="headerlink" href="#parametrages-reseau" title="Permanent link"></a></h3>
+<table style="border:none">
+    <tr>
+        <td rowspan="4" width="50%">
+            <ul>
+                <li><b>Réseau privé</b> : réseau entre guest uniquement.</li>
+                <li><b>Host-Only</b> : réseau interne avec connection à l'hôte, les VM ne peuvent communiquer qu'entre elles et avec l'hôte.</li>
+                <li><b>Bridged</b> : connection au réseau physique.</li>
+                <li><b>Externe dédié</b> : la carte de réseau externe est associé de manière exclusive à une carte physique de l'hôte.</li>
+                <li><b>Identification</b> des LAN pour les réseaux internes et externes (VLAN)</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><img alt="notes-09.png" src=".ressources/img/notes-09.png"/></td>
+    </tr>
+    <tr>
+        <td><img alt="notes-10.png" src=".ressources/img/notes-10.png"/></td>
+    </tr>
+    <tr>
+        <td><img alt="notes-11.png" src=".ressources/img/notes-11.png"/></td>
+    </tr>
+</table>
+
+<h3 id="console-de-gestion">Console de gestion<a class="headerlink" href="#console-de-gestion" title="Permanent link"></a></h3>
+<table style="border: none;">
+    <caption class="caption">Console de Gestion</caption>
+    <tr>
+        <td width="30%">
+            <ol>
+                <li>Liste des serveur</li>
+                <li>Liste et état des VM</li>
+                <li>Info sur la VM sélectionnée</li>
+                <li>Gestion du serveur</li>
+                <li>Gestion de la VM</li>
+            </ol>
+        </td>
+        <td>
+            <img src=".ressources/img/notes-12.png" alt="Console de gestion">
+        </td>
+    </tr>
+</table>
+
+<h3 id="etapes-de-configuration">Etapes de configuration<a class="headerlink" href="#etapes-de-configuration" title="Permanent link"></a></h3>
+<h4 id="definition-des-reseaux-virtuels">Définition des réseaux virtuels<a class="headerlink" href="#definition-des-reseaux-virtuels" title="Permanent link"></a></h4>
+<ul>
+<li>Avec l&rsquo;outil <strong>Gestionnaire de réseau virtuel</strong> (volet de droite de la console)</li>
+<li>Non définis par défaut, à créer selon les besoins </li>
+<li>Un seul réseau externe est possible par carte réseau hôte (Hyper-V &ldquo;s&rsquo;approprie&rdquo; la carte réseau physique)</li>
+</ul>
+<h4 id="creation-des-vm">Création des VM<a class="headerlink" href="#creation-des-vm" title="Permanent link"></a></h4>
+<ul>
+<li>Avec l&rsquo;assistant <strong>Nouveau</strong> &gt; <strong>Ordinateur virtuel</strong></li>
+<li>Définir l&rsquo;emplacement de stockage et les paramètres matériels </li>
+</ul>
+<p><em>Le disque d&rsquo;amorçage d&rsquo;une VM de première génération est obligatoirement sur une interface de type IDE.</em></p>
+<h3 id="console-dordinateur-virtuel">Console d&rsquo;ordinateur virtuel<a class="headerlink" href="#console-dordinateur-virtuel" title="Permanent link"></a></h3>
+<table style="border: none;">
+    <caption class="caption">Console d'Ordinateur Virtuel</caption>
+    <tr>
+        <td width="30%">
+            <ol>
+                <li>Gestion de base</li>
+                <li>Gestion des paramètres et du matériel </li>
+                <li>Gestion de la fenêtre, la fermeture <u>n'arrête pas</u> la VM</li>
+            </ol>
+        </td>
+        <td><img src=".ressources/img/notes-13.png" alt="notes 13"></td>
+    </tr>
+</table>
+
+<h3 id="exportation-et-importation">Exportation et importation<a class="headerlink" href="#exportation-et-importation" title="Permanent link"></a></h3>
+<p><strong>Des manipulations plus contraignantes (avec Hyper-V v3)</strong></p>
+<ul>
+<li>Pour pouvoir être dupliquée ou déplacée, une VM doit être <strong>exportée</strong> </li>
+<li>Pour pouvoir <strong>importer</strong>, il faut disposer des fichiers de configuration </li>
+<li>L&rsquo;importation <u>sans</u> &ldquo;<strong>Dupliquer tous les fichiers</strong>&rdquo; <u>empêche</u> de réimporter la même VM.</li>
+<li>L&rsquo;option &ldquo;<strong>Dupliquer tous les fichiers</strong>&rdquo; permet d&rsquo;utiliser <u>plusieurs fois</u> la même VM exportée, <strong>MAIS</strong> les disques VHD sont alors copiés dans un <u>même emplacement</u></li>
+</ul>
+<p><strong>Exemple de procédure</strong></p>
+<ul>
+<li>Exporter la VM dans un emplacement dédié</li>
+<li>Copier le répertoire contenant la VM à l&rsquo;emplacement voulu </li>
+<li>Importer la VM sans &ldquo;<strong>Dupliquer les fichiers&hellip;</strong>&ldquo;</li>
+</ul>
+<p><strong>REMARQUE</strong> : Attention à bien sélectionner <u>le dossier</u> contenant tous les fichiers.</p>
+<h3 id="atelier-2-hyper-v">Atelier 2 - Hyper-V<a class="headerlink" href="#atelier-2-hyper-v" title="Permanent link"></a></h3>
+<p>Voir Atelier 2 - HYPER-V</p>
+<h2 id="module-5-les-composantes-dune-infrastructure-vsphere">Module 5 - Les composantes d&rsquo;une infrastructure vSphere<a class="headerlink" href="#module-5-les-composantes-dune-infrastructure-vsphere" title="Permanent link"></a></h2>
+<h3 id="de-vsphere-5-a-vsphere-6">De vSphere 5 à vSphere 6<a class="headerlink" href="#de-vsphere-5-a-vsphere-6" title="Permanent link"></a></h3>
+<p><table style="border: none">
+    <tr>
+        <td width="50%">
+            <ul>
+                <li>Disparition de l&rsquo;ESX et du <b>Service Console</b></li>
+                <li>Disparition du client lourd <b>vSphere Client</b></li>
+                <li>vCenter disponible sous forme d&rsquo;Appliance virtuelle</li>
+                <li>Apparition du web client vSphere (lié à vCenter)</li>
+            </ul>
+        </td>
+        <td><img src=".ressources/img/notes-14.png" alt="vSphere"></td>
+    </tr>
+</table></p>
+<h3 id="composantes-dune-solution-vsphere">Composantes d&rsquo;une solution vSphere<a class="headerlink" href="#composantes-dune-solution-vsphere" title="Permanent link"></a></h3>
+<table>
+<thead>
+<tr>
+<th align="center">Element</th>
+<th align="center">Nom dans VMware</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Solution de virtualisation</td>
+<td align="center">vSphere</td>
+</tr>
+<tr>
+<td align="center">Hyperviseur</td>
+<td align="center">ESXi / ESX</td>
+</tr>
+<tr>
+<td align="center">Client d&rsquo;administration</td>
+<td align="center">client vSphere / vSpere web client</td>
+</tr>
+<tr>
+<td align="center">Solution de regroupement d&rsquo;hyperviseurs</td>
+<td align="center">vCenter</td>
+</tr>
+</tbody>
+</table>
+<p>Attention, les versions des différents éléments d&rsquo;une infrastructure vSphere doivent concorder ! (?)</p>
+<p><img alt="vSphere" src=".ressources/img/notes-15.png" /></p>
+<h3 id="les-principales-fonctionnalites">Les principales fonctionnalités<a class="headerlink" href="#les-principales-fonctionnalites" title="Permanent link"></a></h3>
+<table>
+<thead>
+<tr>
+<th align="center">Fonctionnalités</th>
+<th align="center">Utilité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">vMotion</td>
+<td align="center">Déplacement de VM d&rsquo;un hôte vers un autre hôte.</td>
+</tr>
+<tr>
+<td align="center">Storage vMotion</td>
+<td align="center">Déplacement du stockage d&rsquo;une VM d&rsquo;une banque de données vers une autre bdd</td>
+</tr>
+<tr>
+<td align="center">DRS</td>
+<td align="center">Automatisation du déplacement de VM d&rsquo;un hôte vers un autre hôte disposant de plus de ressourcess.</td>
+</tr>
+<tr>
+<td align="center">Storage DRS</td>
+<td align="center">Automatisation du déplacement de VM d&rsquo;un datastore vers un autre disposant de plus de ressources.</td>
+</tr>
+<tr>
+<td align="center">DPM</td>
+<td align="center">Fonctionnalité permettant d&rsquo;automatiser l&rsquo;entrée et la sortie de veille d&rsquo;hyperviseurs en fonction de la charge d&rsquo;activité du cluster.</td>
+</tr>
+<tr>
+<td align="center">HA</td>
+<td align="center">High Availability : Fonctionnalité de haute disponibilité. Lors de la défaillance d&rsquo;un hôte, les VM ciblées seront redémarrées sur un autre hôte du cluster.</td>
+</tr>
+<tr>
+<td align="center">FT</td>
+<td align="center">Fault Tolerance : Fonctionnalité de très haute disponibilité protégeant des VM ciblées de la défaillance d&rsquo;un hôte. Aucune interruption de service n&rsquo;affectera les VM ciblées</td>
+</tr>
+</tbody>
+</table>
+<p>Voir module 8 pour plus de détails.</p>
+<h3 id="les-tarifs-de-vmware">Les tarifs de VMware<a class="headerlink" href="#les-tarifs-de-vmware" title="Permanent link"></a></h3>
+<table>
+    <caption class="caption">Tableau comparatif des coûts</caption>
+    <tr>
+        <td></td>
+        <th>Comparatif des solutions</th>
+    </tr>
+    <tr>
+        <th>ESXi seul</th>
+        <td>Fonctionnalités très limitées : gratuites</td>
+    </tr>
+    <tr>
+        <th>Suite Essentials</th>
+        <td>ESXi + Gestion centralisée + Gestion des MàJ</td>
+    </tr>
+    <tr>
+        <th>Suite Essentials Plus</th>
+        <td>Suite Essentials + Haute dispo (HA) + DRS + DRS Storage</td>
+    </tr>
+    <tr>
+        <th>vSphere Standard</th>
+        <td>Suite Essentials Plus + FT + DPM</td>
+    </tr>
+</table>
+
+<table>
+    <caption class="caption">Licences et contextes d'utilisation</caption>
+    <tr>
+        <td></td>
+        <th colspan="2" style="text-align:center;">PME</th>
+        <th colspan="3" style="text-align:center;">TPE</th>
+    </tr>
+    <tr>
+        <th>Cible</th>
+        <td style="text-align:center;">Essentials</td>
+        <td style="text-align:center;">Essentials Plus</td>
+        <td style="text-align:center;">Standard</td>
+        <td style="text-align:center;">Entreprise Plus</td>
+        <td style="text-align:center;">Platinum</td>
+    </tr>
+    <tr>
+        <th>Coût</th>
+        <td style="text-align:center;"> 574.13 EUR HT</td>
+        <td style="text-align:center;">4991.23 EUR HT</td>
+        <td style="text-align:center;">1262.14 EUR HT</td>
+        <td style="text-align:center;">3596.23 EUR HT</td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>La licences couvre...</th>
+        <td colspan="2" style="text-align:center;">Elle inclut vCenter Foundation</td>
+        <td colspan="3" style="text-align:center;">Qté max de RAM par hôte
+    </tr>
+</table>
+
+<p>Les vRAM pool permettant de cumuler la quantité de mémoire des licences de chaque ESXi pour les attribuer ensuite aux VM n&rsquo;est plus en vigueur sur vSphere 5.5. </p>
+<h3 id="demo-decouverte-de-la-gestion-desxi-depuis-le-client-vsphere">Démo : découverte de la gestion d&rsquo;ESXi depuis le client vSphere<a class="headerlink" href="#demo-decouverte-de-la-gestion-desxi-depuis-le-client-vsphere" title="Permanent link"></a></h3>
+<h3 id="atelier-3-vsphere">Atelier 3 - vSphere<a class="headerlink" href="#atelier-3-vsphere" title="Permanent link"></a></h3>
+<p>Voir l&rsquo;atelier 3 - vSphere</p>
+<p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/headings.css"></p>
+<h2 id="module-6-gestion-du-reseau">Module 6 - Gestion du Réseau<a class="headerlink" href="#module-6-gestion-du-reseau" title="Permanent link"></a></h2>
+<h3 id="les-vlans">Les VLANS<a class="headerlink" href="#les-vlans" title="Permanent link"></a></h3>
+<h4 id="definition_1">Définition<a class="headerlink" href="#definition_1" title="Permanent link"></a></h4>
+<p>Un VLAN (Virtual LAN) est un réseau logique indépendant.</p>
+<p>Les commutateurs (<em>switches</em>) permettent l&rsquo;interconnection réseau d&rsquo;un ensemble d&rsquo;éléments. Tous les éléments raccordés à un même switch peuvent ainsi communiquer entre eux. </p>
+<p>La mise en oeuvre de VLAN permet de définir des contextes isolés afin que seuls les éléments d&rsquo;un même VLAN puissent communiquer ensemble. </p>
+<p><img alt="20" src=".ressources/img/notes-20.png" /></p>
+<h4 id="interet-de-mise-en-oeuvre">Intérêt de mise en oeuvre<a class="headerlink" href="#interet-de-mise-en-oeuvre" title="Permanent link"></a></h4>
+<p>La segmentation du réseau au moyen de VLAN permet :</p>
+<ul>
+<li>d&rsquo;accroître la sécurité </li>
+<li>d&rsquo;accroître les performances en limitant les domaines de diffusion </li>
+<li>de prioriser certains flux</li>
+<li>d&rsquo;optimiser l&rsquo;utilisation du matériel </li>
+</ul>
+<p>Les limites :</p>
+<ul>
+<li>nécessite une prise en charge par les commutateurs </li>
+<li>nécessite une configuration</li>
+</ul>
+<h4 id="prise-en-charge-8021q">Prise en charge 802.1Q<a class="headerlink" href="#prise-en-charge-8021q" title="Permanent link"></a></h4>
+<p>Les VLANs peuvent être mis en oeuvre à différents niveaux du modèle OSI :</p>
+<ul>
+<li><strong>VLAN de niveau 1</strong> : l&rsquo;affectation à un VLAN est liée au port de raccordement du switch </li>
+<li><strong>VLAN de niveau 2</strong> : l&rsquo;affectation du VLAN est liée à l&rsquo;adresse MAC de l&rsquo;équipement</li>
+<li><strong>VLAN de niveau 3</strong> : l&rsquo;affectation du VLAN est liée à l&rsquo;adresse IP de l&rsquo;équipement </li>
+</ul>
+<p>Leur affectation peut être réalisée par :</p>
+<ul>
+<li>Les équipements d&rsquo;interconnection : les <strong>switch</strong> </li>
+<li>Les équipements terminaux (postes de travail, serveurs, Téléphones IP)</li>
+</ul>
+<p>La norme 802.1Q correspond au standard de prise en charge</p>
+<h4 id="integration-dun-identifiant-de-vlan">Intégration d&rsquo;un identifiant de VLAN<a class="headerlink" href="#integration-dun-identifiant-de-vlan" title="Permanent link"></a></h4>
+<p>L&rsquo;ajout d&rsquo;informations d&rsquo;identification de VLAN se matérialise par la modification de l&rsquo;en-tête Ethernet des trames IP.</p>
+<p><img alt="21" src=".ressources/img/notes-21.png" /></p>
+<p>Parmi les informations ajoutées figurent :</p>
+<ul>
+<li>Une priorité (valeur de 0 à 7) permettant de mettre en place de la qualité de service 802.1P </li>
+<li>L&rsquo;identifiant de VLAN (valeur de 1 à 4094)</li>
+</ul>
+<h4 id="propagation-des-flux-entre-commutateurs">Propagation des flux entre commutateurs<a class="headerlink" href="#propagation-des-flux-entre-commutateurs" title="Permanent link"></a></h4>
+<ul>
+<li>Généralement, les réseaux d&rsquo;entreprises intègrent une multitude de switches. Les ports utilisés pour le raccordement entre les switchs doivent être identifiés comme &ldquo;port trunk&rdquo;.</li>
+<li>Lors de la configuration d&rsquo;un port en &ldquo;port trunk&rdquo;, on indique les trames de quels VLANS doivent se propager. </li>
+</ul>
+<p><img alt="22" src=".ressources/img/notes-22.png" /></p>
+<h4 id="criteres-de-configuration-sur-les-switchs">Critères de configuration sur les switchs<a class="headerlink" href="#criteres-de-configuration-sur-les-switchs" title="Permanent link"></a></h4>
+<p>Sur les commutateurs, la configuration à mettre en oeuvre doit prendre en considération les aspects suivants :</p>
+<ul>
+<li><strong>Le type d&rsquo;utilisation du port</strong> :<ul>
+<li><strong>Port Access</strong> : port utilisé pour communiquer avec un équipement terminal, un seul VLAN peut lui être affecté. </li>
+<li><strong>Port Trunk</strong> : port utilisé pour la liaison vers d&rsquo;autres commutateurs, un ensemble de VLAN peut lui être affecté. </li>
+</ul>
+</li>
+<li><strong>L&rsquo;état d&rsquo;activation du marquage</strong> :<ul>
+<li><strong>Marquage actif</strong> : le marquage des paquets (champ TAG VLAN) est propagé à leur sortie de la trame. </li>
+<li><strong>Marquage inactif</strong> : le champs TAG VLAN est supprimé avant la remise de la trame.</li>
+</ul>
+</li>
+<li><strong>Le(s) VLAN(s) à affecter aux ports</strong> : à chaque port sera associé<ul>
+<li><strong>Le VLAN par défaut</strong> : VLAN1</li>
+<li><strong>D&rsquo;autre(s) VLAN(s)</strong> : le ou les VLANs choisis</li>
+</ul>
+</li>
+</ul>
+<h4 id="configuration-sur-les-equipements-terminaux">Configuration sur les équipements terminaux<a class="headerlink" href="#configuration-sur-les-equipements-terminaux" title="Permanent link"></a></h4>
+<ul>
+<li>
+<p>Certains équipements terminaux sont compatibles avec la norme 802.1Q, leur affectation à un VLAN est gérée depuis leur configuration. Ces équipements doivent être connectés à des ports configurés en mode trunk du switch. </p>
+</li>
+<li>
+<p>Quelques exemples de type d&rsquo;équipements terminaux pouvant prendre en charge la norme 802.1Q:</p>
+<ul>
+<li>Des pilotes de carte réseau </li>
+<li>Des systèmes d&rsquo;exploitation </li>
+<li>Des téléphones IP </li>
+</ul>
+</li>
+</ul>
+<p><img alt="23" src=".ressources/img/notes-23.png" width="500px" /></p>
+<h3 id="les-composantes-vsphere-du-reseau">Les composantes vSphere du réseau<a class="headerlink" href="#les-composantes-vsphere-du-reseau" title="Permanent link"></a></h3>
+<h4 id="le-vsphere-standard-switch-vss">Le vSphere Standard Switch (vSS)<a class="headerlink" href="#le-vsphere-standard-switch-vss" title="Permanent link"></a></h4>
+<p><table class="table-borderless">
+    <tr>
+        <td><p>C&rsquo;est le composant centre de <b>gestion du réseau</b> de l&rsquo;ESXi.<br>
+        Il est géré indépendamment pour chaque ESXi de l&rsquo;infrastructure.</p>
+        <h5>Liaison</h5>
+        <ul>
+            <li>Un vSS est <b>lié à un ou plusieurs groupement de ports</b>.</li>
+            <li>Un vSS peut être <b>raccordé à une ou plusieurs cartes réseau</b>.</li>
+        </ul>
+        <p>Par défault, le <strong>vSwitch0</strong> est créé, il est utilisable :</p>
+            <ul>
+                <li>pour les tâches de gestion de l&rsquo;ESXi</li>
+                <li>pour les VM</li>
+            </ul>
+        <p>Il est lié à la carte réseau de l&rsquo;ESXi présente à l&rsquo;installation.</p></td>
+        <td><img src=".ressources/img/notes-24.png" alt="vSS - vSpere Standard Switch" text="vSS - vSpere Standard Switch"></td>
+        </tr>
+    </tbody>
+</table></p>
+<h4 id="le-vsphere-distribue-vds">Le vSphere Distribué (vDS)<a class="headerlink" href="#le-vsphere-distribue-vds" title="Permanent link"></a></h4>
+<p>A la différence des vSwitch standards, le <strong>vSwitch Distribué</strong> est un <strong>objet commun</strong> aux éléments d&rsquo;une même infrastructure vSphere. </p>
+<ul>
+<li><strong>Un même vDS est utilisable par un ensemble d&rsquo;hôtes</strong>.</li>
+<li>Sa gestion se réalise depuis le <strong>vCenter</strong> de l&rsquo;infrastructure.</li>
+<li>L&rsquo;utilisation de vDS permet d&rsquo;éviter toute interruption de service en cas de migration de VM.</li>
+</ul>
+<p><strong>Remarque</strong>: Cette fonctionnalité requiert le niveau de licence <strong>Entreprise Plus</strong>.</p>
+<h4 id="les-groupements-de-ports">Les groupements de ports<a class="headerlink" href="#les-groupements-de-ports" title="Permanent link"></a></h4>
+<table class="table table-borderless">
+    <tr>
+        <td><p>Ils <strong>définissent un type d'utilisation du réseau pour l'ESXi</strong> parmi les suivants :</p>
+            <table class="table-hover">
+                <tr>
+                    <th>Type</th>
+                    <th>Utilisation</th>
+                </tr>
+                <tr>
+                    <td>VM Network</td><td>Création de réseau à destination des VM.</td>
+                </tr>
+                <tr>
+                    <td>VM Kernel</td><td>Création de réseau à destination des besoins de l'infrastructure de virtualisation</td>
+                </tr>
+            </table>
+            <p>Des machines liées à des groupements de ports distincts d'un même vSwitch ne peuvent pas communiquer entre elles.</p>
+        </td>
+        <td width="300px">
+            <a href=".ressources/img/notes-25.png" target="_blank">
+                <img src=".ressources/img/notes-25.png" alt="Groupement de ports" text="Groupements de ports">
+            </a>
+        </td>
+    </tr>
+</table>
+
+<p><strong>Remarque</strong>: La segmentation en VLAN peut être configurée depuis les groupements de ports.</p>
+<h4 id="les-vmnic-ou-pnic">Les vmNIC ou pNIC<a class="headerlink" href="#les-vmnic-ou-pnic" title="Permanent link"></a></h4>
+<table class="table table-borderless">
+    <tr>
+        <td><p>Ce sont les <b>cartes réseau physiques de l'ESXi</b>.</p>
+            <p>Deux dénominations s'appliquent aux cartes réseau physiques des hôtes :
+                <ul><li>Object vSphere associé à une pNIC: <b>vmNIC</b></li>
+                    <li>Carte physique de l'hôte: <b>pNIC</b></li>
+                </ul>
+            </p>
+            <p><b>Les contraintes de liaison vmNIC <=> vSwitch</b> :
+                <ul><li>Chaque carte peut être liée à un seul vSwitch.</li>
+                    <li>Plusieurs cartes peuvent être liées au même vSwitch.</li>
+                </ul>
+            </p>
+        </td>
+        <td width="300px">
+            <a href=".ressources/img/notes-26.png" target="_blank">
+                <img src=".ressources/img/notes-26.png" alt="vmNIC/pNIC" text="vmNIC / pNIC">
+            </a>
+        </td>
+    </tr>
+</table>
+
+<h4 id="le-regroupement-de-carte-reseau-teaming">Le regroupement de carte réseau (Teaming)<a class="headerlink" href="#le-regroupement-de-carte-reseau-teaming" title="Permanent link"></a></h4>
+<p>Il est possible de regrouper un ensemble de cartes réseau d&rsquo;un ESXi.</p>
+<p>Cela se traduit par :</p>
+<table>
+<thead>
+<tr>
+<th align="center">Un adressage unique</th>
+<th align="center">Si les cartes sont liées à un groupement de port typé VM Kernel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Un débit cumulé</td>
+<td align="center">Mode de configuration actif - actif</td>
+</tr>
+<tr>
+<td align="center">Un gain de tolérance de pannes</td>
+<td align="center">Mode de configuration actif - passif</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Prérequis de mise en oeuvre</strong> : </p>
+<ul>
+<li>Disposer au minimum de 2 VMNIC raccordés à un switch virtuel.</li>
+</ul>
+<p><strong>Mise en oeuvre, la configuration peut se faire</strong> :</p>
+<ul>
+<li>Par la sélection d&rsquo;un ensemble de cartes, lors de la création d&rsquo;un switch virtuel.</li>
+<li>Par l&rsquo;ajout de carte(s) au groupement de ports d&rsquo;un switch virtuel existant.</li>
+</ul>
+<h4 id="teaming-repartition-de-charge">Teaming - Répartition de charge<a class="headerlink" href="#teaming-repartition-de-charge" title="Permanent link"></a></h4>
+<p>La configuration du <strong>teaming</strong> permet de déterminer le mode de fonctionnement de la <strong>répartition de charge</strong> :</p>
+<ul>
+<li><strong>Par VM</strong> : chaque port de vSwith (soit indirectement chaque carte réseau de VM) est lié à un vmNIC.</li>
+<li><strong>Par adresse matérielle</strong> (MAC) de la source du paquet </li>
+<li><strong>Par paquet</strong> : en fonction des adressages de source et destination, un algorithme détermine la nmNIC à utiliser.</li>
+<li><strong>Par ordonnancement des cartes</strong> : pas de répartition de charge, seule défaillance d&rsquo;une carte entraine l&rsquo;utilisation de la suivante</li>
+</ul>
+<h4 id="les-vnic">Les vNIC<a class="headerlink" href="#les-vnic" title="Permanent link"></a></h4>
+<table class="table table-borderless">
+    <tr>
+        <td>
+            <p>Ce sont les <b>cartes réseau présentées aux VM.</b>.</p>
+            <p>Elles peuvent être connectées ou non à un groupement de ports de type *Virtual Machine* existant.</p>
+            <p>**La ségmentation en VLAN peut être configurée au niveau des vNIC**.</p>
+        </td>
+        <td width="300px">
+            <a href=".ressources/img/notes-27.png" target="_blank">
+                <img src=".ressources/img/notes-27.png" alt="vNIC" text="vNIC">
+            </a>
+        </td>
+    </tr>
+</table>
+
+<h4 id="liens-entre-les-vmnic-et-les-besoins-reseau">Liens entre les vmNIC et les besoins réseau<a class="headerlink" href="#liens-entre-les-vmnic-et-les-besoins-reseau" title="Permanent link"></a></h4>
+<p>Un hôte dispose généralement d&rsquo;un ensemble de cartes réseau. Ces cartes permettent de couvrir les multiples besoins réseau de l&rsquo;infrastructure vSphere : Réseau pour les VM, Gestion de l&rsquo;infrastructure, Déplacement de VM, Flux iSCSI, Très haute disponibilité.</p>
+<p>Il est important de recenser les besoins, d&rsquo;identifier ceux que l&rsquo;on souhaite regrouper et ceux que l&rsquo;on souhaite isoler.</p>
+<p><img alt="28" src=".ressources/img/notes-28.png" /></p>
+<h4 id="illustration-de-raccordement-reseau-global">Illustration de raccordement réseau global<a class="headerlink" href="#illustration-de-raccordement-reseau-global" title="Permanent link"></a></h4>
+<p><img alt="29" src=".ressources/img/notes-29.png" /></p>
+<h4 id="les-vlan-en-environnement-virtualise">Les VLAN en environnement virtualisé<a class="headerlink" href="#les-vlan-en-environnement-virtualise" title="Permanent link"></a></h4>
+<table class="table table-borderless">
+    <tr>
+        <td>
+            <p>En environnement vSphere, les VLAN peuvent être affectés :
+                <ul><li>Au niveau du switch : un seul VLAN ciblera alors tout le trafic</li>
+                    <li>Sur des groupements de ports</li>
+                    <li>Sur des NIC</li>
+                </ul>
+            </p>
+            <p>Si les VLAN sont affectés par l'hyperviseur, le switch doit être configuré en mode trunk et lié à tous les VLAN nécessaires aux composantes d'infrastructure vSphere et aux VM.</p>
+        </td>
+        <td width="300px">
+            <a href=".ressources/img/notes-30.png" target="_blank">
+                <img src=".ressources/img/notes-30.png" alt="VLAN" text="VLAN">
+            </a>
+        </td>
+    </tr>
+</table>
+
+<h3 id="atelier-4-gestion-reseaux">Atelier 4 - Gestion Réseaux<a class="headerlink" href="#atelier-4-gestion-reseaux" title="Permanent link"></a></h3>
+<p>Voir Atelier 4</p>
+<h2 id="module-7-gestion-du-stockage">Module 7 - Gestion du stockage<a class="headerlink" href="#module-7-gestion-du-stockage" title="Permanent link"></a></h2>
+<p>La virtualisation du stockage permet de fédérer les volumes en une ressource unique. </p>
+<p>Le principe de base de la virtualisation du stockage est de gérer une interface qui permet de dissocier la gestion physique des disques (et des baies de stockage) vis-à-vis des serveurs qui l&rsquo;utilisent.</p>
+<p>Les systèmes de stockage fournissent soit des données en mode bloc, soit en mode fichier. Les données en mode bloc sont accédées à travers des protocoles tels que iSCSI ou autres. L&rsquo;accès en mode fichier se fait à travers NFS ou CIFS. </p>
+<p>La virtualisation d&rsquo;un <strong>système de stockage</strong> peut se faire de 2 façons : </p>
+<ul>
+<li><strong>virtualisation en mode bloc</strong>, en introduisant un niveau d&rsquo;abstraction entre le serveur et le système de stockage, ce qui donne plus de flexibilité pour les administrateurs.</li>
+<li><strong>virtualisation en mode fichiers</strong>, en accèdant au NAS en masquant les dépendances vis-à-vis de l&rsquo;emplacement où les données sont physiquement stockées. </li>
+</ul>
+<h3 id="les-solutions-de-stockage">Les solutions de stockage<a class="headerlink" href="#les-solutions-de-stockage" title="Permanent link"></a></h3>
+<p>Les notions suivantes vont être abordées dans ce chapitre : <strong>mode bloc</strong>, <strong>SAN</strong>, <strong>NAS</strong>, <strong>DAS</strong>.</p>
+<h4 id="mode-bloc">Mode bloc<a class="headerlink" href="#mode-bloc" title="Permanent link"></a></h4>
+<p>Le stockage par blocs est une technologie utilisée pour stocker des fichiers de données sur des réseaux de stockage (SAN) ou des environnements de stockage en cloud. Les développeurs privilégient le stockage par blocs dans les cas où ils ont besoin d&rsquo;un transport de données rapide, efficace et fiable.</p>
+<p>Le stockage par bloc divise les données en blocs, puis stocke les blocs en tant qu&rsquo;éléments distincts, chacun possédant un identificateur unique. Le réseau SAN place ces blocs de données là où l&rsquo;efficacité est la plus grande, ce qui signifie qu&rsquo;il peut stocker ces blocs sur différents systèmes, et que chaque bloc peut être configuré (ou partitionné) pour fonctionner avec différents systèmes d&rsquo;exploitation.</p>
+<p>Le stockage par bloc dissocie également les données des environnements des utilisateurs, ce qui permet de répartir ces données dans plusieurs environnements, créant ainsi de multiples chemin d&rsquo;accès aux données et permettant à l&rsquo;utilisateur de les récupérer rapidement. Lorsqu&rsquo;un utilisateur ou une application demande des données à un système de stockage par blocs, le système de stockage sous-jacent reconstitue les blocs de données et présente les données à l&rsquo;utilisateur ou à l&rsquo;application.</p>
+<p>(Sources : <a href="https://www.ibm.com/fr-fr/cloud/learn/block-storage">https://www.ibm.com/fr-fr/cloud/learn/block-storage</a>)</p>
+<p>La plupart des implémentations permettent une administration unique d&rsquo;un ensemble de baies de stockages hétérogènes.</p>
+<h4 id="san-storage-area-network">SAN - Storage Area Network<a class="headerlink" href="#san-storage-area-network" title="Permanent link"></a></h4>
+<p>C&rsquo;est un réseau spécialisé permettant de mutualiser les ressources de stockage.</p>
+<p>Un réseau de stockage se différencie des autres systèmes de stockage tels que le NAS (Network Attached Storage) par un accès bas niveau aux disques. Pour simplifier, le trafic sur un SAN est très similaire aux principes utilisés pour l&rsquo;utilisation des disques internes (ATA, SCSI). <strong>C&rsquo;est une mutualisation des ressources de stockage</strong>.</p>
+<p>Dans le cas du SAN, les baies de stockage n&rsquo;apparaissent pas comme des volumes partagés sur le réseau. Elles sont directement accessibles en mode bloc par le système de fichiers des serveurs. 
+En clair, chaque serveur voit l&rsquo;espace disque d&rsquo;une baie SAN auquel il a accès comme son propre disque dur. L&rsquo;administrateur doit donc définir très précisement les <strong>Logical Unit Number</strong> (<strong>LUN</strong>, unités logiques), le <em>masking</em> et le <em>zoning</em>, pour qu&rsquo;un serveur Unix n&rsquo;accède pas aux mêmes ressources qu&rsquo;un serveur Windows utilisant un système de fichiers différent. </p>
+<p><strong>Avantages du SAN</strong></p>
+<ul>
+<li>Ne plus avoir à se préoccuper de faire évoluer la quantité de disques autrefois dévolus à un serveur particulier ou de désallouer de l&rsquo;espace non-utilisé d&rsquo;un serveur surdimensionné en espace disque.</li>
+<li>Espace disque n&rsquo;est plus limité par les caractéristiques des serveurs</li>
+<li>Espace disque est évolutif à volonté par l&rsquo;ajout de disques ou de baies de stockage sur le SAN. </li>
+<li>L&rsquo;espace de stockage physique mutualisé pour les serveurs permet d&rsquo;optimiser la gestion des disques, et de rendre plus aisées les sauvegardes de données.</li>
+</ul>
+<p><strong>Caractéristiques du SAN</strong> </p>
+<ul>
+<li><strong>La Qualité de Service</strong> (QoS) : le commutateur garantit un débit fixe de 16 Gbit/s par lien en fibre optique (contre 1, 2, 4 ou 8 précédemment).</li>
+<li><strong>La disponibilité</strong> : le SAN peut assurer la redondance du stockage càd l&rsquo;accessibilité du stockage en cas de panne en doublant au minimum chacun des éléments du système (haute disponibilité)</li>
+<li><strong>L&rsquo;hétérogènéité</strong> : le SAN peut fonctionnner dans un environnement complétement hétérogène. Les serveurs Unix, Windows, Netware, etc. peuvent tous rejoindre le SAN.</li>
+<li><strong>Performances variables</strong> : la performance de l&rsquo;accès aux disques par un hôte varie en fonction des sollicitations de la part des autres hôtes sur les ressources partagées.</li>
+</ul>
+<h4 id="nas">NAS<a class="headerlink" href="#nas" title="Permanent link"></a></h4>
+<p>Dans le cas du <strong>NAS</strong> (<strong>Network Attached Storage</strong>), la ressource de stockage est directement connectée au réseau IP de l&rsquo;entreprise. Le serveur NAS intègre le support de multiples systèmes de fichiers réseau, tels que <strong>CIFS</strong> (Common Internet File System) protocole de partage de Microsoft et de Samba, <strong>NFS</strong> (Network File System) qui est un protocole de partage de fichier Unix, ou encore <strong>AFP</strong> (AppleShare File Protocol). Une fois connecté au réseau, il peut jouer le rôle de plusieurs serveurs de fichiers partagés.</p>
+<p><em>ENI &ldquo;VMware vSphere6</em> :</p>
+<blockquote>
+    <p>Le NAS est un stockage accessible à travers le réseau, donc accessible par plusieurs machines simultanément. La connectivité des NAS est actuellement basée principalement sur l’Ethernet dont le connecteur est l’adaptateur réseau, ou NIC pour Network Interface Card. Il utilise des protocoles d’interconnexion basés sur TCP/IP. Le NAS est un fournisseur d’accès à des fichiers car il présente un système de fichiers, et s’appuie sur les protocoles applicatifs tels que le CIFS/SMB (Microsoft), l’AFP (Apple) et NFS (Unix/Linux), pour le partager. Le NAS est un espace de stockage dit en mode fichier, cela permet d’avoir accès aux fichiers une fois les droits d’accès configurés.</p>
+</blockquote>
+
+<p><a href=".ressources/img/notes-33.png" target="_blank"><img alt="33" src=".ressources/img/notes-33.png" /></a> </p>
+<h4 id="das">DAS<a class="headerlink" href="#das" title="Permanent link"></a></h4>
+<p><em>Direct Attached Storage</em> (DAS) est le terme utilisé pour un système de disques durs en attachement direct, par opposition au NAS qui est en attachement réseau. </p>
+<p>Le système disque ainsi installé n&rsquo;est accessible directement qu&rsquo;aux machines auquel il est raccordé. Les modes de raccordement au serveur peuvent être ATA, SATA, eSATA, NVMe, SCSI, USB, Fibre Channel, etc.</p>
+<p><a href="https://fr.wikipedia.org/wiki/Direct_Attached_Storage">Wikipédia</a></p>
+<p>&ndash;</p>
+<p>Le DAS est une baie de stockage qui, comme son nom l’indique, est directement connectée à un serveur. Elle est connectée à son serveur par le biais de connectiques diverses et variées allant de l’USB au Fibre Channel en passant par le SATA, la gestion des périphériques de stockage présent dans la baie DAS, se fait à partir du serveur. Il faut aussi inclure un disque dur interne connecté en SATA sur la carte mère comme un DAS.</p>
+<p>Le coût est faible mais la gestion peut rapidement devenir « compliquée ».</p>
+<p><a href=".ressources/img/notes-32.png" target="_blank"><img alt="32" src=".ressources/img/notes-32.png" /></a> </p>
+<p><a href="https://www.eni-training.com/portal/client/mediabook/home">ENI &ldquo;VMware vSphere6&rdquo;</a></p>
+<h4 id="services-et-donnees">Services et données<a class="headerlink" href="#services-et-donnees" title="Permanent link"></a></h4>
+<p>Une infrastructure regroupe un ensemble de services fournis. Ceux-ci sont dépendants de données pour leur fonctionnement. </p>
+<p>Les données sont au coeur du fonctionnement de chaque service. Et les services au coeur des infrastructures réseau.</p>
+<h4 id="stockage-local-et-acces-aux-donnees">Stockage local et accès aux données<a class="headerlink" href="#stockage-local-et-acces-aux-donnees" title="Permanent link"></a></h4>
+<p>Lorsqu&rsquo;un machine dispose d&rsquo;un périphérique de stockage local, l&rsquo;accès aux données sur ce périphérique est lié :</p>
+<ul>
+<li>à la connectique associée au périphérique </li>
+<li>au protocole de stockage pris en charge</li>
+<li>au mode d&rsquo;accès </li>
+</ul>
+<p>Ces trois éléments sont généralement liés entre eux. </p>
+<h4 id="peripheriques-disques-et-modes-dacces">Périphériques disques et modes d&rsquo;accès<a class="headerlink" href="#peripheriques-disques-et-modes-dacces" title="Permanent link"></a></h4>
+<p>Les périphériques de type disque stockent les données sous forme d&rsquo;ensembles ou blocs.</p>
+<h5 id="le-protocole-scsi">Le protocole SCSI<a class="headerlink" href="#le-protocole-scsi" title="Permanent link"></a></h5>
+<ul>
+<li>Le mode bloc s&rsquo;applique au protocole SCSI.</li>
+<li>Les données échangées par les couches liaison / transport comportent des commandes SCSI et des blocs de données.</li>
+</ul>
+<p><a href=".ressources/img/notes-31.png" target="_blank"><img alt="31" src=".ressources/img/notes-31.png" /></a> </p>
+<p><strong>Small Computer System Interface</strong> (SCSI, prononcé &ldquo;<em>skeuzi</em>&rdquo;) est un standard définissant un bus informatique reliant un ordinateur à des périphériques ou à un autre ordinateur. Aujourd&rsquo;hui en cours de remplacement par le SAS (Serial Attached SCSI).</p>
+<p>Il désigne une technologie qui regroupe un ensemble d&rsquo;interfaces électroniques normalisées qui permettent aux ordinateurs de communiquer avec des équipements périphériques comme les lecteurs de disque, les lecteurs de bande, les lecteurs de CD-ROM, les imprimantes et les scanners, et ce plus rapidement et avec plus de flexibilité que les interfaces antérieures.</p>
+<p>Si tous les périphériques ne prennent pas en charge tous les niveaux de SCSI, les normes SCSI sont généralement rétrocompatibles. Ainsi, si un périphérique d&rsquo;ancienne génération est connecté à un ordinateur plus récent qui prend en charge une norme postérieure, le périphérique fonctionnera avec l&rsquo;ancien débit de données, plus lent.</p>
+<p>Dans l&rsquo;informatique personnelle, les interfaces SCSI ont été en grande partie remplacées par le bus universel en série, dit bus USB.</p>
+<p>Dans l&rsquo;entreprise, l&rsquo;interface SCSI reste utilisée dans les fermes de serveurs pour les contrôleurs de disques durs.</p>
+<h5 id="les-limites-du-stockage-local">Les limites du stockage local<a class="headerlink" href="#les-limites-du-stockage-local" title="Permanent link"></a></h5>
+<p><strong>Limites du stockage local</strong></p>
+<ul>
+<li>Chaque serveur allouera de l&rsquo;espace disque à la tolérance de pannes</li>
+<li>Les volumes disques sont créés en fonction des besoins et des contraintes matérielles</li>
+<li>Les sauvegardes impactent les performances de toutes les machines qui y sont soumises </li>
+<li>Une distances limitée entre un serveur et son stockage</li>
+</ul>
+<p>La réponse aux problématiques précédentes : mise en place de solution de stockage centralisé / mutualisé.</p>
+<p>Une solution de stockage réseau est caractérisée par :</p>
+<ul>
+<li>son type d&rsquo;accès (mode bloc ou mode fichier)</li>
+<li>le ou les protocoles d&rsquo;accès pris en charge</li>
+</ul>
+<h4 id="comparaison-san-nas">Comparaison SAN / NAS<a class="headerlink" href="#comparaison-san-nas" title="Permanent link"></a></h4>
+<table>
+<thead>
+<tr>
+<th align="left">SAN</th>
+<th align="left">NAS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Les baies <strong>SAN</strong> utilisent des protocoles d&rsquo;accès comme <strong>Fibre Channel</strong>, ou <strong>iSCSI</strong> et partagent leur capacité sous forme de volumes logiques. Ces derniers sont utilisables comme des disques locaux par les serveurs et sont donc accessibles en mode bloc.</td>
+<td align="left">Les baies <strong>NAS</strong> mettent leur capacité disponible à disposition des serveurs sous la forme d&rsquo;un partage réseau accessible via un protocole de partage de fichiers en réseau comme <strong>NFS</strong> ou <strong>CIFS</strong> (alias <strong>SMB</strong>)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="iscsc">iSCSC<a class="headerlink" href="#iscsc" title="Permanent link"></a></h4>
+<p>Le protocole iSCSI est utilisé par des solutions de stockage centralisées rendant accessible de l&rsquo;espace disque en mode bloc par un réseau.</p>
+<div class="img-row">
+    <div class="img-col">
+        <a href=".ressources/img/notes-34.png" target="_blank">
+            <img src=".ressources/img/notes-34.png" alt=".ressources/img/notes-34.png"  style="width:100%">
+        </a>
+    </div>
+    <div class="img-col">
+        <a href=".ressources/img/notes-35.png" target="_blank">
+            <img src=".ressources/img/notes-35.png" alt=".ressources/img/notes-35.png" style="width:70%">
+        </a>
+    </div>
+</div>
+
+<p>D&rsquo;autres protocoles ont une approche similaire.</p>
+<h3 id="vsphere-et-le-stockage">vSphere et le stockage<a class="headerlink" href="#vsphere-et-le-stockage" title="Permanent link"></a></h3>
+<h4 id="les-composantes-de-stockage">Les composantes de stockage<a class="headerlink" href="#les-composantes-de-stockage" title="Permanent link"></a></h4>
+<p>Dans une infrastructure vSphere, on distingue deux composantes de configuration du stockage :</p>
+<ul>
+<li>Les <strong>adaptateurs de stockage</strong> servent à lier des solutions de stockage aux hôtes amenés à les utiliser.</li>
+<li>Les <strong>banques de données ou datastore</strong> correspondent aux conteneurs &ldquo;virtuels&rdquo; dans lesquels sont hébergées les données.</li>
+</ul>
+<h4 id="choix-dune-solution-de-stockage">Choix d&rsquo;une solution de stockage<a class="headerlink" href="#choix-dune-solution-de-stockage" title="Permanent link"></a></h4>
+<p>De nombreuses possibilités sont prises en charge pour l&rsquo;hébergement des VM dans l&rsquo;environnement vSphere. </p>
+<p>Les points suivants vous permettront de cibler la solution de stockage la plus adaptée à une situation donnée :</p>
+<ul>
+<li>Stockage dédié à un hôte ou mutualisé </li>
+<li>Quel protocole d&rsquo;accès à la solution de stockage </li>
+<li>Quel support </li>
+<li>Quel mode d&rsquo;accès</li>
+<li>Quel système de fichiers utiliser </li>
+</ul>
+<p><img alt="36" src=".ressources/img/notes-36.png" /></p>
+<h3 id="les-adaptateurs-de-stockage">Les adaptateurs de stockage<a class="headerlink" href="#les-adaptateurs-de-stockage" title="Permanent link"></a></h3>
+<h4 id="raccordement-de-la-solution-de-stockage">Raccordement de la solution de stockage<a class="headerlink" href="#raccordement-de-la-solution-de-stockage" title="Permanent link"></a></h4>
+<p>La solution de stockage retenue est raccordée à l&rsquo;infrastructure vSphere via la configuration des adaptateurs de stockage. </p>
+<p>Sont affichés dans les adaptateurs de stockage :</p>
+<ul>
+<li>Les disques physiques raccordés directement à l&rsquo;hyperviseur </li>
+<li>Les espaces disques accessibles via des adaptateurs HBA ou CNA physiques configurés sur l&rsquo;hyperviseur </li>
+<li>Les espaces disques accessibles via des adaptateurs logiciels de l&rsquo;hyperviseur </li>
+</ul>
+<p>L&rsquo;environnement vSphere fournit des adaptateurs virtuels FCoE (Fibre Channel on Ethernet) et iSCSI (internet SCSI) pour les hôtes.</p>
+<p>L&rsquo;utilisation de ces adaptateurs se traduit par un impact sur les performances des hôtes, les adaptateurs matériels sont donc à privilégier. </p>
+<p>Dans le cas d&rsquo;utilisation d&rsquo;une solution nécessitant un adaptateur de stockage virtuel, celui-ci est à configurer depuis l&rsquo;hôte.</p>
+<h4 id="zoom-sur-liscsi">Zoom sur l&rsquo;iSCSI<a class="headerlink" href="#zoom-sur-liscsi" title="Permanent link"></a></h4>
+<ul>
+<li>L&rsquo;utilisation de solutions de stockage basées sur le protocole iSCSI est fréquente dans des environnements virtualisés. Les <strong>performances du réseau</strong> associé sont alors directement liées au bon fonctionnement de la solution.</li>
+<li>Il est recommandé d&rsquo;utiliser un <strong>réseau dédié</strong> à ses besoins. Et de préférences des mécanismes de <strong>redondance</strong>.</li>
+<li>Le ciblage d&rsquo;une carte réseau pour le protocole iSCSI permet de dédier cette carte à ce besoin. Celui-ci se configure depuis les propriétés de l&rsquo;adaptateur iSCSI. La résultante de cette configuration est visible dans les propriétés du vSwitch lié à la carte sélectionnée. </li>
+</ul>
+<h5 id="hote-et-mtu">Hôte et MTU<a class="headerlink" href="#hote-et-mtu" title="Permanent link"></a></h5>
+<p>L&rsquo;utilisation de trames Ethernet pour véhiculer des flux liés au stockage nécessite une adaptation de la configuration réseau afin de limiter la charge CPU et d&rsquo;améliorer les performances globales de la solution. </p>
+<p>Si les équipements de réseau utilisés pour les flux iSCSI le permettent (prise en charge de bout en bout), il est recommandé d&rsquo;augmenter la valeur du <strong>MTU à 9000</strong>.</p>
+<h5 id="iscsi-en-environnement-vsphere">iSCSI en environnement vSphere<a class="headerlink" href="#iscsi-en-environnement-vsphere" title="Permanent link"></a></h5>
+<p><a href=".ressources/img/notes-37.png" target="_blank"><img alt="37" src=".ressources/img/notes-37.png" /></a></p>
+<table>
+    <caption class="caption">Eléments constitutifs d'une solution de stockage iSCSI</caption>
+    <tr>
+        <th>SAN</th><td>Storage Area Network : le réseau de stockage qui est caractérisé par son ou ses protocoles d'accès et connectivité, sa volumétrie, ses fonctionnalités associées, ses performances.</td>
+    </tr>
+    <tr>
+        <th>LUN</th><td>Logical Unit Number : unité de stockage d'une baie de disques</td>
+    </tr>
+    <tr>
+        <th>HBA</th><td>Host Bus Adapter : adaptateur de stockage qui (une fois configuré) permettra l'accès à un ou plusieurs espaces disques.</td>
+    </tr>
+    <tr>
+        <th>iSCSI Target</th><td>L'élément qui met à disposition de l'espace disque physique.</td>
+    </tr>
+    <tr>
+        <th>iSCSI Initiator</th><td>L'élément qui accède à de l'espace disque mis à sa disposition.</td>
+    </tr>
+</table>
+
+<h3 id="les-banques-de-donnees">Les banques de données<a class="headerlink" href="#les-banques-de-donnees" title="Permanent link"></a></h3>
+<h4 id="les-datastores">Les datastores<a class="headerlink" href="#les-datastores" title="Permanent link"></a></h4>
+<p>On dispose généralement de plusieurs espaces disques disponibles et accessibles depuis leur adaptateur de stockage associé. Les banques de données, ou <strong>datastore</strong>, vont rendre utilisables ces espaces disques.</p>
+<p>Avant leur création, il est important de recenser les besoins en termes de stockage et les caractéristiques attendues pour les espaces correspondants :</p>
+<table>
+    <caption class="caption">Besoins en terme de stockage</caption>
+    <tr>
+        <th>Besoins</th><th>VM_PROD</th><th>VM_TESTS</th><th>MODELES</th><th>ISO</th>
+    </tr>
+    <tr>
+        <th>Performances</th>
+        <td class="red horiz-align-center">3</td>
+        <td class="horiz-align-center">2</td>
+        <td class="green horiz-align-center">1</td>
+        <td class="green horiz-align-center">1</td>
+    </tr>
+    <tr>
+        <th>Tolérance aux pannes</th>
+        <td class="red horiz-align-center">3</td>
+        <td class="horiz-align-center">2</td>
+        <td class="green horiz-align-center">1</td>
+        <td class="green horiz-align-center">1</td>
+    </tr>
+    <tr>
+        <th>Criticité</th>
+        <td class="red horiz-align-center">3</td>
+        <td class="horiz-align-center">2</td>
+        <td class="horiz-align-center">2</td>
+        <td class="green horiz-align-center">1</td>
+    </tr>
+</table>
+
+<p>Des valeurs élevées pour les différents indices sont généralement associées à un coût élevé de l&rsquo;hébergement.</p>
+<h4 id="la-configuration-de-banques-de-donnees">La configuration de banques de données<a class="headerlink" href="#la-configuration-de-banques-de-donnees" title="Permanent link"></a></h4>
+<p>On distingue 3 types de datastores :</p>
+<ol>
+<li>VMFS</li>
+<li>RDM ou VMFS</li>
+<li>NFS </li>
+</ol>
+<table>
+    <caption>Caractéristiques et versions de systèmes de fichiers VMFS</caption>
+    <thead>
+        <tr>
+            <td></td>
+            <th class="horiz-align-center">VMFS 2</th>
+            <th class="horiz-align-center">VMFS 3</th>
+            <th class="horiz-align-center">VMFS 5</th>
+            <th class="horiz-align-center">VMFS 6</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Versions de vSphere prise en charge</th>    
+            <td class="horiz-align-center">ESX 2</td>
+            <td class="horiz-align-center">Virtual infrastructure 3<br>vSphere 4.x & vSphere 5.x</td>
+            <td class="horiz-align-center">vSphere 5+</td>
+            <td class="horiz-align-center">vSphere 6.5+</td>
+        </tr>
+        <tr>
+            <th>Volume maximal</th> 
+            <td colspan="2" class="horiz-align-center">2 To</td>
+            <td colspan="2" class="horiz-align-center">64 To / defrag manu</td>
+        </tr>
+        <tr>
+            <th>Format de la table de partitions</th>   
+            <td colspan="2" class="horiz-align-center">MBR</td>
+            <td colspan="2" class="horiz-align-center">GPT</td>
+        </tr>
+        <tr>
+            <th>Taille des blocs</th>   
+            <td colspan="2" class="horiz-align-center">1/2/4/8 Mo</td>
+            <td colspan="2" class="horiz-align-center">1 Mo</td>
+        </tr>
+    </tbody>
+</table>
+
+<p><strong>VMFS</strong> est un système de fichiers qui permet un accès concurrentiel en lecture et en écriture à un ensemble d&rsquo;hôtes.</p>
+<h4 id="gestion-des-datastores">Gestion des datastores<a class="headerlink" href="#gestion-des-datastores" title="Permanent link"></a></h4>
+<p>Les principales tâches de gestion des datastores sont :</p>
+<ul>
+<li>Création et formatage </li>
+<li>Suivi de son taux d&rsquo;utilisation </li>
+<li>Extension dynamique</li>
+<li>Parcours, import et export de données </li>
+<li>Démontage </li>
+</ul>
+<p><strong>Notes : Affichage des fichiers masqués</strong> : Tous les fichiers ne sont pas visibles depuis l&rsquo;outil d&rsquo;exploration, ils peuvent l&rsquo;être depuis la console de l&rsquo;ESXi ou après s&rsquo;y être connecté via <em>ssh</em>, au moyen de la commande <strong>ls</strong>. </p>
+<h3 id="les-disques-de-vm">Les disques de VM<a class="headerlink" href="#les-disques-de-vm" title="Permanent link"></a></h3>
+<h4 id="la-mise-a-disposition-despace-disque-aux-vm">La mise à disposition d&rsquo;espace disque aux VM<a class="headerlink" href="#la-mise-a-disposition-despace-disque-aux-vm" title="Permanent link"></a></h4>
+<table class="table table-borderless">
+    <tr>
+        <td>
+            <p>L'espace disque accessible aux hôtes est principalement destiné à être utilisé par les VM qu'il héberge.</p>
+            <p>Deux possibilités permettent de fournir de l'espace disque à une VM :
+                <ul>
+                    <li>l'utilisation de disque au format VMDK</li>
+                    <li>Le mappage d'espace disque en accès direct (Raw Device Mapping)</li>
+                </ul>
+        </td>
+        <td width="500px">
+            <a href=".ressources/img/notes-38.png" target="_blank">
+                <img src=".ressources/img/notes-38.png" alt="datastore" text="datastore">
+            </a>
+        </td>
+    </tr>
+</table>
+
+<h4 id="vmdk-ou-rdm">VMDK ou RDM<a class="headerlink" href="#vmdk-ou-rdm" title="Permanent link"></a></h4>
+<p>p121/156</p>
+<p>Dans la plupart des cas, les disques présentés aux VM sont au format VMDK qui apporte le plus de simplicité de gestion et de sauvegarde. Ce format limite cependant à 2 To la taille maximale d&rsquo;un espace disque.</p>
+<p>Le format RDM peut être nécessaire dans certains contextes :</p>
+<ul>
+<li>Utilisation de solutions liées au SAN pour répondre à certains besoins (sauvegarde, etc.)</li>
+<li>Utilisation de services de cluster Microsoft</li>
+</ul>
+<p>L&rsquo;écart de performance entre les 2 formats est peu significatif.</p>
+<h4 id="creation-dun-disque-vmdk">Création d&rsquo;un disque VMDK<a class="headerlink" href="#creation-dun-disque-vmdk" title="Permanent link"></a></h4>
+<p>Lors de la création d&rsquo;un disque virtuel au format VMDK, 2 types de provisionnements sont proposés:</p>
+<table>
+    <caption class="caption">Thick/thin provision</caption>
+    <tr>
+        <td></td>
+        <th>Thick provisioning</th>
+        <th>Thin provisioning</th>
+    </tr>
+    <tr>
+        <th>Provisionnement</th>
+        <td>Définitif / statique</td>
+        <td>A la demande / dynamique</td>
+    </tr>
+    <tr>
+        <th>Espace disque occupé</th>
+        <td>Le disque créé occupera dès sa création tout l'espace indiqué</td>
+        <td>La taille réelle du disque correspond à l'espace maximum occupé sur le disque. Le disque pourra au maximum atteindre l'espace indiqué.</td>
+    </tr>
+    <tr>
+        <th style="background-color: green;color: white;font-weight: bold;">Avantages</th>
+        <td style="background-color: green;color: white;font-weight: bold;">Performances supérieures</td>
+        <td style="background-color: green;color: white;font-weight: bold;">Création du disque instantanée. L'espace non utilisé n'est pas bloqué et peut être utilisé.</td>
+    </tr>
+    <tr>
+        <th style="background-color: red;color: white;font-weight: bold;">Inconvénients</th>
+        <td style="background-color: red;color: white;font-weight: bold;">Temps de création du disque</td>
+        <td style="background-color: red;color: white;font-weight: bold;">Risque de sur-allocation d'un datastore.</td>
+    </tr>
+</table>
+
+<h4 id="demonstrations-datastore-disques-de-vm">Démonstrations - Datastore &amp; Disques de VM<a class="headerlink" href="#demonstrations-datastore-disques-de-vm" title="Permanent link"></a></h4>
+<ul>
+<li>Ajout d&rsquo;un datastore local </li>
+<li>Ajout d&rsquo;un datastore mutualisé<ul>
+<li>Configuration d&rsquo;une solution iSCSI </li>
+<li>Configuration d&rsquo;une solution NFS</li>
+</ul>
+</li>
+<li>Affectation d&rsquo;une carte réseau pour l&rsquo;initiateur iSCSI </li>
+</ul>
+<h3 id="atelier-5-gestion-de-stockage">Atelier 5 - Gestion de stockage<a class="headerlink" href="#atelier-5-gestion-de-stockage" title="Permanent link"></a></h3>
+<p>Voir Atelier 5 Gestion de stockage </p>
+<h2 id="module-8-gestion-du-datacenter">Module 8 - Gestion du DataCenter<a class="headerlink" href="#module-8-gestion-du-datacenter" title="Permanent link"></a></h2>
+<h3 id="contextes-et-actions-de-gestion">Contextes et actions de gestion<a class="headerlink" href="#contextes-et-actions-de-gestion" title="Permanent link"></a></h3>
+<p>Dans ce chapitre seront abordées les principales tâches de gestion d&rsquo;un environnement vSphere. </p>
+<p>Certaines tâches sont réalisables sur des hôtes autonomes, d&rsquo;autres nécessitent que les hôtes soient dans un contexte de datacenter (vCenter requis). </p>
+<p>| Tâches | Disponibilité sur des hôtes autonomes | Disponibilité dans un contexte de datacenter |
+| Gestion des ressources et pools de ressources  | [x] | [x] |
+| Gestion des rôles, utilisateurs et privilèges  | [x] | [x] |
+| Utilisation du web client vSphere              | [ ] | [x] |
+| Utilisation de vMotion et Storage vMotion      | [ ] | [x] | 
+| Gestion des modèles VMTX                       | [ ] | [x] |</p>
+<h3 id="la-gestion-des-ressources">La gestion des ressources<a class="headerlink" href="#la-gestion-des-ressources" title="Permanent link"></a></h3>
+<h4 id="la-reservation-de-ressources">La réservation de ressources<a class="headerlink" href="#la-reservation-de-ressources" title="Permanent link"></a></h4>
+<p>Il est possible d&rsquo;affecter à l&rsquo;ensemble des VM d&rsquo;un hôte plus de ressources que celles dont il dispose réellement (toutes les VM n&rsquo;étant pas en fonctionnement en même temps).</p>
+<p>La problématique se pose si une VM &ldquo;plus importante&rdquo; qu&rsquo;une autre ne peut être démarrée faute de ressources.</p>
+<p>Pour répondre à cette problématique, il est possible de réserver des ressources :</p>
+<ul>
+<li>pour des machines virtuelles </li>
+<li>pour des ensembles de ressources</li>
+<li>pour le cluster</li>
+</ul>
+<p><img alt="39" src=".ressources/img/notes-39.png" /></p>
+<h4 id="gestion-des-pools-de-ressources">Gestion des pools de ressources<a class="headerlink" href="#gestion-des-pools-de-ressources" title="Permanent link"></a></h4>
+<p>Le pool de ressources : objet logique auquel est affectée une partie des ressources physiques (CPU &amp; RAM) réelles. </p>
+<p>Il permet :</p>
+<ul>
+<li>de réserver des ressources en fonction de leur utilisation </li>
+<li>de restreindre les ressources matérielles de certains environnements (tests)</li>
+</ul>
+<p><img alt="40" src=".ressources/img/notes-40.png" /></p>
+<p>La configuration de pools peut permettre de garantir la disponibilité de ressources pour les besoins les plus cruciaux pour l&rsquo;entreprise. </p>
+<h3 id="vcenter-et-le-contexte-de-datacenter">vCenter et le contexte de Datacenter<a class="headerlink" href="#vcenter-et-le-contexte-de-datacenter" title="Permanent link"></a></h3>
+<p>L&rsquo;ajout d&rsquo;un vCenter à une infrastructure va permettre :</p>
+<ul>
+<li>de <strong>créer un datacenter</strong> et de lui affecter des <strong>hôtes</strong> afin de les regrouper <strong>au sein d&rsquo;une même entité de gestion</strong> ;</li>
+<li>de disposer d&rsquo;objets (réseau et stockage) <strong>uniques et utilisables</strong> sur tous les hôtes du datacenter ;</li>
+<li>d&rsquo;utiliser les fonctionnalités de <strong>déplacement de VM à chaud</strong> (vMotion) ;</li>
+<li>de créer un contexte de <strong>cluster</strong> (non abordé ici) et de bénéficier des fonctionnalités de <strong>haute disponibilité</strong> associées.</li>
+</ul>
+<p>vCenter est un élément indispensable à la mise en oeuvre et au fonctionnement d&rsquo;un ensemble de services. </p>
+<p>Il est recommandé qu&rsquo;il soit installé sur une VM <strong>hautement disponible</strong> de l&rsquo;infrastructure.</p>
+<h4 id="vcenter-serveur-vs-vcsa">vCenter Serveur -vs- vCSA<a class="headerlink" href="#vcenter-serveur-vs-vcsa" title="Permanent link"></a></h4>
+<p>vCenter est un outil de la suite vSphere soumis à licence.</p>
+<p>Deux types d&rsquo;implémentations sont possibles :</p>
+<ul>
+<li>Utiliser l&rsquo;appliance vCSA fournie par VMware</li>
+<li>Installer l&rsquo;outil sur un OS serveur Microsoft x64</li>
+</ul>
+<table>
+    <tr>
+        <td></td>
+        <th>vCSA</th>
+        <th>vCenter Server</th>
+    </tr>
+    <tr>
+        <th>Nb hôtes maxi</th>
+        <td>5 ESXi</td>
+        <td>1000 ESXi</td>
+    </tr>
+    <tr>
+        <th>Nb VM maxi</th>
+        <td>50 VM</td>
+        <td>10.000 VM</td>
+    </tr>
+    <tr>
+        <th style="background-color: green;color: white;font-weight: bold;">Avantages</th>
+        <td style="background-color: green;color: white;font-weight: bold;">Simplicité de mise en oeuvre</td>
+        <td style="background-color: green;color: white;font-weight: bold;">Capacité de prise en charge supérieures</td>
+    </tr>
+    <tr>
+        <th style="background-color: red;color: white;font-weight: bold;">Inconvénients</th>
+        <td style="background-color: red;color: white;font-weight: bold;">Limites de prise en charge</td>
+        <td style="background-color: red;color: white;font-weight: bold;">Mise en oeuvre plus complexe et coûteuse</td>
+    </tr>
+</table>
+
+<h4 id="methodes-dacces-a-lappliance-vcenter">Méthodes d&rsquo;accès à l&rsquo;appliance vCenter<a class="headerlink" href="#methodes-dacces-a-lappliance-vcenter" title="Permanent link"></a></h4>
+<p>Les actions de gestion du vCenter sont réalisées depuis le <strong>client Web vSphere</strong> via un navigateur.</p>
+<p><img alt="41" src=".ressources/img/notes-41.png" /></p>
+<p>Les actions propres à la gestion du vCSA peuvent être effectuées via une connection HTTPS au port 5480.</p>
+<h3 id="les-modeles-de-vm">Les modèles de VM<a class="headerlink" href="#les-modeles-de-vm" title="Permanent link"></a></h3>
+<table>
+    <caption class="caption">Les modèles</caption>
+    <tr>
+        <td></td>
+        <th>Modèle OVF</th>
+        <th>Modèle VMTX</th>
+    </tr>
+    <tr>
+        <th>Prise en charge</th>
+        <td>Toutes les solutions VMware (Player, Workstation, vSphere)<br>VirtualBox<br>Xen Server</td>
+        <td>Suite VMware vSphere dans un contexte de datacenter</td>
+    </tr>
+    <tr>
+        <th>Actions possibles</th>
+        <td>Possibilité d'import / export de l'élément</td>
+        <td>Cloner / Dupliquer VM vers template<br>Déployer VM depuis template<br>Possibilité de customisation</td>
+    </tr>
+    <tr>
+        <th>Contexte d'utilisation</th>
+        <td>Pour toute mise à disposition d'une VM</td>
+        <td>Base utilisée pour la mise en oeuvre de l'OS et ses correctifs sur de nouvelles VM</td>
+    </tr>
+</table>
+
+<p><strong>OVF ou OVA ?</strong> Un fichier OVA est une archive compressée qui contient les éléments du dossier OVF. </p>
+<h4 id="les-modeles-vmtx">Les modèles VMTX<a class="headerlink" href="#les-modeles-vmtx" title="Permanent link"></a></h4>
+<p>Les modèles VMTX sont des images de VM qui sont utilisées pour permettre un déploiement optimisé de nouvelles VM dans l&rsquo;infrastucture vSphere.</p>
+<p>Ils peuvents intégrer un OS, des pilotes, des applications ou des correctifs et mises à jour.</p>
+<p>Ils sont généralement personnalisés pour leur utilisation dans le contexte de l&rsquo;entreprise.</p>
+<h5 id="gestion-des-modeles-vmtx">Gestion des modèles VMTX<a class="headerlink" href="#gestion-des-modeles-vmtx" title="Permanent link"></a></h5>
+<p>Les tâches de gestion peuvent être initiées :</p>
+<ul>
+<li>depuis la catégorie &ldquo;VM et modèles&rdquo; de l&rsquo;inventaire </li>
+<li>depuis le composant &ldquo;Modèle&rdquo; des actions proposées sur une machine virtuelle </li>
+</ul>
+<p>Deux types d&rsquo;action peuvent être entreprises :</p>
+<ul>
+<li>La <strong>conversion</strong> permet de <strong>transformer une VM en modèle</strong> ou inversement </li>
+<li>Le <strong>clonage</strong> conserve l&rsquo;élément original et le <strong>duplique en modèle ou VM</strong></li>
+</ul>
+<h5 id="personnalisation-des-modeles">Personnalisation des modèles<a class="headerlink" href="#personnalisation-des-modeles" title="Permanent link"></a></h5>
+<ul>
+<li>La personnalisation du système post déploiement permet d&rsquo;automatiser les tâches de :<ul>
+<li>Renommage de la machine pour son OS </li>
+<li>Modification de son adressage IP </li>
+<li>Régénération de son identifiant de sécurité </li>
+</ul>
+</li>
+<li>Prérequis de personnalisation <ul>
+<li>Les outils d&rsquo;intégration VMware doivent être installés sur la VM </li>
+<li>SYSPREP doit être implémenté sur le vCenter s&rsquo;il ne l&rsquo;est pas nativement sur l&rsquo;OS invité</li>
+</ul>
+</li>
+</ul>
+<h5 id="etapes-de-mise-en-oeuvre-de-templates-vmtx">Etapes de mise en oeuvre de templates VMTX<a class="headerlink" href="#etapes-de-mise-en-oeuvre-de-templates-vmtx" title="Permanent link"></a></h5>
+<ul>
+<li>Préparer la machine virtuelle de référence </li>
+<li>Y installer les outils d&rsquo;intégration (vmtools)</li>
+<li>Convertir cette machine virtuelle en modèle </li>
+</ul>
+<h4 id="les-modeles-ovf">Les modèles OVF<a class="headerlink" href="#les-modeles-ovf" title="Permanent link"></a></h4>
+<ul>
+<li>
+<p>Le format de modèle OVF (<strong>Open Virtual Machine Format</strong>) est proposé comme format standard de modèle de VM </p>
+<ul>
+<li>Il facilite les actions d&rsquo;import et d&rsquo;export de VM </li>
+<li>Les fichiers modèles ainsi générés peuvent facilement être intégrés au sein d&rsquo;autres environnements et solutions de virtualisation</li>
+</ul>
+</li>
+<li>
+<p>Prise en charge de ce format </p>
+<ul>
+<li>Sur les environnements de virtualisation VMware (Player, Workstation, vSphere)</li>
+<li>Par les solutions de virtualisation VirtualBox et Xen Server </li>
+<li>Des outils permettent son import pour Hyper-V, QEMU/KVM </li>
+</ul>
+</li>
+</ul>
+<h3 id="utilisateurs-et-privileges">Utilisateurs et privilèges<a class="headerlink" href="#utilisateurs-et-privileges" title="Permanent link"></a></h3>
+<h4 id="gestion-des-utilisateurs-groupes-et-privileges">Gestion des utilisateurs, groupes et privilèges<a class="headerlink" href="#gestion-des-utilisateurs-groupes-et-privileges" title="Permanent link"></a></h4>
+<p>La gestion des utilisateurs et groupes peut être réalisée au niveau du vCenter ou au niveau de l&rsquo;ESXi.</p>
+<p>Les permissions peuvent être accordées sur tous les objets de l&rsquo;inventaire : vCenter, datacenter, cluster, datastore, ESXi, VM, etc. </p>
+<p>Les utilisateurs créés sur le vCenter pourront disposer de privilèges sur toute l&rsquo;infrastructure vSphere. Les utilisateurs créés sur l&rsquo;ESXi pourront disposer de privilèges uniquement sur cet ESXi ou sur des VM qu&rsquo;il héberge. </p>
+<p><strong>SSO et contexte de domaine</strong> : Si on est dans un contexte d&rsquo;AD, le SSO peut être configuré afin d&rsquo;utiliser des utilisateurs et groupes du domaine.</p>
+<h4 id="methodologie-daffectation-des-privileges">Méthodologie d&rsquo;affectation des privilèges<a class="headerlink" href="#methodologie-daffectation-des-privileges" title="Permanent link"></a></h4>
+<ul>
+<li>Créer les utilisateurs</li>
+<li>Créer les groupes et leur affecter des utilisateurs </li>
+<li>Créer des rôles, leur affecter les privilèges détaillés souhaités</li>
+<li>Sélectionner l&rsquo;objet d&rsquo;inventaire sur lequel affecter les privilèges ; lui associer les groupes et rôles correspondants</li>
+</ul>
+<h4 id="privileges-dacces-bonnes-pratiques">Privilèges d&rsquo;accès - bonnes pratiques<a class="headerlink" href="#privileges-dacces-bonnes-pratiques" title="Permanent link"></a></h4>
+<ul>
+<li>Utiliser des groupes plutôt que des utilisateurs.</li>
+<li>Ne pas affecter plus de privilèges que nécessaire : si un rôle offre plus de privilèges que nécessaire, il pourra être dupliqué et modifié.</li>
+<li>Définir ses règles sur les éléments de plus haut niveau, l&rsquo;héritage permettra leur propagation à l&rsquo;ensemble d&rsquo;éléments enfants.</li>
+</ul>
+<h3 id="deplacement-de-machines-virtuelles">Déplacement de machines virtuelles<a class="headerlink" href="#deplacement-de-machines-virtuelles" title="Permanent link"></a></h3>
+<h4 id="les-actions-de-migration-deplacement">Les actions de migration / déplacement<a class="headerlink" href="#les-actions-de-migration-deplacement" title="Permanent link"></a></h4>
+<ul>
+<li>Une VM a besoin pour son fonctionnement d&rsquo;un ensemble de ressources. </li>
+<li>Ces ressources lui sont mises à disposition par l&rsquo;hôte qui l&rsquo;héberge :<ul>
+<li>Certaines de ses ressources lui sont propres : CPU, RAM, réseau</li>
+<li>D&rsquo;autres, tel que le stockage peuvent être externes et accessibles à un ensemble d&rsquo;hôtes</li>
+</ul>
+</li>
+</ul>
+<p><img alt="42" src=".ressources/img/notes-42.png" /></p>
+<p><img alt="43" src=".ressources/img/notes-43.png" /></p>
+<p>Les actions de migration accessibles sur les VM d&rsquo;un datacenter utilisent :</p>
+<ul>
+<li><strong>vMotion</strong> pour permettre le <strong>déplacement à chaud d&rsquo;une machine virtuelle</strong> d&rsquo;un hôte vers un autre hôte 
+<img alt="44" src=".ressources/img/notes-44.png" /></li>
+<li><strong>Storage vMotion</strong> pour permettre le <strong>déplacement à chaud du stockage</strong> d&rsquo;une VM d&rsquo;un datastore vers un autre datastore. 
+<img alt="45" src=".ressources/img/notes-45.png" /></li>
+</ul>
+<h4 id="vmotion-storage-vmotion-mise-en-oeuvre">vMotion / Storage vMotion - mise en oeuvre<a class="headerlink" href="#vmotion-storage-vmotion-mise-en-oeuvre" title="Permanent link"></a></h4>
+<p>Prérequis de mise en oeuvre :</p>
+<ul>
+<li>La fonctionnalité vMotion doit être active sur au moins un vSwitch de l&rsquo;hôte source et de destination </li>
+<li>L&rsquo;adressage des hôtes sources et destination utilisée par la fonctionnalité doit être du même domaine de diffusion </li>
+<li>L&rsquo;emplacement de stockage des VM à déplacer doit être accessible aux 2 hôtes </li>
+</ul>
+<p>Déplacement :</p>
+<ul>
+<li>Dans le contexte du datacenter, choisir l&rsquo;action de déplacement proposée sur la VM </li>
+<li>L&rsquo;assistant permet alors de déplacer <ul>
+<li>La VM vers un autre hôte </li>
+<li>Le stockage de la VM vers un autre point de stockage </li>
+</ul>
+</li>
+</ul>
+<p><strong>Quelques cas de problématiques de déplacement de VM</strong>: une image iso est présente dans la VM ; le groupement de port de raccordement est inexistant sur l&rsquo;hôte de destination ; le niveau de support d&rsquo;instructions CPU ne concorde pas entre les 2 hôtes.</p>
+<h3 id="atelier-6-datacenter">Atelier 6 - DataCenter<a class="headerlink" href="#atelier-6-datacenter" title="Permanent link"></a></h3>
+<div class="fin">-Fin-</div>
+
+<h2 id="glossaire">Glossaire<a class="headerlink" href="#glossaire" title="Permanent link"></a></h2>
+<ul>
+<li>Fibre channel : le protocole le plus utilisé pour les SAN.</li>
+<li>iSCSI : le protocole basé sur TCP/IP. </li>
+<li>FCoE : Fibre Channel on Ethernet.</li>
+<li>Network Attached Storage : une alternative plus répandue de stockage en entreprise.</li>
+<li>RAID : les méthodes d&rsquo;optimisations et de sécurisation du stockage sur disques. </li>
+<li>SCSI : le standard utilisé pour communiquer avec les disques.</li>
+<li>SMI-S : norme de gestion de stockage. </li>
+<li>Hyperviseur de stockage. </li>
+<li>NFS : Network File System, protocole de partage de fichiers UNIX. </li>
+<li>CIFS : Common Internet File System, protocole de partage de fichiers Microsoft.</li>
+<li>AFS : AppleShare File Protocol</li>
+</ul>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link"></a></h2>
+<h3 id="nfs">NFS<a class="headerlink" href="#nfs" title="Permanent link"></a></h3>
+<h4 id="avantages-du-stockage-nfs">Avantages du stockage NFS<a class="headerlink" href="#avantages-du-stockage-nfs" title="Permanent link"></a></h4>
+<ul>
+<li>NFS est très stable et fiable.</li>
+<li>Peut être agrandi à tout moment sans répercussions côté VMware.</li>
+<li>Souvent déjà existant dans la plupart des organisations.</li>
+<li>Stockage optimal (Thin provisionning : n’est alloué que ce qui est consommé).</li>
+<li>Stockage centralisé pouvant s’adapter à toute structure (Ethernet).</li>
+<li>Peut rivaliser avec les performances de la fibre optique avec l’arrivée de NFSv4 et l’Ethernet 10 Gbit.</li>
+<li>Un partage NFS peut bénéficier directement de la déduplication.</li>
+</ul>
+<h4 id="inconvenients-du-stockage-nfs">Inconvénients du stockage NFS<a class="headerlink" href="#inconvenients-du-stockage-nfs" title="Permanent link"></a></h4>
+<ul>
+<li>L’overhead au niveau CPU est conséquent bien qu’inférieur au protocole iSCSI.</li>
+<li>Seule une session de donnée est active. Ainsi, l’agrégation de lien n’a aucun effet et ne permet pas de dépasser 1 Gbit (il faut une carte 10 Gbit pour augmenter la bande passante).</li>
+<li>Sécurité en retrait (dans la plupart des implémentations)</li>
+</ul>
+<h3 id="san">SAN<a class="headerlink" href="#san" title="Permanent link"></a></h3>
+<p>Le SAN contrairement au NAS s’appuie historiquement sur un réseau dédié entre les serveurs et la baie de stockage. Il est à très grande vitesse et faible latence (pour le FC).</p>
+<p>Le Lun Masking et le Zoning permettent de limiter les accès et connexions à certaines parties de l’infrastructure SAN au périphérique connecté au réseau FC. Les deux techniques sont utilisées de manière complémentaire en général.</p>
+<h4 id="lun-masking">Lun Masking<a class="headerlink" href="#lun-masking" title="Permanent link"></a></h4>
+<p>Le Lun Masking est une technique permettant de « cacher » via une gestion des droits des HBA, certaines LUN du stockage. Il s’agit donc d’une technique d’autorisation/révocation d’accès à une LUN.</p>
+<h4 id="zoning">Zoning<a class="headerlink" href="#zoning" title="Permanent link"></a></h4>
+<p>Le zoning représente des zones de communication entre des initiateurs et des cibles (targets). Tous les éléments présents dans une même zone peuvent communiquer entre eux et sont indexés dans un annuaire de ressources : le Name Server. Le zoning est l’équivalent d’un Vlan dans un réseau Ethernet.</p>
+<p>Au niveau du zoning, on distingue deux types :</p>
+<h5 id="soft-zoning">Soft Zoning<a class="headerlink" href="#soft-zoning" title="Permanent link"></a></h5>
+<p>Le Soft Zoning est basé sur l’association entre WWPN dans une même zone. Il est possible d’utiliser des noms symboliques (ou Alias) afin que l’association soit plus aisée à configurer.
+images/08EI23.png</p>
+<h5 id="hard-zoning">Hard Zoning<a class="headerlink" href="#hard-zoning" title="Permanent link"></a></h5>
+<p>Le hard Zoning se base sur les port_ID (les ports de connexion au niveau du switch FC) auxquels sont connectés les N_Port des équipements de stockage et/ou des serveurs (nodes).</p>
+<p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/headings.css"></p>
+<style>
+.cccontainer {
+    display: flex;
+    justify-content: center
+}
+
+.iiimage {
+    flex-basis: 40%;
+    max-width: 300px
+}
+
+.tttext {
+    padding-right: 20px;
+}
+</style></article></body></html>

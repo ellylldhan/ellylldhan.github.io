@@ -1066,7 +1066,7 @@ body .markdown-body
 .highlight .vi{color:teal}
 .highlight .il{color:#009999}
 .highlight .gc{color:#999;background-color:#EAF2F5}
-</style><title>notes-02-AD</title></head><body><article class="markdown-body"><h1 id="eni-tssr09-services-reseaux-microsoft">ENI TSSR<br>09 - Services Réseaux Microsoft<a class="headerlink" href="#eni-tssr09-services-reseaux-microsoft" title="Permanent link"></a></h1>
+</style><title>notes-02-AD</title></head><body><article class="markdown-body"><h1 id="eni-tssr09-services-reseau-microsoft">ENI TSSR<br>09 - Services Réseau Microsoft<a class="headerlink" href="#eni-tssr09-services-reseau-microsoft" title="Permanent link"></a></h1>
 <table class="formateur">
     <tbody>
         <tr>
@@ -1104,12 +1104,7 @@ body .markdown-body
 <li><a href="tp10.3-dns-hebergeur-redondance.html">tp10.3-dns-hebergeur-redondance</a></li>
 </ul></p>
 <h2 id="sommaire">Sommaire<a class="headerlink" href="#sommaire" title="Permanent link"></a></h2>
-<ol>
-<li>Module 1 - Administration windows<ul>
-<li>Microsoft Server</li>
-<li>Gestion du stockage</li>
-</ul>
-</li>
+<ol start="2">
 <li>Module 2 - Active Directory<ul>
 <li>Les services d&rsquo;annuaire (présentation et installation)</li>
 <li>Les bases de gestion d&rsquo;un domaine</li>
@@ -1117,32 +1112,10 @@ body .markdown-body
 <li>La gestion des impressions</li>
 </ul>
 </li>
-<li>Module 3 - Les stratégies de groupe<ul>
-<li>Le fonctionnement des GPO</li>
-<li>Le ciblage des stratégies</li>
-<li>La mise en oeuvre des stratégies</li>
-<li>La redirection des dossiers</li>
-<li>Le déploiement d&rsquo;imprimantes par GPO</li>
-</ul>
-</li>
-<li>Module 4 - Le routage<ul>
-<li>Concept du routage</li>
-<li>Concept de la traduction d&rsquo;adresse</li>
-</ul>
-</li>
-<li>Module 5 - Le service DHCP<ul>
-<li>Définition du service DHCP</li>
-<li>Notion de Bail</li>
-<li>Les conteneurs</li>
-<li>La gestion des options</li>
-<li>Le service DHCP et les Réseaux</li>
-<li>La gestion du DHCP</li>
-</ul>
-</li>
 </ol>
 <div class="toc">
 <ul>
-<li><a href="#eni-tssr09-services-reseaux-microsoft">ENI TSSR09 - Services Réseaux Microsoft</a><ul>
+<li><a href="#eni-tssr09-services-reseau-microsoft">ENI TSSR09 - Services Réseau Microsoft</a><ul>
 <li><a href="#notes">Notes</a></li>
 <li><a href="#tp">TP</a></li>
 <li><a href="#sommaire">Sommaire</a></li>
@@ -1240,7 +1213,7 @@ body .markdown-body
 <h4 id="la-foret-active-directory">La forêt Active Directory<a class="headerlink" href="#la-foret-active-directory" title="Permanent link"></a></h4>
 <p>Une forêt comprend un ou plusieurs domaine AD partageant le même schéma, les mêmes informations de configuration et de recherche. </p>
 <p>Les domaines d&rsquo;une même forêt sont liés par une relation d&rsquo;approbation transitive bidirectionnelle.</p>
-<p><a href=".ressources/img/foret.png"><img alt="Forêt AD" src=".ressources/img/foret.png" /></a> {:target=&rdquo;_blank&rdquo;}</p>
+<p><a href="../.ressources/img/foret.png" target="_blank"><img alt="Forêt AD" src="../.ressources/img/foret.png" /></a></p>
 <h4 id="les-composantes-dun-domaine">Les composantes d&rsquo;un domaine<a class="headerlink" href="#les-composantes-dun-domaine" title="Permanent link"></a></h4>
 <h5 id="le-domaine">Le domaine<a class="headerlink" href="#le-domaine" title="Permanent link"></a></h5>
 <ul>
@@ -1256,7 +1229,7 @@ body .markdown-body
 <h5 id="les-sites">Les sites<a class="headerlink" href="#les-sites" title="Permanent link"></a></h5>
 <p>Un <strong>site Active Directory</strong> est une composante <strong>logique</strong> du domaine utilisée afin d&rsquo;optimiser la <strong>réplication</strong> et l&rsquo;<strong>accès aux sources</strong>. </p>
 <p>Il est composé d&rsquo;un ou plusieurs sous-réseaux TCP/IP. </p>
-<p><a href=".ressources/img/sites.png"><img alt="Sites" src=".ressources/img/sites.png" /></a> {:target=&rdquo;_blank&rdquo;}</p>
+<p><a href="../.ressources/img/sites.png" target="_blank"><img alt="Sites" src="../.ressources/img/sites.png" /></a></p>
 <h4 id="les-prerequis-pour-un-contexte-de-domaine">Les prérequis pour un contexte de domaine<a class="headerlink" href="#les-prerequis-pour-un-contexte-de-domaine" title="Permanent link"></a></h4>
 <p>Avant de <strong>promouvoir un serveur en Contrôleur de Domaine</strong>, ces prérequis doivent être respectés :</p>
 <table>
@@ -1470,7 +1443,7 @@ Il suffit ensuite de le <strong>dupliquer</strong> pour créer un compte utilisa
 <li>Ses groupes d&rsquo;appartenance</li>
 <li>etc.</li>
 </ul>
-<p><a href=".ressources/img/proprietes.png" target="_blank"><img alt="Propriétés" src=".ressources/img/proprietes.png" /></a></p>
+<p><a href="../.ressources/img/proprietes.png" target="_blank"><img alt="Propriétés" src="../.ressources/img/proprietes.png" /></a></p>
 <h4 id="les-groupes">Les groupes<a class="headerlink" href="#les-groupes" title="Permanent link"></a></h4>
 <ul>
 <li>Les groupes sont des objets de l&rsquo;annuaire.</li>
@@ -1591,7 +1564,7 @@ Il suffit ensuite de le <strong>dupliquer</strong> pour créer un compte utilisa
 </ul>
 <p>Tout objet de l&rsquo;annuaire ne peut être positionné directement que dans un seul conteneur. </p>
 <p><strong>ATTENTION</strong>: sur les Contrôleurs de Domaine (CD), les UO sont protégées par défaut contre toute suppression accidentelle (c&rsquo;est possible de modifier cela).</p>
-<p><a href=".ressources/img/unite-organisationnelle.png" target="_blank"><img alt="UO" src=".ressources/img/unite-organisationnelle.png" /></a></p>
+<p><a href="../.ressources/img/unite-organisationnelle.png" target="_blank"><img alt="UO" src="../.ressources/img/unite-organisationnelle.png" /></a></p>
 <h4 id="importation-exportation-de-comptes">Importation / Exportation de comptes<a class="headerlink" href="#importation-exportation-de-comptes" title="Permanent link"></a></h4>
 <p>Lorsqu&rsquo;un nombre important de comptes utilisateurs doit être créé, l&rsquo;utilisation d&rsquo;outils (ex. PowerShell ou <strong>csvde</strong>) permet de <strong>fiabiliser</strong> et <strong>réduire la durée de la tâche</strong>.</p>
 <h3 id="tp-04-ad-gestion-des-utilisateurs-groupes">TP 04 - AD : Gestion des utilisateurs &amp; groupes<a class="headerlink" href="#tp-04-ad-gestion-des-utilisateurs-groupes" title="Permanent link"></a></h3>
@@ -1669,7 +1642,7 @@ Il suffit ensuite de le <strong>dupliquer</strong> pour créer un compte utilisa
 <h4 id="le-partage-de-fichiers">Le partage de fichiers<a class="headerlink" href="#le-partage-de-fichiers" title="Permanent link"></a></h4>
 <p>Le partage vient en complément des autorisations NTFS.</p>
 <p>Un poste disposant de partage joue le rôle de serveur de fichiers. </p>
-<p><a href=".ressources/img/partage-fichiers.png" target="_blank"><img alt="Partage de fichiers" src=".ressources/img/partage-fichiers.png" /></a></p>
+<p><a href="../.ressources/img/partage-fichiers.png" target="_blank"><img alt="Partage de fichiers" src="../.ressources/img/partage-fichiers.png" /></a></p>
 <h4 id="les-autorisations-de-partage">Les autorisations de partage<a class="headerlink" href="#les-autorisations-de-partage" title="Permanent link"></a></h4>
 <p>Les autorisations de partage permettent de définir quels seront les privilèges, s&rsquo;ils autoriseront ou interdiront et pour qui.</p>
 <ul>
@@ -1686,7 +1659,7 @@ Il suffit ensuite de le <strong>dupliquer</strong> pour créer un compte utilisa
 <h4 id="autorisations-resultantes">Autorisations résultantes<a class="headerlink" href="#autorisations-resultantes" title="Permanent link"></a></h4>
 <p>Quand l&rsquo;utilisateur accède depuis son poste de travail à une ressource partagée, il est d&rsquo;abord soumis aux autorisations du partage, puis aux autorisations NTFS. </p>
 <p>Les privilèges les plus restrictifs prévalent.</p>
-<p><a href=".ressources/img/autorisations-partage.png" target="_blank"><img alt="Autorisations du partage" src=".ressources/img/autorisations-partage.png" /></a></p>
+<p><a href="../.ressources/img/autorisations-partage.png" target="_blank"><img alt="Autorisations du partage" src="../.ressources/img/autorisations-partage.png" /></a></p>
 <h4 id="les-publications-de-partage">Les publications de partage<a class="headerlink" href="#les-publications-de-partage" title="Permanent link"></a></h4>
 <p>Un fois créé, il est possible de <strong>publier le partage dans l&rsquo;AD</strong>.</p>
 <ul>
@@ -1765,7 +1738,7 @@ Il suffit ensuite de le <strong>dupliquer</strong> pour créer un compte utilisa
 <li>Configuration des services d&rsquo;impression </li>
 <li>Gestion du déploiement par stratégies</li>
 </ul>
-<p><a href=".ressources/img/imprimantes.png" target="_blank"><img alt="Gestion Imprimantes" src=".ressources/img/imprimantes.png" /></a></p>
+<p><a href="../.ressources/img/imprimantes.png" target="_blank"><img alt="Gestion Imprimantes" src="../.ressources/img/imprimantes.png" /></a></p>
 <h4 id="la-gestion-des-peripheriques">La gestion des périphériques<a class="headerlink" href="#la-gestion-des-peripheriques" title="Permanent link"></a></h4>
 <p>Comme pour les ressources disque, une imprimante doit être partagée pour être accessible via le réseau. </p>
 <p>L&rsquo;attribution des privilèges se configure depuis les paramètres de sécurité :</p>
@@ -1785,8 +1758,8 @@ Il suffit ensuite de le <strong>dupliquer</strong> pour créer un compte utilisa
 </ul>
 <h3 id="tp-06-gestion-dimprimante">TP 06 - Gestion d&rsquo;imprimante<a class="headerlink" href="#tp-06-gestion-dimprimante" title="Permanent link"></a></h3>
 <p>TP 06 n&rsquo;a pas été donné en cours.</p>
-<div style="align-items: center">
-<span style="font-style:italic;text-align: center;font-size: 20px; font-weight: bold">-Fin-</span>
+<div style="align-items:center;font-style:italic;text-align:center;font-size:20px;font-weight:bold;">
+-Fin-
 </div>
 
 <p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">

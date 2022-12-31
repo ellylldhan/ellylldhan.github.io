@@ -1066,407 +1066,252 @@ body .markdown-body
 .highlight .vi{color:teal}
 .highlight .il{color:#009999}
 .highlight .gc{color:#999;background-color:#EAF2F5}
-</style><title>notes-01-sysadmin</title></head><body><article class="markdown-body"><h1 id="eni-tssr09-services-reseau-microsoft">ENI TSSR<br>09 - Services Réseau Microsoft<a class="headerlink" href="#eni-tssr09-services-reseau-microsoft" title="Permanent link"></a></h1>
-<table class="formateur">
-    <tbody>
-        <tr>
-            <th scope="row">Cours ENI </th>
-            <td>du 25/07 au 06/08/2022</td>
-        </tr>
-        <tr>
-            <th scope="row">Formateur</th>
-            <td>Matthieu LE MASSON</td>
-        </tr>
-    </tbody>
+</style><title>notes-1 intro</title></head><body><article class="markdown-body"><h1 id="eni-tssr-14-powershell">ENI TSSR 14 - Powershell<a class="headerlink" href="#eni-tssr-14-powershell" title="Permanent link"></a></h1>
+<p>Cours &ldquo;Initiation au scripting Powershell&rdquo; @ ENI (2022)</p>
+<table>
+<tr><th>Dates     :</th><td>du 28/11 au 02/12/2022</td></tr>
+<tr><th>Formateur :</th><td>Thélo GUYADER</td></tr>
 </table>
 
-<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link"></a></h2>
-<p><ul>
-    <li><a target="_blank" href="notes-01-sysadmin.html">Notes 01. Sysadmin</a></li>
-    <li><a target="_blank" href="notes-02-ad.html"      >Notes 02. AD</a></li>
-    <li><a target="_blank" href="notes-03-gpo.html"     >Notes 03. GPO</a></li>
-    <li><a target="_blank" href="notes-04-routage.html" >Notes 04. Routage</a></li>
-    <li><a target="_blank" href="notes-05-dhcp.html"    >Notes 05. DHCP</a></li>
-    <li><a target="_blank" href="notes-06-dns.html"     >Notes 06. DNS</a></li>
-</ul></p>
-<h2 id="tp">TP<a class="headerlink" href="#tp" title="Permanent link"></a></h2>
-<p><ul>
-    <li><a target="_blank" href="tp01-install-vm.html">tp01-install-vm</a></li>
-    <li><a target="_blank" href="tp02-raid.html">tp02-raid</a></li>
-    <li><a target="_blank" href="tp03-ad-creation.html">tp03-ad-creation</a></li>
-    <li><a target="_blank" href="tp04-ad-util-groupes.html">tp04-ad-util-groupes</a></li>
-    <li><a target="_blank" href="tp05-partage.html">tp05-partage</a></li>
-    <li><a target="_blank" href="tp07-gpo.html">tp07-gpo</a></li>
-    <li><a target="_blank" href="tp08.1-routage.html">tp08.1-routage</a></li>
-    <li><a target="_blank" href="tp08.2-routage.html">tp08.2-routage</a></li>
-    <li><a target="_blank" href="tp09.1-dhcp.html">tp09.1-dhcp</a></li>
-    <li><a target="_blank" href="tp09.2-dhcp-relay.html">tp09.2-dhcp-relay</a></li>
-    <li><a target="_blank" href="tp10.1-dns-resolver.html">tp10.1-dns-resolver</a></li>
-    <li><a target="_blank" href="tp10.2-dns-hebergeur.html">tp10.2-dns-hebergeur</a></li>
-    <li><a target="_blank" href="tp10.3-dns-hebergeur-redondance.html">tp10.3-dns-hebergeur-redondance</a></li>
-</ul></p>
-<h2 id="sommaire">Sommaire<a class="headerlink" href="#sommaire" title="Permanent link"></a></h2>
-<ol>
-<li>Module 1 - Administration windows<ul>
-<li>Microsoft Server</li>
-<li>Gestion du stockage</li>
-</ul>
-</li>
-</ol>
+<p>id: 140
+<nav></p>
 <div class="toc">
 <ul>
-<li><a href="#eni-tssr09-services-reseau-microsoft">ENI TSSR09 - Services Réseau Microsoft</a><ul>
-<li><a href="#notes">Notes</a></li>
-<li><a href="#tp">TP</a></li>
-<li><a href="#sommaire">Sommaire</a></li>
-<li><a href="#mod-1-admin-windows">Mod 1 - Admin Windows</a><ul>
-<li><a href="#microsoft-server">Microsoft Server</a><ul>
-<li><a href="#version-des-systemes-dexploitation-microsoft">Version des systèmes d&rsquo;exploitation Microsoft</a><ul>
-<li><a href="#les-differentes-editions-windows-server">Les différentes éditions Windows Server</a></li>
+<li><a href="#eni-tssr-14-powershell">ENI TSSR 14 - Powershell</a><ul>
+<li><a href="#notes">Notes</a><ul>
+<li><a href="#evolution-de-powershell">Evolution de PowerShell</a></li>
+<li><a href="#particularites-de-powershell-core">Particularités de PowerShell Core</a><ul>
+<li><a href="#comparaison-net-framework-vs-net-core">Comparaison .NET Framework -vs- .NET Core</a></li>
 </ul>
 </li>
-<li><a href="#les-services-pris-en-charge-par-windows-server">Les services pris en charge par Windows Server</a><ul>
-<li><a href="#les-services-de-domaine">Les services de domaine</a></li>
+<li><a href="#notes_1">Notes</a></li>
+<li><a href="#les-cmdlets">Les Cmdlets</a></li>
+<li><a href="#get-command">Get-Command</a></li>
+<li><a href="#get-help">Get-Help</a></li>
+<li><a href="#update-help">Update-Help</a></li>
+<li><a href="#la-commande-de-protection">La commande de protection</a></li>
+<li><a href="#les-modules">Les modules</a><ul>
+<li><a href="#ajouter-un-module">Ajouter un module</a></li>
 </ul>
 </li>
-<li><a href="#installation-du-systeme-et-composants">Installation du système et composants</a><ul>
-<li><a href="#les-modes-dinstallation">Les modes d&rsquo;installation</a></li>
-<li><a href="#les-roles-et-fonctionnalites">Les rôles et fonctionnalités</a></li>
-<li><a href="#les-outils-de-gestion-de-windows-server">Les outils de gestion de Windows Server</a></li>
+<li><a href="#la-personnalisation-de-la-console">La personnalisation de la console</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#tp-01-installation-et-configuration-initiale">TP 01 - Installation et configuration initiale</a></li>
-<li><a href="#gestion-du-stockage">Gestion du stockage</a><ul>
-<li><a href="#les-tables-de-partitionnement">Les tables de partitionnement</a><ul>
-<li><a href="#mbr-historique">MBR (historique)</a></li>
-<li><a href="#gpt">GPT</a></li>
-</ul>
-</li>
-<li><a href="#les-formats-de-tables-de-partition">Les formats de tables de partition</a><ul>
-<li><a href="#caracteristiques-de-formats-de-partitionnement">Caractéristiques de formats de partitionnement</a></li>
-</ul>
-</li>
-<li><a href="#les-types-de-configuration-des-disques">Les types de configuration des disques</a></li>
-<li><a href="#partitionnement-et-raid">Partitionnement et RAID</a><ul>
-<li><a href="#partitionnement-dun-disque-de-base">Partitionnement d&rsquo;un disque de base</a></li>
-<li><a href="#partitionnement-dun-disque-dynamique">Partitionnement d&rsquo;un disque dynamique</a></li>
-<li><a href="#le-volume-simple">Le volume simple</a></li>
-<li><a href="#le-volume-fractionne">Le volume fractionné</a></li>
-<li><a href="#le-volume-agrege-par-bandes-ou-raid-0">Le volume agrégé par bandes, ou RAID-0</a></li>
-<li><a href="#le-volume-en-miroir-raid-1">Le volume en miroir RAID-1</a></li>
-<li><a href="#le-volume-agrege-par-bandes-avec-parite-raid-5">Le volume agrégé par bandes avec parité RAID-5</a></li>
-</ul>
-</li>
-<li><a href="#formatage-et-outils">Formatage et outils</a></li>
-</ul>
-</li>
-<li><a href="#tp02">TP02</a></li>
-</ul>
-</li>
+<li><a href="#tp-1-presentation">TP 1 - Présentation</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<h2 id="mod-1-admin-windows">Mod 1 - Admin Windows<a class="headerlink" href="#mod-1-admin-windows" title="Permanent link"></a></h2>
-<p><strong>Objectifs</strong> </p>
+</nav>
+
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link"></a></h2>
+<h3 id="evolution-de-powershell">Evolution de PowerShell<a class="headerlink" href="#evolution-de-powershell" title="Permanent link"></a></h3>
+<p>Sorti en 2006, PowerShell v1.0 était disponible sur les systèmes WinXP SP2, Vista et WinServer 2003 SP1. Cette première version apporte 129 commandes réparties sur 5 modules.</p>
+<p>La version 5.1 est actuellement installée par défaut sur Win10 et WinServer 2019. Elle met à disposition 2855 commandes et supporte plusieurs milliers de modules, notamment Azure et Exchange.</p>
+<p>Chaque montée de version apporte de nouvelles commandes (cmdlets et fonctions), des màj de commandes existantes et de nouveaux modules. L&rsquo;interpréteur PowerShell est également mis à jour.</p>
+<p>De grands éditeurs ont développé des modules permettant de piloter leurs plateformes et produits depuis PowerShell.</p>
+<p>Depuis 2016, dans la lignée des Frameworks .NET deux ans auparavant, PowerShell est passé en Open Source. La montée en version de PowerShell Core suit les évolutions du Framework DotNet Core actuellement en version 3. PowerShell Core est en version 7.0</p>
+<p>Powershell 7 (Core) est cross platform, mais permet surtout de contrôler des machines Windows depuis un Linux. PS7 ne sert pas à gérer un système Linux, montre assez vite ses limites. La version Core permet également de créer ses propres modules.</p>
+<p>C&rsquo;est une évolution majeur de Microsoft ces dernières années, démontrant une volonté d&rsquo;ouverture vers d&rsquo;autres environnements (ex. intégration de Bash dans Win10, SQL Server porté sur Linux, ouverture d&rsquo;Azure vers l&rsquo;univers Linux, etc.).</p>
+<h3 id="particularites-de-powershell-core">Particularités de PowerShell Core<a class="headerlink" href="#particularites-de-powershell-core" title="Permanent link"></a></h3>
 <ul>
-<li>Connaître Microsoft Server et son biotope</li>
-<li>Gérer le stockage du serveur et le RAID </li>
+<li>Pas de requêtes WMI ou CIM (propres aux systèmes Windows). Certaines commandes utilisant du WMI sont donc indisponibles.</li>
+<li>Pas de planification de tâches via cmdlets</li>
+<li>Certains alias ne sont pas disponibles</li>
+<li>Utilisation du Remoting PowerShell impossible</li>
+<li>Sous Linux, on respecte la casse !</li>
+<li>Certaines incompatibilités sur des fonctions avec des scripts Windows</li>
 </ul>
-<h3 id="microsoft-server">Microsoft Server<a class="headerlink" href="#microsoft-server" title="Permanent link"></a></h3>
-<h4 id="version-des-systemes-dexploitation-microsoft">Version des systèmes d&rsquo;exploitation Microsoft<a class="headerlink" href="#version-des-systemes-dexploitation-microsoft" title="Permanent link"></a></h4>
-<p>Les 2 familles osnt la version <strong>serveur</strong> et la version <strong>client</strong>.</p>
-<p><strong>Serveur</strong> </p>
-<ul>
-<li>Ont la capacité de fournir un ensemble de services au sein d&rsquo;une infrastructure. </li>
-<li>OS: Windows 2019, Windows 2016, Windows 2012 R2, Windows 2012, Windows 2008 R2, Windows 2008</li>
-</ul>
-<p><strong>Client</strong></p>
-<ul>
-<li>Sont destinés à être utilisés en tant que station de travail.</li>
-<li>Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Vista</li>
-</ul>
-<h5 id="les-differentes-editions-windows-server">Les différentes éditions Windows Server<a class="headerlink" href="#les-differentes-editions-windows-server" title="Permanent link"></a></h5>
-<p><a href="../.ressources/img/win-srv-versions.png" target="_blank"><img alt="Versions" src="../.ressources/img/win-srv-versions.png" /></a> </p>
-<p>Quelques rappels sur les licences :</p>
-<p><a href="../.ressources/img/licences.png" target="_blank"><img alt="Licenses" src="../.ressources/img/licences.png" /></a> </p>
-<h4 id="les-services-pris-en-charge-par-windows-server">Les services pris en charge par Windows Server<a class="headerlink" href="#les-services-pris-en-charge-par-windows-server" title="Permanent link"></a></h4>
-<ul>
-<li>L&rsquo;ajout d&rsquo;un serveur dans un contexte d&rsquo;entreprise permet de fournir des services spécifiques.</li>
-<li>Un ensemble de services est nativement pris en charge par les systèmes d&rsquo;exploitation Windows Server.</li>
-<li>Bien d&rsquo;autres solutions, outils, applications, etc. peuvent être mis en oeuvre sur les systèmes d&rsquo;exploitation serveur : serveur de messagerie Exchange, serveur de base de données Microsoft SQL, etc.</li>
-</ul>
-<h5 id="les-services-de-domaine">Les services de domaine<a class="headerlink" href="#les-services-de-domaine" title="Permanent link"></a></h5>
-<p>Les OS prennent en charge les composantes de services <strong>Active Directory</strong> suivants :</p>
-<table>
-<thead>
-<tr>
-<th align="left">Services</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Services de domaine Active Directory (<strong>AD DS</strong>)</td>
-<td align="left">Rôle qui fournit la gestion de contextes de domaine Active Directory.</td>
-</tr>
-<tr>
-<td align="left">Service de fédération AD (<strong>AD FS</strong>)</td>
-<td align="left">Services fédérés de gestion des identités.</td>
-</tr>
-<tr>
-<td align="left">Service de gestion des droits Active Directory (<strong>AD RMS</strong>)</td>
-<td align="left">Protection des ressources contre une utilisation non autorisée, basée sur l&rsquo;utilisation de certificats (pemet notamment d&rsquo;interdire la copie ou l&rsquo;impression d&rsquo;un fichier).</td>
-</tr>
-<tr>
-<td align="left">Service de certificat Active Directory (<strong>AD CS</strong>)</td>
-<td align="left">Service de gestion d&rsquo;une autorité de certification (fournit une infrastructure à clé publique)</td>
-</tr>
-</tbody>
-</table>
-<p>Autres services pris en charge :</p>
-<table>
-<thead>
-<tr>
-<th align="left">Services</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>DNS</strong></td>
-<td align="left">Service de résolution de noms d&rsquo;hôtes.</td>
-</tr>
-<tr>
-<td align="left"><strong>DHCP</strong></td>
-<td align="left">Service de gestion de l&rsquo;adressage IP.</td>
-</tr>
-<tr>
-<td align="left"><strong>Hyper-V</strong></td>
-<td align="left">Permet de créer un environnement informatique virtualisé dans lequel vous pouvez créer et gérer des VM.</td>
-</tr>
-<tr>
-<td align="left"><strong>WDS</strong></td>
-<td align="left">Service de déploiement d&rsquo;OS Windows à travers le réseau.</td>
-</tr>
-<tr>
-<td align="left"><strong>WSUS</strong></td>
-<td align="left">Fournit une prise en charge centralisée des mises à jour des produits Microsoft.</td>
-</tr>
-<tr>
-<td align="left"><strong>Service d&rsquo;impression et de numérisation de document</strong></td>
-<td align="left">Permet d&rsquo;avoir une gestion centralisée de vos périphériques d&rsquo;impression.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="installation-du-systeme-et-composants">Installation du système et composants<a class="headerlink" href="#installation-du-systeme-et-composants" title="Permanent link"></a></h4>
-<h5 id="les-modes-dinstallation">Les modes d&rsquo;installation<a class="headerlink" href="#les-modes-dinstallation" title="Permanent link"></a></h5>
+<p>Quelques alias ne fonctionnent pas, ex. ls, cp, mv, rm, cat, man, mount et ps. Les commandes passent bien car natives mais dans le cas d&rsquo;un ls, on perd l&rsquo;objet et on remonte du texte.</p>
+<h4 id="comparaison-net-framework-vs-net-core">Comparaison .NET Framework -vs- .NET Core<a class="headerlink" href="#comparaison-net-framework-vs-net-core" title="Permanent link"></a></h4>
+<p>Powershell sous Linux/MacOS utilise la version CORE qui est un sous-ensemble de la version complète de .NET Framework sous Microsoft Windows. C&rsquo;est un point important, car PowerShell offre un accès direct aux méthodes, types de Framework, etc. sous-jacents.</p>
+<p>Par conséquent, les scripts qui s&rsquo;exécutent sous Windows risquent de ne pas fonctionner sur les plateformes autres que Windows en raison des différences d&rsquo;infrastucture.</p>
+<p>Avec l&rsquo;arrivée de .NET Standard 2.0, .NET Core 2.0 réintégrera la plupart des types et méthodes traditionnels présents dans la version complète du .NET Framework. PowerShell Core pourra donc charger de nombreux modules Windows Powershell traditionnels sans modification.</p>
+<h3 id="notes_1">Notes<a class="headerlink" href="#notes_1" title="Permanent link"></a></h3>
+<p>PS manipule des objets.</p>
+<p>Base SAM = Security Account Management</p>
+<h3 id="les-cmdlets">Les Cmdlets<a class="headerlink" href="#les-cmdlets" title="Permanent link"></a></h3>
+<p>Les commandes PS sont toujours composées ainsi : <strong>Verbe-Nom</strong>. Attention, le nom sera <strong>toujours au singulier</strong>.</p>
+<p>Exemple : <code>Get-ChildItem</code>, <code>Get-Service</code>, <code>Get-Volume</code>, <code>Get-SMBShare</code>, <code>Get-Process</code>, <code>Get-Item</code></p>
 <ul>
 <li>
-<p>Installation minimale / Server Core </p>
-<ul>
-<li>Sans environnement graphique</li>
-<li>Depuis Windows Server 2008</li>
-<li>Mode d&rsquo;installation par défaut</li>
-<li>Les commandes PowerShell peuvent être utilisées pour gérer un serveur Core</li>
-</ul>
+<p>Les commandes PS disposent de paramètres nécessaires au bon fonctionnement de la commande
+<div class="highlight"><pre><span class="n">PS</span><span class="p">&gt;</span> <span class="nb">Get-LocalUser</span> <span class="n">-Name</span> <span class="s2">&quot;Nom de l&#39;utilisateur recherché&quot;</span>
+</pre></div></p>
 </li>
 <li>
-<p>Installation graphique</p>
-<ul>
-<li>avec environnement graphique GUI </li>
-</ul>
+<p>Le paramètre est systématiquement indiqué avec un tiret. Une commande peut disposer de plusieurs paramètres.
+<div class="highlight"><pre><span class="n">PS</span><span class="p">&gt;</span> <span class="nb">Get-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&quot;Nom du groupe recherché&quot;</span> <span class="n">-Member</span> <span class="s2">&quot;Membre du groupe recherché dans le groupe indiqué&quot;</span>
+</pre></div></p>
 </li>
 </ul>
-<h5 id="les-roles-et-fonctionnalites">Les rôles et fonctionnalités<a class="headerlink" href="#les-roles-et-fonctionnalites" title="Permanent link"></a></h5>
-<ul>
-<li>Des composants peuvent être ajoutés par :<ul>
-<li>le gestionnaire de serveur </li>
-<li>des commandes PowerShell</li>
-</ul>
-</li>
-<li>2 types de composants <ul>
-<li>les rôles : correspond généralement à un <strong>service que l&rsquo;on fournit à des clients</strong>.</li>
-<li>les fonctionnalités : correspond généralement à un outil/composant <strong>utile sur l&rsquo;élément sur lequel on l&rsquo;ajoute</strong>.</li>
-</ul>
-</li>
-</ul>
-<h5 id="les-outils-de-gestion-de-windows-server">Les outils de gestion de Windows Server<a class="headerlink" href="#les-outils-de-gestion-de-windows-server" title="Permanent link"></a></h5>
-<ul>
-<li>Le gestionnaire de serveur : élément central d&rsquo;administration du ou des serveurs.</li>
-<li>Les consoles de gestion des services (<strong>mmc</strong>) : Disponible suite à l&rsquo;ajout d&rsquo;un rôle sur un serveur. Peuvent être ajoutées sur un poste d&rsquo;administration ne disposant pas du rôle à gérer.</li>
-<li>Ligne de commande (<strong>cmd</strong>)</li>
-<li>PowerShell </li>
-</ul>
-<h3 id="tp-01-installation-et-configuration-initiale">TP 01 - Installation et configuration initiale<a class="headerlink" href="#tp-01-installation-et-configuration-initiale" title="Permanent link"></a></h3>
-<p><a href="tp01-install-vm.html">Voir TP 1</a>.</p>
-<h3 id="gestion-du-stockage">Gestion du stockage<a class="headerlink" href="#gestion-du-stockage" title="Permanent link"></a></h3>
-<h4 id="les-tables-de-partitionnement">Les tables de partitionnement<a class="headerlink" href="#les-tables-de-partitionnement" title="Permanent link"></a></h4>
-<p>Détermine les caractéristiques des partitions créées sur un disque</p>
-<h5 id="mbr-historique">MBR (historique)<a class="headerlink" href="#mbr-historique" title="Permanent link"></a></h5>
-<ul>
-<li>Cette table faisait partie des information stockées sur le premier secteur adressable du disque.</li>
-<li>Le BIOS recherche un secteur d&rsquo;amorçage sur les médias bootables.</li>
-</ul>
-<h5 id="gpt">GPT<a class="headerlink" href="#gpt" title="Permanent link"></a></h5>
-<ul>
-<li>A ce jour, la majorité des machines disposent d&rsquo;un UEFI</li>
-<li>Les SSD sont préconfigurés de cette manière</li>
-<li>Meilleure performance avec les cartes-mère UEFI </li>
-<li>Optimiser pour les systèmes d&rsquo;exploitation 64 bits </li>
-</ul>
-<h4 id="les-formats-de-tables-de-partition">Les formats de tables de partition<a class="headerlink" href="#les-formats-de-tables-de-partition" title="Permanent link"></a></h4>
-<h5 id="caracteristiques-de-formats-de-partitionnement">Caractéristiques de formats de partitionnement<a class="headerlink" href="#caracteristiques-de-formats-de-partitionnement" title="Permanent link"></a></h5>
-<ul>
-<li>
-<p><strong>partitionnement MBR</strong> </p>
-<ul>
-<li>plus faible tolérance aux pannes</li>
-<li>nom donné au premier secteur physique d&rsquo;un disque</li>
-</ul>
-</li>
-<li>
-<p><strong>partitionnement GPT</strong> </p>
-<ul>
-<li>Meilleure tolérance aux pannes</li>
-<li>Les données sont dupliquées sur plusieurs secteurs (possibilité de reconstruction)</li>
-</ul>
-</li>
-<li>
-<p>Conversion possible de MBR vers GPT mais avant que le disque ne contienne des données.
-<a href="../.ressources/img/conversion.png" target="_blank"><img alt="Conversion" src="../.ressources/img/conversion.png" /></a></p>
-</li>
-</ul>
-<h4 id="les-types-de-configuration-des-disques">Les types de configuration des disques<a class="headerlink" href="#les-types-de-configuration-des-disques" title="Permanent link"></a></h4>
-<p>Il y a 2 types de configurations de disques :</p>
-<ul>
-<li>
-<p>Configuration de base </p>
-<ul>
-<li>Simplifie la gestion du disque </li>
-<li>Toutes les données sont inscrites dans des partitions </li>
-<li>Sur un seul disque physique</li>
-</ul>
-</li>
-<li>
-<p>Configuration dynamique (nécessite la suppression préalable des données)</p>
-<ul>
-<li>La gestion se fait par ensemble de disques</li>
-<li>Les données sont inscrites dans des volumes </li>
-<li>Nécessaire pour le RAID logiciel </li>
-</ul>
-</li>
-<li>
-<p>La conversion de base vers dynamique est sans incidence pour les données
-<a href="../.ressources/img/conversion-2.png" target="_blank"><img alt="Conversion" src="../.ressources/img/conversion-2.png" /></a></p>
-</li>
-</ul>
-<h4 id="partitionnement-et-raid">Partitionnement et RAID<a class="headerlink" href="#partitionnement-et-raid" title="Permanent link"></a></h4>
-<h5 id="partitionnement-dun-disque-de-base">Partitionnement d&rsquo;un disque de base<a class="headerlink" href="#partitionnement-dun-disque-de-base" title="Permanent link"></a></h5>
-<p><a href="../.ressources/img/partitions.png" target="_blank"><img alt="Partitions" src="../.ressources/img/partitions.png" /></a></p>
-<p><a href="../.ressources/img/partitions-2.png" target="_blank"><img alt="Partitions" src="../.ressources/img/partitions-2.png" /></a></p>
-<p>Sur un disque de base, on peut créer au maximum soit :</p>
-<ul>
-<li>4 partitions principales</li>
-<li>
-<p>3 partitions principales et 1 partition étendue dans laquelle on crée des disques logique (les lecteurs logiques seront formatés).</p>
-</li>
-<li>
-<p>Les partitions peuvent être étendues ou réduites sur l&rsquo;espace contigu du même disque.</p>
-</li>
-<li>Le lancement d&rsquo;un OS à partir d&rsquo;un lecteur logique n&rsquo;est pas possible.</li>
-</ul>
-<h5 id="partitionnement-dun-disque-dynamique">Partitionnement d&rsquo;un disque dynamique<a class="headerlink" href="#partitionnement-dun-disque-dynamique" title="Permanent link"></a></h5>
-<p>Un disque dynamique est composé de volumes qui peuvent être de plusieurs types :</p>
-<ul>
-<li>Volume simple </li>
-<li>Volume fractionné</li>
-<li>Volume agrégé par bandes </li>
-<li>Volume en miroir </li>
-<li>Volume agrégé par bandes avec parité </li>
-</ul>
-<p>On peut le partitionner en <strong>RAID</strong> (<em>Redundancy Array of Inexpensive Disk</em>).</p>
-<h5 id="le-volume-simple">Le volume simple<a class="headerlink" href="#le-volume-simple" title="Permanent link"></a></h5>
-<p>On parlera d&rsquo;<strong>espace disque</strong>.</p>
-<ul>
-<li>C&rsquo;est le seul type de volume qui utilise un seul disque physique.
-<a href="../.ressources/img/volume-simple.png" target="_blank"><img alt="Volume Simple" src="../.ressources/img/volume-simple.png" /></a></li>
-<li>Il peut être étendu au sein du même disque. 
-<a href="../.ressources/img/volume-simple-2.png" target="_blank"><img alt="Volume Simple" src="../.ressources/img/volume-simple-2.png" /></a></li>
-</ul>
-<h5 id="le-volume-fractionne">Le volume fractionné<a class="headerlink" href="#le-volume-fractionne" title="Permanent link"></a></h5>
-<p>Un volume fractionné utilise plusieurs espaces sur plusieurs disques physiques</p>
-<ul>
-<li>
-<p>Situation initiale :
-<a href="../.ressources/img/volume-fractionne-1.png" target="_blank"><img alt="Volume Fractionné" src="../.ressources/img/volume-fractionne-1.png" /></a></p>
-</li>
-<li>
-<p>Extension du <strong>volume simple 2</strong> sur le <strong>disque dynamique 2</strong>
-<a href="../.ressources/img/volume-fractionne-2.png" target="_blank"><img alt="Volume Fractionné" src="../.ressources/img/volume-fractionne-2.png" /></a></p>
-</li>
-</ul>
-<h5 id="le-volume-agrege-par-bandes-ou-raid-0">Le volume agrégé par bandes, ou RAID-0<a class="headerlink" href="#le-volume-agrege-par-bandes-ou-raid-0" title="Permanent link"></a></h5>
-<p>Le volume agrégé par bandes, ou <strong>RAID-0</strong> est un type de volume fractionné. </p>
-<ul>
-<li>La taille des bandes doit être identiques sur chaque disque</li>
-<li>Réparti sur 2 à <em>n</em> disques</li>
-<li><strong>Rapidité d&rsquo;écriture</strong> accrue </li>
-<li><strong>Aucune tolérance de panne</strong></li>
-<li>Tout l&rsquo;espace disque alloué est utilisable.</li>
-</ul>
-<p><a href="../.ressources/img/raid-0.png" target="_blank"><img alt="RAID-0" src="../.ressources/img/raid-0.png" /></a></p>
-<h5 id="le-volume-en-miroir-raid-1">Le volume en miroir RAID-1<a class="headerlink" href="#le-volume-en-miroir-raid-1" title="Permanent link"></a></h5>
-<p>Le volume en miroir, ou <strong>RAID-1</strong>, est un type de volume fractionné. </p>
-<ul>
-<li>Réparti sur 2 disques.</li>
-<li>L&rsquo;espace alloué sur les 2 disques doit être identique.</li>
-<li>Les mêmes données sont écrites simultanément sur les 2 disques.</li>
-<li><strong>Tolérance aux pannes accrues</strong> : un des disques peut être perdu sans impact sur les données.</li>
-<li>La moitié de l&rsquo;espace disque alloué n&rsquo;est pas directement utilisable.</li>
-</ul>
-<p><a href="../.ressources/img/raid-1.png" target="_blank"><img alt="RAID-1" src="../.ressources/img/raid-1.png" /></a></p>
-<h5 id="le-volume-agrege-par-bandes-avec-parite-raid-5">Le volume agrégé par bandes avec parité RAID-5<a class="headerlink" href="#le-volume-agrege-par-bandes-avec-parite-raid-5" title="Permanent link"></a></h5>
-<p>Le volume agrégé par bandes avec parité, ou <strong>RAID-5</strong>, est un type de volume fractionné :</p>
-<ul>
-<li>3 disques minimum</li>
-<li>1 disque (espace d&rsquo;une bande) est alloué à la tolérance de panne </li>
-<li>RAID offrant un compromis tolérance panne / coûts</li>
-</ul>
-<p><a href="../.ressources/img/raid-5.png" target="_blank"><img alt="RAID-5" src="../.ressources/img/raid-5.png" /></a></p>
-<h4 id="formatage-et-outils">Formatage et outils<a class="headerlink" href="#formatage-et-outils" title="Permanent link"></a></h4>
-<p><strong>Formatage</strong></p>
-<ul>
-<li>Les partitions principales, lecteurs logiques et volumes doivent être formatés avant d&rsquo;être utilisables.</li>
-<li>Le formatage est l&rsquo;installation d&rsquo;un système de fichiers (hébergement de données).</li>
-<li>Les systèmes de fichiers disponibles sont :<ul>
-<li>FAT32 : Windows 9x</li>
-<li>NTFS : depuis Windows NT</li>
-<li>ReFS : depuis Windows 2012 (pour les espaces de stockage)</li>
-</ul>
-</li>
-</ul>
-<p><strong>Outils</strong></p>
-<ul>
-<li>La console de gestion des disques (<strong>diskmgmt.msc</strong>)</li>
-<li>La commande <strong>diskpart</strong></li>
-<li>Les commandes <strong>PowerShell</strong></li>
-</ul>
-<h3 id="tp02">TP02<a class="headerlink" href="#tp02" title="Permanent link"></a></h3>
-<p><a href="tp02-raid.html" target="target">Voir le TP2 - RAID</a></p>
-<p><strong>Notes TP</strong> (p14)</p>
+<h3 id="get-command">Get-Command<a class="headerlink" href="#get-command" title="Permanent link"></a></h3>
+<p>Permet de rechercher une commande.</p>
 <ol>
-<li>diskmgmt </li>
-<li>changer lettre lecteur optique (libérer &ldquo;D:&rdquo;)</li>
-<li>clic droit sur chaque disque &gt; <strong>En ligne</strong> </li>
-<li>clic droit &gt; <strong>Initialiser le disque</strong></li>
-<li>clic droit &gt; <strong>Nouveau volume RAID-5</strong></li>
-<li>Sélectionner le disque dans partie disponible et ajouter</li>
-<li>Donner taille de 3 Go pour avoir un total de 6 Go</li>
+<li>
+<p>La recherche peut se faire sur le paramètre <code>-Name</code>. Note: Prend des wildcards <code>*</code>.
+<div class="highlight"><pre><span class="n">PS</span><span class="p">&gt;</span> <span class="nb">get-command</span> <span class="n">-Name</span> <span class="p">*</span><span class="n">-Service</span>
+</pre></div></p>
+</li>
+<li>
+<p>La recherche peut se faire sur le paramètre <code>-Verb</code>
+<div class="highlight"><pre><span class="n">PS</span><span class="p">&gt;</span> <span class="nb">Get-Command</span> <span class="n">-Verb</span> <span class="n">stop</span>
+</pre></div></p>
+</li>
 </ol>
-<p>-FIN-</p>
+<h3 id="get-help">Get-Help<a class="headerlink" href="#get-help" title="Permanent link"></a></h3>
+<div class="highlight"><pre><span class="n">PS</span><span class="p">&gt;</span> <span class="nb">Get-Help</span> <span class="n">-Name</span> <span class="nb">Get-Service</span>
+</pre></div>
+
+<p>Options disponibles :</p>
+<ul>
+<li><code>-Full</code>: aide complète</li>
+<li><code>-Online</code>: aide en ligne donc la plus récente. Requiert une connection Internet.</li>
+<li><code>-Examples</code>: affiche que des exemples d&rsquo;utilisation</li>
+<li><code>-ShowWindow</code>: affiche dans une popup en dehors du terminal, offrant une option de filtrage, la possibilité de copier-coller, etc.</li>
+</ul>
+<p>Pour en savoir plus, ne pas hésiter d&rsquo;aller voir&hellip; <code>Get-Help Get-Help</code>.</p>
+<h3 id="update-help">Update-Help<a class="headerlink" href="#update-help" title="Permanent link"></a></h3>
+<ul>
+<li>
+<p>Mettre à jour en ligne
+<div class="highlight"><pre><span class="n">PS</span><span class="p">&gt;</span> <span class="nb">update-help</span>
+</pre></div></p>
+</li>
+<li>
+<p>Spécifier la source locale
+<div class="highlight"><pre><span class="n">PS</span><span class="p">&gt;</span> <span class="nb">update-help</span> <span class="n">-SourcePath</span> <span class="n">D</span><span class="err">:</span><span class="p">\</span><span class="n">Powershell</span>
+</pre></div></p>
+</li>
+<li>
+<p>Spécifier un langage
+<div class="highlight"><pre><span class="n">PS</span><span class="p">&gt;</span> <span class="nb">Update-Help</span> <span class="n">-SourcePath</span> <span class="n">D</span><span class="err">:</span><span class="p">\</span><span class="n">Powershell</span> <span class="n">-UICulture</span> <span class="n">en-GB</span>
+</pre></div></p>
+</li>
+</ul>
+<h3 id="la-commande-de-protection">La commande de protection<a class="headerlink" href="#la-commande-de-protection" title="Permanent link"></a></h3>
+<p>L&rsquo;exécution de script est par défaut soumise à une forte restriction.</p>
+<p>Le niveau de confiance requis pour l&rsquo;exécution est modifiable :</p>
+<ul>
+<li>Permet d&rsquo;exécuter tous les scripts. A executer dans un CLI avec les droits admin :
+<div class="highlight"><pre><span class="n">PS</span><span class="p">&gt;</span> <span class="nb">Set-ExecutionPolicy</span> <span class="n">-ExecutionPolicy</span> <span class="n">Unrestricted</span>
+</pre></div></li>
+</ul>
+<p><strong>Niveaux de confiance</strong>:</p>
+<ul>
+<li>Niveau Secu elevé<ul>
+<li><strong>Restricted</strong> (par défaut) : aucune execution possible.</li>
+<li><strong>AllSigned</strong> : Tous les scripts doivent être signés par une autorité de certification de confiance, y compris ceux écrits sur la machine.</li>
+<li><strong>RemoteSigned</strong> : Nécessite que tous les scripts provenant du net soient signés par une autorité de certification de confiance.</li>
+</ul>
+</li>
+<li>Niveau Secu limité<ul>
+<li><strong>Unrestricted</strong> : Pas de restrictions particulières sur les scripts. Ceux provenant d&rsquo;internant déclenche un avertissement.</li>
+<li><strong>Bypass</strong> (open bar) : Open bar</li>
+</ul>
+</li>
+<li>Niveau autre<ul>
+<li><strong>Default</strong></li>
+<li><strong>Undefined</strong> : Remove the currently assigned execution policy from the current scope. This parameter will not remove an execution policy that is set in a Group Policy scope.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Attention</strong> ces commandes nécessitent un PowerShell avec les droits admin.</p>
+<h3 id="les-modules">Les modules<a class="headerlink" href="#les-modules" title="Permanent link"></a></h3>
+<p>Chaque cmdlet provient d&rsquo;un module Powershell.</p>
+<p>Les modules sont des fichiers portant extension <strong>.PSM1</strong>.</p>
+<p>La commande <code>Get-Module</code> permet de voir les modules actuellement disponible dans PS.</p>
+<h4 id="ajouter-un-module">Ajouter un module<a class="headerlink" href="#ajouter-un-module" title="Permanent link"></a></h4>
+<ol>
+<li>
+<p>Après la récupération d&rsquo;un fichier PSM1 pour connaître l&rsquo;emplacement disponible, il faut saisir la commande :
+<div class="highlight"><pre><span class="n">PS</span><span class="p">&gt;</span> <span class="nv">$env:PsModulePath</span>
+</pre></div></p>
+</li>
+<li>
+<p>Après la copie du fichier dans l&rsquo;emplacement; on importe le module dans la console :
+<div class="highlight"><pre><span class="n">PS</span><span class="p">&gt;</span> <span class="nb">Import-Module</span> <span class="n">-Name</span> <span class="s2">&quot;Le nom du dossier contenant le module&quot;</span>
+</pre></div></p>
+</li>
+<li>
+<p>Puis on vérifie l&rsquo;installation :
+<div class="highlight"><pre><span class="n">PS</span><span class="p">&gt;</span> <span class="nb">Get-Command</span> <span class="n">-module</span> <span class="s2">&quot;Le nom du module&quot;</span>
+</pre></div></p>
+</li>
+</ol>
+<p><strong>Important</strong> :</p>
+<ul>
+<li>Ces commandes nécessitent un Powershell avec les droits admin.</li>
+<li>Il faut modifier les droits d&rsquo;execution de script sur le système.</li>
+</ul>
+<h3 id="la-personnalisation-de-la-console">La personnalisation de la console<a class="headerlink" href="#la-personnalisation-de-la-console" title="Permanent link"></a></h3>
+<p>L&rsquo;équivalent .bashrc existe sous PS. Cette commande va créer un fichier pour le profil :
+<div class="highlight"><pre><span class="n">PS</span><span class="p">&gt;</span> <span class="nb">New-item</span> <span class="n">-Path</span> <span class="nv">$Profile</span> <span class="n">-Type</span> <span class="n">File</span> <span class="n">-Force</span>
+</pre></div></p>
+<p>Va générer un fichier dans le <strong>%USERPROFILE%/Documents/WindowsPowershell</strong> que l&rsquo;on pourra modifier (ex. créer des alias, des variables supplémentaires, modifier le prompt)</p>
+<p>Attention, le fichier en <strong>.ps1</strong> généré est vide. Il s&rsquo;agira d&rsquo;y ajouter une fonction <code>prompt</code> définissant les paramètres du prompt (avec des <code>write-host</code>). Cette fonction sera chargée à chaque ouverture de CLI.</p>
+<h2 id="tp-1-presentation">TP 1 - Présentation<a class="headerlink" href="#tp-1-presentation" title="Permanent link"></a></h2>
+<p><a href="tp01.html" target="_blank">Voir Atelier 1 - Présentation</a></p>
+<div class="highlight"><pre><span class="c"># Count how many commands</span>
+<span class="nb">get-command</span> <span class="p">|</span> <span class="n">measure</span>
+<span class="nb">get-command</span> <span class="p">|</span> <span class="n">measure</span> <span class="p">|</span> <span class="n">select</span> <span class="n">count</span>
+<span class="p">(</span><span class="nb">get-command</span><span class="p">).</span><span class="n">count</span>
+
+<span class="c"># Get All Verbs</span>
+<span class="nb">get-command</span> <span class="p">|</span> <span class="n">select</span> <span class="n">verb</span> <span class="p">|</span> <span class="nb">Group-Object</span> <span class="n">verb</span>
+<span class="nb">get-verb</span>
+
+<span class="c"># Get All Verbs containing *new*</span>
+<span class="nb">get-command</span> <span class="p">|</span> <span class="n">select</span> <span class="n">verb</span> <span class="p">|</span> <span class="nb">Group-Object</span> <span class="n">verb</span> <span class="p">|</span> <span class="n">where</span> <span class="n">Name</span> <span class="o">-like</span> <span class="n">new</span>
+<span class="nb">get-command</span> <span class="n">-verb</span> <span class="n">new</span>
+
+<span class="c"># Get all commands containing *user*</span>
+<span class="nb">get-command</span> <span class="p">*</span><span class="n">user</span><span class="p">*</span>
+
+<span class="c"># Création user</span>
+<span class="nv">$mdp</span><span class="p">=</span><span class="nb">Read-Host</span> <span class="n">-AsSecureString</span>
+<span class="nb">new-localuser</span> <span class="s2">&quot;user_tp01&quot;</span> <span class="n">-Password</span> <span class="nv">$mdp</span> <span class="n">-FullName</span> <span class="s2">&quot;Utilisateur Local TP01&quot;</span> <span class="n">-UserMayNotChangePassword</span> <span class="n">-PasswordNeverExpires</span>
+
+<span class="c"># Get first 5 local users</span>
+<span class="nb">Get-LocalUser</span> <span class="p">|</span> <span class="n">select</span> <span class="n">-First</span> <span class="n">5</span>
+
+<span class="c"># Update 1 user</span>
+<span class="nb">Set-localuser</span> <span class="n">-Description</span> <span class="s2">&quot;Utilisateur std modifié&quot;</span>  <span class="n">FerdinandMorse</span>
+
+<span class="c"># Get Get-Help</span>
+<span class="nb">get-help</span> <span class="nb">get-Service</span> <span class="n">-ShowWindow</span>      <span class="c"># dans fenêtre à part</span>
+<span class="nb">get-help</span> <span class="nb">get-Service</span> <span class="n">-Full</span>            <span class="c"># totalité dispo</span>
+<span class="nb">get-help</span> <span class="n">-Online</span> <span class="nb">Get-LocalGroupMember</span> <span class="c"># online</span>
+
+<span class="c"># Update-Help d&#39;après un package</span>
+<span class="nb">update-help</span> <span class="n">-SourcePath</span> <span class="p">\\</span><span class="n">CD01</span><span class="p">\</span><span class="n">Partage</span><span class="p">\</span><span class="n">Depot</span><span class="p">\</span><span class="n">CLI01</span>
+<span class="nb">update-help</span> <span class="n">-SourcePath</span> <span class="p">\\</span><span class="n">CD01</span><span class="p">\</span><span class="n">Partage</span><span class="p">\</span><span class="n">Depot</span><span class="p">\</span><span class="n">CLI01</span> <span class="n">-UICulture</span> <span class="n">fr-FR</span>
+
+<span class="c"># Get modules actuellement chargés</span>
+<span class="nb">Get-Module</span>
+
+<span class="c"># Get issue package</span>
+<span class="nb">Get-Command</span> <span class="nb">Get-LocalUser</span>
+
+<span class="c"># Get Module location</span>
+<span class="nv">$env:PSModulePath</span>
+
+<span class="c"># Installation d&#39;un module</span>
+<span class="c"># 1. Dezip pkg in one folder that is in the module path</span>
+<span class="c"># 2. Import module</span>
+<span class="nb">Import-Module</span> <span class="n">AWSPowerShell</span>
+<span class="c"># 3. Vérification</span>
+<span class="nb">Get-Module</span>
+
+<span class="c"># Get first 3 commands available for a module</span>
+<span class="nb">Get-Command</span> <span class="n">-module</span> <span class="n">AWSPowershell</span> <span class="p">|</span> <span class="n">select</span> <span class="n">-first</span> <span class="n">3</span>
+
+<span class="c"># Custom Profile</span>
+<span class="nb">new-item</span> <span class="n">-path</span> <span class="nv">$profile</span> <span class="n">-type</span> <span class="n">file</span> <span class="n">-force</span>  <span class="c"># voir TP pour contenu de la fonction prompt</span>
+</pre></div>
+
+<p class="fin">~Fin Module 1~</p>
+
 <p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href=".ressources/css/style.css">
 <link rel="stylesheet" type="text/css" href=".ressources/css/headings.css"></p></article></body></html>

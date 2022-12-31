@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Cairo&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Aladin&display=swap');
 
 body {
   padding-right: 15px;
@@ -364,4 +365,12 @@ img[alt=foo] { width: 200px; }
 .caption {
     text-align: center;
     font-style: italic;
+}
+
+.fin {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 2.5em;
+  font-family: 'Aladin', cursive;
+  text-align: center;
 }

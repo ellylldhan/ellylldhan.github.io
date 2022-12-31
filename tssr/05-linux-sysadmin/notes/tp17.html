@@ -1079,18 +1079,7 @@ body .markdown-body
 </li>
 <li><a href="#3-privileges">3. Privilèges</a></li>
 <li><a href="#4-privileges-dacces-aux-ressources-sur-srvlinux">4. Privilèges d&rsquo;accès aux ressources sur SRVLINUX</a></li>
-<li><a href="#5-installation-logicielle">5. Installation logicielle</a><ul>
-<li><a href="#5a-afficher-la-liste-des-paquets-installes-sur-svrlinux-dont-le-nom-commence-par-vim-utiliser-2-mehodes-differentes">5.a. Afficher la liste des paquets installés sur SVRLINUX dont le nom commence par vim. Utiliser 2 méhodes différentes.</a></li>
-<li><a href="#5b-compter-le-nombre-de-paquets-installes-sur-votre-machines-de-2-manieres-differentes">5.b. compter le nombre de paquets installés sur votre machines de 2 manieres différentes</a></li>
-<li><a href="#5c-afficher-la-liste-des-fichiers-et-leurs-chemins-present-sur-le-systeme-qui-sont-fournis-par-le-paquet-bash">5.c. afficher la liste des fichiers (et leurs chemins) présent sur le système qui sont fournis par le paquet bash</a></li>
-<li><a href="#5d-afficher-les-informations-relatives-au-paquet-cmatrix">5.d. afficher les informations relatives au paquet cmatrix</a></li>
-<li><a href="#5e-installer-le-paquet-cmatrix-et-executez-la-commande-cmatrix-puis-trouver-comment-afficher-la-couleur-en-rouge-et-gras">5.e. installer le paquet cmatrix et executez la commande cmatrix puis trouver comment afficher la couleur en rouge et gras.</a></li>
-<li><a href="#5f-desinstaller-ensuite-completement-le-paquet-cmatrix">5.f. désinstaller ensuite complètement le paquet cmatrix</a></li>
-<li><a href="#5g-ajouter-le-repos-contrib-puis-mettez-a-jour-la-liste-des-depots">5.g. ajouter le repos contrib puis mettez à jour la liste des depots.</a></li>
-<li><a href="#5h-installer-mariadb-server-avec-apt-puis-executer-la-commande-apt-remove-mariadb-server-apt-autoremove">5.h. installer mariadb-server avec apt puis executer la commande apt remove mariadb-server &amp;&amp; apt autoremove.</a></li>
-<li><a href="#5i-faites-une-recherche-dans-les-depots-avec-le-nom-du-paquet-mariadb-via-dpkg-quel-est-le-mot-marque-sur-la-1e-colonne-quest-ce-que-cela-signifie">5.i. Faites une recherche dans les dépôts avec le nom du paquet mariadb (via dpkg), quel est le mot marqué sur la 1e colonne, qu&rsquo;est ce que cela signifie ?</a></li>
-</ul>
-</li>
+<li><a href="#5-installation-logicielle">5. Installation logicielle</a></li>
 <li><a href="#6-gestion-de-lespace-disque">6. Gestion de l&rsquo;espace disque</a><ul>
 <li><a href="#61-part-1">6.1 Part 1</a></li>
 <li><a href="#62-part-2">6.2 Part 2</a></li>
@@ -1682,7 +1671,7 @@ exit
 
 <p>Vous effectuerez les tests de création et modification de fichier nécessaires afin de s&rsquo;assurer que ces contraintes sont bien respectées.</p>
 <h4 id="5-installation-logicielle">5. Installation logicielle<a class="headerlink" href="#5-installation-logicielle" title="Permanent link"></a></h4>
-<h6 id="5a-afficher-la-liste-des-paquets-installes-sur-svrlinux-dont-le-nom-commence-par-vim-utiliser-2-mehodes-differentes">5.a. Afficher la liste des paquets installés sur <strong>SVRLINUX</strong> dont le nom commence par vim. Utiliser 2 méhodes différentes.<a class="headerlink" href="#5a-afficher-la-liste-des-paquets-installes-sur-svrlinux-dont-le-nom-commence-par-vim-utiliser-2-mehodes-differentes" title="Permanent link"></a></h6>
+<p>5.a. Afficher la liste des paquets installés sur <strong>SVRLINUX</strong> dont le nom commence par vim. Utiliser 2 méhodes différentes.</p>
 <div class="highlight"><pre>$ apt list --installed | grep ^vim
   vim-common/oldstable,now 2:8.1.0875-5 all  [installé]
   vim-runtime/oldstable,now 2:8.1.0875-5 all  [installé, automatique]
@@ -1695,7 +1684,7 @@ $ dpkg -l &quot;vim*&quot; | grep ii
 $ apt list –installed | grep ^vim
 </pre></div>
 
-<h6 id="5b-compter-le-nombre-de-paquets-installes-sur-votre-machines-de-2-manieres-differentes">5.b. compter le nombre de paquets installés sur votre machines de 2 manieres différentes<a class="headerlink" href="#5b-compter-le-nombre-de-paquets-installes-sur-votre-machines-de-2-manieres-differentes" title="Permanent link"></a></h6>
+<p>5.b. compter le nombre de paquets installés sur votre machines de 2 manieres différentes</p>
 <div class="highlight"><pre>$ apt list --installed | wc -l
 340
 
@@ -1704,7 +1693,7 @@ $ dpkg -l | grep ^ii | wc -l
 </pre></div>
 
 <p>Différence due au fait que la 1ere ligne de <code>apt list</code> est <em>En train de lister&hellip;</em></p>
-<h6 id="5c-afficher-la-liste-des-fichiers-et-leurs-chemins-present-sur-le-systeme-qui-sont-fournis-par-le-paquet-bash">5.c. afficher la liste des fichiers (et leurs chemins) présent sur le système qui sont fournis par le paquet <strong>bash</strong><a class="headerlink" href="#5c-afficher-la-liste-des-fichiers-et-leurs-chemins-present-sur-le-systeme-qui-sont-fournis-par-le-paquet-bash" title="Permanent link"></a></h6>
+<p>5.c. Afficher la liste des fichiers (et leurs chemins) présent sur le système qui sont fournis par le paquet <strong>bash</strong></p>
 <div class="highlight"><pre>$ dpkg -L bash
 /.
 /bin
@@ -1715,7 +1704,7 @@ $ dpkg -l | grep ^ii | wc -l
 [...]
 </pre></div>
 
-<h6 id="5d-afficher-les-informations-relatives-au-paquet-cmatrix">5.d. afficher les informations relatives au paquet <strong>cmatrix</strong><a class="headerlink" href="#5d-afficher-les-informations-relatives-au-paquet-cmatrix" title="Permanent link"></a></h6>
+<p>5.d. Afficher les informations relatives au paquet <strong>cmatrix</strong></p>
 <div class="highlight"><pre>$ apt show cmatrix
   Package: cmatrix
   Version: 1.2a+git20181122-1
@@ -1741,7 +1730,7 @@ $ dpkg -l | grep ^ii | wc -l
     — vitesse de défilement du texte modifiable.
 </pre></div>
 
-<h6 id="5e-installer-le-paquet-cmatrix-et-executez-la-commande-cmatrix-puis-trouver-comment-afficher-la-couleur-en-rouge-et-gras">5.e. installer le paquet <strong>cmatrix</strong> et executez la commande <code>cmatrix</code> puis trouver comment afficher la couleur en rouge et gras.<a class="headerlink" href="#5e-installer-le-paquet-cmatrix-et-executez-la-commande-cmatrix-puis-trouver-comment-afficher-la-couleur-en-rouge-et-gras" title="Permanent link"></a></h6>
+<p>5.e. Installer le paquet <strong>cmatrix</strong> et executez la commande <code>cmatrix</code> puis trouver comment afficher la couleur en rouge et gras.</p>
 <ul>
 <li>Ajouter <code>contrib</code> dans les repos (<code>etc/apt/sources.list</code>) pour pouvoir installer cmatrix, qui n&rsquo;est pas dans les repos par défaut.</li>
 </ul>
@@ -1766,7 +1755,7 @@ $ dpkg -l | grep ^ii | wc -l
 $ cmatrix -b -C red
 </pre></div>
 
-<h6 id="5f-desinstaller-ensuite-completement-le-paquet-cmatrix">5.f. désinstaller ensuite complètement le paquet <strong>cmatrix</strong><a class="headerlink" href="#5f-desinstaller-ensuite-completement-le-paquet-cmatrix" title="Permanent link"></a></h6>
+<p>5.f. Désinstaller ensuite complètement le paquet <strong>cmatrix</strong></p>
 <div class="highlight"><pre># apt purge cmatrix
 
 # apt-get remove --purge cmatrix
@@ -1775,7 +1764,7 @@ $ cmatrix -b -C red
 # aptitude purge cmatrix
 </pre></div>
 
-<h6 id="5g-ajouter-le-repos-contrib-puis-mettez-a-jour-la-liste-des-depots">5.g. ajouter le repos <strong>contrib</strong> puis mettez à jour la liste des depots.<a class="headerlink" href="#5g-ajouter-le-repos-contrib-puis-mettez-a-jour-la-liste-des-depots" title="Permanent link"></a></h6>
+<p>5.g. Ajouter le repos <strong>contrib</strong> puis mettez à jour la liste des depots.</p>
 <p><strong>/etc/apt/sources.list</strong></p>
 <div class="highlight"><pre><span class="c1"># </span>
 
@@ -1794,12 +1783,12 @@ deb http://ftp.fr.debian.org/debian/ buster-updates main contrib
 deb-src http://ftp.fr.debian.org/debian/ buster-updates main contrib
 </pre></div>
 
-<h6 id="5h-installer-mariadb-server-avec-apt-puis-executer-la-commande-apt-remove-mariadb-server-apt-autoremove">5.h. installer <strong>mariadb-server</strong> avec apt puis executer la commande <code>apt remove mariadb-server &amp;&amp; apt autoremove</code>.<a class="headerlink" href="#5h-installer-mariadb-server-avec-apt-puis-executer-la-commande-apt-remove-mariadb-server-apt-autoremove" title="Permanent link"></a></h6>
+<p>5.h. Installer <strong>mariadb-server</strong> avec apt puis executer la commande <code>apt remove mariadb-server &amp;&amp; apt autoremove</code>.</p>
 <div class="highlight"><pre># apt install mariadb-server 
 # apt remove mariadb-server &amp;&amp; apt autoremove
 </pre></div>
 
-<h6 id="5i-faites-une-recherche-dans-les-depots-avec-le-nom-du-paquet-mariadb-via-dpkg-quel-est-le-mot-marque-sur-la-1e-colonne-quest-ce-que-cela-signifie">5.i. Faites une recherche dans les dépôts avec le nom du paquet <strong>mariadb</strong> (via <code>dpkg</code>), quel est le mot marqué sur la 1e colonne, qu&rsquo;est ce que cela signifie ?<a class="headerlink" href="#5i-faites-une-recherche-dans-les-depots-avec-le-nom-du-paquet-mariadb-via-dpkg-quel-est-le-mot-marque-sur-la-1e-colonne-quest-ce-que-cela-signifie" title="Permanent link"></a></h6>
+<p>5.i. Faites une recherche dans les dépôts avec le nom du paquet <strong>mariadb</strong> (via <code>dpkg</code>), quel est le mot marqué sur la 1e colonne, qu&rsquo;est ce que cela signifie ?</p>
 <div class="highlight"><pre>$ dpkg -l *mariadb*
   Souhait=inconnU/Installé/suppRimé/Purgé/H=à garder
   | État=Non/Installé/fichier-Config/dépaqUeté/échec-conFig/H=semi-installé/W=attend-t
@@ -1998,7 +1987,7 @@ states and flags.
 </pre></div>
 
 <h5 id="63-part-3">6.3 Part 3<a class="headerlink" href="#63-part-3" title="Permanent link"></a></h5>
-<p>a. générer de la charge cpu et controller le resultat avec les outils de prise d’information</p>
+<p>a. Générer de la charge cpu et controller le resultat avec les outils de prise d’information</p>
 <div class="highlight"><pre># cat /dev/random &gt; generation_nb_aleatoire
 </pre></div>
 

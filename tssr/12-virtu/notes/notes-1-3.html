@@ -1070,15 +1070,14 @@ body .markdown-body
 <p>Des concepts de la virtualisation à leur mise en oeuvre.</p>
 <p><strong>Sommaire</strong></p>
 <ol>
-<li>Module 1 - Présentation </li>
-<li>Module 2 - Les applications de virtualisation d&rsquo;environnements sur un poste de travail </li>
-<li>Module 3 - Les offres de services virtualisés</li>
-<li>Module 4 - La virtualisation de serveurs </li>
-<li>Module 5 - Découverte d&rsquo;Hyper V </li>
-<li>Module 6 - Les composants d&rsquo;une infrastructure vSphère</li>
-<li>Module 7 - Gestion du réseau</li>
-<li>Module 8 - Gestion du stockage </li>
-<li>Module 9 - Gestion du datacenter</li>
+<li><strong>Module 1</strong> - Présentation </li>
+<li><strong>Module 2</strong> - Les applications de virtualisation d&rsquo;environnements sur un poste de travail </li>
+<li><strong>Module 3</strong> - La virtualisation de serveurs </li>
+<li>Module 4 - Découverte d&rsquo;Hyper V </li>
+<li>Module 5 - Les composants d&rsquo;une infrastructure vSphère</li>
+<li>Module 6 - Gestion du réseau</li>
+<li>Module 7 - Gestion du stockage </li>
+<li>Module 8 - Gestion du datacenter</li>
 </ol>
 <div class="toc">
 <ul>
@@ -1140,7 +1139,6 @@ body .markdown-body
 <li><a href="#recapitulatif-visuel-des-elements">Récapitulatif visuel des éléments</a></li>
 </ul>
 </li>
-<li><a href="#images">IMAGES</a></li>
 </ul>
 </li>
 </ul>
@@ -1331,7 +1329,7 @@ body .markdown-body
 <li>1 niveau intermédiaire</li>
 <li>Solutions : Hyper-V, KVM, VMware ESXi, Xen Server </li>
 </ul>
-<p><a class="wikilink" href="/illu_p19/">illu p19</a></p>
+<p><img alt="18" src=".ressources/img/notes-18.png" /></p>
 <p><strong>Hyperviseur de type 2</strong></p>
 <ul>
 <li>Implémentation: installé en tant qu&rsquo;application sur un OS </li>
@@ -1340,11 +1338,30 @@ body .markdown-body
 <li>Avantages : ?</li>
 <li>inconvénients : ?</li>
 </ul>
-<p><a class="wikilink" href="/illu_p19_à_refaire/">illu p19 à refaire</a></p>
+<p><img alt="19" src=".ressources/img/notes-19.png" /></p>
 <h3 id="virtualisation-paravirtualisation">Virtualisation &amp; Paravirtualisation<a class="headerlink" href="#virtualisation-paravirtualisation" title="Permanent link"></a></h3>
 <p>Dans un contexte de virtualisation, les VM s&rsquo;adressent au <em>matériel présenté</em> par l&rsquo;hyperviseur. Elles n&rsquo;ont pas connaissance de sa présence.</p>
 <p>La <strong>paravirtualisation</strong> est une technique de virtualisation dans laquelle les VM sont préparées pour faire appel directement à un hyperviseur. Les appels système sont alors redirigés et non traduits. </p>
-<p><a class="wikilink" href="/illu_p20/">illu p20</a></p>
+<table>
+    <caption class="caption">Comparaison</caption>
+    <tr>
+        <th style="text-align: center">Solution de virtualisation</th>
+        <th style="text-align: center">Solution de paravirtualisation</th>
+    </tr>
+    <tr>
+        <td>
+            <a href=".ressources/img/notes-16.png" target="_blank">
+                <img src=".ressources/img/notes-16.png" alt="virtualisation" style="width:100%">
+            </a>
+        </td>
+        <td>
+            <a href=".ressources/img/notes-17.png" target="_blank">
+                <img src=".ressources/img/notes-17.png" alt="paravirtualisation" style="width:100%">
+            </a>
+        </td>
+    </tr>
+</table>
+
 <h2 id="module-2-les-applications-de-virtualisation-denvironnements-sur-un-poste-de-travail">Module 2 - Les applications de virtualisation d&rsquo;environnements sur un poste de travail<a class="headerlink" href="#module-2-les-applications-de-virtualisation-denvironnements-sur-un-poste-de-travail" title="Permanent link"></a></h2>
 <h3 id="vmware-workstation">VMware Workstation<a class="headerlink" href="#vmware-workstation" title="Permanent link"></a></h3>
 <h4 id="prerequis-et-installation">Prérequis et installation<a class="headerlink" href="#prerequis-et-installation" title="Permanent link"></a></h4>
@@ -1463,23 +1480,23 @@ body .markdown-body
 <h4 id="la-machine-hote">La machine hôte<a class="headerlink" href="#la-machine-hote" title="Permanent link"></a></h4>
 <p>C&rsquo;est le serveur physique qui dispose des ressources matérielles. </p>
 <p><img alt="Hôte" src=".ressources/img/notes-03.png" /></p>
-<table class="table table-hover">
+<table>
     <caption class="caption">Processeurs et technologies de virtualisation</caption>
     <thead>
         <tr>
-            <th></th>
+            <td></td>
             <th>Intel</th>
             <th>AMD</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Mécanisme de prise en charge de la virtualisation</td>
+            <th>Mécanisme de prise en charge de la virtualisation</th>
             <td>VT-x</td>
             <td>AMD-v</td>
         </tr>
         <tr>
-            <td>Mécanisme de prise en charge de SLAT</td>
+            <th>Mécanisme de prise en charge de SLAT</th>
             <td>EPT</td>
             <td>NPT/RVI</td>
         </tr>
@@ -1554,47 +1571,6 @@ body .markdown-body
 <p>Le schéma suivant illustre les principaux éléments nécessaires à une infrastructure de virtualisation.</p>
 <p><img alt="Recap" src=".ressources/img/notes-08.png" /></p>
 <p><em>Next : Module 4 - Découverte d&rsquo;HYPER-V</em> (p47/156)</p>
-<h3 id="images">IMAGES<a class="headerlink" href="#images" title="Permanent link"></a></h3>
-<div class="img-row">
-    <div class="img-col">
-        <a href=".ressources/img/notes-06.png" target="_blank">
-            <img src=".ressources/img/notes-06.png" alt=".ressources/img/notes-06.png" style="width:100%">
-        </a>
-    </div>
-    <div class="img-col">
-        <a href=".ressources/img/notes-07.png" target="_blank">
-            <img src=".ressources/img/notes-07.png" alt=".ressources/img/notes-07.png" style="width:100%">
-        </a>
-    </div>
-</div>
-
-<div class="img-row">
-    <div class="img-col">
-        <a href=".ressources/img/tp03-06.png" target="_blank">
-            <img src=".ressources/img/tp03-06.png" alt=".ressources/img/tp03-06.png"  style="width:100%">
-        </a>
-    </div>
-    <div class="img-col">
-        <a href=".ressources/img/tp03-07.png" target="_blank">
-            <img src=".ressources/img/tp03-07.png" alt=".ressources/img/tp03-07.png" style="width:100%">
-        </a>
-    </div>
-</div>
-
-<div class="img-row">
-    <div class="img-col">
-        <a href=".ressources/img/tp03-08.png" target="_blank">
-            <img src=".ressources/img/tp03-08.png" alt=".ressources/img/tp03-08.png"  style="width:100%">
-        </a>
-    </div>
-    <div class="img-col">
-        <a href=".ressources/img/tp03-09.png" target="_blank">
-            <img src=".ressources/img/tp03-09.png" alt=".ressources/img/tp03-09.png" style="width:100%">
-        </a>
-    </div>
-</div>
-
-<p><a href=".ressources/img/tp03-10.png" target="_blank"><img alt="Domaine" src=".ressources/img/tp03-10.png" /></a> </p>
 <p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href=".ressources/css/style.css">
 <link rel="stylesheet" type="text/css" href=".ressources/css/headings.css"></p></article></body></html>
