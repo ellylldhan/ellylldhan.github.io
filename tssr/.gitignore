@@ -1,3 +1,6 @@
+.idea
+.code
+.vscode
 *.tar
 *.zip
 *.exe
