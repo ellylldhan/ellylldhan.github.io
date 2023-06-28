@@ -1,5 +1,6 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body {
   max-width: 980px;
+  outline: 1300px solid #fff;
   margin: 16px auto;
 }
 
@@ -1065,74 +1066,323 @@ body .markdown-body
 .highlight .vi{color:teal}
 .highlight .il{color:#009999}
 .highlight .gc{color:#999;background-color:#EAF2F5}
-</style><title>tp3.1-centreon</title></head><body><article class="markdown-body"><h1 id="eni-tssr-17-supervision">ENI TSSR 17 - Supervision<a class="headerlink" href="#eni-tssr-17-supervision" title="Permanent link"></a></h1>
-<h2 id="tp31-centreon">TP3.1 Centreon<a class="headerlink" href="#tp31-centreon" title="Permanent link"></a></h2>
-<ul>
-<li>Apprentissage de l&rsquo;interface Centreon</li>
-<li>Création des commandes, modèles et hôtes</li>
-</ul>
+</style><title>notes_2022-01-17</title></head><body><article class="markdown-body"><h1 id="notes-reseau-packet-tracer">Notes Réseau Packet Tracer<a class="headerlink" href="#notes-reseau-packet-tracer" title="Permanent link"></a></h1>
 <div class="toc">
 <ul>
-<li><a href="#eni-tssr-17-supervision">ENI TSSR 17 - Supervision</a><ul>
-<li><a href="#tp31-centreon">TP3.1 Centreon</a><ul>
-<li><a href="#taches">Tâches</a></li>
-<li><a href="#1-creation-des-commandes-dans-centreon">1. Création des commandes dans Centreon</a><ul>
-<li><a href="#11-verification-windows">1.1 Verification Windows</a></li>
-<li><a href="#12-verification-debian">1.2 Verification Debian</a></li>
-<li><a href="#13-verification-des-hotes">1.3 Vérification des hôtes</a></li>
+<li><a href="#notes-reseau-packet-tracer">Notes Réseau Packet Tracer</a><ul>
+<li><a href="#mise-en-place-dun-dhcp-relais">Mise en place d&rsquo;un DHCP Relais</a><ul>
+<li><a href="#1-activer-linterface-vlan-1-sur-tous-les-switches">1. Activer l&rsquo;interface VLAN 1 sur tous les switches</a></li>
+<li><a href="#2-configurer-le-serveur-dhcp">2. Configurer le serveur DHCP</a></li>
+<li><a href="#3-configurer-les-interfaces-du-routeur">3. Configurer les interfaces du routeur</a></li>
+<li><a href="#4-tester">4. Tester</a></li>
 </ul>
 </li>
-<li><a href="#2-creation-des-modeles-de-services">2. Création des modèles de services</a></li>
-<li><a href="#3-creation-des-modeles-dhotes">3. Création des modèles d&rsquo;hôtes</a></li>
-<li><a href="#4-creation-des-machines-a-superviser">4. Création des machines à superviser</a></li>
+<li><a href="#un-seul-dhcp-pour-2-reseaux">Un seul DHCP pour 2 réseaux</a></li>
+<li><a href="#un-seul-dhcp-pour-3-reseaux">Un seul DHCP pour 3 réseaux</a><ul>
+<li><a href="#1-routeur">1. Routeur</a><ul>
+<li><a href="#attribuer-ip-static">Attribuer IP static</a></li>
 </ul>
 </li>
-<li><a href="#correction">Correction</a></li>
+<li><a href="#2-dhcp">2. DHCP</a><ul>
+<li><a href="#attribuer-une-ip-static-au-serveur-dhcp">Attribuer une IP static au serveur DHCP</a></li>
+</ul>
+</li>
+<li><a href="#3-switch">3. Switch</a><ul>
+<li><a href="#activer-le-vlan-1-sur-chaque-switches">Activer le VLAN 1 sur chaque switches</a></li>
+</ul>
+</li>
+<li><a href="#4-routeur-bis">4. Routeur (bis)</a><ul>
+<li><a href="#routage-via-gui">Routage via GUI</a></li>
+<li><a href="#routage-via-cli">Routage via CLI</a></li>
+<li><a href="#ajout-de-lip-du-dhcp-ip-helper-address">Ajout de l&rsquo;ip du DHCP (ip helper-address)</a></li>
+</ul>
+</li>
+<li><a href="#5-les-pc">5. Les PC</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
-<h3 id="taches">Tâches<a class="headerlink" href="#taches" title="Permanent link"></a></h3>
-<ul>
-<li>Ajout dans Centreon des commandes</li>
-<li>Création des modèles de services et d&rsquo;hôte</li>
-<li>Création des hôtes</li>
-</ul>
-<h3 id="1-creation-des-commandes-dans-centreon">1. Création des commandes dans Centreon<a class="headerlink" href="#1-creation-des-commandes-dans-centreon" title="Permanent link"></a></h3>
-<ul>
-<li>Depuis client : <strong>[<a href="http://centreon.sniper.lunette">http://centreon.sniper.lunette</a>]</strong> admin (secret) </li>
-<li>Validez un maximum d&rsquo;élément lors de l&rsquo;écriture de vos commandes  </li>
-</ul>
-<h4 id="11-verification-windows">1.1 Verification Windows<a class="headerlink" href="#11-verification-windows" title="Permanent link"></a></h4>
-<ul>
-<li>CPU, Mémoire, HDD</li>
-</ul>
-<h4 id="12-verification-debian">1.2 Verification Debian<a class="headerlink" href="#12-verification-debian" title="Permanent link"></a></h4>
-<ul>
-<li>CPU, Mémoire, Point de montage</li>
-</ul>
-<h4 id="13-verification-des-hotes">1.3 Vérification des hôtes<a class="headerlink" href="#13-verification-des-hotes" title="Permanent link"></a></h4>
-<ul>
-<li>Créer la commande <code>Check_Host_Alive</code> qui effectuera <strong>1 ping</strong> avec seuil <strong>warning</strong> et <strong>critical</strong> très élevés.</li>
-<li>A l&rsquo;exception de <code>HOSTADDRESS</code>, les options et arguments de la commande seront statiques.</li>
-</ul>
-<h3 id="2-creation-des-modeles-de-services">2. Création des modèles de services<a class="headerlink" href="#2-creation-des-modeles-de-services" title="Permanent link"></a></h3>
-<p>Créer un ou plusieurs modèles de services pour chacune des commandes.</p>
-<h3 id="3-creation-des-modeles-dhotes">3. Création des modèles d&rsquo;hôtes<a class="headerlink" href="#3-creation-des-modeles-dhotes" title="Permanent link"></a></h3>
-<ul>
-<li>Créer un modèle d&rsquo;hôte Linux et un modèle d&rsquo;hôte Windows</li>
-<li>Lier à chacun d&rsquo;eux les modèles de services correspondants</li>
-</ul>
-<h3 id="4-creation-des-machines-a-superviser">4. Création des machines à superviser<a class="headerlink" href="#4-creation-des-machines-a-superviser" title="Permanent link"></a></h3>
-<ul>
-<li>Créer l&rsquo;hôte Windows 10 et Debian en liaison à leur modèle d&rsquo;hôte respectifs</li>
-<li>Exporter ensuite la configuration et vérifier le bon fonctionnement de votre supervision</li>
-</ul>
-<h2 id="correction">Correction<a class="headerlink" href="#correction" title="Permanent link"></a></h2>
-<p>Configuration &gt; Commandes &gt; Controles </p>
-<p>Ajouter commande check_ping</p>
-<p class="fin">~Fin TP3~</p>
+<h2 id="mise-en-place-dun-dhcp-relais">Mise en place d&rsquo;un DHCP Relais<a class="headerlink" href="#mise-en-place-dun-dhcp-relais" title="Permanent link"></a></h2>
+<p>Source : <a href="https://www.it-connect.fr/mise-en-place-dun-agent-relais-dhcp/">https://www.it-connect.fr/mise-en-place-dun-agent-relais-dhcp/</a></p>
+<p><img alt="setup" src="../ressources/img/c0-cisco/dhcp-relais.png" /></p>
+<h3 id="1-activer-linterface-vlan-1-sur-tous-les-switches">1. Activer l&rsquo;interface VLAN 1 sur tous les switches<a class="headerlink" href="#1-activer-linterface-vlan-1-sur-tous-les-switches" title="Permanent link"></a></h3>
+<p>Procédure à effectuer sur tous les switches.</p>
+<p>clic sur <strong>Switch</strong> &gt; onglet <strong>CLI</strong> &gt; <kbd>ENTREE</kbd></p>
+<div class="highlight"><pre>switch&gt; enable                                   # passer en mode SU
+switch# configure terminal                       # passer en mode config
+switch(config)# interface vlan 1                 # accès à config vlan
+switch(config-if)# no shutdown                   # activer interface
+switch(config-if)# exit 
+switch(config)# exit 
+switch# copy running-config startup-config       # enregistrer la config
+&lt;ENTREE&gt;
+</pre></div>
 
-<p><link rel="stylesheet" type="text/css" href="../../ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../../ressources/css/style.css">
-<link rel="stylesheet" type="text/css" href="../../ressources/css/headings.css"></p></article></body></html>
+<h3 id="2-configurer-le-serveur-dhcp">2. Configurer le serveur DHCP<a class="headerlink" href="#2-configurer-le-serveur-dhcp" title="Permanent link"></a></h3>
+<ul>
+<li>clic <strong>DHCP</strong> &gt; onglet <strong>DESKTOP</strong> &gt; <strong>IP Configuration</strong></li>
+<li>
+<p>bouton <strong>Static</strong> &gt; entrer IP fixe du DHCP + son masque + IP du routeur (Gateway)</p>
+</li>
+<li>
+<p>onglet <strong>Services</strong> &gt; <strong>DHCP</strong></p>
+</li>
+<li>Configurer les pools d&rsquo;adresses qu&rsquo;il distribuera à ses différents clients. Autrement dit, il faut renseigner les 2 réseaux qu&rsquo;il devra servir.</li>
+</ul>
+<p>Ici :</p>
+<table>
+<thead>
+<tr>
+<th align="left">Quoi</th>
+<th align="left">Réseau 1</th>
+<th align="left">Réseau 2</th>
+<th align="left">serverPool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Nom (str)</td>
+<td align="left">10.0.0.0/8</td>
+<td align="left">172.16.0.0/16</td>
+<td align="left">serverPool</td>
+</tr>
+<tr>
+<td align="left">Gateway</td>
+<td align="left">10.255.255.254</td>
+<td align="left">172.16.255.254</td>
+<td align="left">0.0.0.0</td>
+</tr>
+<tr>
+<td align="left">DNS srv</td>
+<td align="left">0.0.0.0</td>
+<td align="left">0.0.0.0</td>
+<td align="left">0.0.0.0</td>
+</tr>
+<tr>
+<td align="left">Start IP</td>
+<td align="left">10.0.0.10</td>
+<td align="left">172.16.0.10</td>
+<td align="left">10.0.0.10</td>
+</tr>
+<tr>
+<td align="left">Subnet</td>
+<td align="left">255.0.0.0</td>
+<td align="left">255.255.0.0</td>
+<td align="left">255.0.0.0</td>
+</tr>
+<tr>
+<td align="left">Max number</td>
+<td align="left">50</td>
+<td align="left">50</td>
+<td align="left">50</td>
+</tr>
+<tr>
+<td align="left">TFTP srv</td>
+<td align="left">0.0.0.0</td>
+<td align="left">0.0.0.0</td>
+<td align="left">0.0.0.0</td>
+</tr>
+</tbody>
+</table>
+<p>Il faut modifier les plages par défaut car elle ne peut pas être supprimer.</p>
+<p>ATTENTION au remplissage automatique des plages &ldquo;Start IP&rdquo;. Toujours vérifier.</p>
+<p>Ajouter mask + start ip à serverPool (qui est la config par défaut, insupprimable) pour que les machines du réseau du DHCP trouvent leur passerelle.</p>
+<h3 id="3-configurer-les-interfaces-du-routeur">3. Configurer les interfaces du routeur<a class="headerlink" href="#3-configurer-les-interfaces-du-routeur" title="Permanent link"></a></h3>
+<ol>
+<li>Attribuer une IP à l&rsquo;interface ETH0 et ETH1</li>
+<li>Ajouter l&rsquo;IP HELPER sur ETH1 (172.16.0.0) en lui renseignant l&rsquo;IP du DHCP.</li>
+</ol>
+<p>Grâce à l&rsquo;option <strong>IP Helper</strong> le routeur pourra relayer la trame de diffusion au serveur DHCP.</p>
+<p>ATTENTION on ajoute l&rsquo;<strong>IP Helper</strong> sur l&rsquo;interface du coté où il n&rsquo;y a pas de serveur DHCP.</p>
+<div class="highlight"><pre># Attribution d&#39;ip sur interface ETH0
+
+Routeur# configure terminal
+Routeur(config)# interface fastEthernet 0/0
+Routeur(config-if)# ip address 10.255.255.254 255.0.0.0
+Routeur(config-if)# no shutdown
+Routeur(config-if)# exit
+
+# Attribution d&#39;ip sur interface ETH1 + IP Helper
+
+Routeur(config)# interface fastEthernet 1/0
+Routeur(config-if)# ip address 172.16.255.254 255.255.0.0
+Routeur(config-if)# ip helper-address 10.255.255.253           # on lui donne l&#39;ip du DHCP
+Routeur(config-if)# no shutdown
+Routeur(config-if)# exit
+Routeur(config)# exit
+Routeur# copy running-config startup-config
+</pre></div>
+
+<h3 id="4-tester">4. Tester<a class="headerlink" href="#4-tester" title="Permanent link"></a></h3>
+<p>clic sur un <strong>PC</strong> &gt; onglet <strong>DESKTOP</strong> &gt; <strong>Ip Configuration</strong> &gt; cocher <strong>DHCP</strong> &gt; attendre&hellip;</p>
+<p>Ca peut prendre du temps&hellip;</p>
+<h2 id="un-seul-dhcp-pour-2-reseaux">Un seul DHCP pour 2 réseaux<a class="headerlink" href="#un-seul-dhcp-pour-2-reseaux" title="Permanent link"></a></h2>
+<p>Appliquer la méthode ci-dessus.</p>
+<h2 id="un-seul-dhcp-pour-3-reseaux">Un seul DHCP pour 3 réseaux<a class="headerlink" href="#un-seul-dhcp-pour-3-reseaux" title="Permanent link"></a></h2>
+<p><img alt="setup" src="../ressources/img/c0-cisco/1-dhcp-3-reseaux.png" /></p>
+<p><strong>Plan d&rsquo;action</strong></p>
+<ol>
+<li>Router : attribuer IP static</li>
+<li>DHCP : <ul>
+<li>attribuer IP static</li>
+<li>activer service DHCP </li>
+<li>ajouter serverPool (réseaux visés + leur passerelle)</li>
+</ul>
+</li>
+<li>Switch : activer interface <strong>vlan 1</strong></li>
+<li>Router : <ul>
+<li>routage static (router les réseaux hors-de-portée</li>
+<li>ajouter ip helper (ip du DHCP)</li>
+</ul>
+</li>
+<li>Machine : activer l&rsquo;ip par DHCP (ip config)</li>
+</ol>
+<h3 id="1-routeur">1. Routeur<a class="headerlink" href="#1-routeur" title="Permanent link"></a></h3>
+<h4 id="attribuer-ip-static">Attribuer IP static<a class="headerlink" href="#attribuer-ip-static" title="Permanent link"></a></h4>
+<ul>
+<li>clic Routeur &gt; onglet <strong>CLI</strong> </li>
+</ul>
+<div class="highlight"><pre>Routeur&gt; enable
+Routeur# configure terminal
+Routeur(config)# interface GigabitEthernet 0/1 
+Routeur(config-if)# ip address 10.17.16.1 255.255.240.0
+Routeur(config-if)# end
+Routeur(config-if)# exit
+Routeur(config)# exit
+Routeur# copy running-config startup-config
+</pre></div>
+
+<h3 id="2-dhcp">2. DHCP<a class="headerlink" href="#2-dhcp" title="Permanent link"></a></h3>
+<h4 id="attribuer-une-ip-static-au-serveur-dhcp">Attribuer une IP static au serveur DHCP<a class="headerlink" href="#attribuer-une-ip-static-au-serveur-dhcp" title="Permanent link"></a></h4>
+<ul>
+<li>clic <strong>Serveur</strong> &gt; onglet <strong>Services</strong> &gt; <strong>DHCP</strong> &gt; <strong>ON</strong></li>
+<li>entrer <strong>nom</strong> + <strong>IP</strong> + <strong>Subnet</strong> + <strong>Start ip address</strong> puis <strong>Save</strong> (serverPool)</li>
+<li>onglet <strong>Desktop</strong> &gt; entrer <strong>IP</strong>, <strong>masque</strong> et <strong>Gateway</strong></li>
+</ul>
+<p><strong>ex. de Server Pool</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">Quoi</th>
+<th align="left">Réseau 1</th>
+<th align="left">Réseau 2</th>
+<th align="left">Réseau 3</th>
+<th align="left">serverPool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Nom (str)</td>
+<td align="left">10.17.16.0/20</td>
+<td align="left">192.168.100.0/24</td>
+<td align="left">192.168.200.0/24</td>
+<td align="left">serverPool</td>
+</tr>
+<tr>
+<td align="left">Gateway</td>
+<td align="left">10.17.16.1</td>
+<td align="left">192.168.100.1</td>
+<td align="left">192.168.200.1</td>
+<td align="left">192.168.200.1</td>
+</tr>
+<tr>
+<td align="left">DNS srv</td>
+<td align="left">0.0.0.0</td>
+<td align="left">0.0.0.0</td>
+<td align="left">0.0.0.0</td>
+<td align="left">0.0.0.0</td>
+</tr>
+<tr>
+<td align="left">Start IP</td>
+<td align="left">10.17.16.0</td>
+<td align="left">192.168.100.0</td>
+<td align="left">192.168.200.0</td>
+<td align="left">192.168.200.0</td>
+</tr>
+<tr>
+<td align="left">Subnet</td>
+<td align="left">255.255.240.0</td>
+<td align="left">255.255.255.0</td>
+<td align="left">255.255.255.0</td>
+<td align="left">255.255.255.0</td>
+</tr>
+<tr>
+<td align="left">Max number</td>
+<td align="left">4000</td>
+<td align="left">250</td>
+<td align="left">250</td>
+<td align="left">250</td>
+</tr>
+<tr>
+<td align="left">TFTP srv</td>
+<td align="left">0.0.0.0</td>
+<td align="left">0.0.0.0</td>
+<td align="left">0.0.0.0</td>
+<td align="left">0.0.0.0</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="srvpool" src="../ressources/img/c0-cisco/screen-dhcp-server-pool.png" /></p>
+<h3 id="3-switch">3. Switch<a class="headerlink" href="#3-switch" title="Permanent link"></a></h3>
+<h4 id="activer-le-vlan-1-sur-chaque-switches">Activer le VLAN 1 sur <em>chaque</em> switches<a class="headerlink" href="#activer-le-vlan-1-sur-chaque-switches" title="Permanent link"></a></h4>
+<ul>
+<li>clic sur un Switch &gt; onglet <strong>CLI</strong></li>
+</ul>
+<div class="highlight"><pre>switch&gt; enable
+switch# configure terminal
+switch(config)# interface vlan 1
+switch(config-if)# no shutdown
+switch(config-if)# end
+switch(config-if)# exit
+switch(config)# exit
+switch# copy running-config startup-config
+</pre></div>
+
+<h3 id="4-routeur-bis">4. Routeur (bis)<a class="headerlink" href="#4-routeur-bis" title="Permanent link"></a></h3>
+<p>Enregistrer les routes statiques sur chaque routeur, afin qu&rsquo;ils connaissent la porte d&rsquo;entrée des réseaux qui ne leur sont pas adjacents.</p>
+<h4 id="routage-via-gui">Routage via GUI<a class="headerlink" href="#routage-via-gui" title="Permanent link"></a></h4>
+<ul>
+<li>onglet <strong>Config</strong> &gt; <strong>Routing</strong> &gt; <strong>Static</strong></li>
+<li>Remplir les infos<ul>
+<li>Network  : 10.17.16.0</li>
+<li>Subnet   : 255.255.240.0</li>
+<li>Next hop : 192.168.100.254</li>
+</ul>
+</li>
+</ul>
+<p>Sera noté <code>10.17.16.0/20 via 192.168.100.254</code></p>
+<p><img alt="setup" src="../ressources/img/c0-cisco/schema1.png" /></p>
+<p><img alt="routage routeur 0" src="../ressources/img/c0-cisco/routage-static-0.png" /> <img alt="routage routeur 1" src="../ressources/img/c0-cisco/routage-static-1.png" /></p>
+<h4 id="routage-via-cli">Routage via CLI<a class="headerlink" href="#routage-via-cli" title="Permanent link"></a></h4>
+<ul>
+<li>clic Routeur &gt; onglet <strong>CLI</strong></li>
+</ul>
+<div class="highlight"><pre>Router&gt; enable
+Router# configure terminal
+Router(config)# ip route &lt;ip du réseau à atteindre&gt; &lt;son masque&gt; &lt;passerelle pour y aller&gt;
+Router(config)# ip route 192.168.200.0 255.255.255.0 192.168.100.254
+Router(config)# end
+</pre></div>
+
+<h4 id="ajout-de-lip-du-dhcp-ip-helper-address">Ajout de l&rsquo;ip du DHCP (<code>ip helper-address</code>)<a class="headerlink" href="#ajout-de-lip-du-dhcp-ip-helper-address" title="Permanent link"></a></h4>
+<p>Permet au routeur lointain de connaître l&rsquo;ip du DHCP.</p>
+<p>ATTENTION à sélectionner l&rsquo;interface qui reçoit le broadcast de la requête au DHCP. Ici, c&rsquo;est l&rsquo;interface G0/1 sur le Routeur 1 (la gatewat du réseau qui n&rsquo;a pas de DHCP.</p>
+<div class="highlight"><pre>Router&gt; enable
+Router# configure terminal
+Router(config)# interface GigabitEthernet 0/1
+Router(config-if)# ip helper-address &lt;ip du DHCP&gt;
+Router(config-if)# ip helper-address 192.168.200.2
+Router(config-if)# end
+Router(config-if)# exit
+Router(config)# exit
+Router# copy running-config startup-config
+</pre></div>
+
+<h3 id="5-les-pc">5. Les PC<a class="headerlink" href="#5-les-pc" title="Permanent link"></a></h3>
+<p>Activer l&rsquo;IP par DHCP sur chaque machine de tous les réseaux.</p>
+<ul>
+<li>clic sur PC &gt; onglet <strong>Desktop</strong> &gt; <strong>IP Configuration</strong> &gt; radio <strong>DHCP</strong></li>
+</ul>
+<p><img alt="IP Configuration" src="../ressources/img/c0-cisco/ip-config.png" /></p></article></body></html>

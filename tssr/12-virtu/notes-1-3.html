@@ -1329,7 +1329,7 @@ body .markdown-body
 <li>1 niveau intermédiaire</li>
 <li>Solutions : Hyper-V, KVM, VMware ESXi, Xen Server </li>
 </ul>
-<p><img alt="18" src="../ressources/img/12-virtunotes-18.png" /></p>
+<p><img alt="18" src="../ressources/img/12-virtu/notes-18.png" /></p>
 <p><strong>Hyperviseur de type 2</strong></p>
 <ul>
 <li>Implémentation: installé en tant qu&rsquo;application sur un OS </li>
@@ -1338,7 +1338,7 @@ body .markdown-body
 <li>Avantages : ?</li>
 <li>inconvénients : ?</li>
 </ul>
-<p><img alt="19" src="../ressources/img/12-virtunotes-19.png" /></p>
+<p><img alt="19" src="../ressources/img/12-virtu/notes-19.png" /></p>
 <h3 id="virtualisation-paravirtualisation">Virtualisation &amp; Paravirtualisation<a class="headerlink" href="#virtualisation-paravirtualisation" title="Permanent link"></a></h3>
 <p>Dans un contexte de virtualisation, les VM s&rsquo;adressent au <em>matériel présenté</em> par l&rsquo;hyperviseur. Elles n&rsquo;ont pas connaissance de sa présence.</p>
 <p>La <strong>paravirtualisation</strong> est une technique de virtualisation dans laquelle les VM sont préparées pour faire appel directement à un hyperviseur. Les appels système sont alors redirigés et non traduits. </p>
@@ -1350,13 +1350,13 @@ body .markdown-body
     </tr>
     <tr>
         <td>
-            <a href="../ressources/img/12-virtunotes-16.png" target="_blank">
-                <img src="../ressources/img/12-virtunotes-16.png" alt="virtualisation" style="width:100%">
+            <a href="../ressources/img/12-virtu/notes-16.png" target="_blank">
+                <img src="../ressources/img/12-virtu/notes-16.png" alt="virtualisation" style="width:100%">
             </a>
         </td>
         <td>
-            <a href="../ressources/img/12-virtunotes-17.png" target="_blank">
-                <img src="../ressources/img/12-virtunotes-17.png" alt="paravirtualisation" style="width:100%">
+            <a href="../ressources/img/12-virtu/notes-17.png" target="_blank">
+                <img src="../ressources/img/12-virtu/notes-17.png" alt="paravirtualisation" style="width:100%">
             </a>
         </td>
     </tr>
@@ -1378,7 +1378,7 @@ body .markdown-body
 <p><strong>Notes</strong>: La dernier version est préférable mais il peut y avoir des problèmes de fonctionnement suivant les systèmes hôtes (ex. WS 2012 R2 + v15)</p>
 <h4 id="outils-et-composants-installes">Outils et composants installés<a class="headerlink" href="#outils-et-composants-installes" title="Permanent link"></a></h4>
 <h5 id="la-console-de-gestion-vmware-workstation">La console de gestion VMware Workstation<a class="headerlink" href="#la-console-de-gestion-vmware-workstation" title="Permanent link"></a></h5>
-<p><img alt="VMware" max-width="300px" src="../ressources/img/12-virtunotes-01.png" /></p>
+<p><img alt="VMware" max-width="300px" src="../ressources/img/12-virtu/notes-01.png" /></p>
 <ul>
 <li>Affiche la liste des VM </li>
 <li>Permet d&rsquo;ajouter ou de créer des VM </li>
@@ -1425,7 +1425,7 @@ body .markdown-body
 </li>
 </ul>
 <h3 id="gestion-de-la-vm-workstation-pro">Gestion de la VM - Workstation Pro<a class="headerlink" href="#gestion-de-la-vm-workstation-pro" title="Permanent link"></a></h3>
-<p><img alt="Workstation Pro" max-height="300px" src="../ressources/img/12-virtunotes-02.png" /></p>
+<p><img alt="Workstation Pro" max-height="300px" src="../ressources/img/12-virtu/notes-02.png" /></p>
 <ol>
 <li>Gestion de base </li>
 <li>Gestion directe du matériel (disque, reseau, média)</li>
@@ -1479,7 +1479,7 @@ body .markdown-body
 <h3 id="les-composantes-dune-infrastructure-de-virtualisation">Les composantes d&rsquo;une infrastructure de virtualisation<a class="headerlink" href="#les-composantes-dune-infrastructure-de-virtualisation" title="Permanent link"></a></h3>
 <h4 id="la-machine-hote">La machine hôte<a class="headerlink" href="#la-machine-hote" title="Permanent link"></a></h4>
 <p>C&rsquo;est le serveur physique qui dispose des ressources matérielles. </p>
-<p><img alt="Hôte" src="../ressources/img/12-virtunotes-03.png" /></p>
+<p><img alt="Hôte" src="../ressources/img/12-virtu/notes-03.png" /></p>
 <table>
     <caption class="caption">Processeurs et technologies de virtualisation</caption>
     <thead>
@@ -1506,7 +1506,7 @@ body .markdown-body
 <h4 id="au-coeur-de-la-solution-lhyperviseur">Au coeur de la solution : l&rsquo;hyperviseur<a class="headerlink" href="#au-coeur-de-la-solution-lhyperviseur" title="Permanent link"></a></h4>
 <p>L&rsquo;hyperviseur correspond à la solution logicielle installée sur la machine hôte et sur lequel seront hébergées des machines virtuelles. </p>
 <p>Il est chargé de la gestion du matériel de l&rsquo;hôte et de l&rsquo;hébergement des machines virtuelles.</p>
-<p><img alt="Hyperviseur" src="../ressources/img/12-virtunotes-04.png" /></p>
+<p><img alt="Hyperviseur" src="../ressources/img/12-virtu/notes-04.png" /></p>
 <table>
 <thead>
 <tr>
@@ -1538,7 +1538,7 @@ body .markdown-body
 </ul>
 <h4 id="les-machines-virtuelles">Les machines virtuelles<a class="headerlink" href="#les-machines-virtuelles" title="Permanent link"></a></h4>
 <p>Les VM sont créées et hébergées sur l&rsquo;hyperviseur. </p>
-<p><img alt="VM" src="../ressources/img/12-virtunotes-05.png" /></p>
+<p><img alt="VM" src="../ressources/img/12-virtu/notes-05.png" /></p>
 <p>Les éléments de constitution d&rsquo;une VM :</p>
 <ul>
 <li>un fichier de caractéristiques matérielles </li>
@@ -1556,20 +1556,20 @@ body .markdown-body
 </ul>
 <div class="img-row">
     <div class="img-col">
-        <a href="../ressources/img/12-virtunotes-06.png" target="_blank">
-            <img src="../ressources/img/12-virtunotes-06.png" alt="../ressources/img/12-virtunotes-06.png" style="width:100%">
+        <a href="../ressources/img/12-virtu/notes-06.png" target="_blank">
+            <img src="../ressources/img/12-virtu/notes-06.png" alt="../ressources/img/12-virtu/notes-06.png" style="width:100%">
         </a>
     </div>
     <div class="img-col">
-        <a href="../ressources/img/12-virtunotes-07.png" target="_blank">
-            <img src="../ressources/img/12-virtunotes-07.png" alt="../ressources/img/12-virtunotes-07.png" style="width:100%">
+        <a href="../ressources/img/12-virtu/notes-07.png" target="_blank">
+            <img src="../ressources/img/12-virtu/notes-07.png" alt="../ressources/img/12-virtu/notes-07.png" style="width:100%">
         </a>
     </div>
 </div>
 
 <h4 id="recapitulatif-visuel-des-elements">Récapitulatif visuel des éléments<a class="headerlink" href="#recapitulatif-visuel-des-elements" title="Permanent link"></a></h4>
 <p>Le schéma suivant illustre les principaux éléments nécessaires à une infrastructure de virtualisation.</p>
-<p><img alt="Recap" src="../ressources/img/12-virtunotes-08.png" /></p>
+<p><img alt="Recap" src="../ressources/img/12-virtu/notes-08.png" /></p>
 <p><em>Next : Module 4 - Découverte d&rsquo;HYPER-V</em> (p47/156)</p>
 <p><link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../ressources/css/style.css">

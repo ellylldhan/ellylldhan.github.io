@@ -1,5 +1,6 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body {
   max-width: 980px;
+  outline: 1300px solid #fff;
   margin: 16px auto;
 }
 
@@ -1065,74 +1066,142 @@ body .markdown-body
 .highlight .vi{color:teal}
 .highlight .il{color:#009999}
 .highlight .gc{color:#999;background-color:#EAF2F5}
-</style><title>tp3.1-centreon</title></head><body><article class="markdown-body"><h1 id="eni-tssr-17-supervision">ENI TSSR 17 - Supervision<a class="headerlink" href="#eni-tssr-17-supervision" title="Permanent link"></a></h1>
-<h2 id="tp31-centreon">TP3.1 Centreon<a class="headerlink" href="#tp31-centreon" title="Permanent link"></a></h2>
-<ul>
-<li>Apprentissage de l&rsquo;interface Centreon</li>
-<li>Création des commandes, modèles et hôtes</li>
+</style><title>notes-04-routage</title></head><body><article class="markdown-body"><h1 id="eni-tssr09-services-reseau-microsoft">ENI TSSR<br>09 - Services Réseau Microsoft<a class="headerlink" href="#eni-tssr09-services-reseau-microsoft" title="Permanent link"></a></h1>
+<table class="formateur">
+    <tbody>
+        <tr>
+            <th scope="row">Cours ENI </th>
+            <td>du 25/07 au 06/08/2022</td>
+        </tr>
+        <tr>
+            <th scope="row">Formateur</th>
+            <td>Matthieu LE MASSON</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link"></a></h2>
+<p><ul>
+    <li><a target="_blank" href="notes-01-sysadmin.html">Notes 01. Sysadmin</a></li>
+    <li><a target="_blank" href="notes-02-ad.html"      >Notes 02. AD</a></li>
+    <li><a target="_blank" href="notes-03-gpo.html"     >Notes 03. GPO</a></li>
+    <li><a target="_blank" href="notes-04-routage.html" >Notes 04. Routage</a></li>
+    <li><a target="_blank" href="notes-05-dhcp.html"    >Notes 05. DHCP</a></li>
+    <li><a target="_blank" href="notes-06-dns.html"     >Notes 06. DNS</a></li>
+</ul></p>
+<h2 id="tp">TP<a class="headerlink" href="#tp" title="Permanent link"></a></h2>
+<p><ul>
+    <li><a target="_blank" href="../tp/tp01-install-vm.html">tp01-install-vm</a></li>
+    <li><a target="_blank" href="../tp/tp02-raid.html">tp02-raid</a></li>
+    <li><a target="_blank" href="../tp/tp03-ad-creation.html">tp03-ad-creation</a></li>
+    <li><a target="_blank" href="../tp/tp04-ad-util-groupes.html">tp04-ad-util-groupes</a></li>
+    <li><a target="_blank" href="../tp/tp05-partage.html">tp05-partage</a></li>
+    <li><a target="_blank" href="../tp/tp07-gpo.html">tp07-gpo</a></li>
+    <li><a target="_blank" href="../tp/tp08.1-routage.html">tp08.1-routage</a></li>
+    <li><a target="_blank" href="../tp/tp08.2-routage.html">tp08.2-routage</a></li>
+    <li><a target="_blank" href="../tp/tp09.1-dhcp.html">tp09.1-dhcp</a></li>
+    <li><a target="_blank" href="../tp/tp09.2-dhcp-relay.html">tp09.2-dhcp-relay</a></li>
+    <li><a target="_blank" href="../tp/tp10.1-dns-resolver.html">tp10.1-dns-resolver</a></li>
+    <li><a target="_blank" href="../tp/tp10.2-dns-hebergeur.html">tp10.2-dns-hebergeur</a></li>
+    <li><a target="_blank" href="../tp/tp10.3-dns-hebergeur-redondance.html">tp10.3-dns-hebergeur-redondance</a></li>
+</ul></p>
+<h2 id="sommaire">Sommaire<a class="headerlink" href="#sommaire" title="Permanent link"></a></h2>
+<ol start="4">
+<li>Module 4 - Le routage<ul>
+<li>Concept du routage</li>
+<li>Concept de la traduction d&rsquo;adresse</li>
 </ul>
+</li>
+</ol>
 <div class="toc">
 <ul>
-<li><a href="#eni-tssr-17-supervision">ENI TSSR 17 - Supervision</a><ul>
-<li><a href="#tp31-centreon">TP3.1 Centreon</a><ul>
-<li><a href="#taches">Tâches</a></li>
-<li><a href="#1-creation-des-commandes-dans-centreon">1. Création des commandes dans Centreon</a><ul>
-<li><a href="#11-verification-windows">1.1 Verification Windows</a></li>
-<li><a href="#12-verification-debian">1.2 Verification Debian</a></li>
-<li><a href="#13-verification-des-hotes">1.3 Vérification des hôtes</a></li>
+<li><a href="#eni-tssr09-services-reseau-microsoft">ENI TSSR09 - Services Réseau Microsoft</a><ul>
+<li><a href="#notes">Notes</a></li>
+<li><a href="#tp">TP</a></li>
+<li><a href="#sommaire">Sommaire</a></li>
+<li><a href="#module-4-le-routage">Module 4 - Le routage</a><ul>
+<li><a href="#concept-du-routage">Concept du routage</a><ul>
+<li><a href="#le-mecanisme-du-routage">Le mécanisme du routage</a></li>
+<li><a href="#communication-au-sein-dun-meme-reseau-logique">Communication au sein d&rsquo;un même réseau logique</a></li>
+<li><a href="#communication-au-sein-de-reseaux-logiques-differents">Communication au sein de réseaux logiques différents</a></li>
+<li><a href="#principe-de-fonctionnement-du-routage">Principe de fonctionnement du routage</a></li>
 </ul>
 </li>
-<li><a href="#2-creation-des-modeles-de-services">2. Création des modèles de services</a></li>
-<li><a href="#3-creation-des-modeles-dhotes">3. Création des modèles d&rsquo;hôtes</a></li>
-<li><a href="#4-creation-des-machines-a-superviser">4. Création des machines à superviser</a></li>
+<li><a href="#concept-de-la-traduction-dadresse">Concept de la traduction d&rsquo;adresse</a><ul>
+<li><a href="#la-traduction-dadresse-sans-nat">La traduction d&rsquo;adresse sans NAT</a></li>
+<li><a href="#la-traduction-dadresse-avec-nat">La traduction d&rsquo;adresse avec NAT</a></li>
 </ul>
 </li>
-<li><a href="#correction">Correction</a></li>
+<li><a href="#tp-081-le-routeur-et-la-traduction-dadresse">TP 08.1 - Le routeur et la traduction d&rsquo;adresse</a></li>
+<li><a href="#tp-082-le-reseau-global">TP 08.2 - Le réseau global</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
-<h3 id="taches">Tâches<a class="headerlink" href="#taches" title="Permanent link"></a></h3>
+<h2 id="module-4-le-routage">Module 4 - Le routage<a class="headerlink" href="#module-4-le-routage" title="Permanent link"></a></h2>
+<p><strong>Objectifs</strong> </p>
 <ul>
-<li>Ajout dans Centreon des commandes</li>
-<li>Création des modèles de services et d&rsquo;hôte</li>
-<li>Création des hôtes</li>
+<li>Comprendre et configurer le routage</li>
 </ul>
-<h3 id="1-creation-des-commandes-dans-centreon">1. Création des commandes dans Centreon<a class="headerlink" href="#1-creation-des-commandes-dans-centreon" title="Permanent link"></a></h3>
+<h3 id="concept-du-routage">Concept du routage<a class="headerlink" href="#concept-du-routage" title="Permanent link"></a></h3>
+<h4 id="le-mecanisme-du-routage">Le mécanisme du routage<a class="headerlink" href="#le-mecanisme-du-routage" title="Permanent link"></a></h4>
+<p>Le mécanisme de routage permet la communication entre différents réseaux logiques.</p>
 <ul>
-<li>Depuis client : <strong>[<a href="http://centreon.sniper.lunette">http://centreon.sniper.lunette</a>]</strong> admin (secret) </li>
-<li>Validez un maximum d&rsquo;élément lors de l&rsquo;écriture de vos commandes  </li>
+<li><strong>Type de routage</strong><ul>
+<li>statique </li>
+<li>dynamique</li>
 </ul>
-<h4 id="11-verification-windows">1.1 Verification Windows<a class="headerlink" href="#11-verification-windows" title="Permanent link"></a></h4>
+</li>
+<li><strong>Constitution d&rsquo;une route</strong><ul>
+<li>Adresse de réseau de destination</li>
+<li>Masque de sous-réseau du réseau de destination </li>
+<li>Adresse de passerelle </li>
+</ul>
+</li>
+</ul>
+<h4 id="communication-au-sein-dun-meme-reseau-logique">Communication au sein d&rsquo;un même réseau logique<a class="headerlink" href="#communication-au-sein-dun-meme-reseau-logique" title="Permanent link"></a></h4>
+<p><a href="../.ressources/img/notes-14.png" target="_blank"><img alt="14" src="../.ressources/img/notes-14.png" /></a></p>
+<p><strong>Exemple : &lsquo;Poste A&rsquo; ping &lsquo;Poste B&rsquo;</strong></p>
+<p><a href="../.ressources/img/notes-15.png" target="_blank"><img alt="15" src="../.ressources/img/notes-15.png" /></a></p>
+<h4 id="communication-au-sein-de-reseaux-logiques-differents">Communication au sein de réseaux logiques différents<a class="headerlink" href="#communication-au-sein-de-reseaux-logiques-differents" title="Permanent link"></a></h4>
+<p><a href="../.ressources/img/notes-16.png" target="_blank"><img alt="16" src="../.ressources/img/notes-16.png" /></a></p>
+<p><a href="../.ressources/img/notes-17.png" target="_blank"><img alt="17" src="../.ressources/img/notes-17.png" /></a></p>
+<p><a href="../.ressources/img/notes-18.png" target="_blank"><img alt="18" src="../.ressources/img/notes-18.png" /></a></p>
+<h4 id="principe-de-fonctionnement-du-routage">Principe de fonctionnement du routage<a class="headerlink" href="#principe-de-fonctionnement-du-routage" title="Permanent link"></a></h4>
+<blockquote>
+<p>&ldquo;Chaque paquet à chaque saut est vérifié&rdquo;</p>
+</blockquote>
 <ul>
-<li>CPU, Mémoire, HDD</li>
+<li><strong>Chaque paquet</strong> est traité de manière indépendante dans chaque routeur le long du chemin.</li>
+<li><strong>À chaque saut</strong>, le routeur examine l&rsquo;adresse IP de destination pour chaque paquet.</li>
+<li>Le routeur <strong>vérifie</strong> les informations de transfert dans la table de routage.</li>
 </ul>
-<h4 id="12-verification-debian">1.2 Verification Debian<a class="headerlink" href="#12-verification-debian" title="Permanent link"></a></h4>
+<p><strong>Note</strong> : Le routeur peut effectuer 3 opérations avec le paquet :</p>
 <ul>
-<li>CPU, Mémoire, Point de montage</li>
+<li>Le transférer au tronçon suivant ;</li>
+<li>Le transférer à l&rsquo;hôte de destination ;</li>
+<li>L&rsquo;abandonner.</li>
 </ul>
-<h4 id="13-verification-des-hotes">1.3 Vérification des hôtes<a class="headerlink" href="#13-verification-des-hotes" title="Permanent link"></a></h4>
+<h3 id="concept-de-la-traduction-dadresse">Concept de la traduction d&rsquo;adresse<a class="headerlink" href="#concept-de-la-traduction-dadresse" title="Permanent link"></a></h3>
+<h4 id="la-traduction-dadresse-sans-nat">La traduction d&rsquo;adresse sans NAT<a class="headerlink" href="#la-traduction-dadresse-sans-nat" title="Permanent link"></a></h4>
+<p><a href="../.ressources/img/notes-19.png" target="_blank"><img alt="19" src="../.ressources/img/notes-19.png" /></a></p>
+<h4 id="la-traduction-dadresse-avec-nat">La traduction d&rsquo;adresse avec NAT<a class="headerlink" href="#la-traduction-dadresse-avec-nat" title="Permanent link"></a></h4>
+<p><a href="../.ressources/img/notes-20.png" target="_blank"><img alt="20" src="../.ressources/img/notes-20.png" /></a></p>
+<h3 id="tp-081-le-routeur-et-la-traduction-dadresse">TP 08.1 - Le routeur et la traduction d&rsquo;adresse<a class="headerlink" href="#tp-081-le-routeur-et-la-traduction-dadresse" title="Permanent link"></a></h3>
+<p><strong>Objectifs</strong>:</p>
 <ul>
-<li>Créer la commande <code>Check_Host_Alive</code> qui effectuera <strong>1 ping</strong> avec seuil <strong>warning</strong> et <strong>critical</strong> très élevés.</li>
-<li>A l&rsquo;exception de <code>HOSTADDRESS</code>, les options et arguments de la commande seront statiques.</li>
+<li>Définition et configuration des paramètres TCP/IPv4</li>
+<li>Mise en place et configuration des mécanismes de routage et NAT.</li>
 </ul>
-<h3 id="2-creation-des-modeles-de-services">2. Création des modèles de services<a class="headerlink" href="#2-creation-des-modeles-de-services" title="Permanent link"></a></h3>
-<p>Créer un ou plusieurs modèles de services pour chacune des commandes.</p>
-<h3 id="3-creation-des-modeles-dhotes">3. Création des modèles d&rsquo;hôtes<a class="headerlink" href="#3-creation-des-modeles-dhotes" title="Permanent link"></a></h3>
+<h3 id="tp-082-le-reseau-global">TP 08.2 - Le réseau global<a class="headerlink" href="#tp-082-le-reseau-global" title="Permanent link"></a></h3>
+<p><strong>Objectifs</strong>:</p>
 <ul>
-<li>Créer un modèle d&rsquo;hôte Linux et un modèle d&rsquo;hôte Windows</li>
-<li>Lier à chacun d&rsquo;eux les modèles de services correspondants</li>
+<li>Mise en place d&rsquo;une carte réseau supplémentaire.</li>
 </ul>
-<h3 id="4-creation-des-machines-a-superviser">4. Création des machines à superviser<a class="headerlink" href="#4-creation-des-machines-a-superviser" title="Permanent link"></a></h3>
-<ul>
-<li>Créer l&rsquo;hôte Windows 10 et Debian en liaison à leur modèle d&rsquo;hôte respectifs</li>
-<li>Exporter ensuite la configuration et vérifier le bon fonctionnement de votre supervision</li>
-</ul>
-<h2 id="correction">Correction<a class="headerlink" href="#correction" title="Permanent link"></a></h2>
-<p>Configuration &gt; Commandes &gt; Controles </p>
-<p>Ajouter commande check_ping</p>
-<p class="fin">~Fin TP3~</p>
+<p class="fin">-Fin-</p>
 
-<p><link rel="stylesheet" type="text/css" href="../../ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../../ressources/css/style.css">
-<link rel="stylesheet" type="text/css" href="../../ressources/css/headings.css"></p></article></body></html>
+<p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/headings.css"></p></article></body></html>

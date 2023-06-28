@@ -1230,7 +1230,7 @@ body .markdown-body
 <p>Un VLAN (Virtual LAN) est un réseau logique indépendant.</p>
 <p>Les commutateurs (<em>switches</em>) permettent l&rsquo;interconnection réseau d&rsquo;un ensemble d&rsquo;éléments. Tous les éléments raccordés à un même switch peuvent ainsi communiquer entre eux. </p>
 <p>La mise en oeuvre de VLAN permet de définir des contextes isolés afin que seuls les éléments d&rsquo;un même VLAN puissent communiquer ensemble. </p>
-<p><img alt="20" src="../ressources/img/12-virtunotes-20.png" /></p>
+<p><img alt="20" src="../ressources/img/12-virtu/notes-20.png" /></p>
 <h4 id="interet-de-mise-en-oeuvre">Intérêt de mise en oeuvre<a class="headerlink" href="#interet-de-mise-en-oeuvre" title="Permanent link"></a></h4>
 <p>La segmentation du réseau au moyen de VLAN permet :</p>
 <ul>
@@ -1259,7 +1259,7 @@ body .markdown-body
 <p>La norme 802.1Q correspond au standard de prise en charge</p>
 <h4 id="integration-dun-identifiant-de-vlan">Intégration d&rsquo;un identifiant de VLAN<a class="headerlink" href="#integration-dun-identifiant-de-vlan" title="Permanent link"></a></h4>
 <p>L&rsquo;ajout d&rsquo;informations d&rsquo;identification de VLAN se matérialise par la modification de l&rsquo;en-tête Ethernet des trames IP.</p>
-<p><img alt="21" src="../ressources/img/12-virtunotes-21.png" /></p>
+<p><img alt="21" src="../ressources/img/12-virtu/notes-21.png" /></p>
 <p>Parmi les informations ajoutées figurent :</p>
 <ul>
 <li>Une priorité (valeur de 0 à 7) permettant de mettre en place de la qualité de service 802.1P </li>
@@ -1270,7 +1270,7 @@ body .markdown-body
 <li>Généralement, les réseaux d&rsquo;entreprises intègrent une multitude de switches. Les ports utilisés pour le raccordement entre les switchs doivent être identifiés comme &ldquo;port trunk&rdquo;.</li>
 <li>Lors de la configuration d&rsquo;un port en &ldquo;port trunk&rdquo;, on indique les trames de quels VLANS doivent se propager. </li>
 </ul>
-<p><img alt="22" src="../ressources/img/12-virtunotes-22.png" /></p>
+<p><img alt="22" src="../ressources/img/12-virtu/notes-22.png" /></p>
 <h4 id="criteres-de-configuration-sur-les-switchs">Critères de configuration sur les switchs<a class="headerlink" href="#criteres-de-configuration-sur-les-switchs" title="Permanent link"></a></h4>
 <p>Sur les commutateurs, la configuration à mettre en oeuvre doit prendre en considération les aspects suivants :</p>
 <ul>
@@ -1304,7 +1304,7 @@ body .markdown-body
 </ul>
 </li>
 </ul>
-<p><img alt="23" src="../ressources/img/12-virtunotes-23.png" width="500px" /></p>
+<p><img alt="23" src="../ressources/img/12-virtu/notes-23.png" width="500px" /></p>
 <h3 id="les-composantes-vsphere-du-reseau">Les composantes vSphere du réseau<a class="headerlink" href="#les-composantes-vsphere-du-reseau" title="Permanent link"></a></h3>
 <h4 id="le-vsphere-standard-switch-vss">Le vSphere Standard Switch (vSS)<a class="headerlink" href="#le-vsphere-standard-switch-vss" title="Permanent link"></a></h4>
 <p><table class="table-borderless">
@@ -1322,7 +1322,7 @@ body .markdown-body
                 <li>pour les VM</li>
             </ul>
         <p>Il est lié à la carte réseau de l&rsquo;ESXi présente à l&rsquo;installation.</p></td>
-        <td><img src="../ressources/img/12-virtunotes-24.png" alt="vSS - vSpere Standard Switch" text="vSS - vSpere Standard Switch"></td>
+        <td><img src="../ressources/img/12-virtu/notes-24.png" alt="vSS - vSpere Standard Switch" text="vSS - vSpere Standard Switch"></td>
         </tr>
     </tbody>
 </table></p>
@@ -1353,8 +1353,8 @@ body .markdown-body
             <p>Des machines liées à des groupements de ports distincts d'un même vSwitch ne peuvent pas communiquer entre elles.</p>
         </td>
         <td width="300px">
-            <a href="../ressources/img/12-virtunotes-25.png" target="_blank">
-                <img src="../ressources/img/12-virtunotes-25.png" alt="Groupement de ports" text="Groupements de ports">
+            <a href="../ressources/img/12-virtu/notes-25.png" target="_blank">
+                <img src="../ressources/img/12-virtu/notes-25.png" alt="Groupement de ports" text="Groupements de ports">
             </a>
         </td>
     </tr>
@@ -1377,8 +1377,8 @@ body .markdown-body
             </p>
         </td>
         <td width="300px">
-            <a href="../ressources/img/12-virtunotes-26.png" target="_blank">
-                <img src="../ressources/img/12-virtunotes-26.png" alt="vmNIC/pNIC" text="vmNIC / pNIC">
+            <a href="../ressources/img/12-virtu/notes-26.png" target="_blank">
+                <img src="../ressources/img/12-virtu/notes-26.png" alt="vmNIC/pNIC" text="vmNIC / pNIC">
             </a>
         </td>
     </tr>
@@ -1431,8 +1431,8 @@ body .markdown-body
             <p>**La ségmentation en VLAN peut être configurée au niveau des vNIC**.</p>
         </td>
         <td width="300px">
-            <a href="../ressources/img/12-virtunotes-27.png" target="_blank">
-                <img src="../ressources/img/12-virtunotes-27.png" alt="vNIC" text="vNIC">
+            <a href="../ressources/img/12-virtu/notes-27.png" target="_blank">
+                <img src="../ressources/img/12-virtu/notes-27.png" alt="vNIC" text="vNIC">
             </a>
         </td>
     </tr>
@@ -1441,9 +1441,9 @@ body .markdown-body
 <h4 id="liens-entre-les-vmnic-et-les-besoins-reseau">Liens entre les vmNIC et les besoins réseau<a class="headerlink" href="#liens-entre-les-vmnic-et-les-besoins-reseau" title="Permanent link"></a></h4>
 <p>Un hôte dispose généralement d&rsquo;un ensemble de cartes réseau. Ces cartes permettent de couvrir les multiples besoins réseau de l&rsquo;infrastructure vSphere : Réseau pour les VM, Gestion de l&rsquo;infrastructure, Déplacement de VM, Flux iSCSI, Très haute disponibilité.</p>
 <p>Il est important de recenser les besoins, d&rsquo;identifier ceux que l&rsquo;on souhaite regrouper et ceux que l&rsquo;on souhaite isoler.</p>
-<p><img alt="28" src="../ressources/img/12-virtunotes-28.png" /></p>
+<p><img alt="28" src="../ressources/img/12-virtu/notes-28.png" /></p>
 <h4 id="illustration-de-raccordement-reseau-global">Illustration de raccordement réseau global<a class="headerlink" href="#illustration-de-raccordement-reseau-global" title="Permanent link"></a></h4>
-<p><img alt="29" src="../ressources/img/12-virtunotes-29.png" /></p>
+<p><img alt="29" src="../ressources/img/12-virtu/notes-29.png" /></p>
 <h4 id="les-vlan-en-environnement-virtualise">Les VLAN en environnement virtualisé<a class="headerlink" href="#les-vlan-en-environnement-virtualise" title="Permanent link"></a></h4>
 <table class="table table-borderless">
     <tr>
@@ -1457,8 +1457,8 @@ body .markdown-body
             <p>Si les VLAN sont affectés par l'hyperviseur, le switch doit être configuré en mode trunk et lié à tous les VLAN nécessaires aux composantes d'infrastructure vSphere et aux VM.</p>
         </td>
         <td width="300px">
-            <a href="../ressources/img/12-virtunotes-30.png" target="_blank">
-                <img src="../ressources/img/12-virtunotes-30.png" alt="VLAN" text="VLAN">
+            <a href="../ressources/img/12-virtu/notes-30.png" target="_blank">
+                <img src="../ressources/img/12-virtu/notes-30.png" alt="VLAN" text="VLAN">
             </a>
         </td>
     </tr>
@@ -1509,7 +1509,7 @@ En clair, chaque serveur voit l&rsquo;espace disque d&rsquo;une baie SAN auquel 
     <p>Le NAS est un stockage accessible à travers le réseau, donc accessible par plusieurs machines simultanément. La connectivité des NAS est actuellement basée principalement sur l’Ethernet dont le connecteur est l’adaptateur réseau, ou NIC pour Network Interface Card. Il utilise des protocoles d’interconnexion basés sur TCP/IP. Le NAS est un fournisseur d’accès à des fichiers car il présente un système de fichiers, et s’appuie sur les protocoles applicatifs tels que le CIFS/SMB (Microsoft), l’AFP (Apple) et NFS (Unix/Linux), pour le partager. Le NAS est un espace de stockage dit en mode fichier, cela permet d’avoir accès aux fichiers une fois les droits d’accès configurés.</p>
 </blockquote>
 
-<p><a href="../ressources/img/12-virtunotes-33.png" target="_blank"><img alt="33" src="../ressources/img/12-virtunotes-33.png" /></a> </p>
+<p><a href="../ressources/img/12-virtu/notes-33.png" target="_blank"><img alt="33" src="../ressources/img/12-virtu/notes-33.png" /></a> </p>
 <h4 id="das">DAS<a class="headerlink" href="#das" title="Permanent link"></a></h4>
 <p><em>Direct Attached Storage</em> (DAS) est le terme utilisé pour un système de disques durs en attachement direct, par opposition au NAS qui est en attachement réseau. </p>
 <p>Le système disque ainsi installé n&rsquo;est accessible directement qu&rsquo;aux machines auquel il est raccordé. Les modes de raccordement au serveur peuvent être ATA, SATA, eSATA, NVMe, SCSI, USB, Fibre Channel, etc.</p>
@@ -1517,7 +1517,7 @@ En clair, chaque serveur voit l&rsquo;espace disque d&rsquo;une baie SAN auquel 
 <p>&ndash;</p>
 <p>Le DAS est une baie de stockage qui, comme son nom l’indique, est directement connectée à un serveur. Elle est connectée à son serveur par le biais de connectiques diverses et variées allant de l’USB au Fibre Channel en passant par le SATA, la gestion des périphériques de stockage présent dans la baie DAS, se fait à partir du serveur. Il faut aussi inclure un disque dur interne connecté en SATA sur la carte mère comme un DAS.</p>
 <p>Le coût est faible mais la gestion peut rapidement devenir « compliquée ».</p>
-<p><a href="../ressources/img/12-virtunotes-32.png" target="_blank"><img alt="32" src="../ressources/img/12-virtunotes-32.png" /></a> </p>
+<p><a href="../ressources/img/12-virtu/notes-32.png" target="_blank"><img alt="32" src="../ressources/img/12-virtu/notes-32.png" /></a> </p>
 <p><a href="https://www.eni-training.com/portal/client/mediabook/home">ENI &ldquo;VMware vSphere6&rdquo;</a></p>
 <h4 id="services-et-donnees">Services et données<a class="headerlink" href="#services-et-donnees" title="Permanent link"></a></h4>
 <p>Une infrastructure regroupe un ensemble de services fournis. Ceux-ci sont dépendants de données pour leur fonctionnement. </p>
@@ -1537,7 +1537,7 @@ En clair, chaque serveur voit l&rsquo;espace disque d&rsquo;une baie SAN auquel 
 <li>Le mode bloc s&rsquo;applique au protocole SCSI.</li>
 <li>Les données échangées par les couches liaison / transport comportent des commandes SCSI et des blocs de données.</li>
 </ul>
-<p><a href="../ressources/img/12-virtunotes-31.png" target="_blank"><img alt="31" src="../ressources/img/12-virtunotes-31.png" /></a> </p>
+<p><a href="../ressources/img/12-virtu/notes-31.png" target="_blank"><img alt="31" src="../ressources/img/12-virtu/notes-31.png" /></a> </p>
 <p><strong>Small Computer System Interface</strong> (SCSI, prononcé &ldquo;<em>skeuzi</em>&rdquo;) est un standard définissant un bus informatique reliant un ordinateur à des périphériques ou à un autre ordinateur. Aujourd&rsquo;hui en cours de remplacement par le SAS (Serial Attached SCSI).</p>
 <p>Il désigne une technologie qui regroupe un ensemble d&rsquo;interfaces électroniques normalisées qui permettent aux ordinateurs de communiquer avec des équipements périphériques comme les lecteurs de disque, les lecteurs de bande, les lecteurs de CD-ROM, les imprimantes et les scanners, et ce plus rapidement et avec plus de flexibilité que les interfaces antérieures.</p>
 <p>Si tous les périphériques ne prennent pas en charge tous les niveaux de SCSI, les normes SCSI sont généralement rétrocompatibles. Ainsi, si un périphérique d&rsquo;ancienne génération est connecté à un ordinateur plus récent qui prend en charge une norme postérieure, le périphérique fonctionnera avec l&rsquo;ancien débit de données, plus lent.</p>
@@ -1576,13 +1576,13 @@ En clair, chaque serveur voit l&rsquo;espace disque d&rsquo;une baie SAN auquel 
 <p>Le protocole iSCSI est utilisé par des solutions de stockage centralisées rendant accessible de l&rsquo;espace disque en mode bloc par un réseau.</p>
 <div class="img-row">
     <div class="img-col">
-        <a href="../ressources/img/12-virtunotes-34.png" target="_blank">
-            <img src="../ressources/img/12-virtunotes-34.png" alt="../ressources/img/12-virtunotes-34.png"  style="width:100%">
+        <a href="../ressources/img/12-virtu/notes-34.png" target="_blank">
+            <img src="../ressources/img/12-virtu/notes-34.png" alt="../ressources/img/12-virtu/notes-34.png"  style="width:100%">
         </a>
     </div>
     <div class="img-col">
-        <a href="../ressources/img/12-virtunotes-35.png" target="_blank">
-            <img src="../ressources/img/12-virtunotes-35.png" alt="../ressources/img/12-virtunotes-35.png" style="width:70%">
+        <a href="../ressources/img/12-virtu/notes-35.png" target="_blank">
+            <img src="../ressources/img/12-virtu/notes-35.png" alt="../ressources/img/12-virtu/notes-35.png" style="width:70%">
         </a>
     </div>
 </div>
@@ -1605,7 +1605,7 @@ En clair, chaque serveur voit l&rsquo;espace disque d&rsquo;une baie SAN auquel 
 <li>Quel mode d&rsquo;accès</li>
 <li>Quel système de fichiers utiliser </li>
 </ul>
-<p><img alt="36" src="../ressources/img/12-virtunotes-36.png" /></p>
+<p><img alt="36" src="../ressources/img/12-virtu/notes-36.png" /></p>
 <h3 id="les-adaptateurs-de-stockage">Les adaptateurs de stockage<a class="headerlink" href="#les-adaptateurs-de-stockage" title="Permanent link"></a></h3>
 <h4 id="raccordement-de-la-solution-de-stockage">Raccordement de la solution de stockage<a class="headerlink" href="#raccordement-de-la-solution-de-stockage" title="Permanent link"></a></h4>
 <p>La solution de stockage retenue est raccordée à l&rsquo;infrastructure vSphere via la configuration des adaptateurs de stockage. </p>
@@ -1628,7 +1628,7 @@ En clair, chaque serveur voit l&rsquo;espace disque d&rsquo;une baie SAN auquel 
 <p>L&rsquo;utilisation de trames Ethernet pour véhiculer des flux liés au stockage nécessite une adaptation de la configuration réseau afin de limiter la charge CPU et d&rsquo;améliorer les performances globales de la solution. </p>
 <p>Si les équipements de réseau utilisés pour les flux iSCSI le permettent (prise en charge de bout en bout), il est recommandé d&rsquo;augmenter la valeur du <strong>MTU à 9000</strong>.</p>
 <h5 id="iscsi-en-environnement-vsphere">iSCSI en environnement vSphere<a class="headerlink" href="#iscsi-en-environnement-vsphere" title="Permanent link"></a></h5>
-<p><a href="../ressources/img/12-virtunotes-37.png" target="_blank"><img alt="37" src="../ressources/img/12-virtunotes-37.png" /></a></p>
+<p><a href="../ressources/img/12-virtu/notes-37.png" target="_blank"><img alt="37" src="../ressources/img/12-virtu/notes-37.png" /></a></p>
 <table>
     <caption class="caption">Eléments constitutifs d'une solution de stockage iSCSI</caption>
     <tr>
@@ -1749,8 +1749,8 @@ En clair, chaque serveur voit l&rsquo;espace disque d&rsquo;une baie SAN auquel 
                 </ul>
         </td>
         <td width="500px">
-            <a href="../ressources/img/12-virtunotes-38.png" target="_blank">
-                <img src="../ressources/img/12-virtunotes-38.png" alt="datastore" text="datastore">
+            <a href="../ressources/img/12-virtu/notes-38.png" target="_blank">
+                <img src="../ressources/img/12-virtu/notes-38.png" alt="datastore" text="datastore">
             </a>
         </td>
     </tr>
@@ -1828,7 +1828,7 @@ En clair, chaque serveur voit l&rsquo;espace disque d&rsquo;une baie SAN auquel 
 <li>pour des ensembles de ressources</li>
 <li>pour le cluster</li>
 </ul>
-<p><img alt="39" src="../ressources/img/12-virtunotes-39.png" /></p>
+<p><img alt="39" src="../ressources/img/12-virtu/notes-39.png" /></p>
 <h4 id="gestion-des-pools-de-ressources">Gestion des pools de ressources<a class="headerlink" href="#gestion-des-pools-de-ressources" title="Permanent link"></a></h4>
 <p>Le pool de ressources : objet logique auquel est affectée une partie des ressources physiques (CPU &amp; RAM) réelles. </p>
 <p>Il permet :</p>
@@ -1836,7 +1836,7 @@ En clair, chaque serveur voit l&rsquo;espace disque d&rsquo;une baie SAN auquel 
 <li>de réserver des ressources en fonction de leur utilisation </li>
 <li>de restreindre les ressources matérielles de certains environnements (tests)</li>
 </ul>
-<p><img alt="40" src="../ressources/img/12-virtunotes-40.png" /></p>
+<p><img alt="40" src="../ressources/img/12-virtu/notes-40.png" /></p>
 <p>La configuration de pools peut permettre de garantir la disponibilité de ressources pour les besoins les plus cruciaux pour l&rsquo;entreprise. </p>
 <h3 id="vcenter-et-le-contexte-de-datacenter">vCenter et le contexte de Datacenter<a class="headerlink" href="#vcenter-et-le-contexte-de-datacenter" title="Permanent link"></a></h3>
 <p>L&rsquo;ajout d&rsquo;un vCenter à une infrastructure va permettre :</p>
@@ -1885,7 +1885,7 @@ En clair, chaque serveur voit l&rsquo;espace disque d&rsquo;une baie SAN auquel 
 
 <h4 id="methodes-dacces-a-lappliance-vcenter">Méthodes d&rsquo;accès à l&rsquo;appliance vCenter<a class="headerlink" href="#methodes-dacces-a-lappliance-vcenter" title="Permanent link"></a></h4>
 <p>Les actions de gestion du vCenter sont réalisées depuis le <strong>client Web vSphere</strong> via un navigateur.</p>
-<p><img alt="41" src="../ressources/img/12-virtunotes-41.png" /></p>
+<p><img alt="41" src="../ressources/img/12-virtu/notes-41.png" /></p>
 <p>Les actions propres à la gestion du vCSA peuvent être effectuées via une connection HTTPS au port 5480.</p>
 <h3 id="les-modeles-de-vm">Les modèles de VM<a class="headerlink" href="#les-modeles-de-vm" title="Permanent link"></a></h3>
 <table>
@@ -1995,14 +1995,14 @@ En clair, chaque serveur voit l&rsquo;espace disque d&rsquo;une baie SAN auquel 
 </ul>
 </li>
 </ul>
-<p><img alt="42" src="../ressources/img/12-virtunotes-42.png" /></p>
-<p><img alt="43" src="../ressources/img/12-virtunotes-43.png" /></p>
+<p><img alt="42" src="../ressources/img/12-virtu/notes-42.png" /></p>
+<p><img alt="43" src="../ressources/img/12-virtu/notes-43.png" /></p>
 <p>Les actions de migration accessibles sur les VM d&rsquo;un datacenter utilisent :</p>
 <ul>
 <li><strong>vMotion</strong> pour permettre le <strong>déplacement à chaud d&rsquo;une machine virtuelle</strong> d&rsquo;un hôte vers un autre hôte 
-<img alt="44" src="../ressources/img/12-virtunotes-44.png" /></li>
+<img alt="44" src="../ressources/img/12-virtu/notes-44.png" /></li>
 <li><strong>Storage vMotion</strong> pour permettre le <strong>déplacement à chaud du stockage</strong> d&rsquo;une VM d&rsquo;un datastore vers un autre datastore. 
-<img alt="45" src="../ressources/img/12-virtunotes-45.png" /></li>
+<img alt="45" src="../ressources/img/12-virtu/notes-45.png" /></li>
 </ul>
 <h4 id="vmotion-storage-vmotion-mise-en-oeuvre">vMotion / Storage vMotion - mise en oeuvre<a class="headerlink" href="#vmotion-storage-vmotion-mise-en-oeuvre" title="Permanent link"></a></h4>
 <p>Prérequis de mise en oeuvre :</p>
