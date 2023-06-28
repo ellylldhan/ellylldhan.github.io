@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>pass_gwen</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#passage-gwen">Passage Gwen</a>
+<ul>
+<li><a href="#pfsense">1. pfsense</a></li>
+<li><a href="#mail-à-rédiger">2. mail à rédiger</a></li>
+<li><a href="#syslog">3. syslog</a></li>
+<li><a href="#définition-de-path">4. Définition de
+<code>$PATH</code></a></li>
+<li><a href="#emplacement-linux-des-fichiers-utilisateurs">5.
+Emplacement Linux des “fichiers utilisateurs”</a></li>
+<li><a href="#tableau-tcpip-à-compléter">6. Tableau TCP/IP à
+compléter</a></li>
+<li><a href="#mdm-vs-glpi">7. MDM vs GLPI</a></li>
+<li><a href="#types-de-vpn">8. Types de VPN</a></li>
+<li><a href="#switch">9. Switch</a></li>
+<li><a href="#certificats-définition">10. Certificats :
+définition</a></li>
+<li><a href="#certificats-https">11. Certificats : HTTPS</a></li>
+<li><a href="#hyper-v-vsphere-saturé">12. Hyper-V / vSphere
+saturé</a></li>
+<li><a href="#types-déploiements">13. Types déploiements</a></li>
+<li><a href="#analyse-de-trame">14. Analyse de trame</a></li>
+<li><a href="#appli-prise-en-main-à-distance">15. Appli prise en main à
+distance</a></li>
+<li><a href="#schéma-serveur-proxy-reverse-proxy">16. Schéma serveur
+proxy + reverse-proxy</a></li>
+<li><a href="#cable-cat.6-upt">17. Cable cat.6 UPT</a></li>
+<li><a href="#expliquer-le-cryptage-asymétrique-ou-symétrique">18.
+Expliquer le cryptage asymétrique ou symétrique</a></li>
+<li><a href="#différence-entre-remote-desktop-et-remote-app">19.
+Différence entre Remote Desktop et Remote App</a></li>
+<li><a href="#question-sla">20. Question SLA</a></li>
+<li><a
+href="#table-de-routage-trouver-lip-du-routeur-gateway-et-broadcast">21.
+Table de routage: trouver l’ip du routeur, gateway et broadcast</a></li>
+<li><a href="#linux-trouver-une-variable-dans-un-script">22. Linux:
+trouver une variable dans un script</a></li>
+<li><a href="#pourquoi-vm-win7-x86-nutilise-pas-tout-le-disque">23.
+Pourquoi vm win7 x86 n’utilise pas tout le disque ?</a></li>
+<li><a href="#expliquer-les-deux-couches-matérielle-dans-le-schéma">24.
+Expliquer les deux couches matérielle dans le schéma</a></li>
+<li><a href="#avantages-disponibilité-des-vm">25. Avantages
+Disponibilité des VM</a></li>
+<li><a href="#dans-vmware-donner-les-différents-type-de-connection">26.
+Dans VMware, donner les différents type de connection</a></li>
+</ul></li>
+<li><a href="#passage-avec-le-jury">PASSAGE avec le JURY</a>
+<ul>
+<li><a href="#msp1.-ticket-glpi-pb-connection">MSP1. Ticket GLPI : pb
+connection</a></li>
+<li><a href="#msp2.-ajouter-un-disque-sur-une-vm-en-interface-web">MSP2.
+Ajouter un disque sur une VM, en interface web</a></li>
+<li><a href="#msp3.">MSP3. ???</a></li>
+</ul></li>
+<li><a href="#questions-techniques">Questions techniques</a>
+<ul>
+<li><a href="#q1-quelle-différence-entre-clone-et-snapshot">Q1 : quelle
+différence entre clone et snapshot</a></li>
+<li><a href="#q2-comment-faites-vous-votre-veille-techno">Q2 : Comment
+faites-vous votre veille techno ?</a></li>
+</ul></li>
+<li><a href="#notes">NOTES</a></li>
+</ul>
+</nav>
+<p><span id="toc"></span></p>
+<h2 id="passage-gwen">Passage Gwen</h2>
+<p>Quelques questions lors du passage du titre.</p>
+<p>Remarque : dans le QCM il n’y avait pas de sous-réseau, ni de ports.
+Le Jury n’a posé aucune question dessus.</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="pfsense">1. pfsense</h3>
+<div class="is-question">
+<strong>Une règle pfSense à analyser</strong>
+</div>
+<p>La règle permettait de se connecter depuis l’extérieur vers
+l’intérieur.</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="mail-à-rédiger">2. mail à rédiger</h3>
+<div class="is-question">
+<strong>Un mail à rédiger car l’équipe informatique devait couper le
+serveur applicatif pour faire des mises à jour et rajouter un
+disque.</strong>
+</div>
+<p>Le jury a précisé qu’il faut bien mettre l’heure du début mais pas
+l’heure de fin. Il faudra avertir les utilisateurs en temps réel au
+redémarrage.</p>
+<blockquote>
+<p>“Bonjour,</p>
+<p>Nous vous informons que le serveur applicatif sera coupé aujourd’hui
+à partir de midi pour maintenance.</p>
+<p>Nous vous informerons sa remise en marche dès que l’opération sera
+terminée.</p>
+<p>Merci de votre compréhension.</p>
+<p>Cordialement,</p>
+<p>Le Service Informatique”</p>
+</blockquote>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="syslog">3. syslog</h3>
+<div class="is-question">
+<strong>Envoyer des messages système vers un serveur syslog. Comment le
+mettre en place et comment traiter les messages ?</strong>
+</div>
+<p><strong>ChatGPT</strong></p>
+<div class="is-success">
+<p>Pour envoyer des messages système vers un serveur syslog, vous avez
+besoin de configurer votre système pour utiliser le protocole syslog et
+spécifier l’adresse du serveur syslog. Voici les étapes générales pour
+mettre en place ce processus :</p>
+<ol type="1">
+<li><p>Choisissez un serveur syslog : Tout d’abord, vous devez avoir un
+serveur syslog prêt à recevoir les messages système. Vous pouvez
+installer un serveur syslog open-source tel que rsyslog, syslog-ng ou
+utiliser un service cloud de syslog.</p></li>
+<li><p>Configuration du client : Sur la machine à partir de laquelle
+vous souhaitez envoyer les messages système, vous devez configurer le
+démon syslog pour rediriger les journaux vers le serveur syslog. Le
+processus de configuration peut varier en fonction du système
+d’exploitation que vous utilisez.</p>
+<ul>
+<li><p>Sur Linux (rsyslog) : Ouvrez le fichier de configuration
+<code>/etc/rsyslog.conf</code> (ou
+<code>/etc/rsyslog.d/50-default.conf</code>) et ajoutez une ligne pour
+rediriger les journaux vers le serveur syslog. Par exemple,
+<code>*.* @adresse_serveur_syslog:port</code>.</p></li>
+<li><p>Sur macOS (syslog) : Ouvrez le fichier de configuration
+<code>/etc/syslog.conf</code> et ajoutez une ligne pour rediriger les
+journaux vers le serveur syslog. Par exemple,
+<code>*.* @adresse_serveur_syslog:port</code>.</p></li>
+<li><p>Sur Windows (EventLog to Syslog) : Vous pouvez utiliser des
+outils tiers tels que EventLog to Syslog pour rediriger les journaux
+vers un serveur syslog.</p></li>
+</ul></li>
+<li><p>Redémarrez le service syslog : Après avoir modifié la
+configuration, redémarrez le service syslog pour appliquer les
+modifications. Par exemple, sur Linux, vous pouvez utiliser la commande
+<code>sudo service rsyslog restart</code> ou
+<code>sudo systemctl restart rsyslog</code>.</p></li>
+</ol>
+<p>Une fois la configuration en place, les messages système seront
+envoyés vers le serveur syslog. Maintenant, vous pouvez traiter ces
+messages sur le serveur syslog de différentes manières, selon vos
+besoins. Voici quelques exemples :</p>
+<ul>
+<li><p>Stockage des journaux : Le serveur syslog peut stocker les
+messages dans des fichiers journaux locaux ou dans une base de données,
+en fonction de sa configuration.</p></li>
+<li><p>Analyse et filtrage : Vous pouvez configurer le serveur syslog
+pour analyser et filtrer les messages en fonction de critères
+spécifiques tels que le niveau de gravité, l’application source,
+l’adresse IP, etc. Cela vous permet de trier et de hiérarchiser les
+messages pour une meilleure gestion.</p></li>
+<li><p>Alertes et notifications : Le serveur syslog peut être configuré
+pour déclencher des alertes ou des notifications lorsqu’il reçoit des
+messages spécifiques. Par exemple, il peut envoyer des e-mails, des SMS
+ou déclencher des intégrations avec d’autres systèmes de
+surveillance.</p></li>
+<li><p>Intégration avec des outils de gestion des journaux : Vous pouvez
+utiliser des outils de gestion des journaux tels que ELK Stack
+(Elasticsearch, Logstash, Kibana) ou Splunk pour analyser et visualiser
+les messages système à des fins de surveillance et de débogage.</p></li>
+</ul>
+Ces exemples vous donnent une idée générale de ce que vous pouvez faire
+avec les messages système envoyés vers un serveur syslog. Les
+fonctionnalités exactes et les méthodes de traitement dépendent du
+serveur syslog que vous utilisez et de votre configuration spécifique.
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="définition-de-path">4. Définition de <code>$PATH</code></h3>
+<p>C’est un variable d’environnement sous Linux qui contient des chemins
+dans lesquels le système cherche des executables.</p>
+<p><strong>Version longue</strong></p>
+<p>C’est une variable d’environnement utilisée par les systèmes UNIX et
+UNIX-like (y compris Linux) pour spécifier les répertoires dans lesquels
+le système recherche les commande exécutable. C’est l’équivalent de la
+variable d’environnement %PATH% utilisée par les systèmes Windows.</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="emplacement-linux-des-fichiers-utilisateurs">5. Emplacement
+Linux des “fichiers utilisateurs”</h3>
+<p>Réponse : /etc/divasswd</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="tableau-tcpip-à-compléter">6. Tableau TCP/IP à compléter</h3>
+<p>Il faut remettre les protocoles, dont OSPF et SMTP. Il y en a
+d’autres.</p>
+<p><strong>Notes</strong></p>
+<p><a href=".ressources/img/g01.png" target="_blank"><img src=".ressources/img/g01.png" alt="Modèle TCP/IP"></a><br>
+<a href=".ressources/img/g02.png" target="_blank"><img src=".ressources/img/g02.png" alt="TCP/IP"></a><br>
+<a href=".ressources/img/g03.png" target="_blank"><img src=".ressources/img/g03.png" alt="Tableau TCP/IP"></a></p>
+<p><strong>ChatGPT</strong></p>
+<div class="is-success">
+<p>Le tableau TCP/IP (Transmission Control Protocol/Internet Protocol)
+est une suite de protocoles réseau qui est utilisée comme base pour la
+communication sur Internet et dans de nombreux réseaux locaux. Il s’agit
+d’un ensemble de protocoles interconnectés qui permettent aux appareils
+de communiquer et d’échanger des données de manière fiable et
+efficace.</p>
+<p>Le tableau TCP/IP est composé de plusieurs protocoles qui remplissent
+différentes fonctions :</p>
+<ol type="1">
+<li><p>IP (Internet Protocol) : Il est responsable de l’adressage et du
+routage des paquets de données sur un réseau. Il attribue une adresse
+unique à chaque appareil connecté et permet de déterminer le chemin
+optimal pour acheminer les données d’un appareil à un autre.</p></li>
+<li><p>TCP (Transmission Control Protocol) : Il fournit un contrôle
+fiable de la transmission des données. Il découpe les données en
+segments, les numérote et s’assure qu’ils sont livrés dans l’ordre
+correct et sans erreur. TCP gère également le contrôle de flux pour
+éviter la congestion du réseau.</p></li>
+<li><p>UDP (User Datagram Protocol) : Il est un protocole de transport
+alternatif à TCP. Contrairement à TCP, UDP ne fournit pas de garantie de
+livraison des données ni de contrôle de flux. Il est souvent utilisé
+pour les applications qui nécessitent une transmission de données rapide
+et où la perte de quelques paquets n’est pas critique.</p></li>
+<li><p>ICMP (Internet Control Message Protocol) : Il est utilisé pour le
+diagnostic et la gestion des erreurs dans les réseaux IP. ICMP permet
+l’envoi de messages de contrôle et de notification entre les appareils
+réseau pour vérifier la connectivité, signaler les erreurs et les
+problèmes de routage.</p></li>
+<li><p>DNS (Domain Name System) : Il est responsable de la résolution
+des noms de domaine en adresses IP. DNS convertit les noms de domaine
+faciles à retenir (comme www.example.com) en adresses IP numériques que
+les appareils réseau peuvent comprendre.</p></li>
+</ol>
+Ces protocoles, combinés dans le tableau TCP/IP, fournissent les
+fondements de la communication réseau moderne, en permettant
+l’acheminement des données, la fiabilité de la transmission, la
+résolution des noms de domaine et la détection des erreurs.
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="mdm-vs-glpi">7. MDM vs GLPI</h3>
+<div class="is-question">
+<strong>Donner les avantages à utiliser un MDM pour les mobiles par
+rapport à un GLPI par exemple</strong>
+</div>
+<p><em>Un MDM (Mobile Device Management) est une solution de gestion de
+ressources informatiques spécifiquement conçu pour la gestion des
+appareils mobiles. Il offre des fonctionnalités avancées et une gestion
+de la mobilité d’entreprise.</em></p>
+<p><strong>ChatGPT</strong></p>
+<div class="is-success">
+<p>Un MDM (Mobile Device Management) et GLPI (Gestionnaire Libre de Parc
+Informatique) sont deux solutions utilisées dans le domaine de la
+gestion des dispositifs et des ressources informatiques, mais elles
+diffèrent par leurs fonctionnalités et leurs domaines d’application.
+Voici quelques avantages distincts de l’utilisation d’un MDM pour la
+gestion des mobiles par rapport à GLPI :</p>
+<ol type="1">
+<li><p>Gestion spécialisée des appareils mobiles : Un MDM est
+spécialement conçu pour la gestion des appareils mobiles tels que
+smartphones et tablettes. Il offre des fonctionnalités avancées
+spécifiquement adaptées aux besoins de la gestion des mobiles, comme la
+configuration à distance, la sécurité des données mobiles, la gestion
+des applications, le suivi de la localisation, etc. GLPI, quant à lui,
+est davantage axé sur la gestion des ressources informatiques globales
+telles que les ordinateurs, les serveurs, les imprimantes, etc.</p></li>
+<li><p>Contrôle granulaire des appareils mobiles : Un MDM permet un
+contrôle plus granulaire sur les appareils mobiles gérés. Vous pouvez
+appliquer des politiques de sécurité, des restrictions d’utilisation,
+des configurations réseau spécifiques, et même effacer à distance les
+données des appareils perdus ou volés. GLPI est plus centré sur la
+gestion des informations et des ressources, mais n’offre pas le même
+niveau de contrôle sur les appareils mobiles individuels.</p></li>
+<li><p>Gestion de la mobilité d’entreprise (EMM) : De nombreux MDM
+fournissent également des fonctionnalités d’Enterprise Mobility
+Management (EMM) qui permettent de gérer efficacement les appareils
+mobiles dans un environnement professionnel. Cela inclut des
+fonctionnalités avancées telles que la séparation des données
+personnelles et professionnelles, le déploiement d’applications
+spécifiques à l’entreprise, l’intégration avec des services de
+messagerie d’entreprise, etc. Ces capacités spécifiques à la mobilité
+d’entreprise ne sont généralement pas présentes dans GLPI.</p></li>
+<li><p>Support multiplateforme : Les MDM offrent une prise en charge
+étendue des différentes plateformes mobiles, y compris iOS, Android,
+Windows, etc. Cela permet de gérer de manière centralisée les
+dispositifs utilisant différents systèmes d’exploitation. GLPI, quant à
+lui, est plus orienté vers les ressources informatiques générales et ne
+propose pas la même prise en charge multiplateforme pour les appareils
+mobiles.</p></li>
+</ol>
+En résumé, un MDM est spécifiquement conçu pour la gestion des appareils
+mobiles, offrant des fonctionnalités spécialisées, un contrôle avancé et
+une gestion de la mobilité d’entreprise. GLPI est plus adapté à la
+gestion globale des ressources informatiques, y compris les ordinateurs,
+les serveurs, etc. Le choix entre les deux dépend des besoins
+spécifiques de gestion des dispositifs mobiles par rapport à la gestion
+des ressources informatiques globales.
+</div>
+<p><strong>Exemples</strong></p>
+<ul>
+<li>Microsoft Intune</li>
+<li>Mobile Device Manager Plus</li>
+<li>Meraki Systems Manager (Cisco)</li>
+<li>VMware Workspace ONE UEM</li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="types-de-vpn">8. Types de VPN</h3>
+<div class="is-question">
+<strong>Expliquer tous les VPN (les types de VPN?)</strong>
+</div>
+<p>Gwen: Site à site, Nomade</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>VPN basé sur le protocole IPSec (Internet Protocol Security).
+Connection VPN sécurisée (auth, chiffrement, intégrité des données)</li>
+<li>VPN basé sur le protocole SSL/TLS (Secure Sockets Layer/Transport
+Layer Security). Protocoles de sécurité web pour connection sécurisée.
+Utilisé pour connection <strong>point à point</strong>.</li>
+<li>VPN basé sur protocole PPTP (Point-to-Point Tunneling Protocol).
+Protocole plus ancien. Moins sécurisé que IPSec et SSL/TLS.</li>
+<li>VPN basé sur le protocole L2TP (Layer 2 Tunneling Protocol). Combine
+les fonctionnalités de PPTP et de protocoles de stockage</li>
+<li>VPN basé sur le protocole OpenVPN. Protocole open source sécurisé.
+Utilise certificats + clé pour authentification et chiffrement des
+données. Peut fonctionner sur plusieurs ports, multi-plateformes.
+Couramment utilisé pour les solutions VPN.</li>
+</ul>
+<p><strong>ChatGPT</strong></p>
+<div class="is-success">
+<p>Il existe plusieurs types de VPN (Virtual Private Network) qui sont
+utilisés pour sécuriser les communications et permettre l’accès à
+distance à des réseaux privés. Voici les principaux types de VPN :</p>
+<ol type="1">
+<li><p>VPN basé sur le protocole IPsec (Internet Protocol Security) :
+IPsec est un protocole de sécurité largement utilisé pour établir des
+connexions VPN sécurisées. Il offre une authentification, un chiffrement
+et une intégrité des données pour sécuriser les communications sur un
+réseau public. Les VPN basés sur IPsec sont généralement utilisés pour
+des connexions point à point entre des réseaux locaux ou des appareils
+individuels.</p></li>
+<li><p>VPN basé sur le protocole SSL/TLS (Secure Sockets Layer/Transport
+Layer Security) : Les VPN basés sur SSL/TLS utilisent des protocoles de
+sécurité web pour établir une connexion sécurisée. Ces VPN sont souvent
+utilisés pour permettre un accès distant aux ressources d’un réseau
+privé via un navigateur web. Ils sont couramment utilisés pour les
+applications d’accès à distance et de travail à distance.</p></li>
+<li><p>VPN basé sur le protocole PPTP (Point-to-Point Tunneling
+Protocol) : PPTP est un protocole VPN plus ancien qui offre un moyen
+simple d’établir des connexions sécurisées. Il est souvent utilisé pour
+des connexions VPN entre des appareils individuels et des serveurs VPN.
+Cependant, PPTP est considéré comme moins sécurisé que les protocoles
+IPsec et SSL/TLS et n’est pas recommandé pour les environnements où la
+sécurité est une priorité.</p></li>
+<li><p>VPN basé sur le protocole L2TP (Layer 2 Tunneling Protocol) :
+L2TP est un protocole VPN qui combine les fonctionnalités de PPTP et de
+protocoles de cryptage comme IPsec. Il est souvent utilisé en
+conjonction avec IPsec pour sécuriser les connexions VPN. L2TP/IPsec est
+couramment utilisé pour les connexions VPN entre des réseaux locaux et
+des utilisateurs distants.</p></li>
+<li><p>VPN basé sur le protocole OpenVPN : OpenVPN est un protocole VPN
+open source et sécurisé. Il utilise des certificats et des clés pour
+l’authentification et le chiffrement des données. OpenVPN peut être
+configuré pour fonctionner sur différents ports et peut être utilisé sur
+plusieurs plates-formes, ce qui en fait un choix populaire pour les
+solutions VPN.</p></li>
+</ol>
+Ces types de VPN sont utilisés pour répondre à différents besoins en
+matière de sécurité, d’accès à distance et de connectivité. Le choix du
+type de VPN dépend des exigences spécifiques de votre réseau et de
+l’utilisation prévue du VPN.
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="switch">9. Switch</h3>
+<div class="is-question">
+<strong>Qu’est-ce qu’on peut voir sur un commutateur ?</strong>
+</div>
+<p>Gwen: cette question est dans le questionnaire de Tati</p>
+<p>Tati:</p>
+<ul>
+<li>la bande passante</li>
+<li>le port sur lequel est connecté + ip</li>
+<li>l’interface voir si elle est up ou down</li>
+<li>l’adresse MAC</li>
+<li>la charge éléctrique si c’est un switch PoE</li>
+</ul>
+<p>ChatGPT:</p>
+<ul>
+<li>ports ethernet (combien de ports?)</li>
+<li>état des ports (activé ou non, up ou down)</li>
+<li>activité du trafic (données transmises)</li>
+<li>adresse MAC (table d’adresses MAC)</li>
+<li>stat de performances (ex. collision de paquets, erreurs de
+transmission)</li>
+<li>configuration et gestion (CLI ou GUI)</li>
+</ul>
+<p><strong>ChatGPT</strong></p>
+<div class="is-success">
+<p>Sur un commutateur réseau, on peut généralement voir les éléments
+suivants :</p>
+<ol type="1">
+<li><p>Ports Ethernet : Les commutateurs réseau sont équipés de
+plusieurs ports Ethernet où les périphériques réseau tels que les
+ordinateurs, les serveurs, les imprimantes, les téléphones IP, etc.,
+peuvent être connectés. Chaque port est numéroté et peut être utilisé
+pour connecter un appareil au réseau.</p></li>
+<li><p>État des ports : Les commutateurs réseau affichent l’état de
+chaque port, indiquant s’ils sont activés, désactivés ou s’ils ont une
+connectivité réseau.</p></li>
+<li><p>Activité du trafic : Les commutateurs peuvent afficher l’activité
+du trafic sur chaque port, indiquant si des données sont transmises ou
+reçues. Cela peut être utile pour diagnostiquer des problèmes de
+connectivité ou pour surveiller l’utilisation du réseau.</p></li>
+<li><p>Adresse MAC : Les commutateurs maintiennent des tables d’adresses
+MAC (Media Access Control) qui associent les adresses MAC des
+périphériques connectés à leurs ports respectifs. Ces tables sont
+utilisées pour acheminer efficacement les paquets réseau vers les
+destinations appropriées.</p></li>
+<li><p>Statistiques de performances : Certains commutateurs peuvent
+fournir des statistiques de performances telles que la bande passante
+utilisée, les collisions de paquets, les erreurs de transmission, etc.,
+permettant de surveiller l’état et les performances du réseau.</p></li>
+<li><p>Configuration et gestion : Les commutateurs peuvent être gérés
+via une interface de ligne de commande (CLI) ou une interface graphique
+(GUI) pour effectuer des opérations de configuration, telles que la
+création de VLAN (Virtual Local Area Network), la configuration des
+paramètres de sécurité, la gestion des listes de contrôle d’accès (ACL),
+etc.</p></li>
+</ol>
+Il est important de noter que les fonctionnalités et les informations
+affichées peuvent varier selon le modèle et le fabricant du commutateur.
+Les commutateurs réseau plus avancés peuvent également offrir des
+fonctionnalités supplémentaires, telles que la prise en charge de la
+qualité de service (QoS), la gestion de la puissance PoE (Power over
+Ethernet), la redondance de lien, etc.
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="certificats-définition">10. Certificats : définition</h3>
+<div class="is-question">
+<strong>Certificats: qu’est ce que ça sécurise ?</strong>
+</div>
+<p>Bien connaître les certificats. Le jury a posé 2 questions
+dessus.</p>
+<p>Jury a demandé “qu’est-ce que ça sécurise ?”</p>
+<p>Réponse: ex. un site russe qui demande la carte bancaire est
+sécurisé… Ca signifie que c’est chiffré entre l’opérateur jusqu’au site
+internet mais après on peut mettre tout ce qu’on veut dans le site
+internet.</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="certificats-https">11. Certificats : HTTPS</h3>
+<div class="is-question">
+<strong>Certificat : Quoi mettre en place pour avoir un HTTPS</strong>
+</div>
+<p>Gwen: ?</p>
+<p>Moi: mettre en place le protocole SSL…</p>
+<p>Chat:</p>
+<ol type="1">
+<li>obtenir un certificat SSL/TLS auprès d’une authorité de
+certification (ex. Let’s Encrypt)</li>
+<li>installer le certificat sur le serveur</li>
+<li>configurer le serveur web pour utiliser le certificat et activer le
+support HTTPS</li>
+</ol>
+<p><strong>ChatGPT</strong> (attention, bullshit sur la fin !)</p>
+<div class="is-success">
+<p>Pour mettre en place le protocole HTTPS (Hypertext Transfer Protocol
+Secure) sur un site Web, voici les étapes générales à suivre :</p>
+<ol type="1">
+<li><p>Obtenez un certificat SSL/TLS : Un certificat SSL/TLS est
+nécessaire pour activer le chiffrement et établir une connexion
+sécurisée. Vous pouvez obtenir un certificat auprès d’une autorité de
+certification (CA) reconnue ou utiliser des solutions gratuites telles
+que Let’s Encrypt.</p></li>
+<li><p>Installez le certificat sur votre serveur : Suivez les
+instructions fournies par votre fournisseur de certificats pour
+installer le certificat sur votre serveur web. Cela implique
+généralement de générer une paire de clés (clé privée et clé publique)
+et d’associer le certificat à votre nom de domaine.</p></li>
+<li><p>Configurez votre serveur web : Vous devez configurer votre
+serveur web (par exemple, Apache, Nginx) pour utiliser le certificat
+SSL/TLS et activer le support HTTPS. Cela implique de modifier les
+fichiers de configuration du serveur pour spécifier le chemin vers le
+certificat et les options de chiffrement.</p></li>
+<li><p>Redirigez le trafic HTTP vers HTTPS : Vous pouvez configurer
+votre serveur web pour rediriger automatiquement tout le trafic HTTP
+vers HTTPS. Cela garantit que les utilisateurs accèdent toujours à votre
+site via une connexion sécurisée.</p></li>
+<li><p>Vérifiez la configuration : Une fois la configuration terminée,
+effectuez des tests pour vous assurer que tout fonctionne correctement.
+Vérifiez si votre site est accessible via HTTPS et assurez-vous que le
+certificat est valide et correctement installé.</p></li>
+<li><p>Mettez à jour les liens internes : Si vous avez des liens
+internes dans votre site web (par exemple, des liens vers des images,
+des fichiers CSS, etc.), assurez-vous de les mettre à jour pour qu’ils
+utilisent des URL HTTPS au lieu de HTTP.</p></li>
+<li><p>Mettez à jour vos ressources externes : Si votre site web intègre
+des ressources externes provenant d’autres domaines (par exemple, des
+scripts, des images, des vidéos), assurez-vous que ces ressources sont
+également accessibles via HTTPS.</p></li>
+</ol>
+Une fois que vous avez suivi ces étapes, votre site web sera accessible
+via HTTPS, et les communications entre les utilisateurs et votre serveur
+seront chiffrées, offrant ainsi une connexion sécurisée.
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="hyper-v-vsphere-saturé">12. Hyper-V / vSphere saturé</h3>
+<div class="is-question">
+<strong>Expliquer comment faire qd on a un hyper-v avec le DRS de
+vSphere rempli dans une VM</strong>
+</div>
+<p>Il y a un schéma.</p>
+<p>Gwen: j’ai expliqué qu’on peut créer une nouvelle machine pour
+diviser les ressources et faire plus de place. Vu que le jury ne m’a pas
+reposer la question, j’imagine que c’était la bonne réponse.</p>
+<p>Chat:</p>
+<ol type="1">
+<li>vérifier les ressources allouées</li>
+<li>vérifier les paramètres de DRS (Distributed Resource Scheduler)</li>
+<li>analyser les performances avec des outils de surveillance</li>
+<li>répartir manuellement les VM : si le DRS ne parvient pas à
+équilibrer les charges de travail, on peut répartir manuellement les VM
+sur différents hôtes Hyper-V pour soulager la charge. Il faudra alors
+migrer les VM d’un hôte à un autre avec des outils de migration direct
+(live migration) ou hors-ligne (offline migration) d’Hyper-V</li>
+<li>ajouter des ressources ou mettre à niveau</li>
+<li>problèmes de configuration ?</li>
+</ol>
+<p><strong>ChatGPT</strong></p>
+<div class="is-success">
+<p>Si vous avez un environnement Hyper-V avec le DRS (Distributed
+Resource Scheduler) de vSphere rempli dans une machine virtuelle, cela
+peut indiquer un problème de configuration ou de ressources
+insuffisantes. Voici quelques étapes que vous pouvez suivre pour
+résoudre ce problème :</p>
+<ol type="1">
+<li><p>Vérifiez les ressources allouées : Assurez-vous que la machine
+virtuelle dispose des ressources adéquates, telles que la mémoire, le
+processeur et l’espace de stockage. Si les ressources sont
+insuffisantes, augmentez-les pour répondre aux besoins de la machine
+virtuelle.</p></li>
+<li><p>Vérifiez les paramètres de DRS : Assurez-vous que les paramètres
+de DRS sont correctement configurés. DRS est conçu pour répartir les
+charges de travail de manière équilibrée sur les hôtes Hyper-V. Vérifiez
+les règles de DRS, les seuils de performances et les paramètres de
+planification pour vous assurer qu’ils correspondent aux besoins de
+votre environnement.</p></li>
+<li><p>Analysez les performances : Utilisez des outils de surveillance
+des performances pour analyser les métriques de performance de la
+machine virtuelle et des hôtes Hyper-V. Identifiez les goulots
+d’étranglement ou les problèmes de performances qui pourraient entraîner
+une utilisation excessive des ressources et une saturation du
+DRS.</p></li>
+<li><p>Répartissez manuellement les machines virtuelles : Si le DRS ne
+parvient pas à équilibrer automatiquement les charges de travail, vous
+pouvez répartir manuellement les machines virtuelles sur différents
+hôtes Hyper-V pour soulager la charge. Cela peut impliquer de migrer
+manuellement les machines virtuelles d’un hôte à un autre à l’aide des
+fonctionnalités de migration en direct (live migration) ou hors ligne
+(offline migration) d’Hyper-V.</p></li>
+<li><p>Ajoutez des ressources ou mettez à niveau : Si les ressources
+existantes ne suffisent pas à gérer la charge de travail de la machine
+virtuelle, envisagez d’ajouter des ressources supplémentaires à l’hôte
+Hyper-V ou de mettre à niveau l’hôte vers un modèle plus puissant pour
+mieux répondre aux exigences de performance.</p></li>
+<li><p>Identifiez les problèmes de configuration : Vérifiez si la
+configuration de la machine virtuelle, telle que les paramètres de
+démarrage automatique des applications, les services en cours
+d’exécution ou les tâches planifiées, peut provoquer une utilisation
+excessive des ressources.</p></li>
+</ol>
+Si les problèmes persistent malgré ces actions, il peut être utile de
+consulter les forums de support dédiés à Hyper-V ou de contacter le
+support technique pour obtenir une assistance plus spécifique à votre
+environnement.
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="types-déploiements">13. Types déploiements</h3>
+<div class="is-question">
+<strong>Expliquer les différents types de déploiement</strong>
+</div>
+<p>Gwen: ils attendent les sigles MDT, WDS et clé USB</p>
+<p>Chat: hors-sujet.</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="analyse-de-trame">14. Analyse de trame</h3>
+<p>Gwen: fastoche. Jury a demandé la définition de TTL (Time To
+Live).</p>
+<p>Moi: euh… a faire au moins une fois</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="appli-prise-en-main-à-distance">15. Appli prise en main à
+distance</h3>
+<div class="is-question">
+<strong>Quelles sont les applications que vous utilisez pour prendre en
+main à distance</strong>
+</div>
+<ul>
+<li>TeamViewer</li>
+<li>AnyDesk</li>
+<li>Remmina</li>
+<li>Bureau à distance</li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="schéma-serveur-proxy-reverse-proxy">16. Schéma serveur proxy +
+reverse-proxy</h3>
+<p>Gwen: je vous laisse chercher la réponse</p>
+<p>Moi:</p>
+<ul>
+<li>proxy se met entre client réseau local et internet, sert à filtrer
+les connections sortantes</li>
+<li>reverse proxy se met entre internet et le reseau local, sert à
+filtrer les connections entrantes. Ex. on a plusieurs serveurs web, le
+reverse-proxy permet de filtrer les connections entrantes et faire du
+load-balancing (répartir les connections sur les différents serveurs
+web)</li>
+</ul>
+<p>https://www.it-connect.fr/les-serveurs-proxy-et-reverse-proxy-pour-les-debutants/</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="cable-cat.6-upt">17. Cable cat.6 UPT</h3>
+<div class="is-question">
+<strong>Expliquer ce qu’est un câble de catégorie 6 UTP. Que signifie
+“UTP” ?</strong>
+</div>
+<p>Gwen: jury a demandé ce que signifie UTP ?</p>
+<p>Moi: cable éthernet RJ45 pour débit allant jusqu’à 10 Gbit/s. Non
+blindé.</p>
+<p>UTP = Unshielded Twisted Pair, meaning pas de blindage autour des
+paires de fils. Au lieu de blindage, les paires de fils sont torsadées
+pour réduire les interférences électromagnétiques et la diaphonie
+(crosstalk) entre les paires adjacentes.</p>
+<p><strong>ChatGPT</strong></p>
+<div class="is-success">
+<p>Un câble de catégorie 6 UTP (Unshielded Twisted Pair) est un type de
+câble Ethernet utilisé pour la transmission de données à haute vitesse
+sur des réseaux locaux (LAN). Voici quelques caractéristiques
+principales du câble de catégorie 6 UTP :</p>
+<ol type="1">
+<li><p>Débit et bande passante : Le câble de catégorie 6 UTP est conçu
+pour prendre en charge des débits de données allant jusqu’à 10 Gbps
+(gigabits par seconde) sur des distances allant jusqu’à 55 mètres. Il
+offre une bande passante plus élevée que les câbles de catégorie
+précédente, tels que le catégorie 5e.</p></li>
+<li><p>Paires torsadées non blindées : UTP signifie “Unshielded Twisted
+Pair”, ce qui signifie qu’il n’y a pas de blindage métallique autour des
+paires de fils. Au lieu de cela, les paires de fils sont torsadées pour
+réduire les interférences électromagnétiques (EMI) et la diaphonie
+(cross-talk) entre les paires adjacentes.</p></li>
+<li><p>Connecteurs RJ-45 : Les câbles de catégorie 6 UTP utilisent des
+connecteurs RJ-45, qui sont largement répandus et compatibles avec la
+plupart des équipements réseau couramment utilisés.</p></li>
+<li><p>Distances de transmission : Le câble de catégorie 6 UTP est conçu
+pour des distances de transmission allant jusqu’à 100 mètres pour des
+débits de données allant jusqu’à 1 Gbps. Pour des débits de données plus
+élevés, tels que 10 Gbps, la distance maximale est réduite à 55
+mètres.</p></li>
+<li><p>Compatibilité descendante : Les câbles de catégorie 6 UTP sont
+rétrocompatibles avec les équipements réseau utilisant des câbles de
+catégorie inférieure, tels que le catégorie 5e. Cependant, pour
+atteindre les performances maximales de la catégorie 6, il est
+recommandé d’utiliser des équipements réseau compatibles avec la
+catégorie 6.</p></li>
+</ol>
+Le câble de catégorie 6 UTP est largement utilisé dans les
+environnements réseau professionnels pour les applications nécessitant
+une bande passante élevée, telles que les réseaux d’entreprise, les
+centres de données, les salles de serveurs et les installations de
+vidéosurveillance IP. Il offre des performances améliorées par rapport
+aux câbles de catégorie inférieure et constitue un choix courant pour
+les réseaux Gigabit Ethernet et les déploiements à haute densité de
+données.
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="expliquer-le-cryptage-asymétrique-ou-symétrique">18. Expliquer
+le cryptage asymétrique ou symétrique</h3>
+<p>Gwen: voir clé de chiffrement</p>
+<p>Tati: Asymétrique : clé publique/clé privée. Symétrique : même clé
+pour le chiffrement/déchiffrement</p>
+<p><strong>ChatGPT</strong></p>
+<div class="is-success">
+<p>Le cryptage asymétrique et le cryptage symétrique sont deux méthodes
+de cryptographie utilisées pour chiffrer et déchiffrer des données de
+manière sécurisée. Voici une explication de chaque méthode :</p>
+<ol type="1">
+<li>Cryptage symétrique : Le cryptage symétrique, également appelé
+cryptographie à clé secrète, utilise une clé unique pour chiffrer et
+déchiffrer les données. La même clé est utilisée à la fois par
+l’émetteur et le destinataire des données. Voici les étapes du processus
+de cryptage symétrique :</li>
+</ol>
+<ul>
+<li>Étape 1 : L’émetteur et le destinataire conviennent d’une clé
+secrète avant la communication.</li>
+<li>Étape 2 : L’émetteur utilise cette clé secrète pour chiffrer les
+données.</li>
+<li>Étape 3 : L’émetteur envoie les données chiffrées au destinataire
+via un canal de communication.</li>
+<li>Étape 4 : Le destinataire utilise la même clé secrète pour
+déchiffrer les données et les rendre à leur forme originale.</li>
+</ul>
+<p>Le cryptage symétrique est généralement plus rapide et efficace que
+le cryptage asymétrique car il nécessite moins de calculs. Cependant, il
+pose le défi de la distribution sécurisée de la clé secrète entre les
+parties concernées.</p>
+<ol start="2" type="1">
+<li>Cryptage asymétrique : Le cryptage asymétrique, également connu sous
+le nom de cryptographie à clé publique, utilise une paire de clés
+distinctes : une clé publique et une clé privée. La clé publique est
+utilisée pour chiffrer les données, tandis que la clé privée
+correspondante est utilisée pour déchiffrer les données. Voici les
+étapes du processus de cryptage asymétrique :</li>
+</ol>
+<ul>
+<li>Étape 1 : Le destinataire génère une paire de clés (clé publique et
+clé privée).</li>
+<li>Étape 2 : Le destinataire diffuse la clé publique au public tandis
+que la clé privée reste confidentielle.</li>
+<li>Étape 3 : L’émetteur utilise la clé publique du destinataire pour
+chiffrer les données.</li>
+<li>Étape 4 : L’émetteur envoie les données chiffrées au destinataire
+via un canal de communication.</li>
+<li>Étape 5 : Le destinataire utilise sa clé privée pour déchiffrer les
+données et les rendre à leur forme originale.</li>
+</ul>
+<p>Le cryptage asymétrique est plus sécurisé que le cryptage symétrique
+car la clé privée n’est jamais partagée ou exposée, tandis que la clé
+publique peut être distribuée librement. Cela permet des communications
+sécurisées même lorsque les parties ne se sont jamais rencontrées
+auparavant. Cependant, le cryptage asymétrique est généralement plus
+lent et nécessite plus de puissance de calcul.</p>
+En pratique, une combinaison des deux méthodes est souvent utilisée, où
+le cryptage symétrique est utilisé pour chiffrer les données réelles,
+tandis que le cryptage asymétrique est utilisé pour échanger et protéger
+la clé symétrique. Cela combine l’efficacité du cryptage symétrique avec
+la sécurité du cryptage asymétrique.
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="différence-entre-remote-desktop-et-remote-app">19. Différence
+entre Remote Desktop et Remote App</h3>
+<p>Moi: Remote Desktop : on se connecte à une machine via RDP ex. Bureau
+à Distance, TeamViewer. Remote App : on passe par une interface web (ex.
+?)</p>
+<p>Chat: Faux. Remote Desktop : on accède à l’intégralité du bureau d’un
+ordinateur distant. Remote App : on accède à distance à des applications
+spécifiques exécutées sur un ordi distant, plutot que d’acceder à
+l’integralité du bureau. Ex. accès à une CRM, accès à un RDS (?)</p>
+<p>Donner un exemple ?</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="question-sla">20. Question SLA</h3>
+<div class="is-question">
+<strong>Un client doit faire le point avec un fournisseur sur les
+services fournis, quelle est la méthodologie ?</strong>
+</div>
+<p>Gwen: le jury attendait “SLA”</p>
+<p>Revoir ce qu’est le SLA…</p>
+<p>Chat:</p>
+<ol type="1">
+<li>etablir les objectif et les attentes</li>
+<li>preparer la réunion</li>
+<li>planifier la reunion</li>
+<li>tenir la reunion</li>
+<li>examiner les mesures correctives (màj SLA)</li>
+<li>suivre et évaluer</li>
+<li>documenter</li>
+</ol>
+<p>Moi:</p>
+<p>Revoir le cours d’ITIL vite fait, mais je sens le méga bullshit
+encore. Examiner ce qu’est un SLA… Me faire ma propre réponse.</p>
+<p><strong>ChatGPT</strong></p>
+<div class="is-success">
+<p>Selon ITIL (Information Technology Infrastructure Library), une
+méthodologie couramment utilisée pour la gestion des services
+informatiques, la démarche recommandée pour faire le point avec un
+fournisseur de services serait de suivre les étapes suivantes :</p>
+<ol type="1">
+<li><p>Établir les objectifs et les attentes : Définissez clairement les
+objectifs de la réunion et les attentes de votre entreprise par rapport
+aux services fournis par le fournisseur. Identifiez les domaines qui
+nécessitent une évaluation et une discussion approfondies.</p></li>
+<li><p>Préparer la réunion : Rassemblez toutes les informations
+pertinentes sur les services fournis, y compris les accords de niveau de
+service (SLA), les rapports de performance, les incidents antérieurs,
+les demandes de changement, etc. Identifiez les problèmes ou les
+préoccupations spécifiques que vous souhaitez aborder lors de la
+réunion.</p></li>
+<li><p>Planifier la réunion : Fixez une date et une heure pour la
+réunion avec le fournisseur. Assurez-vous que les personnes clés de
+votre entreprise et du fournisseur seront présentes. Préparez un ordre
+du jour détaillé pour la réunion en incluant les sujets spécifiques à
+aborder.</p></li>
+<li><p>Tenir la réunion : Lors de la réunion, commencez par partager les
+objectifs et les attentes de la réunion. Discutez des performances du
+fournisseur par rapport aux SLA convenus. Abordez les problèmes, les
+incidents ou les demandes de changement spécifiques qui nécessitent une
+attention particulière. Écoutez les points de vue du fournisseur et
+échangez des informations de manière constructive.</p></li>
+<li><p>Examiner les mesures correctives : Si des problèmes ou des
+préoccupations sont identifiés lors de la réunion, discutez des mesures
+correctives nécessaires pour les résoudre. Déterminez les actions à
+entreprendre, les responsabilités et les délais. Si nécessaire, convenez
+de la mise à jour des SLA ou d’autres accords contractuels.</p></li>
+<li><p>Suivre et évaluer : Suivez la mise en œuvre des actions convenues
+et évaluez les résultats. Assurez-vous que les problèmes identifiés sont
+résolus de manière satisfaisante et que les services fournis sont
+alignés sur les attentes de votre entreprise.</p></li>
+<li><p>Documenter : Enregistrez les discussions, les accords et les
+actions convenues dans un compte rendu de réunion ou un système de
+gestion des problèmes/incidents. Cela vous permettra de référencer les
+décisions prises et de suivre les progrès réalisés.</p></li>
+</ol>
+En suivant cette méthodologie, vous pouvez établir un cadre structuré
+pour faire le point avec votre fournisseur de services, faciliter la
+communication et la résolution des problèmes, et améliorer la
+satisfaction globale par rapport aux services fournis.
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3
+id="table-de-routage-trouver-lip-du-routeur-gateway-et-broadcast">21.
+Table de routage: trouver l’ip du routeur, gateway et broadcast</h3>
+<p>Revoir de quoi à l’air une table de routage</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="linux-trouver-une-variable-dans-un-script">22. Linux: trouver
+une variable dans un script</h3>
+<p>Gwen :</p>
+<ul>
+<li>Trouver la “variable de l’emplacement d’un site web” dans un script
+bash.</li>
+<li>La variable était “ROOT”, sans le <code>$</code> (???)</li>
+</ul>
+<p>Moi: ça devrait pas être trop dur…</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="pourquoi-vm-win7-x86-nutilise-pas-tout-le-disque">23. Pourquoi
+vm win7 x86 n’utilise pas tout le disque ?</h3>
+<p><strong>Sur un serveur de déploiement (schéma), pourquoi des 6 Go
+(sic) ne pas totalement employés des PC déployés ?</strong></p>
+<p>Gwen: et on voyait sur l’image qu’il déployait des Win7 en x86 (dont
+32 bits). Win7 x32bits ne sait pas utiliser des disques de plus de 4
+Go.</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="expliquer-les-deux-couches-matérielle-dans-le-schéma">24.
+Expliquer les deux couches matérielle dans le schéma</h3>
+<p><a href=".ressources/img/g04.png" target="_blank">
+<img src=".ressources/img/g04.png" alt="g04"> </a></p>
+<p>Moi: Ce schéma pourrait être celui d’un hyperviseur de type 2 (ou
+hyperviseur hébergé). La couche matérielle du bas symbolise le matériel
+physique sur lequel est installé la couche logicielle (par exemple
+VMware Workstation). Cette couche logicielle est utilisé pour émulé du
+matériel (ex. des machines virtuelles) sur lesquelles on vient installé
+des systèmes d’exploitation (ex. un Debian ou un Windows Server).</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="avantages-disponibilité-des-vm">25. Avantages Disponibilité des
+VM</h3>
+<div class="is-question">
+<strong>Quels sont les avantages de la disponibilité pour les machines
+virtuelles ?</strong>
+</div>
+<p>Gwen: il y avait 2 disponibilités différentes, il fallait les
+expliquer. Je me souviens de la <strong>haute disponibilité</strong>,
+mais l’autre je ne sais plus.</p>
+<p>Moi: euh…</p>
+<p>Chat:</p>
+<ol type="1">
+<li><p><strong>haute dispo</strong> : en cas de défaillance matérielle
+ou logicielle d’un hôte physique sur lequel une vm est exécutée,
+celle-ci peut être automatiquement redémarrée ou migrée vers un autre
+hôte sans interruption de service.</p></li>
+<li><p><strong>migration à chaud</strong> : permet de migrer des VM à
+chaud d’un hôte physique à un autre, même lorsqu’elles sont en cours
+d’exécution. Utile pour faire des opérations de maintenance sans
+interrompre le service.</p></li>
+<li><p><strong>équlibrage de charge</strong> : les vm peuvent être
+réparties sur plusieurs hôtes physiques pour équilibrer la charge de
+travail. Permet d’optimisez l’utilisation des ressources disponibles et
+d’améliorer les performances globales du système.</p></li>
+<li><p><strong>Evolutivité</strong> : facile de créer de nouvelles vm ou
+d’ajuster les ressources allouées.</p></li>
+<li><p><strong>Gestion centralisée</strong> : avec aide de plateformes
+telles que vSphere, Hyper-V, KVM</p></li>
+</ol>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="dans-vmware-donner-les-différents-type-de-connection">26. Dans
+VMware, donner les différents type de connection</h3>
+<p>Gwen: bridge, NAT et host-only. Le jury a demandé la différence entre
+NAT et bridge, je me suis plantée.</p>
+<p>Moi: Bridge, NAT, Host-Only, Custom</p>
+<p><strong>ChatGPT</strong></p>
+<div class="is-success">
+<p>NAT (Network Address Translation) et Bridge sont deux concepts liés à
+la mise en réseau utilisés dans la virtualisation et les environnements
+réseau. Voici la différence entre les deux :</p>
+<ol type="1">
+<li>NAT (Network Address Translation) :
+<ul>
+<li>NAT est une technique de traduction d’adresses réseau qui permet de
+connecter un réseau local (par exemple, une machine virtuelle) à un
+réseau externe (par exemple, Internet) en utilisant une seule adresse IP
+publique.</li>
+<li>Dans un réseau NAT, une adresse IP publique est attribuée au routeur
+ou au serveur NAT, qui traduit les adresses IP privées des machines
+virtuelles du réseau local vers cette adresse IP publique lorsqu’elles
+communiquent avec des ressources externes.</li>
+<li>NAT permet de masquer les adresses IP privées des machines
+virtuelles et de les regrouper derrière une seule adresse IP publique,
+offrant ainsi une certaine sécurité et une économie d’adresses IP.</li>
+<li>Cependant, avec NAT, les machines virtuelles du réseau local ne sont
+pas directement visibles depuis l’extérieur du réseau, ce qui peut
+limiter certaines fonctionnalités et empêcher l’accès à certaines
+ressources réseau.</li>
+</ul></li>
+<li>Bridge (Pont) :
+<ul>
+<li>Un pont réseau, également appelé bridge, est utilisé pour connecter
+plusieurs réseaux locaux (par exemple, des machines virtuelles) afin
+qu’ils puissent communiquer directement les uns avec les autres.</li>
+<li>Dans un réseau en pont, les interfaces réseau des machines
+virtuelles sont liées à une interface de pont, ce qui permet aux
+machines virtuelles de partager le même réseau logique.</li>
+<li>Le pontage permet aux machines virtuelles de communiquer entre elles
+et avec d’autres appareils du réseau local, comme s’ils étaient
+directement connectés au même réseau physique.</li>
+<li>Contrairement à NAT, le pontage ne modifie pas les adresses IP des
+machines virtuelles et permet une communication transparente avec les
+ressources externes et autres appareils du réseau.</li>
+</ul></li>
+</ol>
+En résumé, NAT est utilisé pour traduire les adresses IP privées des
+machines virtuelles en une seule adresse IP publique, tandis que le
+pontage (bridge) permet de connecter plusieurs machines virtuelles pour
+qu’elles puissent communiquer directement entre elles et avec d’autres
+appareils du réseau local sans modification des adresses IP.
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h2 id="passage-avec-le-jury">PASSAGE avec le JURY</h2>
+<p>3 mises en pratique</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="msp1.-ticket-glpi-pb-connection">MSP1. Ticket GLPI : pb
+connection</h3>
+<div class="is-question">
+Une personne a laissé un ticket sur GLPI pour me dire qu’elle n’arrive
+plus à se connecter.
+</div>
+<p>Gwen:</p>
+<ul>
+<li>il fallait l’appeler pour cibler où elle était bloquée.</li>
+<li>Puis la faire retaper son mdp en mode clair (?)</li>
+<li>Puis réinit son mdp dans l’AD</li>
+</ul>
+<p>Moi: “mode clair” ?</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="msp2.-ajouter-un-disque-sur-une-vm-en-interface-web">MSP2.
+Ajouter un disque sur une VM, en interface web</h3>
+<p>Moi: chercher de quelle interface web il peut s’agir ? ESXi ? Hyper-V
+? vSphere ?</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="msp3.">MSP3. ???</h3>
+<p>Gwen : j’ai oublié mais c’était bateau.</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h2 id="questions-techniques">Questions techniques</h2>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="q1-quelle-différence-entre-clone-et-snapshot">Q1 : quelle
+différence entre clone et snapshot</h3>
+<p>Chat:</p>
+<ul>
+<li>snapshot : copie instantannée d’un état à un moment précis. Point de
+restauration</li>
+<li>clone : copie complète et autonome d’une VM. Peut être déployé</li>
+</ul>
+<p><strong>ChatGPT</strong></p>
+<div class="is-success">
+<p>Dans VMware Workstation, les snapshots et les clones sont deux
+fonctionnalités distinctes pour la gestion des machines virtuelles.
+Voici les différences entre les deux :</p>
+<ol type="1">
+<li>Snapshot :
+<ul>
+<li>Un snapshot est une copie instantanée de l’état actuel d’une machine
+virtuelle à un moment précis. Il capture l’état de tous les fichiers,
+des paramètres, de la mémoire et des disques virtuels de la machine
+virtuelle.</li>
+<li>Les snapshots permettent de capturer un point de restauration pour
+une machine virtuelle. Vous pouvez créer un snapshot avant de faire des
+modifications majeures, telles que l’installation d’un logiciel, la
+modification des paramètres système, etc.</li>
+<li>Lorsque vous prenez un snapshot, vous pouvez continuer à travailler
+sur la machine virtuelle dans son état actuel, tandis que le snapshot
+enregistre l’état précédent. Si vous rencontrez des problèmes ou
+souhaitez revenir à l’état précédent, vous pouvez restaurer la machine
+virtuelle à partir du snapshot enregistré.</li>
+<li>Les snapshots peuvent également être utilisés pour créer une chaîne
+de snapshots, vous permettant ainsi de restaurer la machine virtuelle à
+différents points dans le temps.</li>
+</ul></li>
+<li>Clone :
+<ul>
+<li>Un clone est une copie complète et autonome d’une machine virtuelle
+existante. Il crée une réplique indépendante de la machine virtuelle
+source, y compris tous les fichiers, paramètres, disques virtuels,
+etc.</li>
+<li>Un clone peut être utilisé pour déployer rapidement plusieurs
+instances identiques d’une machine virtuelle. Chaque clone fonctionne
+indépendamment des autres, avec son propre ensemble de ressources et de
+paramètres.</li>
+<li>Contrairement aux snapshots, les clones ne sont pas liés à l’état
+actuel de la machine virtuelle source. Ils sont créés comme des machines
+virtuelles distinctes et fonctionnent de manière autonome.</li>
+<li>Les clones peuvent être personnalisés après leur création, tels que
+la modification des paramètres réseau, l’ajout de logiciels
+supplémentaires, etc.</li>
+</ul></li>
+</ol>
+En résumé, les snapshots capturent un état spécifique d’une machine
+virtuelle à un moment donné, vous permettant de revenir à cet état
+ultérieurement. Les clones sont des répliques indépendantes et autonomes
+d’une machine virtuelle, pouvant être déployées comme des instances
+distinctes. Les snapshots sont utiles pour les restaurations rapides et
+les tests, tandis que les clones sont utiles pour le déploiement de
+plusieurs instances identiques.
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="q2-comment-faites-vous-votre-veille-techno">Q2 : Comment
+faites-vous votre veille techno ?</h3>
+<p>Gwen: Veulent entendre “it-connect.fr” et savoir quels sujets
+m’intéressent</p>
+<p>Moi: twitter + inoreader</p>
+<ul>
+<li>it-connect?fr</li>
+<li>bytebytego</li>
+<li>Mathis Hammel (fondateur Codingame)</li>
+<li>Nicholas Krassas</li>
+<li>_MG</li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h2 id="notes">NOTES</h2>
+<ul>
+<li><ol type="1">
+<li>revoir ce qu’est une règle pfSense.</li>
+</ol></li>
+<li><ol start="3" type="1">
+<li>revoir syslog, serveur syslog, rsyslog</li>
+</ol></li>
+<li><ol start="4" type="1">
+<li>refaire un definition de $PATH propre et personnelle</li>
+</ol></li>
+<li><ol start="6" type="1">
+<li>tableau tcp/ip à connaître, à refaire dans drawio</li>
+</ol></li>
+<li><ol start="7" type="1">
+<li>“MDM pour mobiles” ? Ses avantages ?</li>
+</ol></li>
+<li><ol start="8" type="1">
+<li>Les types de VPN. Retrouver dans le cours.</li>
+</ol></li>
+<li><ol start="9" type="1">
+<li>Revoir cours de la vieille folle.</li>
+</ol></li>
+<li>10/11. revoir les certificats</li>
+<li><ol start="12" type="1">
+<li>DRS/HyperV ??? Relire cours virtualisation ?</li>
+</ol></li>
+<li><ol start="13" type="1">
+<li>Revoir cours RDS/WDT pour les types de déploiement</li>
+</ol></li>
+<li><ol start="14" type="1">
+<li>Analyse de trame à voir</li>
+</ol></li>
+<li><ol start="15" type="1">
+<li>Appli de prise en main à distance (facile)</li>
+</ol></li>
+<li><ol start="16" type="1">
+<li>Proxy &amp; reverse proxy</li>
+</ol></li>
+<li><ol start="17" type="1">
+<li>cable cat.6 UTP</li>
+</ol></li>
+<li><ol start="18" type="1">
+<li>revoir clé (cryptage sym/asymétrique)</li>
+</ol></li>
+<li><ol start="19" type="1">
+<li>difference remote desktop et remote app</li>
+</ol></li>
+<li><ol start="20" type="1">
+<li>revoir SLA. Me faire ma propre réponse à cette question</li>
+</ol></li>
+<li><ol start="21" type="1">
+<li>revoir de quoi a l’air une table de routage, id ip broadcast gateway
+et routeur (pas la même chose que gateway ?)</li>
+</ol></li>
+<li><ol start="22" type="1">
+<li>trouver une variable dans un script bash</li>
+</ol></li>
+<li><ol start="23" type="1">
+<li>revoir serveur déploiement ? =&gt; WDT, RDS, etc.</li>
+</ol></li>
+<li><ol start="24" type="1">
+<li>expliquer couches matérielle, revoir cours virtualisation</li>
+</ol></li>
+<li><ol start="25" type="1">
+<li>dispo des VM ? revoir cours virtualisation</li>
+</ol></li>
+<li><ol start="26" type="1">
+<li>diff type de co dans vmware : bridge, nat, host-only. Diff entre NAT
+et bridge ?</li>
+</ol></li>
+<li>MSP1: ticket glpi RAS</li>
+<li>MSP2: ajout disque à VM via interface web. Trouver laquelle</li>
+<li>MSP3: ??? mais bateau</li>
+<li>Bonus1: diff clone vs snapshot</li>
+<li>Bonus2: veille techno. Citer ses sources ! it-connect, bytebytego,
+krassas, matthieu hammel (codingame)</li>
+</ul>
+<p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/headings.css"></p>
+<style>
+.is-success {   
+    font-family: Roboto, sans-serif;
+
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-decoration: rgb(27, 94, 32);
+    text-align: start;
+    text-indent: 0px;
+    text-transform: none;
+    vertical-align: baseline;
+    white-space: normal;
+    word-spacing: 0px;
+    
+    background-attachment: scroll;
+    background-color: rgb(232, 245, 233);
+    background-image: none;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    color: rgb(27, 94, 32);
+    
+    border: ;
+    border-top: 0px none rgb(129, 199, 132);
+    border-right: 0px none rgb(129, 199, 132);
+    border-bottom: 0px none rgb(129, 199, 132);
+    border-left: 55px solid rgb(129, 199, 132);
+    margin: 16px 0px;
+    padding: 0px 16px 16px;
+    max-height: none;
+    min-height: 0px;
+    max-width: none;
+    min-width: 0px;
+    
+    position: relative;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    float: none;
+    display: block;
+    clear: none;
+    z-index: auto;
+    
+    list-style-image: none;
+    list-style-type: disc;
+    list-style-position: outside;
+    
+    border-collapse: separate;
+    border-spacing: 0px 0px;
+    caption-side: top;
+    empty-cells: show;
+    table-layout: auto;
+    
+    overflow: visible;
+    cursor: auto;
+    visibility: visible;
+    
+    transform: none;
+    transition: all 0s ease 0s;
+    box-sizing: border-box;
+    resize: none;
+    text-shadow: none;
+    text-overflow: clip;
+    word-wrap: normal;
+    box-shadow: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.is-question {  
+    font-family: Roboto, sans-serif;
+
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-decoration: rgb(13, 71, 161);
+    text-align: start;
+    text-indent: 0px;
+    text-transform: none;
+    vertical-align: baseline;
+    white-space: normal;
+    word-spacing: 0px;
+    
+    background-attachment: scroll;
+    background-color: rgb(227, 242, 253);
+    background-image: none;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    color: rgb(13, 71, 161);
+    
+    border: ;
+    border-top: 0px none rgb(100, 181, 246);
+    border-right: 0px none rgb(100, 181, 246);
+    border-bottom: 0px none rgb(100, 181, 246);
+    border-left: 55px solid rgb(100, 181, 246);
+    margin: 16px 0px;
+    padding: 0px 16px 16px;
+    max-height: none;
+    min-height: 0px;
+    max-width: none;
+    min-width: 0px;
+    
+    position: relative;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    float: none;
+    display: block;
+    clear: none;
+    z-index: auto;
+    
+    list-style-image: none;
+    list-style-type: disc;
+    list-style-position: outside;
+    
+    border-collapse: separate;
+    border-spacing: 0px 0px;
+    caption-side: top;
+    empty-cells: show;
+    table-layout: auto;
+    
+    overflow: visible;
+    cursor: auto;
+    visibility: visible;
+    
+    transform: none;
+    transition: all 0s ease 0s;
+    box-sizing: border-box;
+    resize: none;
+    text-shadow: none;
+    text-overflow: clip;
+    word-wrap: normal;
+    box-shadow: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+</style>
+</body>
+</html>

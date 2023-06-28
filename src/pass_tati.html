@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>pass_tati</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#qcm-tati">QCM Tati</a>
+<ul>
+<li><a href="#mdm">1. MDM</a></li>
+<li><a href="#politique-mdp">2. Politique mdp</a></li>
+<li><a href="#avantages-dun-outil-de-gestion-de-parc">3. Avantages d’un
+outil de gestion de parc</a></li>
+<li><a href="#avantages-dun-outil-de-gestion-dincidents">4. Avantages
+d’un outil de gestion d’incidents</a></li>
+<li><a href="#itil-différence-incident-problème">5. ITIL : différence
+incident / problème</a></li>
+<li><a href="#itil-étapes-de-résolution-dincident">6. ITIL : étapes de
+résolution d’incident</a></li>
+<li><a href="#ex.-outils-collab-syncasync">7. Ex. outils collab
+sync/async</a></li>
+<li><a href="#excel">8. Excel</a></li>
+<li><a href="#découpage-sous-réseaux">9. Découpage sous-réseaux</a></li>
+<li><a href="#sécuriser-un-réseau-sans-fil">10. Sécuriser un réseau sans
+fil</a></li>
+<li><a href="#port-switch-toip">11. Port Switch &amp; ToIP</a></li>
+<li><a href="#cisco---routes-statiques">12. Cisco - routes
+statiques</a></li>
+<li><a href="#cisco---acl">13. Cisco - ACL</a></li>
+<li><a href="#web">14. Web</a></li>
+<li><a href="#intérêt-de-mettre-à-jour-le-matériel-réseau">15. Intérêt
+de mettre à jour le matériel réseau</a></li>
+<li><a href="#hyperviseur---intérêt-cluster">16. Hyperviseur - intérêt
+cluster</a></li>
+<li><a href="#hyperviseur---outil-de-sauvegarde-de-vm">17. Hyperviseur -
+Outil de sauvegarde de VM</a></li>
+<li><a href="#hyperviseur---perf-dégradées">18. Hyperviseur - perf
+dégradées</a></li>
+<li><a href="#linux---nom-disque">19. Linux - nom disque</a></li>
+<li><a href="#linux---permissions">20. Linux - permissions</a></li>
+<li><a href="#comment-sécuriser-ssh">21. Comment sécuriser SSH</a></li>
+<li><a href="#procédure-création-master-déploiement">22. Procédure
+création master &amp; déploiement</a></li>
+<li><a href="#avantage-màj-centralisée">23. Avantage màj
+centralisée</a></li>
+<li><a href="#inconvénient-client-léger-vs-poste-fixe">24. Inconvénient
+client léger vs poste fixe</a></li>
+<li><a href="#identifier-types-de-vpn-image">25. Identifier types de VPN
+(image)</a></li>
+<li><a href="#echange-de-clés">26. Echange de clés</a></li>
+<li><a href="#texte-en-anglais-à-traduire-en-français">27. Texte en
+anglais à traduire en français</a></li>
+<li><a href="#snmp">28. SNMP</a></li>
+<li><a href="#infos-à-surveiller-sur-un-commutateur">29. Infos à
+surveiller sur un commutateur</a></li>
+<li><a href="#nagios-swap-full-critique">30. Nagios swap full
+critique</a></li>
+<li><a href="#paas-iaas-saas-schéma-à-compléter">31. PaaS IaaS SaaS
+(schéma à compléter)</a></li>
+<li><a href="#iaas-vs-paas">32. IaaS vs PaaS</a></li>
+</ul></li>
+<li><a href="#msp-tati">MSP Tati</a>
+<ul>
+<li><a href="#intervention-sur-le-serveur-ad">1. Intervention sur le
+serveur AD</a></li>
+<li><a href="#adaptation-de-scripts">2. Adaptation de scripts</a></li>
+<li><a href="#intervention-sur-serveur-linux">3. Intervention sur
+serveur Linux</a></li>
+<li><a href="#téléphonie">4. Téléphonie</a></li>
+</ul></li>
+</ul>
+</nav>
+<p><span id="toc"></span></p>
+<h2 id="qcm-tati">QCM Tati</h2>
+<h3 id="mdm">1. MDM</h3>
+<div class="is-question">
+<p>Outil centralisé de gestion d’équipement mobiles MDM : pour quoi
+faire + exemple</p>
+</div>
+<p>=&gt; Intune, Microsoft Endpoint Manager [A VERIFIER]</p>
+<ul>
+<li>Déployer des mobiles rapidement</li>
+<li>Facilite le déploiement et la mise à jour des applications</li>
+<li>Réaffecte les mobiles simplement (aidé d’une solution de déploiement
+automatisé)</li>
+<li>Sécurise l’accès aux données de l’entreprise</li>
+<li>Déploie des applications approuvées pour se prémunir des contenus
+malveillants</li>
+<li>Impose le verrouillage automatique des terminaux</li>
+<li>Restreint les connections automatiques des terminaux</li>
+<li>Restreint les connections wifi aux points d’accès autorisés</li>
+<li>Protège les données entreprise dans le cadre du BYOD</li>
+<li>Rend étanche l’espace professionnel et le personnel</li>
+<li>Réduit les coûts</li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="politique-mdp">2. Politique mdp</h3>
+<div class="is-question">
+<p>Sécuriser les accès par mot de passe en entreprise + politique à
+mettre en place</p>
+</div>
+<ul>
+<li>Au moins 8 caractères. L’ANSSI recommande une longueur minimum de 12
+caractères.</li>
+<li>Des caractères spéciaux ex. ponctuation</li>
+<li>Des chiffres</li>
+<li>Des majuscules, minuscules</li>
+</ul>
+<p><strong>ChatGPT</strong></p>
+<div class="chat">
+<ul>
+<li>Complexité des mdp</li>
+<li>Renouvellement régulier</li>
+<li>Authentification à 2 facteurs (2FA)</li>
+<li>Verrouillage auto des compte après un certain nombre de connections
+infructueuse</li>
+<li>Sensibilisation à la sécurité</li>
+</ul>
+<p>[BS MODE ACTIVATED]</p>
+<ul>
+<li>Gestion des privilèges de manière granulaire</li>
+<li>Stockage sécurisé des mots de passe</li>
+<li>Surveillance des activités suspectes (ex. journaux d’audit, alertes
+sur tentatives d’accès non autorisées)</li>
+<li>Politique mdp par défaut à changer, utilisateur doit changer son mdp
+dès sa première connection</li>
+<li>Éducation continue (informer aux dernieres menaces, sensibilisation
+à l’ingénierie sociale, meilleure pratique)</li>
+</ul>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="avantages-dun-outil-de-gestion-de-parc">3. Avantages d’un outil
+de gestion de parc</h3>
+<div class="is-question">
+<p>Avantages d’un outil de gestion de parc</p>
+</div>
+<ul>
+<li>Diminution du temps de gestion</li>
+<li>Meilleure organisation</li>
+<li>Réduction des pertes</li>
+<li>Amélioration de la comptabilité de ressources</li>
+<li>Surveillance de l’état du parc informatique</li>
+<li>Prévention de pannes</li>
+</ul>
+<div class="chat">
+<ul>
+<li>Centralisation des informations</li>
+<li>Suivi et inventaire précis</li>
+<li>Optimisation des ressources : en identifiant les équipements
+sous-utilisés ou inutilisé</li>
+<li>Maintenance proactive : fournit des alertes sur les mises à
+jour</li>
+<li>Gestion des licences</li>
+<li>Sécurité renforcée : facilite la gestion des correctifs de sécurité,
+des politiques de mots de passe (?)</li>
+<li>Suivi des garanties et contrats : gestion efficace des problèmes et
+des remplacements</li>
+<li>Rapport et analyses : sur les performances, les cours, les tendances
+d’utilisation, etc.</li>
+<li>Automatisation des tâches : ex. le déploiement de logiciel (ah bon
+?), les mises à jour et les sauvegardes (efficacité opérationnelle)</li>
+<li>Amélioration de la productivité : en réduisant le temps consacré à
+la gestion manuelle des actifs informatiques</li>
+</ul>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="avantages-dun-outil-de-gestion-dincidents">4. Avantages d’un
+outil de gestion d’incidents</h3>
+<div class="is-question">
+<p>Avantages d’un outil de gestion d’incidents</p>
+</div>
+<ul>
+<li>Des opérations de travail fluides</li>
+<li>Une meilleure productivité</li>
+<li>Des utilisateurs finaux satisfaits</li>
+<li>Identification et prévention proactives des incidents majeurs</li>
+</ul>
+<div class="chat">
+<ul>
+<li>Traçabilité et suivi des incidents</li>
+<li>Réduction des temps d’arrêt</li>
+<li>Priorisation des incidents</li>
+<li>Collaboration et communication améliorées</li>
+<li>Suivi des délais de résolution : garantit le respect des objectifs
+de niveau de service (SLA)</li>
+<li>Base de connaissance</li>
+<li>Automatisation des processus</li>
+<li>Analyse et rapports</li>
+<li>Amélioration continue</li>
+<li>Satisfaction des utilisateurs</li>
+</ul>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="itil-différence-incident-problème">5. ITIL : différence incident
+/ problème</h3>
+<div class="is-question">
+<p>Quelle différence entre incident et problème ?</p>
+</div>
+<p>Un <strong>incident</strong> est une <u>dégradation ou
+interruption</u> imprévue du service ou réduction de la qualité du
+service et de la productivité des clients. Il y a donc une incidence sur
+le service fourni.</p>
+<p>Un <strong>problème</strong> est la <u>source</u> d’un ou plusieurs
+incidents dont la cause fondamentale est inconnue.</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="itil-étapes-de-résolution-dincident">6. ITIL : étapes de
+résolution d’incident</h3>
+<div class="is-question">
+<p>Quelles sont les étapes de résolution d’incident dans une
+communication téléphonique</p>
+</div>
+<ol type="1">
+<li>enregistrement de l’incident</li>
+<li>catégorisation</li>
+<li>hiérarchisation</li>
+<li>affectation</li>
+<li>création et gestion d’une tâche</li>
+<li>gestion de SLA et réaffectation</li>
+<li>résolution</li>
+<li>fermeture de l’incident</li>
+</ol>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="ex.-outils-collab-syncasync">7. Ex. outils collab
+sync/async</h3>
+<div class="is-question">
+<p>Exemples d’outils collaboratifs synchrone / asynchrone</p>
+</div>
+<p><strong>Asynchrone</strong> : courrier électronique, forums, liste de
+diffusion (Outlook)</p>
+<p><strong>Synchrone</strong> : visioconf, chat, voip, messagerie
+instantanné (Teams)</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="excel">8. Excel</h3>
+<div class="is-question">
+<p>formule avec une cellule en forme <code>$H$1</code></p>
+</div>
+<p>Pour “fixer” la cellule</p>
+<p><strong>Moi</strong></p>
+<p>Le signe <code>$</code> permet de verrouiller la référence. Ainsi la
+formule restera toujours liée à la cellule H1 quel que soit la cellule
+dans laquelle la formule est copiée ou déplacée.</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="découpage-sous-réseaux">9. Découpage sous-réseaux</h3>
+<div class="is-question">
+<p>Découper le réseau 192.168.20.128/25 en 4 sous-réseaux avec les
+adresses de sous-réseaux, le masque, la première adresse d’hôte et les
+broadcast pour 2 premiers sous-réseaux.</p>
+</div>
+<p><strong>Moi</strong></p>
+<ul>
+<li>4 sous-réseaux = sur 2 bits (2^2 = 4)</li>
+<li>Reste 5 bits pour les ip, donc 2^5 = 32 ip par réseau</li>
+<li>SR1 = 192.168.20.128/27 (Attention au /27 ! – faut le voir en
+binaire)</li>
+<li>SR2 = 192.168.20.160/27 (+32)</li>
+<li>SR3 = 192.168.20.192/27 (+32)</li>
+<li>SR4 = 192.168.20.224/27 (+32)</li>
+<li>Après pour la 1e IP et le broadcast, c’est facile en partant de
+ça.</li>
+</ul>
+<p>Donc formules :</p>
+<ul>
+<li><strong>2^n = x sous-réseaux</strong>, avec n=le nb de bits
+nécessaires pour faire 4 réseaux (voir en binaire)</li>
+<li><strong>2^resteBits = nb d’ip dans chaque sous réseau</strong></li>
+<li>Autrement dit : <strong>2^(32 - cidr - n)</strong>, ex. 2^(32-25-2)
+= 2^(32-27) = 2^5 = 32 adr ip</li>
+</ul>
+<p><strong>ChatGPT</strong></p>
+<div class="chat">
+<p>Pour découper le réseau 192.168.20.128/25 en 4 sous-réseaux, vous
+pouvez suivre les étapes suivantes :</p>
+<ol type="1">
+<li>Déterminer le nombre de bits de sous-réseau nécessaires :
+<ul>
+<li>Pour diviser le réseau en 4 sous-réseaux, vous aurez besoin de 2
+bits de sous-réseau (2^2 = 4).</li>
+</ul></li>
+<li>Calculer la nouvelle longueur du masque de sous-réseau :
+<ul>
+<li>Le masque de sous-réseau initial est /25, ce qui signifie qu’il y a
+25 bits réservés pour l’adresse réseau.</li>
+<li>Pour créer 4 sous-réseaux, vous ajouterez 2 bits de sous-réseau, ce
+qui portera la longueur du masque de sous-réseau à /27 (/25 + 2 =
+/27).</li>
+</ul></li>
+<li>Répartir les adresses IP disponibles :
+<ul>
+<li>Avec le masque de sous-réseau /27, chaque sous-réseau aura 32
+adresses IP disponibles.</li>
+<li>Calculez les plages d’adresses IP pour chaque sous-réseau en
+incrémentant l’octet de l’adresse réseau de 32 à chaque fois.
+<ul>
+<li>Sous-réseau 1 : 192.168.20.128/27 (plage d’adresses : 192.168.20.129
+- 192.168.20.158)</li>
+<li>Sous-réseau 2 : 192.168.20.160/27 (plage d’adresses : 192.168.20.161
+- 192.168.20.190)</li>
+<li>Sous-réseau 3 : 192.168.20.192/27 (plage d’adresses : 192.168.20.193
+- 192.168.20.222)</li>
+<li>Sous-réseau 4 : 192.168.20.224/27 (plage d’adresses : 192.168.20.225
+- 192.168.20.254)</li>
+</ul></li>
+</ul></li>
+</ol>
+<p>Assurez-vous de réserver l’adresse réseau et l’adresse de diffusion
+pour chaque sous-réseau et d’allouer les adresses restantes pour les
+périphériques réseau.</p>
+<p>Notez que cette méthode divise le réseau en sous-réseaux de taille
+égale. Si vous avez besoin d’une répartition différente des adresses IP,
+vous pouvez ajuster les plages en conséquence.</p>
+</div>
+<ul>
+<li>SR1 :
+<ul>
+<li>SR1 : 192.168.20.128/27</li>
+<li>IP1 : 192.168.20.129 - …</li>
+<li>MSK : 255.255.255.224</li>
+<li>BDT : 192.168.20.159</li>
+</ul></li>
+<li>SR2 :
+<ul>
+<li>SR2 : 192.168.20.160/27</li>
+<li>IP2 : 192.168.20.161 - …</li>
+<li>MSK : 255.255.255.224</li>
+<li>BDT : 192.168.20.191</li>
+</ul></li>
+</ul>
+<p>[A REVOIR]</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="sécuriser-un-réseau-sans-fil">10. Sécuriser un réseau sans
+fil</h3>
+<div class="is-question">
+<p>Comment sécuriser un réseau sans fil ?</p>
+</div>
+<ul>
+<li>Changer le mot de passe utilisateur du routeur wifi</li>
+<li>L’accès à l’utilitaire de configuration est sécurisé par login &amp;
+mdp</li>
+<li>Définir le nom du réseau (SSID)</li>
+<li>Activer le cryptage du réseau (clé de sécurité)</li>
+<li>Filter les adresses MAC</li>
+</ul>
+<div class="chat">
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+Chiffrement du réseau</li>
+<li><input type="checkbox" disabled="" checked="" />
+Mot de passe fort pour le réseau wifi</li>
+<li><input type="checkbox" disabled="" />
+SSID masqué</li>
+<li><input type="checkbox" disabled="" checked="" />
+Filtrage des adresses MAC</li>
+<li><input type="checkbox" disabled="" />
+Désactivation des services inutiles</li>
+<li><input type="checkbox" disabled="" />
+Mise à jour régulière</li>
+<li><input type="checkbox" disabled="" />
+Activer un pare-feu sur le routeur</li>
+<li><input type="checkbox" disabled="" />
+Réseau invité afin d’isoler le trafic des invités du réseau interne</li>
+<li><input type="checkbox" disabled="" />
+Surveillance du réseau</li>
+<li><input type="checkbox" disabled="" />
+Sensibilisation des utilisateurs (?)</li>
+</ul>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="port-switch-toip">11. Port Switch &amp; ToIP</h3>
+<div class="is-question">
+<p>Sur quel port du switch plugger tél IP avec chargeur PoE ou pas</p>
+</div>
+<p>En principe, sur tous… selon les besoins en électricité</p>
+<div class="chat">
+<ul>
+<li>S’assurer que le switch prenne en charge la fonctionnalité PoE
+(Power over Ethernet)</li>
+<li>Les ports PoE sont généralement marqués PoE (ou PoE+) ou avec le
+symbole du PoE</li>
+<li>Certains switchs peuvent avoir tous leurs ports compatibles PoE,
+d’autres peuvent en avoir seulement quelques uns désignés.</li>
+</ul>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="cisco---routes-statiques">12. Cisco - routes statiques</h3>
+<div class="is-question">
+<p>Packet Tracer : Routes statiques à ajouter sur routeur central pour
+communication entre PC0 et PC3</p>
+</div>
+<p><a href=".ressources/img/t17.png"><img src=".ressources/img/t17.png"
+alt="17" /></a></p>
+<pre class="cisco"><code>ip route 192.168.1.0 255.255.255.0 10.10.10.1
+ip route 192.168.2.0 255.255.255.0 10.10.10.2</code></pre>
+<p>[REVOIR ROUTE STATIQUE DANS PT]</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="cisco---acl">13. Cisco - ACL</h3>
+<div class="is-question">
+<p>Rôle ACL 101 (www + 443 pour une ip externe)</p>
+</div>
+<pre>access-list 101 deny host 10.0.0.1 host 10.10.0.1 eq www
+access-list 101 deny host 10.0.0.1 host 10.10.0.1 eq 443
+access-list 101 permit ip any any</pre>
+<p>Interdire l’accès de l’ip 10.0.0.1 à 10.10.0.1 via les ports définis
+et autoriser le reste :</p>
+<p><a href=".ressources/img/t18.png"><img src=".ressources/img/t18.png"
+alt="18" /></a></p>
+<p><strong>Moi</strong> : Faut dire ce que fait la commande ???</p>
+<ul>
+<li>La première interdit tout trafic provenant de l’adresse 10.0.0.1
+vers l’adresse 10.10.0.1 sur le port 80 (HTTP)</li>
+<li>La seconde interdit tout trafic provenant de l’adresse 10.0.0.1 vers
+l’adresse 10.10.0.1 sur le port 443 (HTTPS)</li>
+<li>La dernière autorise tout autre trafic. Cette commande est à la fin
+car les commandes sont exécutées de manière séquentielle.</li>
+</ul>
+<div class="chat">
+<p>Cette séquence de commandes Cisco configure une liste de contrôle
+d’accès (ACL) numérotée 101. Voici ce que chaque ligne de commande
+signifie :</p>
+<ol type="1">
+<li><p><code>access-list 101 deny host 10.0.0.1 host 10.10.0.1 eq www</code>
+: Cette commande indique que tout trafic provenant de l’adresse IP
+source 10.0.0.1 et destiné à l’adresse IP de destination 10.10.0.1 sur
+le port www (80) est interdit (bloqué).</p></li>
+<li><p><code>access-list 101 deny host 10.0.0.1 host 10.10.0.1 eq 443</code>
+: Cette commande indique que tout trafic provenant de l’adresse IP
+source 10.0.0.1 et destiné à l’adresse IP de destination 10.10.0.1 sur
+le port 443 (HTTPS) est interdit (bloqué).</p></li>
+<li><p><code>access-list 101 permit ip any any</code> : Cette commande
+autorise tout autre trafic IP provenant de n’importe quelle source et
+destiné à n’importe quelle destination. Cela permet de permettre le
+trafic non spécifié dans les deux règles de refus précédentes.</p></li>
+</ol>
+<p>En résumé, cette liste de contrôle d’accès (ACL) numéro 101 bloque
+spécifiquement le trafic provenant de l’adresse IP 10.0.0.1 et destiné à
+l’adresse IP 10.10.0.1 sur les ports www (80) et 443 (HTTPS), tandis que
+tout autre trafic IP est autorisé.</p>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="web">14. Web</h3>
+<div class="is-question">
+<p>Comment accéder au server HTTPS de façon sécurisée depuis internet
+?</p>
+<p>(schéma avec internet + firewall + DMZ + serveur interne)</p>
+</div>
+<ul>
+<li>Il faut faire du NAT au niveau du pare-feu, puis éventuellement des
+ACL.</li>
+<li>Le site internet devra être certifié par une authorité de
+certification publique, ou à défaut par un certificat numérique
+autosigné.</li>
+</ul>
+<p><strong>Moi</strong> : pas de reverse-proxy ?</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="intérêt-de-mettre-à-jour-le-matériel-réseau">15. Intérêt de
+mettre à jour le matériel réseau</h3>
+<div class="is-question">
+<p>Quel est l’intérêt de mettre à jour le firmware d’un matériel réseau
+?</p>
+</div>
+<ul>
+<li>Correction d’une faille de sécurité, un problème technique, de
+comptabilité ou de fonctionnement important</li>
+<li>Améliore les performances</li>
+<li>Apporte de nouvelles fonctionnalités</li>
+</ul>
+<div class="chat">
+<ul>
+<li>Correction d’une faille de sécurité</li>
+<li>Amélioration des fonctionnalités</li>
+<li>Correction des bugs et des problèmes de compatibilité</li>
+<li>Conformité aux normes et aux protocoles</li>
+<li>Optimisation des performances</li>
+</ul>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="hyperviseur---intérêt-cluster">16. Hyperviseur - intérêt
+cluster</h3>
+<div class="is-question">
+<p>Quel est l’intérêt de mettre des hyperviseurs en cluster ?</p>
+</div>
+<ul>
+<li>Haute disponibilité</li>
+<li>Tolérance aux pannes</li>
+<li>Sécurisation des données</li>
+<li>Répartition de la charge</li>
+</ul>
+<p><strong>Moi</strong></p>
+<ul>
+<li>Partage des ressources</li>
+<li>Répartition de la charge</li>
+<li>…</li>
+</ul>
+<p><strong>IMPORTANT ! REVOIR LA DEFINITION DE “HAUTE
+DISPONIBILITÉ</strong></p>
+<p><strong>ChatGPT</strong></p>
+<div class="chat">
+<p>Mettre des hyperviseurs en cluster présente plusieurs avantages
+significatifs :</p>
+<ol type="1">
+<li><p>Haute disponibilité : les machines virtuelles peuvent être
+réparties sur plusieurs nœuds physiques. En cas de défaillance
+matérielle ou d’incident sur un nœud, les machines virtuelles peuvent
+être automatiquement migrées vers d’autres nœuds du cluster, assurant
+ainsi une haute disponibilité des services sans interruption.</p></li>
+<li><p>Tolérance aux pannes : Grâce à la fonctionnalité de migration en
+temps réel, les hyperviseurs en cluster peuvent détecter les pannes
+matérielles ou les problèmes de performances sur un nœud spécifique. Les
+machines virtuelles peuvent être rapidement déplacées vers d’autres
+nœuds fonctionnels, garantissant ainsi la continuité des opérations sans
+interruption de service.</p></li>
+<li><p>Équilibrage de charge entre les noeuds du cluster : Cela optimise
+l’utilisation des ressources et évite la surcharge d’un seul nœud,
+assurant ainsi des performances équilibrées et une utilisation efficace
+des ressources disponibles.</p></li>
+<li><p>Gestion centralisée : Les administrateurs peuvent utiliser une
+console de gestion commune pour déployer, surveiller et administrer les
+machines virtuelles réparties sur différents nœuds, simplifiant ainsi la
+gestion et réduisant la complexité opérationnelle.</p></li>
+<li><p>Évolutivité : L’ajout de nouveaux nœuds à un cluster
+d’hyperviseurs permet d’augmenter la capacité de calcul et de stockage
+disponible pour les machines virtuelles. Cela permet de faire face à la
+croissance des besoins en ressources sans perturber les opérations
+existantes, offrant ainsi une évolutivité flexible et rapide.</p></li>
+<li><p>Maintenance planifiée sans interruption : Les machines virtuelles
+peuvent être migrées en douceur vers d’autres nœuds du cluster avant la
+maintenance, évitant ainsi les temps d’arrêt prévus et assurant la
+continuité des opérations.</p></li>
+<li><p>Récupération après sinistre : En répliquant les machines
+virtuelles sur des nœuds distants ou des sites géographiquement séparés,
+le cluster offre une redondance géographique et permet la reprise rapide
+des services en cas de catastrophe ou de panne majeure.</p></li>
+</ol>
+<p>En combinant ces avantages, la mise en place d’un cluster
+d’hyperviseurs offre une infrastructure robuste, flexible et résiliente
+pour les environnements de virtualisation, garantissant une
+disponibilité élevée, une tolérance aux pannes et une gestion efficace
+des ressources.</p>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="hyperviseur---outil-de-sauvegarde-de-vm">17. Hyperviseur - Outil
+de sauvegarde de VM</h3>
+<div class="is-question">
+<p>Citer un outil de sauvegarde de VM depuis un hyperviseur ?</p>
+</div>
+<ul>
+<li>Veeam pour Hyper-v</li>
+<li>Hyper-V Backup</li>
+<li>UCover pour Hyper-V et VMware ESXi</li>
+</ul>
+<p><strong>ChatGPT</strong></p>
+<div class="chat">
+<p>Un outil populaire de sauvegarde de machines virtuelles depuis un
+hyperviseur est <strong>Veeam Backup &amp; Replication</strong>. Il
+offre des fonctionnalités avancées de sauvegarde, de restauration et de
+réplication pour les environnements virtuels, prenant en charge
+différents hyperviseurs tels que VMware vSphere et Microsoft
+Hyper-V.</p>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="hyperviseur---perf-dégradées">18. Hyperviseur - perf
+dégradées</h3>
+<div class="is-question">
+<p>Dans un cluster d’hyperviseurs, un d’eux affiche des performances
+dégradées (ou charge élevée). Quelle serait la solution ?</p>
+</div>
+<p>=&gt; Basculer les vm sur un autre hyperviseur</p>
+<p>Le problème peut venir de l’état de dégradation du cluster. Regarder
+les events, les alarmes, les logs, etc. Ca peut être d’un défaillance
+matérielle ou une islation de réseau (?). Verifier si le noeud
+défaillant est mis sous tension.</p>
+<p>Peut être une défaillance de la réplication…</p>
+<p><strong>Moi</strong> : gné?!</p>
+<p><strong>ChatGPT</strong></p>
+<div class="chat">
+<p>Si l’un des nœuds d’un cluster d’hyperviseurs affiche des
+performances dégradées ou une charge élevée, voici quelques solutions
+possibles :</p>
+<ol type="1">
+<li><p>Équilibrage de charge : Vérifiez si la charge de travail est
+répartie de manière équilibrée entre les nœuds du cluster. Vous pouvez
+déplacer certaines machines virtuelles d’un nœud surchargé vers d’autres
+nœuds moins sollicités afin de répartir la charge de manière plus
+équitable.</p></li>
+<li><p>Allocation de ressources : Assurez-vous que les ressources telles
+que le CPU, la mémoire et le stockage sont correctement allouées aux
+machines virtuelles. Réévaluez et ajustez si nécessaire les allocations
+de ressources pour répondre aux besoins spécifiques des machines
+virtuelles et réduire la charge sur le nœud affecté.</p></li>
+<li><p>Identification des goulots d’étranglement : Analysez les
+performances du nœud affecté pour identifier les goulots d’étranglement
+potentiels. Cela peut inclure des ressources spécifiques surchargées,
+des processus ou des machines virtuelles consommant excessivement des
+ressources. Une fois identifiés, vous pouvez prendre des mesures pour
+optimiser l’utilisation des ressources ou ajuster les
+configurations.</p></li>
+<li><p>Mise à jour du matériel ou de l’infrastructure : Si les
+performances dégradées persistent malgré les ajustements, envisagez
+d’examiner le matériel sous-jacent ou l’infrastructure réseau. Il est
+possible que des mises à niveau matérielles, des correctifs de
+micrologiciels ou des optimisations du réseau soient nécessaires pour
+améliorer les performances globales du cluster.</p></li>
+<li><p>Surveiller et diagnostiquer : Utilisez des outils de surveillance
+et de diagnostic pour suivre les performances du nœud affecté et
+identifier les problèmes potentiels. Cela peut inclure des outils
+fournis par votre plateforme d’hyperviseur ou des solutions tierces. Les
+données de surveillance peuvent aider à identifier les goulots
+d’étranglement et à prendre des mesures appropriées.</p></li>
+<li><p>Planification des opérations : Si la charge élevée est due à des
+opérations spécifiques, telles que des sauvegardes, des migrations ou
+des mises à jour, assurez-vous de les planifier de manière à minimiser
+l’impact sur les performances du nœud et des autres machines virtuelles
+du cluster.</p></li>
+</ol>
+<p>En appliquant ces mesures, vous devriez être en mesure de résoudre
+les problèmes de performances dégradées ou de charge élevée sur un nœud
+spécifique d’un cluster d’hyperviseurs, assurant ainsi un équilibre
+optimal des ressources et une continuité des opérations efficace.</p>
+</div>
+<p><strong>Résumé</strong></p>
+<ul>
+<li>Equilibrage des charges</li>
+<li>Allocation de ressources</li>
+<li>Identification des goulots d’étranglement</li>
+<li>Mise à jour du matériel ou de l’infra</li>
+<li>Surveiller et diagnostiquer</li>
+<li>Planification des opérations</li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="linux---nom-disque">19. Linux - nom disque</h3>
+<div class="is-question">
+<p>Si on ajoute un nouveau disque (voir image), quel sera son nom ?</p>
+</div>
+<p><a href=".ressources/img/t19png"><img src=".ressources/img/t19.png"
+alt="19" /></a></p>
+<p>Si c’est un nouveau disque physique, le nouveau nom sera
+<code>/dev/sdb</code>.</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="linux---permissions">20. Linux - permissions</h3>
+<div class="is-question">
+<p>Sous Linux, un utilisateur n’a pas d’accès à un répertoire
+(<code>ls -l .. permission denied</code>). Quel est le problème et
+quelle serait la solution ?</p>
+</div>
+<p><strong>tati</strong> :</p>
+<p>Il n’a pas les droits d’accès au répertoire. Solution :
+<code>sudo chmod</code> sur le repertoire, ou ajout à un groupe
+adapté.</p>
+<p><strong>Moi</strong> :</p>
+<ul>
+<li>Voir les permissions, si possible</li>
+<li>Voir le proprio du groupe, lui demander de donner au moins les
+permissions en lecture/execution à <code>other</code> (sudo chmod o+rx
+-R mondossier)</li>
+<li>Sinon ajouter l’utilisateur au groupe propriétaire du
+répertoire</li>
+</ul>
+<p><strong>Re-Moi (après tests)</strong></p>
+<p>Problème : l’utilisateur n’a pas les droits en lecture et en
+execution qui lui permettraient de lister le contenu du répertoire.</p>
+<p>3 Solutions : disons que c’est l’utilisateur <code>toto</code> qui
+veut accéder au dossier appartenant à <code>www-data:www-data</code></p>
+<ol type="1">
+<li>Ajouter “toto” au groupe propriétaire du dossier</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-g</span> www-data toto</span></code></pre></div>
+<ol start="2" type="1">
+<li>Modifier les droits d’accès “other” du répertoire</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod o+rx foo/</span></code></pre></div>
+<ol start="3" type="1">
+<li>Modifier le ownership du groupe pour le donner au groupe de
+“toto”</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chown :toto foo/</span></code></pre></div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="comment-sécuriser-ssh">21. Comment sécuriser SSH</h3>
+<div class="is-question">
+<p>Comment sécuriser une connection SSH ?</p>
+</div>
+<ul>
+<li>Changer le port par défaut</li>
+<li>Donner des adresses ip pour permission</li>
+<li>Modifier le temps de changement de clé de chiffrement</li>
+<li>Authentification multi-facteur</li>
+</ul>
+<div class="chat">
+<ul>
+<li>Utiliser des clés d’authentification: Au lieu d’utiliser uniquement
+des mots de passe, configurez l’authentification basée sur des clés SSH.
+Générez une paire de clés (une clé publique et une clé privée) sur votre
+ordinateur local, et ajoutez la clé publique au fichier authorized_keys
+sur le serveur distant. Cela rend l’authentification plus forte et
+élimine les risques liés aux mots de passe.</li>
+<li>Désactiver l’accès root</li>
+<li><input type="checkbox" disabled="" checked="" />
+Utiliser des ports non standards</li>
+<li><input type="checkbox" disabled="" checked="" />
+Utiliser des règles de pare-feu: limiter les connections à certaines
+adresses IP</li>
+<li>Mettre à jour régulièrement SSH</li>
+<li>Surveiller les journaux d’authentification: activer la
+journalisation des events d’authentification SSH</li>
+<li>Limiter les droits des utilisateurs</li>
+<li>Utiliser un logiciel de detection d’intrusion</li>
+</ul>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="procédure-création-master-déploiement">22. Procédure création
+master &amp; déploiement</h3>
+<div class="is-question">
+<p>Décrivez une procédure de création d’un master et son
+déploiement.</p>
+</div>
+<ul>
+<li>Préparation de l’OS sur le serveur de déploiement avec les .wim et
+redémarrage de la machine pour boot UEFI en PXE (Pre boot eXecution
+Environment)</li>
+<li>Préparation de l’OS hôte, installation de logiciels, des pilotes,
+redémarrage de la machine pour boot en PXE sur un env de prévoit type
+WinPE.</li>
+<li>Séléction de l’image de capture distribuée par le serveur WDS
+(sysprep et capture)</li>
+<li>Ajout de cette image dans le deployment share WDS</li>
+<li>Mise à jour du deployment share</li>
+<li>Création d’une séquence de tach approprié</li>
+<li>Boot d’un machine hôte en PXE</li>
+<li>Selection du nouveau master à déployer</li>
+</ul>
+<p><strong>Moi</strong> : gné?!</p>
+<p><strong>ChatGPT</strong></p>
+<div class="chat">
+<p>Voici une procédure de base pour la création d’un master et son
+déploiement en utilisant Sysprep :</p>
+<ol type="1">
+<li>Configuration du master :
+<ul>
+<li>Installez le système d’exploitation sur une machine dédiée qui
+servira de master.</li>
+<li>Personnalisez le système d’exploitation en installant les logiciels,
+les pilotes et les paramètres de configuration spécifiques requis.</li>
+<li>Effectuez toutes les configurations nécessaires, telles que les
+paramètres réseau, les politiques de sécurité, les paramètres régionaux,
+etc.</li>
+<li>Ne rejoignez pas le master à un domaine pour éviter les conflits
+lors du déploiement sur d’autres machines.</li>
+</ul></li>
+<li>Utilisation de Sysprep :
+<ul>
+<li>Exécutez l’outil Sysprep fourni par le système d’exploitation sur le
+master. Sysprep prépare le système pour la duplication et le déploiement
+sur d’autres machines.</li>
+<li>Sélectionnez les options appropriées dans Sysprep pour généraliser
+le système, supprimer les informations spécifiques au master, tels que
+le nom d’utilisateur, les SID (Security Identifiers), les clés de
+produit, etc.</li>
+<li>Configurez Sysprep pour arrêter le système après le traitement.</li>
+</ul></li>
+<li>Capture de l’image du master :
+<ul>
+<li>Utilisez un outil de capture d’image, tel que Windows Deployment
+Services (WDS), Microsoft Deployment Toolkit (MDT), ou un logiciel tiers
+tel que Clonezilla, pour capturer l’image du master.</li>
+<li>Suivez les étapes de l’outil de capture d’image pour créer une image
+du système d’exploitation généralisé et prêt à être déployé.</li>
+</ul></li>
+<li>Déploiement des instances :
+<ul>
+<li>Utilisez l’image capturée pour déployer des instances
+supplémentaires.</li>
+<li>Utilisez à nouveau l’outil de déploiement ou la méthode de votre
+choix pour déployer l’image sur d’autres machines.</li>
+<li>Lors du déploiement, chaque instance nouvellement créée sera
+configurée avec des paramètres uniques, tels que le nom de l’ordinateur,
+l’adresse IP, etc.</li>
+</ul></li>
+<li>Personnalisation des instances déployées :
+<ul>
+<li>Une fois les instances déployées, personnalisez-les en fonction des
+besoins spécifiques. Cela peut inclure la configuration des paramètres
+réseau, l’installation de logiciels supplémentaires, l’ajout aux
+domaines, etc.</li>
+</ul></li>
+<li>Maintenance continue :
+<ul>
+<li>Assurez-vous de maintenir et de mettre à jour régulièrement le
+master et les instances déployées. Cela inclut l’application des
+correctifs de sécurité, les mises à jour logicielles et la surveillance
+des performances.</li>
+</ul></li>
+</ol>
+<p>L’utilisation de Sysprep simplifie le déploiement en permettant de
+créer une image généralisée du système d’exploitation qui peut être
+déployée sur d’autres machines avec des paramètres personnalisés. Cela
+facilite la gestion et la mise à l’échelle des déploiements.</p>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="avantage-màj-centralisée">23. Avantage màj centralisée</h3>
+<div class="is-question">
+<p>Quels sont les avantages d’un service de mise à jour centralisé ?</p>
+</div>
+<ul>
+<li>Contribue à la protection des données sensibles qui circulent sur le
+réseau de l’entreprise</li>
+<li>Réduit le coût poour les matériels et les logiciels matériaux</li>
+<li>Diminue le coût global d’exploitation et de MCO (Maintien en
+Condition Opérationnelle) du parc des serveurs</li>
+</ul>
+<div class="chat">
+<ol type="1">
+<li>Gestion simplifiée : une seule interface to rule them all</li>
+<li>Gain de temps : màj peuvent être déployées simultanément sur
+plusieurs systèmes</li>
+<li>Cohérence et uniformité : mêmes màj pour tout le monde</li>
+<li>Sécurité renforcée : màj récentes pour tous = faille sécurité patché
+plus tôt pour tous</li>
+<li>Suivi et conformité : une seule interface permet de suivre
+facilement, mise en conformité plus simple (derniers patchs)</li>
+<li>Réduction des interruptions : màj peuvent être planifiée de façon à
+minimiser les interruptions de service</li>
+<li>Economie de bande passante : les màj sont téléchargées une seule
+fois sur un emplacement centralisé puis distribuées aux systèmes
+internes.</li>
+</ol>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="inconvénient-client-léger-vs-poste-fixe">24. Inconvénient client
+léger vs poste fixe</h3>
+<div class="is-question">
+<p>Quels sont les inconvénients d’un terminal léger comparé à un poste
+fixe ?</p>
+</div>
+<ul>
+<li>Consommation réseau importante</li>
+<li>Non applicable à tous les logiciels</li>
+<li>Achat d’un serveur</li>
+</ul>
+<p><strong>ChatGPT</strong></p>
+<div class="chat">
+<ol type="1">
+<li>Dépendance réseau : les terminaux légers ont impérativement besoin
+d’une connection réseau pour accéder aux applications et aux
+données</li>
+<li>Performance limitée : les terminaux légers ont généralement une
+puissance de traitement et des capacités de stockage limitées par
+rapport à un poste fixe</li>
+<li>Dépendance du serveur : les TL reposent sur un serveur centralisé
+pour le traitement des applications. Si le serveur rencontre des
+problèmes, cela impacte tous les TL.</li>
+<li>Dépendance des application : les TL peuvent avoir des limitations en
+termes de compatibilité avec certaines applications ou logiciels
+spécifiques.</li>
+<li>Cout initial plus élevé ? les TL sont moins chers que les PF à
+l’achat mais nécessite un serveur centralisé robuste et des infra
+réseaux solides, ce qui peut entraîner des coûts supplémentaires que
+n’ont pas les PF</li>
+</ol>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="identifier-types-de-vpn-image">25. Identifier types de VPN
+(image)</h3>
+<div class="is-question">
+<p>Quels sont les types de VPN ? (voir image)</p>
+</div>
+<p><a href=".ressources/img/t20.png"><img src=".ressources/img/t20.png"
+alt="20" /></a></p>
+<p>Celui du haut = VPN Nomade Celui du bas = VPN Site-to-Site</p>
+<p><strong>ChatGPT</strong> (Hors-Sujet)</p>
+<div class="chat">
+<ol type="1">
+<li>VPN d’accès à distance (Remote Access VPN) : des utilisateurs
+individuels de se connecter à un réseau privé</li>
+<li>VPN Client-Serveur (Client-to-Server VPN) : client individuel se
+connecte à un réseau privé</li>
+<li>VPN MPLS (Multiprotocol Label Switching) : pour les réseaux
+d’entreprise</li>
+<li>VPN Extranet</li>
+<li>VPN de niveau opérateur</li>
+<li>VPN basé sur le cloud</li>
+</ol>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="echange-de-clés">26. Echange de clés</h3>
+<div class="is-question">
+<p>Echange de clés / certificat entre Bob et Valérie… (pas trop de
+souvenir)</p>
+</div>
+<ul>
+<li>Asymétrique : clé privéé/clé publique</li>
+<li>Symétrique : même clé pour le chiffrement/déchiffrement</li>
+</ul>
+<div class="chat">
+<ol type="1">
+<li><p>Asymétrique : Les systèmes asymétriques, également appelés
+cryptographie à clé publique, utilisent une paire de clés distinctes :
+une clé publique et une clé privée. La clé publique est partagée avec
+les autres parties pour le chiffrement des données, tandis que la clé
+privée est conservée secrètement par le propriétaire pour le
+déchiffrement des données. Cela permet des échanges de clés sécurisés et
+des authentifications numériques grâce à la vérification des signatures
+électroniques.</p></li>
+<li><p>Symétrique : Les systèmes symétriques, également appelés
+cryptographie à clé secrète, utilisent une seule clé partagée entre les
+parties pour le chiffrement et le déchiffrement des données. La même clé
+est utilisée à la fois pour le chiffrement et le déchiffrement. Cela
+permet des opérations de chiffrement et de déchiffrement plus rapides,
+mais nécessite un échange sécurisé de la clé secrète entre les parties
+prenantes.</p></li>
+</ol>
+<p>En résumé, les systèmes asymétriques utilisent une paire de clés
+distinctes (clé publique et clé privée) pour le chiffrement et le
+déchiffrement des données, tandis que les systèmes symétriques utilisent
+une seule clé partagée entre les parties. Les systèmes asymétriques sont
+souvent utilisés pour des fonctionnalités telles que l’authentification
+numérique et la signature électronique, tandis que les systèmes
+symétriques sont utilisés pour des opérations de chiffrement et de
+déchiffrement rapides et efficaces.</p>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="texte-en-anglais-à-traduire-en-français">27. Texte en anglais à
+traduire en français</h3>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="snmp">28. SNMP</h3>
+<div class="is-question">
+<p>Quelle communauté peut modifier la configuration SNMP ?
+(illustration)</p>
+</div>
+<p>Il y avait un résultat avec un groupe en RO et un autre en RW, donc
+la communauté serait celle en RW et no RO.</p>
+<div class="chat">
+<p>La communauté qui peut modifier la configuration SNMP est
+généralement l’administrateur ou l’équipe de gestion du réseau. Ces
+personnes sont responsables de la configuration et de la gestion des
+dispositifs réseau, y compris la configuration des paramètres SNMP.
+L’accès à la configuration SNMP peut être restreint aux personnes
+autorisées pour des raisons de sécurité.</p>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="infos-à-surveiller-sur-un-commutateur">29. Infos à surveiller
+sur un commutateur</h3>
+<div class="is-question">
+<p>Infos à surveiller sur un commutateur de couche accès</p>
+</div>
+<ul>
+<li>La bande passante</li>
+<li>Le port sur lequel est connecté + IP</li>
+<li>L’interface voir si elle est UP ou DOWN</li>
+<li>L’adresse MAC</li>
+<li>La charge électrique si c’est un switch PoE</li>
+</ul>
+<div class="chat">
+<ol type="1">
+<li>Utilisation des ports : port actif, inactif + conso de bande
+passante</li>
+<li>Trafic réseau : trafic entrant et sortant pour évaluer la charge
+réseau</li>
+<li>Erreurs sur les ports : collisions, paquets perdus</li>
+<li>Etats des liens : id liens inactifs, actifs, défectueux</li>
+<li>Tables d’adresses MAC : detecte attaques par MAC Spoofing</li>
+<li>Consommation des ressources : cpu, mémoire tampon, etc. Détection pb
+de surcharge</li>
+<li>Sécurité : journaux d’activité, alertes de sécurité pour tentatives
+d’accès non autorisées</li>
+</ol>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="nagios-swap-full-critique">30. Nagios swap full critique</h3>
+<div class="is-question">
+<p>Capture d’écran Nagios swap full critique à 100%. Que faire ?</p>
+</div>
+<ul>
+<li>Vider le swap</li>
+<li>Augmenter la taille du swap</li>
+<li>Augmenter la RAM</li>
+</ul>
+<p><strong>Moi</strong> : qu’est-ce que ça signifie ? Que faire ?
+(revoir cours de quoi ?)</p>
+<p><strong>ChatGPT</strong></p>
+<div class="chat">
+<p>Nagios est un logiciel de surveillance open-source utilisé pour la
+supervision et la gestion des systèmes et réseaux.</p>
+<p>Signifie que tous les services surveillés par Nagios sont en état
+critique.</p>
+<p>[donne des solutions génériques, rien de concret]</p>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="paas-iaas-saas-schéma-à-compléter">31. PaaS IaaS SaaS (schéma à
+compléter)</h3>
+<div class="is-question">
+<p>Un schéma à compléter</p>
+</div>
+<p><a href=".ressources/img/t21.png"><img src=".ressources/img/t21.png"
+alt="21" /></a></p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="iaas-vs-paas">32. IaaS vs PaaS</h3>
+<div class="is-question">
+<p>Différence entre IaaS et PaaS</p>
+</div>
+<ul>
+<li>IaaS (Infrastructure as a Service) est l’infrastructure du
+Cloud</li>
+<li>PaaS (Platform as a Service) est une plateforme ajoutée à l’IaaS
+prenant en charge des middlewares (logiciels intermédiaires)</li>
+</ul>
+<p><strong>ChatGPT</strong></p>
+<div class="chat">
+<p>PaaS (Platform as a Service) et IaaS (Infrastructure as a Service)
+sont deux modèles de services cloud qui offrent différentes niveaux
+d’abstraction et de contrôle sur l’infrastructure informatique. Voici
+les principales différences entre PaaS et IaaS :</p>
+<p>Infrastructure as a Service (IaaS) :</p>
+<ul>
+<li>IaaS fournit une infrastructure informatique virtuelle de base,
+telle que des serveurs virtuels, du stockage et des réseaux, sur
+lesquels les utilisateurs peuvent déployer leurs propres systèmes
+d’exploitation et applications.</li>
+<li>Les utilisateurs ont un contrôle plus granulaire sur
+l’infrastructure, ce qui leur permet de gérer et de configurer les
+serveurs, les réseaux et les systèmes d’exploitation.</li>
+<li>Les utilisateurs sont responsables de l’installation, de la
+configuration et de la gestion des logiciels et applications sur
+l’infrastructure fournie.</li>
+<li>IaaS est adapté aux développeurs et aux administrateurs système qui
+ont besoin d’une flexibilité et d’un contrôle approfondi sur
+l’infrastructure sous-jacente.</li>
+</ul>
+<p>Platform as a Service (PaaS) :</p>
+<ul>
+<li>PaaS fournit une plateforme de développement et de déploiement
+d’applications complète, comprenant l’infrastructure sous-jacente, les
+systèmes d’exploitation, les services de développement et les
+outils.</li>
+<li>Les utilisateurs peuvent se concentrer sur le développement et le
+déploiement des applications, sans avoir à se soucier de la gestion de
+l’infrastructure sous-jacente.</li>
+<li>Les fonctionnalités et les services prédéfinis sont fournis par la
+plateforme, tels que la gestion de bases de données, la mise à l’échelle
+automatique, la gestion des versions, etc.</li>
+<li>PaaS est adapté aux développeurs d’applications qui veulent se
+concentrer sur la création d’applications sans se préoccuper de
+l’infrastructure ou des détails de gestion.</li>
+</ul>
+<p>En résumé, IaaS se concentre sur la fourniture d’une infrastructure
+de base virtualisée, tandis que PaaS offre une plateforme complète pour
+le développement et le déploiement d’applications. IaaS offre plus de
+contrôle et de flexibilité, tandis que PaaS offre une abstraction plus
+élevée et une plus grande simplicité pour les développeurs
+d’applications.</p>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h2 id="msp-tati">MSP Tati</h2>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="intervention-sur-le-serveur-ad">1. Intervention sur le serveur
+AD</h3>
+<p>Ouvrez la VM WinServer et connectez-vous avec le compte
+<code>administrateur</code> (<code>P@ssw0rd</code>)</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="er-demande">1er Demande</h4>
+<p>Le script suivant (<strong>network-drive.bat</strong>) permet de
+connecter automatiquement les lecteurs réseaux des utilisateurs. Il est
+déployé par la GPO <strong>network-drive-mount</strong> depuis l’UO
+“<strong>Production</strong>”.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>a href<span class="op">=</span><span class="st">&quot;#toc&quot;</span><span class="op">&gt;</span>Retour en haut<span class="op">&lt;/</span>a<span class="op">&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Création des lecteurs réseaux sur poste de travail</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>net use G<span class="op">:</span>\SERVAD01<span class="op">.</span><span class="fu">TSSR</span><span class="op">.</span><span class="fu">INFO</span>\PRODUCTION </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>net use H<span class="op">:</span>\SERVAD01<span class="op">.</span><span class="fu">TSSR</span><span class="op">.</span><span class="fu">INFO</span>\INFORMATIONS</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>net use I<span class="op">:</span>\SERVAD01<span class="op">.</span><span class="fu">TSSR</span><span class="op">.</span><span class="fu">INFO</span>\IT_COMMUN</span></code></pre></div>
+<p>De nombreux appels au service Support ont été enregistrés : les
+lecteurs n’étaient pas montés.</p>
+<p>Votre travail consiste à trouver et créer un autre type de stratégie
+pour connecter les lecteurs réseaux.</p>
+<p><a href=".ressources/img/t01.png" target="_blank"><img src=".ressources/img/t01.png" alt="t01"></a>
+<a href=".ressources/img/t02.png" target="_blank"><img src=".ressources/img/t02.png" alt="t02"></a>
+<a href=".ressources/img/t03.png" target="_blank"><img src=".ressources/img/t03.png" alt="t03"></a>
+<a href=".ressources/img/t04.png" target="_blank"><img src=".ressources/img/t04.png" alt="t04"></a></p>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="e-demande">2e demande</h4>
+<p>Vous devez mettre en place une série de mesures limitant la
+connection de l’utilisateur Sylvie BIGALKE afin qu’elle puisse se
+connecter qu’à partir de son poste de travail
+(<strong>PC-CLIENT01</strong>) et uniquement pendant les horaires
+d’ouverture des bureaux (7h-17h du lundi au vendredi</p>
+<p><a href=".ressources/img/t05.png" target="_blank"><img src=".ressources/img/t05.png" alt="t05"></a>
+<a href=".ressources/img/t06.png" target="_blank"><img src=".ressources/img/t06.png" alt="t06"></a>
+<a href=".ressources/img/t07.png" target="_blank"><img src=".ressources/img/t07.png" alt="t07"></a></p>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="e-demande-1">3e Demande</h4>
+<p>La quantité de données stockées dans le dossier partagé “Gestion”
+doit être contrôlée.</p>
+<p>Votre travail consiste à appliquer un modèle de quotas selon les
+critères suivants (Gestionnaire de ressources du serveur de fichiers)
+:</p>
+<ul>
+<li>Avertissement de l’utilisateur et de l’administrateur à partir de 4
+Go de stockage</li>
+<li>Interdiction d’écrire au-delà de 5 Go</li>
+</ul>
+<p>ATTENTION ! Le serveur de messagerie n’est pas configuré sur cette
+plateforme, donc vous pouvez mettre en place l’avertissement mais pas le
+tester. <strong>Ne tenez pas compte d’éventuels messages d’erreur à ce
+sujet</strong>.</p>
+<p><a href=".ressources/img/t08.png" target="_blank"><img src=".ressources/img/t08.png" alt="t08"></a>
+<a href=".ressources/img/t09.png" target="_blank"><img src=".ressources/img/t09.png" alt="t09"></a>
+<a href=".ressources/img/t10.png" target="_blank"><img src=".ressources/img/t10.png" alt="t10"></a></p>
+<p>Il est recommandé de créer des <strong>quotas</strong> uniquement à
+partir de modèles. De cette façon, vous pouvez facilement gérer vos
+quotas en modifiant les modèles plutôt que les quotas individuels. Le
+seul emplacement central pour la gestion des quotas facilite l’adoption
+de règles de stratégie de stockage.</p>
+<p><a href=".ressources/img/t11.png" target="_blank"><img src=".ressources/img/t11.png" alt="t11"></a>
+<a href=".ressources/img/t12.png" target="_blank"><img src=".ressources/img/t12.png" alt="t12"></a>
+<a href=".ressources/img/t13.png" target="_blank"><img src=".ressources/img/t13.png" alt="t13"></a>
+<a href=".ressources/img/t14.png" target="_blank"><img src=".ressources/img/t14.png" alt="t14"></a></p>
+<p>Et modifier ou ajouter l’avertissement à 80%, ce qui correspondra au
+4 Go.</p>
+<p><a href=".ressources/img/t15.png" target="_blank"><img src=".ressources/img/t15.png" alt="t15"></a></p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="adaptation-de-scripts">2. Adaptation de scripts</h3>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="e-demande-remplacer-les-commentaires">1e demande : remplacer les
+commentaires</h4>
+<p>Remplacer dans ce script les commentaires <code>#xxx</code> par un
+commentaire qui explique ce que fait la ligne ou le paragraphe en
+dessous.</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#condition.sh</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="va">age</span><span class="op">=</span>18</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="va">$age</span> <span class="ot">=</span> <span class="st">&quot;18&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;vous êtes majeur&quot;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span></code></pre></div>
+<p>(ceci est un exemple)</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="e-demande-modifier-un-script">2e Demande : modifier un
+script</h4>
+<p>Vous devez rendre maintenant votre script générique.</p>
+<ul>
+<li>Le nom du fichier à prendre en compte sera passé en paramètre</li>
+<li>Vous devez pouvoir executer le script de cette manière (ex.)</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> importUser.sh ./eleve.txt</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> importUser.sh ./classe1.txt</span></code></pre></div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="intervention-sur-serveur-linux">3. Intervention sur serveur
+Linux</h3>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="e-demande-changer-le-port-ssh-sur-un-serveur">1e demande :
+changer le port SSH sur un serveur</h4>
+<p>Afin d’améliorer la sécurité de l’accès SSH à votre serveur, vous
+devez changer le port TCP de ce service pour qu’il soit accessible sur
+le port 26.</p>
+<div class="is-success">
+Dans le fichier <strong>/etc/ssh/sshd_config</strong> changer le numéro
+de port
+</div>
+<p><a href=".ressources/img/t16.png" target="_blank"><img src=".ressources/img/t16.png" alt="t16"></a></p>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="e-demande-permission-sur-un-fichier">2e Demande : permission sur
+un fichier</h4>
+<p>Le site intranet se trouve sur le serveur
+<strong>SRVLX02</strong>.</p>
+<p>Un fichier <strong>LisezMoi</strong> présent dans votre home vous
+indique où se trouve ce site et quel serveur HTTP est installé.</p>
+<p>Faites en sorte que le webmaster qui se connecte sur ce serveur avec
+le compte <strong>webmaster</strong> (<strong>P@ssw0rd</strong>) puisse
+modifier les fichiers du site et qu’il soit le seul à pouvoir le
+faire.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cd /root</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ls -l</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># cat LisezMoi</span></span></code></pre></div>
+<div class="is-success">
+<p>Une fois le chemin du site web /var/www/… et modifier les droits
+(chmod 764) et modifier aussi l’ownership (<code>chown</code>) des
+fichiers, et du même pour fichier <strong>webmaster</strong>.</p>
+<p>Après se connecter avec webmaster… A vérifier</p>
+</div>
+<p>Moi : alors c’est pas tout à fait ça, refaire la manip vite fait
+histoire d’être sûr.</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="téléphonie">4. Téléphonie</h3>
+<ul>
+<li>Ouvrir les VM <strong>IPBX</strong> et
+<strong>PC_CLIENT01</strong>.</li>
+<li>Pour ces manipulations, 2 softphones seront utilisés : un sur chacun
+des windows client (phy…)</li>
+<li>Il est impératif de désactiver le son de vos postes de travail pour
+préserver le silence.</li>
+<li>Le softphone de l’utilisateur <strong>Serge KESSLER</strong> est
+configuré sur la VM. Son numéro est le <strong>102</strong>.</li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="e-demande-ipbx">1e Demande : IPBX ???</h4>
+<p>Votre travail consiste à créer la ligne 110 et à la mettre en service
+pour l’utilisatrice <strong>Sofia K</strong> - softphone de votre
+machine physique (sic)</p>
+<p>[…]</p>
+<p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/headings.css"></p>
+<style>
+.is-success {   
+    font-family: Roboto, sans-serif;
+
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-decoration: rgb(27, 94, 32);
+    text-align: start;
+    text-indent: 0px;
+    text-transform: none;
+    vertical-align: baseline;
+    white-space: normal;
+    word-spacing: 0px;
+    
+    background-attachment: scroll;
+    background-color: rgb(232, 245, 233);
+    background-image: none;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    color: rgb(27, 94, 32);
+    
+    border: ;
+    border-top: 0px none rgb(129, 199, 132);
+    border-right: 0px none rgb(129, 199, 132);
+    border-bottom: 0px none rgb(129, 199, 132);
+    border-left: 55px solid rgb(129, 199, 132);
+    margin: 16px 0px;
+    padding: 0px 16px 16px;
+    max-height: none;
+    min-height: 0px;
+    max-width: none;
+    min-width: 0px;
+    
+    position: relative;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    float: none;
+    display: block;
+    clear: none;
+    z-index: auto;
+    
+    list-style-image: none;
+    list-style-type: disc;
+    list-style-position: outside;
+    
+    border-collapse: separate;
+    border-spacing: 0px 0px;
+    caption-side: top;
+    empty-cells: show;
+    table-layout: auto;
+    
+    overflow: visible;
+    cursor: auto;
+    visibility: visible;
+    
+    transform: none;
+    transition: all 0s ease 0s;
+    box-sizing: border-box;
+    resize: none;
+    text-shadow: none;
+    text-overflow: clip;
+    word-wrap: normal;
+    box-shadow: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.is-question {  
+    font-family: Roboto, sans-serif;
+
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-decoration: rgb(13, 71, 161);
+    text-align: start;
+    text-indent: 0px;
+    text-transform: none;
+    vertical-align: baseline;
+    white-space: normal;
+    word-spacing: 0px;
+    
+    background-attachment: scroll;
+    background-color: rgb(227, 242, 253);
+    background-image: none;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    color: rgb(13, 71, 161);
+    
+    border: ;
+    border-top: 0px none rgb(100, 181, 246);
+    border-right: 0px none rgb(100, 181, 246);
+    border-bottom: 0px none rgb(100, 181, 246);
+    border-left: 55px solid rgb(100, 181, 246);
+    margin: 16px 0px;
+    padding: 0px 16px 16px;
+    max-height: none;
+    min-height: 0px;
+    max-width: none;
+    min-width: 0px;
+    
+    position: relative;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    float: none;
+    display: block;
+    clear: none;
+    z-index: auto;
+    
+    list-style-image: none;
+    list-style-type: disc;
+    list-style-position: outside;
+    
+    border-collapse: separate;
+    border-spacing: 0px 0px;
+    caption-side: top;
+    empty-cells: show;
+    table-layout: auto;
+    
+    overflow: visible;
+    cursor: auto;
+    visibility: visible;
+    
+    transform: none;
+    transition: all 0s ease 0s;
+    box-sizing: border-box;
+    resize: none;
+    text-shadow: none;
+    text-overflow: clip;
+    word-wrap: normal;
+    box-shadow: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+</style>
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>qtech_tati</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#msp-tati">MSP Tati</a></li>
+<li><a href="#intervention-sur-le-serveur-ad">1. Intervention sur le
+serveur AD</a>
+<ul>
+<li><a href="#er-demande">1er Demande</a></li>
+<li><a href="#e-demande">2e demande</a></li>
+<li><a href="#e-demande-1">3e Demande</a></li>
+</ul></li>
+<li><a href="#adaptation-de-scripts">Adaptation de scripts</a>
+<ul>
+<li><a href="#e-demande-2">1e demande</a></li>
+<li><a href="#e-demande-3">2e Demande</a></li>
+</ul></li>
+<li><a href="#intervention-sur-serveur-linux">Intervention sur serveur
+Linux</a>
+<ul>
+<li><a href="#e-demande-4">1e demande</a></li>
+<li><a href="#e-demande-5">2e Demande</a></li>
+</ul></li>
+<li><a href="#téléphonie">Téléphonie</a>
+<ul>
+<li><a href="#e-demande-6">1e Demande</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="msp-tati">MSP Tati</h2>
+<h2 id="intervention-sur-le-serveur-ad">1. Intervention sur le serveur
+AD</h2>
+<p>Ouvrez la VM WinServer et connectez-vous avec le compte
+<code>administrateur</code> (<code>P@ssw0rd</code>)</p>
+<h3 id="er-demande">1er Demande</h3>
+<p>Le script suivant (<strong>network-drive.bat</strong>) permet de
+connecter automatiquement les lecteurs réseaux des utilisateurs. Il est
+déployé par la GPO <strong>network-drive-mount</strong> depuis l’UO
+“<strong>Production</strong>”.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Création des lecteurs réseaux sur poste de travail</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>net use G<span class="op">:</span>\SERVAD01<span class="op">.</span><span class="fu">TSSR</span><span class="op">.</span><span class="fu">INFO</span>\PRODUCTION </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>net use H<span class="op">:</span>\SERVAD01<span class="op">.</span><span class="fu">TSSR</span><span class="op">.</span><span class="fu">INFO</span>\INFORMATIONS</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>net use I<span class="op">:</span>\SERVAD01<span class="op">.</span><span class="fu">TSSR</span><span class="op">.</span><span class="fu">INFO</span>\IT_COMMUN</span></code></pre></div>
+<p>De nombreux appels au service Support ont été enregistrés : les
+lecteurs n’étaient pas montés.</p>
+<p>Votre travail consiste à trouver et créer un autre type de stratégie
+pour connecter les lecteurs réseaux.</p>
+<p><img src=".ressources/img/t01.png" alt="01" /> <img
+src=".ressources/img/t02.png" alt="02" /> <img
+src=".ressources/img/t03.png" alt="03" /> <img
+src=".ressources/img/t04.png" alt="04" /></p>
+<h3 id="e-demande">2e demande</h3>
+<p>Vous devez mettre en place une série de mesures limitant la
+connection de l’utilisateur Sylvie BIGALKE afin qu’elle puisse se
+connecter qu’à partir de son poste de travail
+(<strong>PC-CLIENT01</strong>) et uniquement pendant les horaires
+d’ouverture des bureaux (7h-17h du lundi au vendredi</p>
+<p><img src=".ressources/img/t05.png" alt="05" /> <img
+src=".ressources/img/t06.png" alt="06" /> <img
+src=".ressources/img/t07.png" alt="07" /></p>
+<h3 id="e-demande-1">3e Demande</h3>
+<p>La quantité de données stockées dans le dossier partagé “Gestion”
+doit être contrôlée.</p>
+<p>Votre travail consiste à appliquer un modèle de quotas selon les
+critères suivants (Gestionnaire de ressources du serveur de fichiers)
+:</p>
+<ul>
+<li>Avertissement de l’utilisateur et de l’administrateur à partir de 4
+Go de stockage</li>
+<li>Interdiction d’écrire au-delà de 5 Go</li>
+</ul>
+<p>ATTENTION ! Le serveur de messagerie n’est pas configuré sur cette
+plateforme, donc vous pouvez mettre en place l’avertissement mais pas le
+tester. <strong>Ne tenez pas compte d’éventuels messages d’erreur à ce
+sujet</strong>.</p>
+<p><img src=".ressources/img/t08.png" alt="08" /> <img
+src=".ressources/img/t09.png" alt="09" /> <img
+src=".ressources/img/t10.png" alt="10" /></p>
+<p>Il est recommandé de créer des <strong>quotas</strong> uniquement à
+partir de modèles. De cette façon, vous pouvez facilement gérer vos
+quotas en modifiant les modèles plutôt que les quotas individuels. Le
+seul emplacement central pour la gestion des quotas facilite l’adoption
+de règles de stratégie de stockage.</p>
+<p><img src=".ressources/img/t11.png" alt="11" /> <img
+src=".ressources/img/t12.png" alt="12" /> <img
+src=".ressources/img/t13.png" alt="13" /> <img
+src=".ressources/img/t14.png" alt="14" /></p>
+<p>Et modifier ou ajouter l’avertissement à 80%, ce qui correspondra au
+4 Go.</p>
+<figure>
+<img src=".ressources/img/t15.png" alt="15" />
+<figcaption aria-hidden="true"><a
+href=".ressources/img/t15.png">15</a></figcaption>
+</figure>
+<h2 id="adaptation-de-scripts">Adaptation de scripts</h2>
+<h3 id="e-demande-2">1e demande</h3>
+<p>Remplacer dans ce script les commentaires <code>#xxx</code> par un
+commentaire qui explique ce que fait la ligne ou le paragraphe en
+dessous.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#condition.sh</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="va">age</span><span class="op">=</span>18</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="va">$age</span> <span class="ot">=</span> <span class="st">&quot;18 ]; then</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">    echo &quot;</span>vous <span class="er">êtes</span> <span class="ex">majeur</span><span class="st">&quot;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">fi</span></span></code></pre></div>
+<p>(n’est pas l’original… nan, jure?)</p>
+<h3 id="e-demande-3">2e Demande</h3>
+<p>Vous devez rendre maintenant votre script générique.</p>
+<ul>
+<li>Le nom du fichier à prendre en compte sera passé en paramètre</li>
+<li>Vous devez pouvoir executer le script de cette manière (ex.)</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> importUser.sh ./eleve.txt</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> importUser.sh ./classe1.txt</span></code></pre></div>
+<h2 id="intervention-sur-serveur-linux">Intervention sur serveur
+Linux</h2>
+<h3 id="e-demande-4">1e demande</h3>
+<p>Afin d’améliorer la sécurité de l’accès SSH à votre serveur, vous
+devez changer le port TCP de ce service pour qu’il soit accessible sur
+le port 26.</p>
+<div class="is-success">
+Dans le fichier <strong>/etc/ssh/sshd_config</strong> changer le numéro
+de port
+</div>
+<figure>
+<img src=".ressources/img/t16.png" alt="16" />
+<figcaption aria-hidden="true"><a
+href=".ressources/img/t16.png">16</a></figcaption>
+</figure>
+<h3 id="e-demande-5">2e Demande</h3>
+<p>Le site intranet se trouve sur le serveur
+<strong>SRVLX02</strong>.</p>
+<p>Un fichier <strong>LisezMoi</strong> présent dans votre home vous
+indique où se trouve ce site et quel serveur HTTP est installé.</p>
+<p>Faites en sorte que le webmaster qui se connecte sur ce serveur avec
+le compte <strong>webmaster</strong> (<strong>P@ssw0rd</strong>) puisse
+modifier les fichiers du site et qu’il soit le seul à pouvoir le
+faire.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cd /root</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ls -l</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># cat LisezMoi</span></span></code></pre></div>
+<div class="is-success">
+<p>Une fois le chemin du site web /var/www/… et modifier les droits
+(chmod 764) et modifier aussi l’ownership (<code>chown</code>) des
+fichiers, et du même pour fichier <strong>webmaster</strong>.</p>
+<p>Après se connecter avec webmaster… A vérifier</p>
+</div>
+<p>Moi : alors c’est pas tout à fait ça, refaire la manip vite fait
+histoire d’être sûr.</p>
+<h2 id="téléphonie">Téléphonie</h2>
+<ul>
+<li>Ouvrir les VM <strong>IPBX</strong> et
+<strong>PC_CLIENT01</strong>.</li>
+<li>Pour ces manipulations, 2 softphones seront utilisés : un sur chacun
+des windows client (phy…)</li>
+<li>Il est impératif de désactiver le son de vos postes de travail pour
+préserver le silence.</li>
+<li>Le softphone de l’utilisateur <strong>Serge KESSLER</strong> est
+configuré sur la VM. Son numéro est le <strong>102</strong>.</li>
+</ul>
+<h3 id="e-demande-6">1e Demande</h3>
+<p>Votre travail consiste à créer la ligne 110 et à la mettre en service
+pour l’utilisatrice <strong>Sofia K</strong> - softphone de votre
+machine physique (sic)</p>
+<p>[…]</p>
+<p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/headings.css"></p>
+<style>
+.is-success {   
+    font-family: Roboto, sans-serif;
+
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-decoration: rgb(27, 94, 32);
+    text-align: start;
+    text-indent: 0px;
+    text-transform: none;
+    vertical-align: baseline;
+    white-space: normal;
+    word-spacing: 0px;
+    
+    background-attachment: scroll;
+    background-color: rgb(232, 245, 233);
+    background-image: none;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    color: rgb(27, 94, 32);
+    
+    border: ;
+    border-top: 0px none rgb(129, 199, 132);
+    border-right: 0px none rgb(129, 199, 132);
+    border-bottom: 0px none rgb(129, 199, 132);
+    border-left: 55px solid rgb(129, 199, 132);
+    margin: 16px 0px;
+    padding: 0px 16px 16px;
+    max-height: none;
+    min-height: 0px;
+    max-width: none;
+    min-width: 0px;
+    
+    position: relative;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    float: none;
+    display: block;
+    clear: none;
+    z-index: auto;
+    
+    list-style-image: none;
+    list-style-type: disc;
+    list-style-position: outside;
+    
+    border-collapse: separate;
+    border-spacing: 0px 0px;
+    caption-side: top;
+    empty-cells: show;
+    table-layout: auto;
+    
+    overflow: visible;
+    cursor: auto;
+    visibility: visible;
+    
+    transform: none;
+    transition: all 0s ease 0s;
+    box-sizing: border-box;
+    resize: none;
+    text-shadow: none;
+    text-overflow: clip;
+    word-wrap: normal;
+    box-shadow: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.is-question {  
+    font-family: Roboto, sans-serif;
+
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-decoration: rgb(13, 71, 161);
+    text-align: start;
+    text-indent: 0px;
+    text-transform: none;
+    vertical-align: baseline;
+    white-space: normal;
+    word-spacing: 0px;
+    
+    background-attachment: scroll;
+    background-color: rgb(227, 242, 253);
+    background-image: none;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    color: rgb(13, 71, 161);
+    
+    border: ;
+    border-top: 0px none rgb(100, 181, 246);
+    border-right: 0px none rgb(100, 181, 246);
+    border-bottom: 0px none rgb(100, 181, 246);
+    border-left: 55px solid rgb(100, 181, 246);
+    margin: 16px 0px;
+    padding: 0px 16px 16px;
+    max-height: none;
+    min-height: 0px;
+    max-width: none;
+    min-width: 0px;
+    
+    position: relative;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    float: none;
+    display: block;
+    clear: none;
+    z-index: auto;
+    
+    list-style-image: none;
+    list-style-type: disc;
+    list-style-position: outside;
+    
+    border-collapse: separate;
+    border-spacing: 0px 0px;
+    caption-side: top;
+    empty-cells: show;
+    table-layout: auto;
+    
+    overflow: visible;
+    cursor: auto;
+    visibility: visible;
+    
+    transform: none;
+    transition: all 0s ease 0s;
+    box-sizing: border-box;
+    resize: none;
+    text-shadow: none;
+    text-overflow: clip;
+    word-wrap: normal;
+    box-shadow: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+</style>
+</body>
+</html>

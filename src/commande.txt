@@ -1,0 +1,6 @@
+pandoc -s gwen_pass.md --toc --metadata title=Gwellaouen -o gwen.html
+
+for f in *.md; do pandoc -s $f --toc --metadata title="$(basename $f .md)" -o $(basename $f .md).html; done
+
+="insert into qcm (numero, qui, theme, question) values("&A2&","&CHAR(34)&TEXTJOIN(CHAR(34)&","&CHAR(34);1;B2:D2)&CHAR(34)&");"
+

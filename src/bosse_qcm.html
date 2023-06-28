@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>bossman</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">bossman</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#bosse-qcm-par-thème">Bosse QCM par thème</a>
+<ul>
+<li><a href="#cloud">19 - Cloud</a>
+<ul>
+<li><a href="#saas-paas-iaas">SaaS &gt; PaaS &gt; IaaS</a></li>
+<li><a
+href="#différences-entre-cloud-privé-cloud-public-et-cloud-hybride">Différences
+entre Cloud Privé, Cloud Public et Cloud hybride</a></li>
+<li><a href="#révisions">Révisions</a></li>
+</ul></li>
+<li><a href="#linux">Linux</a>
+<ul>
+<li><a href="#g04-définition-path">[g04] définition $PATH</a></li>
+<li><a href="#g05-emplacement-fichier-utilisateurs">[g05] Emplacement
+fichier “utilisateurs”</a></li>
+<li><a href="#t46-ajout-disque-nom">[t46] ajout disque: nom ?</a></li>
+<li><a href="#t47-access-denied-sur-un-ls--l">[t47] access denied sur un
+<code>ls -l</code></a></li>
+<li><a href="#t48-comment-sécuriser-une-connection-ssh">[t48] Comment
+sécuriser une connection SSH ?</a></li>
+<li><a href="#g03-syslog">[g03] Syslog</a></li>
+</ul></li>
+<li><a href="#les-vpn">Les VPN</a>
+<ul>
+<li><a href="#vpn-nomade">VPN Nomade</a></li>
+<li><a href="#vpn-site-à-site">VPN Site à Site</a></li>
+<li><a href="#openvpn">OpenVPN</a></li>
+</ul></li>
+<li><a href="#les-certificats">Les Certificats</a>
+<ul>
+<li><a href="#certificats-v1-slides">Certificats v1 (slides)</a></li>
+<li><a href="#certificats-auto-signé">Certificats auto-signé</a></li>
+</ul></li>
+<li><a href="#difference-remoteapp-vs-remote-desktop">Difference
+RemoteApp vs Remote Desktop</a>
+<ul>
+<li><a href="#déploiement-par-wds-par-moi">Déploiement par WDS (par
+moi)</a></li>
+</ul></li>
+<li><a href="#vue-densemble-mdt-wds-et-winpe">Vue d’ensemble MDT-WDS et
+WinPE</a>
+<ul>
+<li><a href="#présentation">Présentation</a></li>
+</ul></li>
+<li><a href="#procédures-déploiement-wds-mdt">Procédures déploiement
+WDS, MDT</a>
+<ul>
+<li><a href="#profils-itinérants-et-redirection">1. Profils itinérants
+et redirection</a></li>
+<li><a href="#déploiement-dapplication-msi">2. Déploiement d’application
+MSI</a></li>
+<li><a href="#migration-de-profils-utilisateur">3. Migration de profils
+utilisateur</a></li>
+<li><a href="#installation-et-configuration">4. Installation et
+configuration</a></li>
+<li><a href="#création-et-déploiement-dun-master">5. Création et
+déploiement d’un Master</a></li>
+<li><a href="#image-personnalisée-avec-windows-icd-comme-toolkit">6.
+Image personnalisée avec Windows ICD (comme Toolkit ?)</a></li>
+<li><a href="#fichier-de-réponse-wsim">7. Fichier de réponse
+WSIM</a></li>
+<li><a
+href="#création-dune-image-avec-mdt-microsoft-deployment-toolkit">8.
+Création d’une image avec MDT Microsoft Deployment Toolkit</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="bosse-qcm-par-thème">Bosse QCM par thème</h1>
+<p>[TOC]</p>
+<p><span id="toc"></span></p>
+<h2 id="cloud">19 - Cloud</h2>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="saas-paas-iaas">SaaS &gt; PaaS &gt; IaaS</h3>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="saas-software-as-a-service-o365">SaaS Software as a Service
+(O365)</h4>
+<ul>
+<li>permet mise à dispo d’applications aux utilisateurs finaux.</li>
+<li>l’utilisateur est déchargé de la partie configuration des
+logiciels</li>
+</ul>
+<p><strong>Avantages</strong></p>
+<ul>
+<li>pas d’admministration</li>
+<li>disponibilité proche de 100%</li>
+<li>évolution des produits dans le temps</li>
+<li>pas de contraintes matérielles</li>
+<li>coût maîtrisé (?)</li>
+</ul>
+<p><strong>Inconvénients</strong></p>
+<ul>
+<li>tributaire de l’éditeur</li>
+<li>dépendance à internet</li>
+<li>confidentialité des données ?</li>
+<li>ROI croise à env. 4 ans (?)</li>
+</ul>
+<p><strong>Exemples</strong> : Office365, Google Suite</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="paas-platform-as-a-service-apache">PaaS Platform as a Service
+(Apache)</h4>
+<ul>
+<li>Permet mise à dispo d’environnements et de plateformes
+informatiques</li>
+<li>ex. OS ou applications spécifiques sur des infra mutualisées</li>
+</ul>
+<table class="table">
+<tr>
+<th>
+<p>Avantages</p>
+</th>
+<th>
+<p>Inconvénients</p>
+</th>
+</tr>
+<tr>
+<td>
+<ul>
+<li>
+<p>Economie de licences logicielles à l’achat</p>
+</li>
+<li>
+<p>Flexibilité</p>
+</li>
+<li>
+<p>Sécurité assurée par le fournisseur</p>
+</li>
+<li>
+<p>Facilité de mise en oeuvre</p>
+</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+<p>Dépendance à Internet</p>
+</li>
+<li>
+<p>Confidentialité des données ?</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<p><strong>Exemples</strong> : Apache, Tomcat, SQL SERVER</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="iaas-infra-as-a-service-aws-ovh">IaaS Infra as a Service (AWS,
+OVH)</h4>
+<ul>
+<li>Permet la mise à disposition d’infrastructures aux
+administrateurs.</li>
+<li>Les admins n’ont plus besoin de se préoccuper des problématiques
+liées à l’hébergement interne des serveurs, le matériel est mis à
+disposition par le fournisseur.</li>
+</ul>
+<table class="table">
+<tr>
+<th>
+<p>Avantages</p>
+</th>
+<th>
+<p>Inconvénients</p>
+</th>
+</tr>
+<tr>
+<td>
+<ul>
+<li>
+<p>Plus besoin d’aménager une salle serveur</p>
+</li>
+<li>
+<p>La sécurité matérielle est assurée par le fournisseur</p>
+</li>
+<li>
+<p>Garantie de disponibilité</p>
+</li>
+<li>
+<p>Pas d’obsolescence du matériel</p>
+</li>
+<li>
+<p>Evolutivité à la demande</p>
+</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+<p>100% tributaire de l’hébergeur</p>
+</li>
+<li>
+<p>dépendance à l’accès internet</p>
+</li>
+<li>
+<p>confidentialité des données ?</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<p><strong>Exemples</strong> : AWS, OVH, Microsoft 365</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="conclusion">Conclusion</h4>
+<p>Pour tous les modes, l’avantage est qu’on reporte sur l’opérateur la
+sécurité, la mise à niveau matérielle et logiciel, la mise à disposition
+et l’entretien de l’équipement.</p>
+<p>L’inconvénient est qu’on est parfois tributaire du fournisseur, qu’on
+dépend de notre connection internet, et qu’on peut émettre des doutes
+sur la confidentialité des données (où sont hébergés les serveurs ?)</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3
+id="différences-entre-cloud-privé-cloud-public-et-cloud-hybride">Différences
+entre Cloud Privé, Cloud Public et Cloud hybride</h3>
+<table class="table">
+<tr>
+<th>
+<p>Cloud Privé</p>
+</th>
+<th>
+<p>Cloud Public</p>
+</th>
+<th>
+<p>Cloud Hybride</p>
+</th>
+</tr>
+<tr>
+<td>
+<ul>
+<li>
+<p>intégration du matos dans un datacenter tiers ou interne à
+l’entreprise</p>
+</li>
+<li>
+<p>fiabilité, sécurité et extensibilité sont à la charge de
+l’entreprise</p>
+</li>
+<li>
+<p>sécurité accrue car matos n’est pas mutualisé</p>
+</li>
+<li>
+<p>évolutivité sous réserve d’investissements par l’entreprise</p>
+</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+<p>matos est la propriété du fournisseur (serveurs, stockage)</p>
+</li>
+<li>
+<p>matos partagé avec d’autres clients du fournisseur (mutualisé)</p>
+</li>
+<li>
+<p>extensibilité pratiquement illimité (à la charge du fournisseur)</p>
+</li>
+<li>
+<p>fiabilité</p>
+</li>
+<li>
+<p>coût relativement faibles</p>
+</li>
+<li>
+<p>pas de matos à maintenir (à la charge du fournisseur)</p>
+</li>
+<li>
+<p>attention au débit internet nécessaire + temps d’allumage des VM</p>
+</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+<p>C’est un mix de privé+public, ou hébergement local</p>
+</li>
+<li>
+<p>permet de gérer les coûts, de maitriser la sécurité, optimiser les
+perf en prenant le meilleur des différents types de cloud</p>
+</li>
+<li>
+<p>permet de fiabiliser les services en les “éclatant” sur les
+différents type de cloud</p>
+</li>
+<li>
+<p>expansion facile grâce au cloud public, performance et sécurité grâce
+au cloud privé</p>
+</li>
+<li>
+<p>rapport coût / efficacité</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="hébergement-on-premise">Hébergement on-premise</h4>
+<table class="table">
+<tr>
+<th>
+<p>Avantages</p>
+</th>
+<th>
+<p>Inconvénients</p>
+</th>
+</tr>
+<tr>
+<td>
+<ul>
+<li>
+<p>maîtrise total de l’env matériel et OS</p>
+</li>
+<li>
+<p>montées de version contrôlées</p>
+</li>
+<li>
+<p>investissement initial et pas de notion de “location” pour la mise à
+disposition des services</p>
+</li>
+<li>
+<p>ajout de nouveaux services “gratuitement” sous réserve de
+disponibilité du matos</p>
+</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+<p>obscolescence du matériel</p>
+</li>
+<li>
+<p>disposer d’un salle serveur qui ferme à clé, avec clim, pare-feu,
+onduleur, etc.</p>
+</li>
+<li>
+<p>sécurité à la charge de l’entreprise (logicielle et matérielle avec
+alim éléctrique, refroidissement)</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="révisions">Révisions</h3>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="t32-différences-iaas-paas">[t32] Différences IaaS / PaaS</h4>
+<p>IaaS (Infrastructure as a Service) est la mise à disposition par un
+fournisseur d’une infrastructure complète (ex. OVH, AWS).</p>
+<p>PaaS (Plateforme as a Service) est la mise à disposition par un
+fournisseur d’une plateforme, d’un environnement de travail (ex. Apache,
+Tomcat)</p>
+<p><strong>chatgpt</strong></p>
+<p>IaaS fournit une infrastructure informatique virtuelle de base, telle
+que des serveurs virtuels, du stockage et des réseaux, sur lesquels les
+utilisateurs peuvent déployer leurs propres systèmes d’exploitation et
+applications.</p>
+<p>PaaS fournit une plateforme de développement et de déploiement
+d’applications complète, comprenant l’infrastructure sous-jacente, les
+systèmes d’exploitation, les services de développement et les
+outils.</p>
+<p>En résumé, IaaS se concentre sur la fourniture d’une infrastructure
+de base virtualisée, tandis que PaaS offre une plateforme complète pour
+le développement et le déploiement d’applications. IaaS offre plus de
+contrôle et de flexibilité, tandis que PaaS offre une abstraction plus
+élevée et une plus grande simplicité pour les développeurs
+d’applications.</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="t31-schema-saas-iaas-paas-à-compléter">[t31] Schema SaaS IaaS
+PaaS à compléter</h4>
+<p>application &gt; middleware &gt; OS &gt; virtu &gt; serveur/stockage
+&gt; reseau &gt; datacenter</p>
+<p>saas &gt; saas / paas &gt; paas &gt; paas / iaas &gt; iaas &gt; iaas
+&gt; iaas</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h2 id="linux">Linux</h2>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="g04-définition-path">[g04] définition $PATH</h3>
+<p>La variable <code>$PATH</code> est une variable d’environnement que
+l’on trouve dans les systèmes *nix (Unix, Linux). Elle contient des
+chemins absolus vers des répertoires contenant des exécutables. Cela
+permet d’appeler une commande dans le terminal, telle que
+<code>echo</code>, sans taper le chemin entier vers elle. Par exemple,
+si le chemin <code>/sbin</code> est dans la variable PATH, on peut
+accéder à tous les executables contenus dans ce répertoire et appeler la
+commande <code>shutdown</code> sans avoir à faire
+<code>/sbin/shutdown</code>.</p>
+<p><strong>v2</strong></p>
+<p>C’est une variable d’environnement utilisée par les systèmes UNIX et
+UNIX-like (y compris Linux) pour spécifier les répertoires dans lesquels
+le système recherche les commande exécutable. C’est l’équivalent de la
+variable d’environnement <code>%PATH%</code> utilisée par les systèmes
+Windows.</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="g05-emplacement-fichier-utilisateurs">[g05] Emplacement fichier
+“utilisateurs”</h3>
+<p><strong>Où se trouve l’emplacement du fichier avec la liste des
+utilisateurs ?</strong></p>
+<p>Dans <code>/etc/passwd</code></p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="t46-ajout-disque-nom">[t46] ajout disque: nom ?</h3>
+<p><strong>Si on ajoute un disque, quel sera son nom ?</strong>
+(illustration)</p>
+<p>/dev/sdb</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="t47-access-denied-sur-un-ls--l">[t47] access denied sur un
+<code>ls -l</code></h3>
+<p><strong>Un utilisateur n’a pas accès à un repertoire avec un ls -l,
+pourquoi ? que faire ?</strong></p>
+<p>Parce qu’il n’a pas les droits ni en lecture ni en exécution, ce qui
+lui permettrait de lister le contenu du répertoire.</p>
+<p>3 solutions sont possibles :</p>
+<ul>
+<li>changer les permissions de l’utilisateur <code>other</code> sur le
+répertoire (sudo chmod o+rx foo/)</li>
+<li>ajouter l’utilisateur au groupe propriétaire (sudo usermod -g bar
+toto) (groupe secondaire)</li>
+<li>changer l’ownership du répertoire pour la passer à l’utilisateur
+(sudo chown :toto foo/)</li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="t48-comment-sécuriser-une-connection-ssh">[t48] Comment
+sécuriser une connection SSH ?</h3>
+<p><strong>Comment sécuriser une connection SSH ?</strong></p>
+<ul>
+<li>changer le port par défaut (fichier /etc/ssh/config)</li>
+<li>utiliser un cryptage asymétrique (clé publique / clé privée)</li>
+<li>limiter l’usage du port à certaines ip uniquement via des règles de
+pare-feu</li>
+<li>changer les clés régulièrement (?)</li>
+</ul>
+<p><strong>Commandes</strong> :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-copy-id</span> toto@192.168.34.180</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># usage:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> toto@192.168.34.180</span></code></pre></div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="g03-syslog">[g03] Syslog</h3>
+<p><strong>Envoyer des messages système vers un serveur syslog. Comment
+le mettre en place et comment traiter les messages ?</strong></p>
+<p>voir cours 05-linux-sysadmin (p.66)</p>
+<blockquote>
+<p>Pour conserver les logs, Debian utilise <code>rsyslog</code>. Tous
+les logs de <code>journalctl</code> lui sont transférés.</p>
+<p><code>rsyslog</code> travaille sur des “facilities” et des niveaux de
+priorités qui déclenchent une action.</p>
+<p>Ex. de facilities : auth, daemon, mail, user</p>
+<p>Ex. de niveau de priorité: alert, crit, warning, info, debug</p>
+<p>Les actions correspondent à l’écriture du journal dans un fichier
+mais il est possible de configurer <code>rsyslog</code> pour qu’il
+envoie les messages à enregistrer vers un autre serveur
+<code>rsyslog</code></p>
+<p>La config est dans /etc/rsyslog.conf.</p>
+</blockquote>
+<p><strong>Notes</strong>: ils ne disent pas comment “envoyer des logs
+vers un serveur syslog… Comprend pas non plus la 2e partie de la
+question.</p>
+<p><strong>chatgpt</strong></p>
+<p>Pour envoyer des messages système vers un serveur syslog, vous avez
+besoin de configurer votre système pour utiliser le protocole syslog et
+spécifier l’adresse du serveur syslog. Voici les étapes générales pour
+mettre en place ce processus :</p>
+<ol type="1">
+<li><p><strong>Choisissez un serveur syslog</strong> : Tout d’abord,
+vous devez avoir un serveur syslog prêt à recevoir les messages système.
+Vous pouvez installer un serveur syslog open-source tel que rsyslog,
+syslog-ng ou utiliser un service cloud de syslog.</p></li>
+<li><p><strong>Configuration du client</strong> : Sur la machine à
+partir de laquelle vous souhaitez envoyer les messages système, vous
+devez configurer le démon syslog pour rediriger les journaux vers le
+serveur syslog. Le processus de configuration peut varier en fonction du
+système d’exploitation que vous utilisez.</p></li>
+<li><p>Sur Linux (rsyslog) : Ouvrez le fichier de configuration
+/etc/rsyslog.conf (ou /etc/rsyslog.d/50-default.conf) et ajoutez une
+ligne pour rediriger les journaux vers le serveur syslog. Par exemple,
+<code>*.* @adresse_serveur_syslog:port</code>.</p></li>
+<li><p>Redémarrez le service syslog : Après avoir modifié la
+configuration, redémarrez le service syslog pour appliquer les
+modifications. Par exemple, sur Linux, vous pouvez utiliser la commande
+sudo service rsyslog restart ou sudo systemctl restart rsyslog.</p></li>
+</ol>
+<p><a href="#toc">Retour en haut</a></p>
+<h2 id="les-vpn">Les VPN</h2>
+<p>Cours: <a
+href="file:///media/reno/Toshiba/3-tssr/15-services-web-et-securite">15-services-web-et-securite</a></p>
+<p>Définition : VPN (Virtual Private Network) est un tunnel chiffré qui
+permet de garantir la confidentialité des données qui y transitent.</p>
+<p>La plupart du temps, est mis en oeuvre sur le pare-feu et utilisé
+dans 2 cas de figure :</p>
+<ul>
+<li>VPN site à site (entre 2 sites d’une société)</li>
+<li>VPN nomade (entre un utilisateur distant et l’entreprise)</li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="vpn-nomade">VPN Nomade</h3>
+<ul>
+<li>Utilisé pour permettre à un utilisateur itinérant de se connecter
+aux services de l’entreprise en toute sécurité.</li>
+<li>Dans le cadre de connection sur des hotspots (wifi public), c’est la
+bonne pratique pour éviter que les communications soient interceptées
+par un tiers.</li>
+<li>Une fois la connection VPN établie, l’ordinateur se retrouve
+directement connecté au réseau interne de l’entreprise. L’utilisateur a
+accès aux ressources.</li>
+</ul>
+<p>A ce jour, il existe 3 technologies pour le VPN Nomade :</p>
+<ul>
+<li><strong>VPN PPTP</strong> : Point to Point Tunneling Protocol (by
+Microsoft, port TCP 1723)</li>
+<li><strong>VPN SSL</strong> : mode préféré des admins, port 443</li>
+<li><strong>VPN L2TP/IPSEC</strong> : Layer 2 Tunneling Protocol /
+Internet Protocol Security (by Cisco, ports UPD 1701 pour service, UPD
+500 pour échange de clé, UPD 50 pour chiffrement)</li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="vpn-pptp">VPN PPTP</h4>
+<ul>
+<li>PPTP : Point to Point Tunneling Protocol</li>
+<li>Protocole développé par <strong>Microsoft</strong></li>
+<li><strong>Utilise le port TCP 1723</strong></li>
+<li><strong>Authentification uniquement par mot de passe</strong></li>
+<li>Facile à configurer</li>
+<li>Multi plateforme (Win, MacOS, Linux, OS Mobiles)</li>
+<li>Fonctionne sur la couche présentation du modèle OSI (presentation
+lvl 6) [dans le texte: “couche 2” ???]</li>
+<li><strong>Protocole non chiffré</strong></li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="vpn-ssl">VPN SSL</h4>
+<ul>
+<li><strong>Souvent utilisé</strong> par les admins</li>
+<li><strong>utilise port 443</strong></li>
+<li><strong>Ouvert par défaut</strong> sur tous les réseaux publics</li>
+<li>Aucun logiciel supplémentaire à installer : <strong>le client est
+généralement le navigateur web</strong></li>
+<li>Facile à configurer</li>
+<li><strong>Multiples méthodes d’authentification</strong></li>
+<li>Utilise la couche session du modèle OSI (session lvl 5)</li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="vpn-l2tpipsec">VPN L2TP/IPSec</h4>
+<ul>
+<li>L2TP : Layer 2 Tunneling Protocol</li>
+<li>IPSec : Internet Protocol Security</li>
+<li>Protocoles développés par <strong>Cisco</strong></li>
+<li><strong>Utilise des ports spécifiques</strong> qui peuvent être
+bloqués par les réseaux publics
+<ul>
+<li><strong>udp 1701</strong> pour le service</li>
+<li><strong>udp 500</strong> pour l’échange de clé</li>
+<li><strong>udp 50</strong> pour le chiffrement par IPSec</li>
+</ul></li>
+<li>L2TP utilise la couche liaison du modèle OSI (data link lvl 2)</li>
+<li>IPSec utilise la couche réseau du modèle OSI (network lvl 1)</li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="vpn-site-à-site">VPN Site à Site</h3>
+<ul>
+<li>Utilisé pour relier 2 sites distants géographiquement</li>
+<li>Utilise généralement le protocole IPSec établi en couche 3 du modèle
+OSI</li>
+<li>Particularités d’IPSec :
+<ul>
+<li>confidentialité (chiffrement)</li>
+<li>authentification</li>
+<li>intégrité</li>
+<li>anti-rejeu (sic)</li>
+</ul></li>
+</ul>
+<p><strong>Fonctionnement</strong> :</p>
+<p>Un tunnel IPSec est établi en 2 phases :</p>
+<ol type="1">
+<li>Phase 1 :
+<ul>
+<li>établissement d’un canal</li>
+<li>échange de clés permettant l’authentification</li>
+<li>ouverture d’un canal</li>
+<li>aucune donnée ne peut transiter</li>
+<li>le mode Main est utilisé pour le site à site (entre 2 adresses IP
+publiques)</li>
+</ul></li>
+<li>Phase 2 :
+<ul>
+<li>établissement d’un tunnel chiffré qui sera utilisé pour le transport
+de données</li>
+<li>échange bidirectionnel de clés prépartagées pour authentifier les
+partenaires</li>
+<li>mise en place du canal (phase 1)</li>
+<li>échange bidirectionnel de clés dans le canal</li>
+<li>établissement du VPN chiffré</li>
+</ul></li>
+</ol>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="openvpn">OpenVPN</h3>
+<p>Peut être mis en place sur pfSense</p>
+<ul>
+<li>Ajout d’une AC (Autorité de Certification) dans pfSense
+<ul>
+<li>permet de sécuriser la communication dans le VPN</li>
+<li><strong>utilisation de certificats</strong></li>
+</ul></li>
+<li>Ajout d’une authentification LDAP
+<ul>
+<li>ajout d’une connection entre pfSense et Active-Directory</li>
+<li>permet une <strong>double authentification</strong></li>
+</ul></li>
+</ul>
+<p>=&gt;</p>
+<ul>
+<li>fonctionne avec clés et certificats.</li>
+<li>fonctionne pour nomade et site-to-site</li>
+<li>authentification par LDAP</li>
+<li>openvpn client / openvpn server</li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h2 id="les-certificats">Les Certificats</h2>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="certificats-v1-slides">Certificats v1 (slides)</h3>
+<p>Un certificat est comparable à une carte d’identité sécurisée. Il
+contient les informations suivantes :</p>
+<ul>
+<li>un numéro de série</li>
+<li>l’autorité de certification émettrice</li>
+<li>la période de validité</li>
+<li>le nom du titulaire de la clé publique</li>
+<li>l’algo de chiffrement (la clé publique)</li>
+<li>l’algo de signature (signature numérique)</li>
+</ul>
+<p>Un certificat permet d’authentifier une connexion et de garantir que
+le serveur contacté est bien celui qu’il prétend être.</p>
+<ul>
+<li>Dans le cas d’une connection HTTPS, l’utilisation d’un certificat
+SSL est obligatoire</li>
+<li>Présence d’un symbole cadenas sur la page web</li>
+<li>“On peut donc désormais naviguer en toute confiance, le site
+internet est bien celui qui est ciblé.”</li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="comment-ça-marche">Comment ça marche</h4>
+<p>Comment l’identité du serveur web est-elle validée ?</p>
+<ul>
+<li>utilisation d’une chaîne de certification
+<ul>
+<li>un client (navigateur)</li>
+<li>un serveur (site web)</li>
+<li>une autorité de certification</li>
+</ul></li>
+<li>Navigateur demande l’accès à des ressources de façon sécurisée</li>
+<li>Site web héberge des ressources sécurisées, possède et utilise un
+certificat pour garantir la communication</li>
+<li>Autorité de certification a émis et garantie le certificat stocké
+par le serveur, déchiffre et valide le certificat reçu par le
+client</li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="comment-obtenir-un-certificat">Comment obtenir un
+certificat</h4>
+<p>3 possibilités :</p>
+<ol type="1">
+<li>générer et utiliser un certificat auto signé</li>
+<li>utiliser un certificat provenant d’une autorité de certification
+interne</li>
+<li>obtenir/acheter un certificat auprès d’une autorité de certification
+publique</li>
+</ol>
+<p>Chacune a ses avantages et ses inconvénients</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="certificat-interne">Certificat interne</h4>
+<p>Dans pfSense, le paramétrage d’un certificat interne contient :</p>
+<ul>
+<li>autorité de certification (choisir laquelle)</li>
+<li>key type : ex. RSA + longueur (minimum 2048)</li>
+<li>algo de hashage : ex. minimum SHA256</li>
+<li>durée de vie : durée de validité (max. 398 jours)</li>
+<li>nom commun</li>
+<li>Pays</li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="certificat-iis">Certificat IIS</h4>
+<p><a href="#toc">Retour en haut</a></p>
+<h5 id="installation">Installation</h5>
+<ol type="1">
+<li>serveur hébergeant IIS
+<ul>
+<li>console certlm.msc &gt; clic-droit, “personnel” &gt; toutes les
+tâches &gt; demander un nouveau certificat</li>
+</ul></li>
+</ol>
+<p><a href=".ressources/img/r01.png"><img src=".ressources/img/r01.png" alt="r01"></a></p>
+<ol start="2" type="1">
+<li>inscription de certificats
+<ul>
+<li>stratégies d’inscription à Active Directory</li>
+<li>séléctionner le certificat</li>
+<li>configurer les paramètres</li>
+</ul></li>
+</ol>
+<div class="img-row">
+<div class="img-col">
+<p><a href=".ressources/img/r02.png" target="_blank">
+<img src=".ressources/img/r02.png" alt=".ressources/img/r02.png"  style="width:100%">
+</a></p>
+</div>
+<div class="img-col">
+<p><a href=".ressources/img/r03.png" target="_blank">
+<img src=".ressources/img/r03.png" alt=".ressources/img/r03.png" style="width:100%">
+</a></p>
+</div>
+</div>
+<ol start="3" type="1">
+<li>propriétés du certificat
+<ul>
+<li>onglet “Objet” &gt; nom du sujet, nom commun (FQDN)</li>
+<li>onglet “Général” &gt; nom convivial, description</li>
+<li>valider les modifications &gt; Ok</li>
+<li>inscrire le certificat &gt; inscription &gt; terminer</li>
+</ul></li>
+</ol>
+<div class="img-row">
+<div class="img-col">
+<p><a href=".ressources/img/r04.png" target="_blank">
+<img src=".ressources/img/r04.png" alt="r04"  style="width:100%">
+</a></p>
+</div>
+<div class="img-col">
+<p><a href=".ressources/img/r05.png" target="_blank">
+<img src=".ressources/img/r05.png" alt="r05" style="width:100%">
+</a></p>
+</div>
+</div>
+<div class="img-row">
+<div class="img-col">
+<p><a href=".ressources/img/r06.png" target="_blank">
+<img src=".ressources/img/r06.png" alt="r06"  style="width:100%">
+</a></p>
+</div>
+<div class="img-col">
+<p><a href=".ressources/img/r07.png" target="_blank">
+<img src=".ressources/img/r07.png" alt="r07" style="width:100%">
+</a></p>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Vérifier la présence du certificat</li>
+</ol>
+<p><a href=".ressources/img/r08.png" target="_blank">
+<img src=".ressources/img/r08.png" alt="r08"> </a></p>
+<ol start="5" type="1">
+<li>Vérifier la présence sur le serveur IIS
+<ul>
+<li>Gestionnaire de services Internet (IIS)</li>
+<li>Certificat de serveur</li>
+<li>Certificat présent avec son nom convivial</li>
+</ul></li>
+</ol>
+<div class="img-row">
+<div class="img-col">
+<a href=".ressources/img/r09.png" target="_blank">
+<img src=".ressources/img/r09.png" alt="r09"  style="width:100%"> </a>
+</div>
+<div class="img-col">
+<a href=".ressources/img/r10.png" target="_blank">
+<img src=".ressources/img/r10.png" alt="r10" style="width:100%"> </a>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Installation du certificat
+<ul>
+<li>Modifier le site GLPI : ajouter ou modifier la liaison en HTTPS</li>
+<li>Paramétrer la liaison : nom de l’hôte (FQDN du site), sélectionner
+le certificat</li>
+</ul></li>
+</ol>
+<div class="img-row">
+<div class="img-col">
+<a href=".ressources/img/r11.png" target="_blank">
+<img src=".ressources/img/r11.png" alt="r11"  style="width:100%"> </a>
+</div>
+<div class="img-col">
+<a href=".ressources/img/r12.png" target="_blank">
+<img src=".ressources/img/r12.png" alt="r12" style="width:100%"> </a>
+</div>
+</div>
+<p><a href="#toc">Retour en haut</a></p>
+<h3 id="certificats-auto-signé">Certificats auto-signé</h3>
+<ul>
+<li>Protocol SSL (Secure Socket Layer) crée par Netscape</li>
+<li>passé sous la responsabilité de l’IETF (Internet Engineering Task
+Force)</li>
+<li>renommé TLS (2008: TLS 1.2, 2018: TLS 1.3)</li>
+</ul>
+<p>TLS est chargé de 3 fonctions :</p>
+<ol type="1">
+<li>l’authentification (vérification de l’id du serveur via certificat
+numérique)</li>
+<li>la confidentialité (chiffrement des données sur le média)</li>
+<li>l’intégrité (garantie de la validité des données via l’algo de
+hashage)</li>
+</ol>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="certificat-autosigné-apache">Certificat autosigné Apache</h4>
+<p><strong>Etapes de création des certificats</strong></p>
+<ul>
+<li>création de l’arborescence de stockage des certificats</li>
+<li>création d’une clé privée</li>
+<li>création d’un fichier de demande de “signature de certificat”</li>
+<li>création d’un certificat autosigné</li>
+<li>modification du fichier configuration du site</li>
+</ul>
+<p><strong>Arborescence du stockage</strong> : /etc/ssl</p>
+<p><strong>Création de la clé privée</strong> (via une commande)</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> openssl genrsa <span class="at">-des3</span> <span class="at">-out</span> /etc/ssl/private/www.tssr.lcl.key 2048</span></code></pre></div>
+<ul>
+<li><strong>genrsa</strong> : génération d’une clé privée avec l’algo
+RSA</li>
+<li><strong>-des3</strong> : oblige l’utilisation d’une phrase de passe
+pour protéger l’utilisation de la clé</li>
+<li><strong>-out chemin/fichier-cle-privée</strong> : chemin et nom du
+fichier contenant la clé privée</li>
+<li><strong>2048</strong> : longueur de la clé en bits (valeur par
+défaut)</li>
+</ul>
+<p><strong>Création d’un fichier de demande de signature de
+certificat</strong> : pour faire une demande de certificat auprès d’une
+autorité de certification (ex. Let’s Encrypt)</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> openssl req <span class="at">-new</span> <span class="at">-key</span> /etc/ssl/private/www.tssr.lcl.key <span class="at">-out</span> /etc/ssl/reqs/www.tssr.lsl.request.car</span></code></pre></div>
+<ul>
+<li><strong>req</strong> gestion des requêtes de certification</li>
+<li><strong>-new</strong> : nouvelle demande</li>
+<li><strong>-key /path/to/fichier-cle-privee</strong> : clé privée à
+utiliser</li>
+<li><strong>-out /path/to/fichier-demande-certif</strong> : fichier
+contenant la demande de certificat</li>
+</ul>
+<p>Pour en savoir plus, voir <code>man req</code></p>
+<p><strong>Gestion des information du certificat</strong> : des infos
+sont à renseigner, elles prennent en compte le nom du site, le pays,
+etc.</p>
+<p><strong>Création du certificat autosigné</strong></p>
+<p>page 42</p>
+<p><a href="#toc">Retour en haut</a></p>
+<h4 id="notes-distinction-entre-les-sites">Notes: distinction entre les
+sites</h4>
+<ul>
+<li>site web par port : les sites ne sont accessibles que via des ports
+différents (ew. site1 sur 81, site2 sur 82, etc.)</li>
+<li>site web par adresse ip : chaque site a une ip différente (ex. site1
+<span class="citation" data-cites="ip1:80">@ip1:80</span>, site2 <span
+class="citation" data-cites="ip2:80">@ip2:80</span>)</li>
+<li>site web par FQDN : chaque site a une URL différentes (ex. site1
+FDQN1:80, site2 FQDN2:80, etc.)</li>
+</ul>
+<p><a href="#toc">Retour en haut</a></p>
+<h2 id="difference-remoteapp-vs-remote-desktop">Difference RemoteApp vs
+Remote Desktop</h2>
+<p>https://www.anyviewer.com/how-to/remoteapp-vs-rdp-2578.html</p>
+<p>Remote App permet d’utiliser une application installée sur un poste
+distant en utilisant un webservice. On peut y acceder grace à un
+raccourci sur son propre bureau.</p>
+<p>Remote Desktop permet d’accèder à distance à une machine distante. On
+a ainsi accès à l’entiereté de son environnement, et non plus juste à
+une application.</p>
+<p><a href="#toc">Retour en haut</a> ## Procédure de déploiement
+Plusieurs méthodes de déploiement :</p>
+<ul>
+<li>WDS Windows Deployment Services</li>
+<li>MDT Microsoft Deployment Toolkit</li>
+<li>USB</li>
+</ul>
+<h3 id="déploiement-par-wds-par-moi">Déploiement par WDS (par moi)</h3>
+<ol type="1">
+<li>Avoir un serveur WDS (activer la fonctionnalités)</li>
+<li>On crée une image de déploiement</li>
+<li>On y ajoute le fichier boot.wim contenu dans l’image iso (?)</li>
+<li>On boot le système (dans quoi?)</li>
+<li>On fait ses réglages, on installe ses logiciels</li>
+<li>On sysprep le système pour réinitialiser (ex. nouveau SUID)</li>
+<li>On éteint</li>
+<li>On boot la machine hôte sur le réseau (boot order) afin de lancer
+PXE</li>
+<li>Dans PXE on choisit “image de déployment”</li>
+<li>On laisse s’installer le master.</li>
+</ol>
+<h2 id="vue-densemble-mdt-wds-et-winpe">Vue d’ensemble MDT-WDS et
+WinPE</h2>
+<p>Source : https://www.it-connect.fr/overview-mdt-wds-winpe/</p>
+<h3 id="présentation">Présentation</h3>
+<p>Principales technologies utilisée pour un déploiement :</p>
+<ul>
+<li>WDS : déploiement de l’OS (pour postes clients)</li>
+<li>MDT : outils à part mais aide WDS</li>
+<li>WinPE : ?</li>
+</ul>
+<p>Sysprep : pour rendre unique la machine. Régénère le SSID</p>
+<h4 id="wds-windows-deployment-services">WDS (Windows Deployment
+Services)</h4>
+<p>Service de déploiement Windows. C’est un “rôle” facultatif disponible
+sur toutes les versions Windows Server depuis 2003R2.</p>
+<p>2 fonctions majeures :</p>
+<ol type="1">
+<li>Le déploiement des images WIM pour les OS Windows</li>
+<li>la fourniture d’images de démarrage (via PXE) pour l’initialisation
+des processus d’installation ou de réparation</li>
+</ol>
+<p>Le premier intérêt de WDS est d’offrir une “dématérialisation” des
+DVD de distribution afin de les centraliser sur un serveur et fournir
+par la même occasion un système d’amorçage via le réseau PXE.</p>
+<h4 id="mdt-microsoft-deployment-toolkit">MDT (Microsoft Deployment
+Toolkit)</h4>
+<p>Outil d’automatisation de la fabrication et de l’installation des
+systèmes Windows.</p>
+<p>Disponible en téléchargement gratuit, requiert un kit complémentaire
+nommé Windows ADK (Assessment and Deploiment Kit)</p>
+<p><strong>Le MDT est une console graphique (de type MMC) dont
+l’objectif est de fédérer des sources, réaliser l’assemblage et proposer
+des séquences de tâches pour piloter le tout.</strong></p>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li>Si on utilise MDT sans le produit commercial SCCM (System Center
+Configuration Manager), les scénarios proposés par MDT seront de type
+“LiteTouch” ou “LTI” en abrégé. C’est à dire qu’en l’absence de
+mécanisme tiers, il restera toujous une intervention humaine, aussi
+infime soit-elle pour les déploiements, d’où le nom “LiteTouch” (“légère
+intervention”).</li>
+<li>Si on utilise MDT en couple avec SCCM, il est possible de fédérer
+entièrement les processus de déploiement, jusqu’à la planification du
+déclenchement. Microsoft appelle ça le “ZeroTouch”.</li>
+</ul>
+<h4 id="winpe">WinPE</h4>
+<p>C’est le remplaçant de l’ancestral disquette DOS. Il s’agit d’un
+noyau système minimaliste présent pratiquement partout depuis Vista. On
+peut le trouver dans des DVD d’installation, dans le MDT sous la forme
+d’un client <strong>LiteTouch</strong>, au sein des images de démarrage
+WDS, sans oublier sa déclinaison “WinRE” pour les procédures de
+réparation.</p>
+<h4 id="notes">Notes</h4>
+<p><a href=".ressources/img/r14.png" target="_blank">
+<img src=".ressources/img/r14.png" alt="r14"> </a></p>
+<p>Cette illustration montre la complémentarité des différents
+composants utilisés dans une solution de déploiement Windows.</p>
+<p>Il n’y a pas forcément besoin de dédier un serveur pour MDT.</p>
+<p>Le partage “DeploymentShare$” du MDT mentionné n’est pas
+nécessairement stocké sur un serveur de fichier Windows (un NAS peut
+faire l’affaire).</p>
+<p>On ne peut pas utiliser WinPE comme un live-cd</p>
+<h4 id="sysprep">Sysprep</h4>
+<p>Utiliser impérativement sysprep avant une capture.</p>
+<p>Parmi les actions de sysprep, les plus importantes sont :</p>
+<ul>
+<li>nettoie les traces d’utilisation</li>
+<li>supprime les pilotes tiers de périphérique</li>
+<li>supprime la clé de licence et réarme le processus d’activation</li>
+<li>régénère l’identifiant unique de sécurité local (SID) de
+l’ordinateur</li>
+<li>passe le système en condition de “re-personnalisation” (OOBE = Out
+Of the Box Experience)</li>
+</ul>
+<p>Depuis Vista, son chemin d’accès est le suivant :
+<code>%SystemRoot%\System32\sysprep\sysprep.exe</code></p>
+<p>Master = machines de références</p>
+<p>Tous les master déstiné à être dupliqués doivent impérativement subir
+une préparation préalable, via l’outil intégré SYSPREP. Ce programme
+réalise un certain nombre de dépersonnalisation et remet la machine en
+condition de réinitialisation.</p>
+<p>Bien que cela ne soit pas imposé par l’outil lui-même, pour fabriquer
+un système de référence, il est fortement conseillé que la machine ne
+soit pas membre d’un domaine.</p>
+<p>Si vous réalisez une machine de référence, prenez l’habitude de
+réactiver le compte administrateur intégré et éviter l’usage des autres
+comptes tels que celui de l’installation.</p>
+<h4 id="les-images-wim">Les images WIM</h4>
+<h4 id="les-processus-de-fabrication-et-de-déploiement">Les processus de
+fabrication et de déploiement</h4>
+<p>Le processus de fabrication et de déploiement se résume comme suit
+:</p>
+<ol type="1">
+<li>Préparation du PC de référence et génération de l’image WIM</li>
+<li>Installation</li>
+<li>Partitionnement des disques</li>
+<li>Configuration de l’amorçage</li>
+<li>Extraction (ou application) de l’image WIM</li>
+</ol>
+<p>(THE END ?!)</p>
+<h2 id="procédures-déploiement-wds-mdt">Procédures déploiement WDS,
+MDT</h2>
+<p>Classe : ASR</p>
+<p>https://hackmd.io/<span class="citation"
+data-cites="Corentin/H17o9AQxS">@Corentin/H17o9AQxS</span></p>
+<h3 id="profils-itinérants-et-redirection">1. Profils itinérants et
+redirection</h3>
+<h4 id="objectif">1.1 Objectif</h4>
+<p>Ce document a pour but de décrire les différentes étapes de
+configuration d’un profil itinérant et de la redirection de dossiers
+d’un profil.</p>
+<h4 id="création-dun-profil-itinérant">1.2 Création d’un profil
+itinérant</h4>
+<p>Pour commencer, créez un dossier de partage qui héregera les profils
+itinérants.</p>
+<p><img class="procedure" src=".ressources/img/p01.png" alt="p01"></p>
+<p>Clic droit &gt; Propriétés &gt; onglet Partage &gt; Partage avancé
+&gt; cochez Partager ce dossier</p>
+<p><img class="procedure" src=".ressources/img/p02.png" alt="p02.png"></p>
+<p>Donnez accès au groupe de sécurité dédié</p>
+<p><img class="procedure" src=".ressources/img/p03.png" alt="p03.png"></p>
+<p>Dans les propriétés du compte &gt; onglet Profil &gt; renseigner le
+chemin vers le partage</p>
+<p><img class="procedure" src=".ressources/img/p04.png" alt="p04.png"></p>
+<p>Dans le partage réseau, on retrouve le profil de l’utilisateur avec
+son dossier nominatif.</p>
+<p><img class="procedure" src=".ressources/img/p05.png" alt="p05.png">
+Dans les propriétés des profils des utilisateurs, on constate que le
+type du profils utilisateur est marqué comme étant Itinérant.</p>
+<p><img class="procedure" src=".ressources/img/p06.png" alt="p06.png"></p>
+<h4 id="redirection-de-dossier">1.3 Redirection de dossier</h4>
+<p>Créez un dossier qui accueillera les redirections de profils.</p>
+<p><img class="procedure" src=".ressources/img/p07.png" alt="p07.png">
+Rendez-vous dans l’onglet Partage puis cliquez sur Partage avancé et
+cochez l’option Partager ce dossier.</p>
+<p><img class="procedure" src=".ressources/img/p08.png" alt="p08.png">
+Donnez l’accès au groupe de sécurité dédié ou tous les utilisateurs du
+domaine.</p>
+<p><img class="procedure" src=".ressources/img/p09.png" alt="p09.png">
+Créez une GPO qui accueillera la stratégie.</p>
+<p><img class="procedure" src=".ressources/img/p10.png" alt="p10.png">
+Se rendre dans Configuration utilisateur, Stratégie, Paramètre Windows
+puis Redirection de dossiers.</p>
+<p><img class="procedure" src=".ressources/img/p11.png" alt="p11.png">
+Sélectionnez un dossier puis faites un clic droit dessus et cliquez sur
+Propriétés.</p>
+<p><img class="procedure" src=".ressources/img/p12.png" alt="p12.png">
+Sélectionnez le paramètre base pour rediriger les profils de tous les
+utilisateurs.</p>
+<p>Sélectionnez Créer un dossier pour chaque utilisateur puis renseignez
+le chemin vers le partage.</p>
+<p><img class="procedure" src=".ressources/img/p13.png" alt="p13.png">
+Il est possible de spécifier un groupe de sécurité dédié à la
+redirection des profils en sélectionnant l’option Avancé.</p>
+<p><img class="procedure" src=".ressources/img/p14.png" alt="p14.png">
+Renseignez le groupe de sécurité et le chemin vers le partage.</p>
+<p><img class="procedure" src=".ressources/img/p15.png" alt="p15.png">
+Dans la rubrique Paramètre, décochez la première option puis cliquez sur
+Appliquer.</p>
+<p><img class="procedure" src=".ressources/img/p16.png" alt="p16.png">
+Validez le message d’avertissement.</p>
+<p><img class="procedure" src=".ressources/img/p17.png" alt="p17.png">
+Dans le partage réseau, on retrouve le dossier nominatif de
+l’utilisateur avec la redirection du bureau.</p>
+<h3 id="déploiement-dapplication-msi">2. Déploiement d’application
+MSI</h3>
+<p><img class="procedure" src=".ressources/img/p18.png" alt="p18.png">
+<img class="procedure" src=".ressources/img/p19.png" alt="p19.png">
+<img class="procedure" src=".ressources/img/p20.png" alt="p20.png">
+<img class="procedure" src=".ressources/img/p21.png" alt="p21.png">
+<img class="procedure" src=".ressources/img/p22.png" alt="p22.png">
+<img class="procedure" src=".ressources/img/p23.png" alt="p23.png">
+<img class="procedure" src=".ressources/img/p24.png" alt="p24.png">
+<img class="procedure" src=".ressources/img/p25.png" alt="p25.png">
+<img class="procedure" src=".ressources/img/p26.png" alt="p26.png">
+<img class="procedure" src=".ressources/img/p27.png" alt="p27.png"></p>
+<h3 id="migration-de-profils-utilisateur">3. Migration de profils
+utilisateur</h3>
+<p><img class="procedure" src=".ressources/img/p28.png" alt="p28.png">
+<img class="procedure" src=".ressources/img/p29.png" alt="p29.png">
+<img class="procedure" src=".ressources/img/p30.png" alt="p30.png"></p>
+<h3 id="installation-et-configuration">4. Installation et
+configuration</h3>
+<p><img class="procedure" src=".ressources/img/p31.png" alt="p31">
+<img class="procedure" src=".ressources/img/p32.png" alt="p32">
+<img class="procedure" src=".ressources/img/p33.png" alt="p33">
+<img class="procedure" src=".ressources/img/p34.png" alt="p34">
+<img class="procedure" src=".ressources/img/p35.png" alt="p35">
+<img class="procedure" src=".ressources/img/p36.png" alt="p36">
+<img class="procedure" src=".ressources/img/p37.png" alt="p37">
+<img class="procedure" src=".ressources/img/p38.png" alt="p38">
+<img class="procedure" src=".ressources/img/p39.png" alt="p39">
+<img class="procedure" src=".ressources/img/p40.png" alt="p40">
+<img class="procedure" src=".ressources/img/p41.png" alt="p41">
+<img class="procedure" src=".ressources/img/p42.png" alt="p42">
+<img class="procedure" src=".ressources/img/p43.png" alt="p43">
+<img class="procedure" src=".ressources/img/p44.png" alt="p44">
+<img class="procedure" src=".ressources/img/p45.png" alt="p45">
+<img class="procedure" src=".ressources/img/p46.png" alt="p46">
+<img class="procedure" src=".ressources/img/p47.png" alt="p47">
+<img class="procedure" src=".ressources/img/p48.png" alt="p48">
+<img class="procedure" src=".ressources/img/p49.png" alt="p49">
+<img class="procedure" src=".ressources/img/p50.png" alt="p50">
+<img class="procedure" src=".ressources/img/p51.png" alt="p51">
+<img class="procedure" src=".ressources/img/p52.png" alt="p52">
+<img class="procedure" src=".ressources/img/p53.png" alt="p53">
+<img class="procedure" src=".ressources/img/p54.png" alt="p54">
+<img class="procedure" src=".ressources/img/p55.png" alt="p55">
+<img class="procedure" src=".ressources/img/p56.png" alt="p56">
+<img class="procedure" src=".ressources/img/p57.png" alt="p57">
+<img class="procedure" src=".ressources/img/p58.png" alt="p58">
+<img class="procedure" src=".ressources/img/p59.png" alt="p59">
+<img class="procedure" src=".ressources/img/p60.png" alt="p60">
+<img class="procedure" src=".ressources/img/p61.png" alt="p61"></p>
+<h3 id="création-et-déploiement-dun-master">5. Création et déploiement
+d’un Master</h3>
+<h4 id="objectif-1">5.1 Objectif</h4>
+<p>Ce document a pour but de décrire les différentes étapes de création
+puis de déploiement d’une image master.</p>
+<h4 id="préparation-du-poste">5.2 Préparation du poste</h4>
+<p>On considère que tous les logiciels sont installés sur le poste
+Master.</p>
+<p>Ouvrir un navigateur de fichier puis aller dans le répertoire
+<code>C:\Windows\System32\sysprep\</code> et executer le programme
+sysprep.exe</p>
+<p>Sélectionner le mode “OOBE” &gt; cocher “Généraliser”</p>
+<p>Options d’extinction &gt; sélectionner “Arrêter le système”</p>
+<p><img class="procedure" src=".ressources/img/p62.png" alt="p62"></p>
+<h4 id="création-dune-image-de-capture">5.3 Création d’une image de
+capture</h4>
+<p>Sur le serveur WDS &gt; rubrique “Images de démarrage”</p>
+<p>Clic droit sur l’image de démarrage &gt; selectionner “Créer une
+image de capture”</p>
+<p><img class="procedure" src=".ressources/img/p63.png" alt="p63"></p>
+<p>Renseigner le nom de l’image, l’emplacement, et le nom du fichier</p>
+<p><img class="procedure" src=".ressources/img/p64.png" alt="p64"></p>
+<p>Patientez pendant la création de l’image de capture</p>
+<p><img class="procedure" src=".ressources/img/p65.png" alt="p65"></p>
+<p>Cocher l’option “Ajouter une image au serveur de déploiement
+Windows”</p>
+<p><img class="procedure" src=".ressources/img/p66.png" alt="p66"></p>
+<p>Renseigner l’emplacement du fichier</p>
+<p><img class="procedure" src=".ressources/img/p67.png" alt="p67"></p>
+<p>Renseignez le nom et la description de l’image.</p>
+<p><img class="procedure" src=".ressources/img/p68.png" alt="p68"></p>
+<p>Cliquez sur Suivant.</p>
+<p><img class="procedure" src=".ressources/img/p69.png" alt="p69"></p>
+<p>Patientez pendant l’ajout de l’image au démarrage</p>
+<p><img class="procedure" src=".ressources/img/p70.png" alt="p70"></p>
+<h4 id="capture-de-limage-master">5.4 Capture de l’image Master</h4>
+<p>Sur le poste Master, démarrez sur l’image de démarrage dédiée à la
+capture du Master</p>
+<p><img class="procedure" src=".ressources/img/p71.png" alt="p71"></p>
+<p>On démarre sur l’assistant de capture d’image
+<img class="procedure" src=".ressources/img/p72.png" alt="p72"></p>
+<p>Selectionnez le volume et indiquer le nom de l’image de capture
+<img class="procedure" src=".ressources/img/p73.png" alt="p73"></p>
+<p>Selectionner l’emplacement du fichier en local &gt; cochez l’option
+“Charger l’image sur un serveur” &gt; Renseigner l’adresse IP du serveur
+et le groupe d’images</p>
+<p><img class="procedure" src=".ressources/img/p74.png" alt="p74"></p>
+<p>Patienter pendant la capture de l’image
+<img class="procedure" src=".ressources/img/p75.png" alt="p75"></p>
+<p>Pour finir cliquer sur Terminer
+<img class="procedure" src=".ressources/img/p76.png" alt="p76"></p>
+<p>L’image est automatiquement ajouté au serveur WDS</p>
+<p><img class="procedure" src=".ressources/img/p77.png" alt="p77"></p>
+<h3 id="image-personnalisée-avec-windows-icd-comme-toolkit">6. Image
+personnalisée avec Windows ICD (comme Toolkit ?)</h3>
+<h3 id="fichier-de-réponse-wsim">7. Fichier de réponse WSIM</h3>
+<h3 id="création-dune-image-avec-mdt-microsoft-deployment-toolkit">8.
+Création d’une image avec MDT Microsoft Deployment Toolkit</h3>
+<h4 id="objectif-2">8.1 Objectif</h4>
+<h4 id="création-du-dossier-de-partage-deployment-shares">8.2 Création
+du dossier de partage “Deployment Shares”</h4>
+<h4
+id="importation-du-système-dexploitation-import-operating-system">8.3
+Importation du système d’exploitation (“Import operating system”)</h4>
+<h4 id="importation-du-système-dexploitation-new-application">8.4
+Importation du système d’exploitation (“New application”)</h4>
+<h4 id="importation-dun-groupe-dapplication">8.5 Importation d’un groupe
+d’application</h4>
+<h4 id="importation-des-drivers">8.6 Importation des drivers</h4>
+<h4 id="importation-des-paquets">8.7 Importation des paquets</h4>
+<h4 id="creation-dun-séquence-de-tâches">8.8 Creation d’un séquence de
+tâches</h4>
+<h4 id="création-dun-séquence-de-tâches">8.9 Création d’un séquence de
+tâches</h4>
+<h4 id="création-dun-séquence-de-tâches-1">8.10 Création d’un séquence
+de tâches</h4>
+<h4 id="création-dun-fichier-iso">8.11 Création d’un fichier ISO</h4>
+<h4 id="démarrage-de-lapplication">8.12 Démarrage de l’application</h4>
+<p><link rel="stylesheet" type="text/css" href=".ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href=".ressources/css/headings.css"></p>
+</body>
+</html>
