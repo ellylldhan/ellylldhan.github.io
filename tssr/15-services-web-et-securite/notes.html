@@ -1,0 +1,1794 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body {
+  max-width: 980px;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 45px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable,
+.markdown-body .highlighttable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr,
+.markdown-body .highlighttable {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite,
+.markdown-body .highlighttable pre,
+.markdown-body .highlighttable div.highlight {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td,
+.markdown-body .highlighttable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headerlink {
+  font: normal 400 16px fontawesome-mini;
+  vertical-align: middle;
+  margin-left: -16px;
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  opacity: 0;
+  color: #333;
+}
+
+.markdown-body .headerlink:focus {
+  outline: none;
+}
+
+.markdown-body h1 .headerlink {
+  margin-top: 0.8rem;
+}
+
+.markdown-body h2 .headerlink,
+.markdown-body h3 .headerlink {
+  margin-top: 0.6rem;
+}
+
+.markdown-body h4 .headerlink {
+  margin-top: 0.2rem;
+}
+
+.markdown-body h5 .headerlink,
+.markdown-body h6 .headerlink {
+  margin-top: 0;
+}
+
+.markdown-body .headerlink:hover,
+.markdown-body h1:hover .headerlink,
+.markdown-body h2:hover .headerlink,
+.markdown-body h3:hover .headerlink,
+.markdown-body h4:hover .headerlink,
+.markdown-body h5:hover .headerlink,
+.markdown-body h6:hover .headerlink {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite,
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* MultiMarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px fontawesome-mini;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\e157';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+.markdown-body diagram-div, .markdown-body div.uml-sequence-diagram, .markdown-body, div.uml-flowchart {
+  overflow: auto;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><style>/*GitHub*/
+.highlight {background-color:#fff;color:#333333;}
+.highlight .hll {background-color:#ffffcc;}
+.highlight .c{color:#999988;font-style:italic}
+.highlight .err{color:#a61717;background-color:#e3d2d2}
+.highlight .k{font-weight:bold}
+.highlight .o{font-weight:bold}
+.highlight .cm{color:#999988;font-style:italic}
+.highlight .cp{color:#999999;font-weight:bold}
+.highlight .c1{color:#999988;font-style:italic}
+.highlight .cs{color:#999999;font-weight:bold;font-style:italic}
+.highlight .gd{color:#000000;background-color:#ffdddd}
+.highlight .ge{font-style:italic}
+.highlight .gr{color:#aa0000}
+.highlight .gh{color:#999999}
+.highlight .gi{color:#000000;background-color:#ddffdd}
+.highlight .go{color:#888888}
+.highlight .gp{color:#555555}
+.highlight .gs{font-weight:bold}
+.highlight .gu{color:#800080;font-weight:bold}
+.highlight .gt{color:#aa0000}
+.highlight .kc{font-weight:bold}
+.highlight .kd{font-weight:bold}
+.highlight .kn{font-weight:bold}
+.highlight .kp{font-weight:bold}
+.highlight .kr{font-weight:bold}
+.highlight .kt{color:#445588;font-weight:bold}
+.highlight .m{color:#009999}
+.highlight .s{color:#dd1144}
+.highlight .n{color:#333333}
+.highlight .na{color:teal}
+.highlight .nb{color:#0086b3}
+.highlight .nc{color:#445588;font-weight:bold}
+.highlight .no{color:teal}
+.highlight .ni{color:purple}
+.highlight .ne{color:#990000;font-weight:bold}
+.highlight .nf{color:#990000;font-weight:bold}
+.highlight .nn{color:#555555}
+.highlight .nt{color:navy}
+.highlight .nv{color:teal}
+.highlight .ow{font-weight:bold}
+.highlight .w{color:#bbbbbb}
+.highlight .mf{color:#009999}
+.highlight .mh{color:#009999}
+.highlight .mi{color:#009999}
+.highlight .mo{color:#009999}
+.highlight .sb{color:#dd1144}
+.highlight .sc{color:#dd1144}
+.highlight .sd{color:#dd1144}
+.highlight .s2{color:#dd1144}
+.highlight .se{color:#dd1144}
+.highlight .sh{color:#dd1144}
+.highlight .si{color:#dd1144}
+.highlight .sx{color:#dd1144}
+.highlight .sr{color:#009926}
+.highlight .s1{color:#dd1144}
+.highlight .ss{color:#990073}
+.highlight .bp{color:#999999}
+.highlight .vc{color:teal}
+.highlight .vg{color:teal}
+.highlight .vi{color:teal}
+.highlight .il{color:#009999}
+.highlight .gc{color:#999;background-color:#EAF2F5}
+</style><title>notes</title></head><body><article class="markdown-body"><h1 id="eni-tssr-15-services-web-et-securite">ENI TSSR 15 - Services Web et Sécurité<a class="headerlink" href="#eni-tssr-15-services-web-et-securite" title="Permanent link"></a></h1>
+<p>Cours <em>&ldquo;Serveurs Web, Certificats et PKI Microsoft, VPN&rdquo;</em> @ ENI (2023)</p>
+<table>
+<tr><th>Dates     :</th><td>du 16/01 au 20/01/2023</td></tr>
+<tr><th>Formateur :</th><td>Matthieu CLAVEAU</td></tr>
+</table>
+
+<p>id: 160</p>
+<div class="toc">
+<ul>
+<li><a href="#eni-tssr-15-services-web-et-securite">ENI TSSR 15 - Services Web et Sécurité</a><ul>
+<li><a href="#objectifs">Objectifs</a></li>
+<li><a href="#module-1-les-serveurs-web">Module 1 - Les Serveurs Web</a><ul>
+<li><a href="#11-le-protocole-http">1.1 Le protocole HTTP</a></li>
+<li><a href="#12-le-serveur-apache">1.2 Le Serveur Apache</a><ul>
+<li><a href="#historique">Historique</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#verification-de-linstallation-dapache">Vérification de l&rsquo;installation d&rsquo;Apache</a></li>
+<li><a href="#gestion-du-service-apache2">Gestion du service Apache2</a><ul>
+<li><a href="#systemctl">systemctl</a></li>
+<li><a href="#apache2ctl">apache2ctl</a></li>
+</ul>
+</li>
+<li><a href="#configuration-dapache">Configuration d&rsquo;Apache</a><ul>
+<li><a href="#repertoire-etcapache2">Répertoire /etc/apache2</a></li>
+<li><a href="#instruction-listen">Instruction Listen</a></li>
+<li><a href="#instruction-directoryindex">Instruction DirectoryIndex</a></li>
+<li><a href="#autres-commandes">Autres commandes</a></li>
+<li><a href="#alerte-servername">Alerte ServerName</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#13-installation-iis">1.3 Installation IIS</a><ul>
+<li><a href="#131-historique-iis">1.3.1 Historique IIS</a></li>
+<li><a href="#132-installation-du-service-iis">1.3.2 Installation du service IIS</a></li>
+<li><a href="#133-verification-de-linstallation-de-iis">1.3.3 Vérification de l&rsquo;installation de IIS</a></li>
+<li><a href="#134-repertoire-dinstallation-de-iis">1.3.4 Répertoire d&rsquo;installation de IIS</a></li>
+<li><a href="#135-administration-de-iis">1.3.5 Administration de IIS</a><ul>
+<li><a href="#1351-parametrage-du-serveur">1.3.5.1 Paramétrage du serveur</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#14-creation-de-sites-sous-apache">1.4 Création de sites sous Apache</a><ul>
+<li><a href="#141-fichiers-de-configuration">1.4.1 Fichiers de configuration</a></li>
+<li><a href="#142-structure-du-fichier-de-configuration">1.4.2 Structure du fichier de configuration</a><ul>
+<li><a href="#definition-du-virtualhost">Définition du VirtualHost</a></li>
+<li><a href="#ajout-de-sections-de-configuration">Ajout de sections de configuration</a></li>
+<li><a href="#ordre-de-lecture-des-section-de-configuration">Ordre de lecture des section de configuration</a></li>
+<li><a href="#gestion-des-acces-simples">Gestion des accès simples</a></li>
+<li><a href="#gestion-des-acces-multiple">Gestion des accès multiple</a></li>
+<li><a href="#directive-options">Directive Options</a></li>
+<li><a href="#directive-directoryindex">Directive DirectoryIndex</a></li>
+<li><a href="#exemple-de-configuration">Exemple de configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#15-creation-de-sites-sous-iis">1.5 Création de sites sous IIS</a></li>
+<li><a href="#16-distinction-entre-les-sites">1.6 Distinction entre les sites</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<ol>
+<li>Les Objectifs</li>
+<li>Les Serveurs Web<ol start="3">
+<li>Installation Apache</li>
+<li>Installation d&rsquo;IIS </li>
+<li>Création de sites sous Apache</li>
+<li>Création de sites sous IIS </li>
+<li>Distinction entre les sites (p58)</li>
+</ol>
+</li>
+<li>Module 2 Les Certificats Numériques (p66) <ol start="9">
+<li>Les certificats auto-signés (p72)</li>
+<li>Les certificats auto-signés Apache (p74)</li>
+<li>Configuration du site Apache (p90)</li>
+<li>Les certificats auto-signés IIS (p95)</li>
+<li>Configuration du site IIS (p100)</li>
+<li>Installation PKI (p107)</li>
+<li>Modèle de certificat IIS (p119)</li>
+<li>Installation certificat IIS (p125)</li>
+<li>Vérification sur les navigateurs (p133)</li>
+</ol>
+</li>
+<li>
+<p>VPN (p142)</p>
+<ol start="19">
+<li>VPN Nomade (p144)</li>
+<li>VPN Site à Site (p151)</li>
+<li>OpenVPN (p155)<ol start="22">
+<li>Ajout d&rsquo;un autorité de certification dans PfSense (p157)</li>
+<li>Authentification LDAP dans PfSense (p165)</li>
+<li>Paramétrage OpenVPN Server (p173)</li>
+<li>OpenVPN Client (p182)</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>les Objectifs (p2)</p>
+<ul>
+<li>module 1 : serveur web (Apache/IIS)</li>
+<li>module 2 : gestion des certificats (PKI)</li>
+<li>module 3 : gérer les accès des utilisateurs nomades </li>
+</ul>
+</li>
+<li>
+<p>M01 Les Serveurs Web  (p4)</p>
+<ul>
+<li>Installer un serveur web </li>
+<li>Publier des sites web </li>
+<li>authentifier l&rsquo;accès aux sites web </li>
+</ul>
+<p>1.1 Installation Apache 
+1.2 Installation IIS
+1.3 Création de sites sous Apache 
+1.4 Création de sites sous IIS 
+1.5 Distinction entre les sites</p>
+</li>
+<li>
+<p>M02 Les certificats numériques (p34)
+    2.1 Les certificats auto-signés 
+    2.2 Les certificats auto-signés Apache
+        2.2.1 Configuration du site Apache
+    2.3 Les certificats auto-signés IIS 
+        2.2.1 Configuration du site IIS 
+    2.4 Installation PKI  <br />
+    2.5 Modèle de certificat IIS 
+    2.6 Installation de certificat IIS 
+    2.7 Verification sur les navigateurs </p>
+</li>
+<li>
+<p>Utilisateurs Nomades (p79)
+    3.1 VPN 
+    3.2 VPN Nomade 
+    3.3 VPN Site à Site
+    3.4 OpenVPN &amp; pfSense 
+        3.4.1 Ajout d&rsquo;une autorité de certification dans pfSense
+        3.4.2 Authentification LDAP dans pfSense 
+        3.4.3 Paramétrage OpenVPN Server
+        3.4.4 OpenVPN Client</p>
+</li>
+</ol>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link"></a></h2>
+<ul>
+<li>Expliquer le fonctionnement d&rsquo;un serveur web</li>
+<li>Installer un serveur web</li>
+<li>Paramétrer et publier un site internet </li>
+<li>Authentifier les accès aux sites web </li>
+<li>Installer une autorité de certification Microsoft </li>
+<li>Mettre en place un serveur VPN pour les utilisateurs nomades</li>
+</ul>
+<p><strong>Sommaire</strong> : 
+- TP1 : installation de l&rsquo;infrastructure
+- module 1 : serveur web (Apache/IIS)
+- module 2 : gestion des certificats (PKI)
+- module 3 : gérer les accès des utilisateurs nomades </p>
+<p><strong>TODO: INSERER PLAN DU RESEAU</strong> </p>
+<h2 id="module-1-les-serveurs-web">Module 1 - Les Serveurs Web<a class="headerlink" href="#module-1-les-serveurs-web" title="Permanent link"></a></h2>
+<p><strong>Objectifs</strong></p>
+<ul>
+<li>Installer un serveur web (Apache / IIS)</li>
+<li>Publier des sites web </li>
+<li>Authentifier l&rsquo;accès aux sites web </li>
+</ul>
+<p>Les serveurs web les plus répandus : Apache, Nginx (EngineX), IIS</p>
+<h3 id="11-le-protocole-http">1.1 Le protocole HTTP<a class="headerlink" href="#11-le-protocole-http" title="Permanent link"></a></h3>
+<p>Le protocole HTTP est un protocole de la couche Application du modèle OSI.</p>
+<p>On utilise le protocole TCP comme couche Transport, le serveur HTTP répondra alors par défaut sur le port 80 (ou 443 pour HTTPS).</p>
+<p><a href="../ressources/img/15-services-web-et-securitehttp.png" target="_blank"><img alt="HTTP" src="../ressources/img/15-services-web-et-securitehttp.png" /></a></p>
+<p><a href="../ressources/img/15-services-web-et-securitehttps.png" target="_blank"><img alt="HTTPS" src="../ressources/img/15-services-web-et-securitehttps.png" /></a></p>
+<p>Les méthodes permettent de spécifier le type d&rsquo;action à réaliser. Les plus utilisées sont :</p>
+<ul>
+<li><strong>GET</strong>  : demande de récupération de l&rsquo;object cible</li>
+<li><strong>POST</strong> : soumission de données, ex. un formulaire HTML</li>
+<li><strong>HEAD</strong> : demande d&rsquo;informations sur un objet cible</li>
+</ul>
+<p>Depuis la version 1.1, le protocole HTTP supporte et utilise par défaut des connexions persistantes. La connexion n&rsquo;est plus immédiatement fermée après une requête, mais reste disponible pour une nouvelle requête. Cela permet d&rsquo;accélérer le chargement de pages contenant plusieurs ressources, tout en diminuant la charge du réseau.</p>
+<h3 id="12-le-serveur-apache">1.2 Le Serveur Apache<a class="headerlink" href="#12-le-serveur-apache" title="Permanent link"></a></h3>
+<h4 id="historique">Historique<a class="headerlink" href="#historique" title="Permanent link"></a></h4>
+<ul>
+<li>issue du serveur HTTPD</li>
+<li>Regroupe des correctifs développés par différents webmaster</li>
+<li>se sont réunis et ont formés &ldquo;Apache Foundation&rdquo;</li>
+<li>Le nom Apache est un jeu de mot avec &ldquo;<em>A patchy server</em>&rdquo; (un serveur rafistolé)</li>
+<li>La 1e version date d&rsquo;Avril 1995 (Apache Server v0.62)</li>
+</ul>
+<ol>
+<li>1999 : Apache 1.3</li>
+<li>2000 : Apache 2.0 Alpha</li>
+<li>2002 : Apache 2.0 Stable</li>
+<li>2005 : Apache 2.2</li>
+<li>2012 : Apache 2.4 </li>
+</ol>
+<h4 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link"></a></h4>
+<p>Sous Debian :</p>
+<div class="highlight"><pre>apt install apache2 lynx
+</pre></div>
+
+<ul>
+<li><em>lynx</em> : classic non-graphical (text-mode) web browser</li>
+</ul>
+<h4 id="verification-de-linstallation-dapache">Vérification de l&rsquo;installation d&rsquo;Apache<a class="headerlink" href="#verification-de-linstallation-dapache" title="Permanent link"></a></h4>
+<ul>
+<li>Dans un navigateur, allez sur <a href="http://localhost">http://localhost</a>. Affiche la page par défaut.</li>
+</ul>
+<h4 id="gestion-du-service-apache2">Gestion du service Apache2<a class="headerlink" href="#gestion-du-service-apache2" title="Permanent link"></a></h4>
+<h5 id="systemctl"><code>systemctl</code><a class="headerlink" href="#systemctl" title="Permanent link"></a></h5>
+<div class="highlight"><pre># systemctl { start | stop | restart | reload | enable | disable | status } apache2.service 
+</pre></div>
+
+<ul>
+<li><code>systemctl restart</code> : redémarrage du daemon avec coupure</li>
+<li><code>systemctl reload</code>  : redémarrage du daemon sans coupure</li>
+</ul>
+<h5 id="apache2ctl"><code>apache2ctl</code><a class="headerlink" href="#apache2ctl" title="Permanent link"></a></h5>
+<div class="highlight"><pre>$ apache2ctl -h
+Usage: /usr/sbin/apache2 [-D name] [-d directory] [-f file]
+                         [-C &quot;directive&quot;] [-c &quot;directive&quot;]
+                         [-k start|restart|graceful|graceful-stop|stop]
+                         [-v] [-V] [-h] [-l] [-L] [-t] [-T] [-S] [-X]
+Options:
+  -D name            : define a name for use in &lt;IfDefine name&gt; directives
+  -d directory       : specify an alternate initial ServerRoot
+  -f file            : specify an alternate ServerConfigFile
+  -C &quot;directive&quot;     : process directive before reading config files
+  -c &quot;directive&quot;     : process directive after reading config files
+  -e level           : show startup errors of level (see LogLevel)
+  -E file            : log startup errors to file
+  -v                 : show version number
+  -V                 : show compile settings
+  -h                 : list available command line options (this page)
+  -l                 : list compiled in modules
+  -L                 : list available configuration directives
+  -t -D DUMP_VHOSTS  : show parsed vhost settings
+  -t -D DUMP_RUN_CFG : show parsed run settings
+  -S                 : a synonym for -t -D DUMP_VHOSTS -D DUMP_RUN_CFG
+  -t -D DUMP_MODULES : show all loaded modules 
+  -M                 : a synonym for -t -D DUMP_MODULES
+  -t -D DUMP_INCLUDES: show all included configuration files
+  -t                 : run syntax check for config files
+  -T                 : start without DocumentRoot(s) check
+  -X                 : debug mode (only one worker, do not detach)
+Action &#39;-h&#39; failed.
+The Apache error log may have more information.
+</pre></div>
+
+<ul>
+<li><code>apache2ctl restart</code>     : redémarre ou démarre le daemon Apache. <ul>
+<li>Vérification automatique des fichiers de configuration avant de lancer le redémarrage.</li>
+</ul>
+</li>
+<li><code>apache2ctl fullstatus</code>  : affiche le rapport d&rsquo;état complet. <ul>
+<li>Le module <code>mod_status</code> doit être activé et vous devez disposer d&rsquo;un navigateur en mode texte tel que <code>lynx</code>.</li>
+</ul>
+</li>
+<li><code>apache2ctl graceful</code>    : redémarre ou démarre le daemon en douceur. <ul>
+<li>Les connexions en cours ne sont pas fermées.</li>
+<li>Cette option vérifie automatiquement les fichiers de configuration.</li>
+</ul>
+</li>
+<li><code>apache2ctl graceful-stop</code> : arrête le daemon qd disponible.<ul>
+<li>Les connexions en cours ne sont pas fermées.</li>
+</ul>
+</li>
+<li><code>apache2ctl configtest</code> : vérifie la syntaxe des fichiers de config </li>
+<li><code>apache2ctl -t</code> : Vérification syntaxique</li>
+<li><code>apache2ctl -S</code> : affiche les sites publiés</li>
+<li><code>apache2ctl -l</code> : affiche des modules compilés avec Apache <ul>
+<li>Module statique : chargé au démarrage </li>
+<li>Module partagé : chargé à la demande </li>
+</ul>
+</li>
+<li><code>apache2ctl -h</code> : affiche l&rsquo;aide</li>
+</ul>
+<h4 id="configuration-dapache">Configuration d&rsquo;Apache<a class="headerlink" href="#configuration-dapache" title="Permanent link"></a></h4>
+<h5 id="repertoire-etcapache2">Répertoire <strong>/etc/apache2</strong><a class="headerlink" href="#repertoire-etcapache2" title="Permanent link"></a></h5>
+<table>
+    <tr><th colspan="2">Répertoire /etc/apache2/</th></tr>
+<tr>
+    <th><code>apache2.conf</code></th>
+    <td>fichier principal de configuration. Charge les autres fichiers grâce aux directives <code>Include</code>.</td>
+</tr>
+<tr>
+    <th><b>conf-available/</b></th>
+    <td>contient les fichiers de configuration complémentaires.</td>
+</tr>
+<tr>
+    <th><b>conf-enabled/</b></th>
+    <td>liens symboliques des configurations chargés au démarrage pointant vers <b>conf-available/</b>.</td>
+</tr>
+<tr>
+    <th><code>envvars</code></th>
+    <td>contient les variables d'environnement pour l'exécution des commandes <code>apache2ctl</code>.</td>
+</tr>
+<tr>
+    <th><code>magic</code></th>
+    <td>définit les comportements d'Apache en fonction des extensions de fichiers.</td>
+</tr>
+<tr>
+    <th><code>ports.conf</code></th>
+    <td>fichier de définition des ports d'écoute d'Apache : HTTP 80 (défaut), HTTPS 443.</td>
+</tr>
+<tr>
+    <th>Modules complémentaires</th>
+    <td>
+        <ul>
+            <li><strong>mods-available/</strong> : contient les fichiers de configuration des modules d'Apache.</li>
+            <li><b>mods-enabled/</b> : liens symboliques des modules chargés au démarrage pointant vers <b>mods-available/</b>.</li>
+        </ul>
+    </td>
+</tr>
+<tr>
+    <th>Sites hébergés</th>
+    <td>
+        <ul>
+            <li><strong>sites-available/</strong> : contient les fichiers de configuration des sites web hébergés.</li>
+            <li><b>sites-enabled/</b> : liens symboliques des fichiers de configuration publiés pointant vers <b>sites-available/</b>.</li>
+        </ul>
+    </td>
+</tr>
+</table>
+
+<h5 id="instruction-listen">Instruction <code>Listen</code><a class="headerlink" href="#instruction-listen" title="Permanent link"></a></h5>
+<ul>
+<li>Définit les ports et les adresses sur lesquels le serveur écoute</li>
+<li>Présente dans le fichier <code>ports.conf</code> </li>
+<li>
+<p>Présente plusieurs fois (80 &amp; 443)</p>
+</li>
+<li>
+<p>Structure de l&rsquo;instruction :
+<div class="highlight"><pre>Listen [&lt;adresseIP&gt;:]port [&lt;protocole&gt;]
+</pre></div></p>
+</li>
+</ul>
+<p><strong>Exemple</strong> :</p>
+<ul>
+<li><code>Listen 80</code> : écoute sur toutes les interfaces sur le port 80</li>
+<li><code>Listen 443</code> : écoute sur toutes les interfaces sur le port 443</li>
+<li><code>Listen 80.10.12.13:80</code> : écoute sur l&rsquo;interface 80.10.12.13 sur le port 80</li>
+<li><code>Listen 80.10.22.23:433</code> : écoute sur l&rsquo;interface 80.10.22.23:443 sur le port 443</li>
+</ul>
+<h5 id="instruction-directoryindex">Instruction <code>DirectoryIndex</code><a class="headerlink" href="#instruction-directoryindex" title="Permanent link"></a></h5>
+<ul>
+<li>Présente dans le fichier <strong>/etc/apache2/mods-enabled/dir.conf</strong></li>
+<li>Liste le nom du fichier à envoyer au navigateur lors de l&rsquo;accès à un site 
+<div class="highlight"><pre>&lt;IfModule mod_dir.c&gt;
+    DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm monAccueil.html 
+&lt;/IfModule&gt;
+# vim : syntax=apache ts=4 sw=4 sts=4 sr noet
+</pre></div></li>
+</ul>
+<h5 id="autres-commandes">Autres commandes<a class="headerlink" href="#autres-commandes" title="Permanent link"></a></h5>
+<ul>
+<li>
+<p><strong>Gestion des modules</strong></p>
+<ul>
+<li><code>a2enmod &lt;nom_module&gt;</code>  : active le module </li>
+<li><code>a2dismod &lt;nom_module&gt;</code> : désactive le module </li>
+</ul>
+</li>
+<li>
+<p><strong>Gestion des sites</strong> </p>
+<ul>
+<li><code>a2ensite &lt;nom_fichier.conf&gt;</code>  : publie le site </li>
+<li><code>a2dissite &lt;nom_fichier.conf&gt;</code> : stoppe la publication du site  </li>
+</ul>
+</li>
+</ul>
+<h5 id="alerte-servername">Alerte ServerName<a class="headerlink" href="#alerte-servername" title="Permanent link"></a></h5>
+<p>Lors du démarrage du service Apache, il peut arriver que le message d&rsquo;erreur suivant apparaisse;</p>
+<div class="highlight"><pre>apache2: Could not reliably determine the server&#39;s fully qualified domain name, 
+using 192.168.255.233 for ServerName . Set the &#39;ServerName’ directive globally 
+to suppress this message
+</pre></div>
+
+<p>Ce message n&rsquo;est pas bloquant, mais si on souhaite le supprimer, il faudra :</p>
+<ul>
+<li>
+<p>Soit définir un FQDN dans <strong>/etc/hosts</strong>
+<div class="highlight"><pre># vim /etc/hosts 
+127.0.0.1  localhost srv-apache.mondomaine.lcl 
+</pre></div></p>
+</li>
+<li>
+<p>Soit préciser la directive ServerName dans <strong>/etc/apache2/apache2.conf</strong>
+<div class="highlight"><pre>ServerName srv-apache.mondomaine.lcl 
+</pre></div></p>
+</li>
+</ul>
+<p>Attention : ne pas spécifier une adresse que l&rsquo;on voudrait réutiliser pour un site web. </p>
+<h3 id="13-installation-iis">1.3 Installation IIS<a class="headerlink" href="#13-installation-iis" title="Permanent link"></a></h3>
+<h4 id="131-historique-iis">1.3.1 Historique IIS<a class="headerlink" href="#131-historique-iis" title="Permanent link"></a></h4>
+<ul>
+<li><strong>IIS</strong> = Internet Information Service</li>
+<li><strong>PWS</strong> = Personal Web Server. Serveur web grand public fourni avec les OS 9x.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">Version IIS</th>
+<th align="center">Version Windows</th>
+<th align="center">Version IIS</th>
+<th align="center">Version Windows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">IIS 1.0</td>
+<td align="center">Windows NT 3.51</td>
+<td align="center">IIS 6.0</td>
+<td align="center">Server 2003</td>
+</tr>
+<tr>
+<td align="center">IIS 2.0</td>
+<td align="center">Windows NT 4.0</td>
+<td align="center">IIS 7.0</td>
+<td align="center">Server 2008 &amp; Vista</td>
+</tr>
+<tr>
+<td align="center">IIS 3.0</td>
+<td align="center">Windows NT 4.0 SP3</td>
+<td align="center">IIS 7.5</td>
+<td align="center">Server 2008 R2 &amp; 7</td>
+</tr>
+<tr>
+<td align="center">IIS 4.0</td>
+<td align="center">Windows NT 4.0 OP</td>
+<td align="center">IIS 8.0</td>
+<td align="center">Server 2012 &amp; 8</td>
+</tr>
+<tr>
+<td align="center">IIS 5.0</td>
+<td align="center">Windows 2000</td>
+<td align="center">IIS 8.5</td>
+<td align="center">Server 2012 R2 &amp; 8.1</td>
+</tr>
+<tr>
+<td align="center">IIS 5.1</td>
+<td align="center">Windows XP Pro</td>
+<td align="center">IIS 10.0</td>
+<td align="center">Server 2016 &amp; 10</td>
+</tr>
+</tbody>
+</table>
+<h4 id="132-installation-du-service-iis">1.3.2 Installation du service IIS<a class="headerlink" href="#132-installation-du-service-iis" title="Permanent link"></a></h4>
+<p>Ce fait à partir du gestionnaire de serveur (Rôle &amp; Service de rôle).</p>
+<div class="img-row">
+    <div class="img-col">
+        <a href="../ressources/img/15-services-web-et-securitenotes-01.png" target="_blank">
+            <img src="../ressources/img/15-services-web-et-securitenotes-01.png" alt="../ressources/img/15-services-web-et-securitenotes-01.png">
+        </a>
+    </div>
+    <div class="img-col">
+        <a href="../ressources/img/15-services-web-et-securitenotes-02.png" target="_blank">
+            <img src="../ressources/img/15-services-web-et-securitenotes-02.png" alt="../ressources/img/15-services-web-et-securitenotes-02.png">
+        </a>
+    </div>
+</div>
+
+<h4 id="133-verification-de-linstallation-de-iis">1.3.3 Vérification de l&rsquo;installation de IIS<a class="headerlink" href="#133-verification-de-linstallation-de-iis" title="Permanent link"></a></h4>
+<ul>
+<li>Depuis un navigateur </li>
+<li>Depuis un OS avec GUI :<ul>
+<li><code>http://@IP</code> </li>
+<li><a href="http://127.0.0.1">http://127.0.0.1</a></li>
+<li><a href="http://localhost">http://localhost</a></li>
+</ul>
+</li>
+<li>Depuis un OS sans GUI <ul>
+<li>à partir de <code>lynx</code> sous Debian </li>
+</ul>
+</li>
+</ul>
+<h4 id="134-repertoire-dinstallation-de-iis">1.3.4 Répertoire d&rsquo;installation de IIS<a class="headerlink" href="#134-repertoire-dinstallation-de-iis" title="Permanent link"></a></h4>
+<ul>
+<li><strong>Répertoire de travail</strong> : <strong>c:\inetpub\</strong> </li>
+<li>Répertoire contenant le site web par défaut : <strong>c:\inetpub\wwwroot</strong></li>
+</ul>
+<p><img alt="03" src="../ressources/img/15-services-web-et-securitenotes-03.png" /></p>
+<h4 id="135-administration-de-iis">1.3.5 Administration de IIS<a class="headerlink" href="#135-administration-de-iis" title="Permanent link"></a></h4>
+<p>Administration se fait via la console <strong>Gestionnaire des services Internet (IIS)</strong> ou en <strong>powershell</strong>.</p>
+<h5 id="1351-parametrage-du-serveur">1.3.5.1 Paramétrage du serveur<a class="headerlink" href="#1351-parametrage-du-serveur" title="Permanent link"></a></h5>
+<p><img alt="04" src="../ressources/img/15-services-web-et-securitenotes-04.png" /></p>
+<ul>
+<li><strong>Document par défaut</strong> : liste des fichiers de démarrage des sites </li>
+<li><strong>Authentification</strong> : gestion des différentes authentifications </li>
+<li><strong>Certificats de serveur</strong> : gestion des différents certificats </li>
+<li><strong>Exploration de répertoire</strong> : gestion de l&rsquo;affichage du contenu du répertoire </li>
+<li><strong>Sites</strong> : Liste des sites hébergés par le serveur. Site par défaut : &ldquo;Defaut Web Site&rdquo;</li>
+</ul>
+<p><img alt="05" src="../ressources/img/15-services-web-et-securitenotes-05.png" /></p>
+<p><em>Voir TP2 - Installation d&rsquo;Apache et d&rsquo;IIS</em></p>
+<h3 id="14-creation-de-sites-sous-apache">1.4 Création de sites sous Apache<a class="headerlink" href="#14-creation-de-sites-sous-apache" title="Permanent link"></a></h3>
+<h4 id="141-fichiers-de-configuration">1.4.1 Fichiers de configuration<a class="headerlink" href="#141-fichiers-de-configuration" title="Permanent link"></a></h4>
+<p>Les fichiers de configuration des sites sont stockés dans <strong>/etc/apache2/sites-available</strong>.</p>
+<p>Par convention, on nomme ces fichiers d&rsquo;après le nom du site mais ce n&rsquo;est pas obligatoire, ex. <strong>001-monsite.conf</strong>.</p>
+<h4 id="142-structure-du-fichier-de-configuration">1.4.2 Structure du fichier de configuration<a class="headerlink" href="#142-structure-du-fichier-de-configuration" title="Permanent link"></a></h4>
+<h5 id="definition-du-virtualhost">Définition du VirtualHost<a class="headerlink" href="#definition-du-virtualhost" title="Permanent link"></a></h5>
+<p>La définition d&rsquo;un hôte virtuel se fait avec la balise <code>&lt;VirtualHost ...&gt;...&lt;/VirtualHost&gt;</code>.</p>
+<p>Cette balise peut prendre en paramètre une IP et/ou un numéro de port. 
+Les wildcards <code>*</code> sont autorisées pour l&rsquo;ip comme pour le port.</p>
+<p>Exemples:</p>
+<div class="highlight"><pre>&lt;VirtualHost *:80&gt; 
+    DocumentRoot /var/www/www.tssr.lcl
+    ServerName www.tssr.lcl
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost *:443&gt;
+    DocumentRoot /var/www/monsite.lcl 
+    ServerName monsite
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost 10.20.*:*&gt;
+    ...
+&lt;/VirtualHost&gt;
+</pre></div>
+
+<ul>
+<li><code>DocumentRoot</code> est une directive précisant le répertoire contenant les données du site (code source)<ul>
+<li>Chemin par défaut : <strong>/var/www</strong></li>
+<li>Un répertoire par site hébergés</li>
+</ul>
+</li>
+<li><code>ServerName</code> ??? alias du site ?</li>
+</ul>
+<h5 id="ajout-de-sections-de-configuration">Ajout de sections de configuration<a class="headerlink" href="#ajout-de-sections-de-configuration" title="Permanent link"></a></h5>
+<p>On peut ajouter des <strong>sections de configuration</strong> dans les fichiers de configuration. </p>
+<ul>
+<li>Elles permettent de <strong>gérer les accès à des éléments de l&rsquo;arborescence du site</strong>.<ul>
+<li>Section <code>&lt;Directory&gt; ...&lt;/Directory&gt;</code> pour un répertoire.</li>
+<li>Section <code>&lt;Files&gt; ... &lt;/Files&gt;</code> pour un fichier quelque soit son emplacement.</li>
+</ul>
+</li>
+<li>Elles permettent de gérer les accès à des éléments hors de l&rsquo;arborescence du site.<ul>
+<li>Section <code>&lt;Location&gt; ... &lt;/Location&gt;</code> pour gérer l&rsquo;accès des éléments utilisés par le site web (ex. bdd)</li>
+</ul>
+</li>
+</ul>
+<h5 id="ordre-de-lecture-des-section-de-configuration">Ordre de lecture des section de configuration<a class="headerlink" href="#ordre-de-lecture-des-section-de-configuration" title="Permanent link"></a></h5>
+<p>Les sections sont traités dans l&rsquo;ordre où elles apparaissent.</p>
+<ol>
+<li><code>&lt;Directory&gt;</code> : ces sections sont traitées en allant du répertoire ayant le chemin le plus court au plus long. Si plusieurs sections vers le même répertoire, elles sont interprétées dans l&rsquo;ordre.</li>
+<li><code>&lt;Files&gt;</code></li>
+<li><code>&lt;Locations&gt;</code></li>
+</ol>
+<h5 id="gestion-des-acces-simples">Gestion des accès simples<a class="headerlink" href="#gestion-des-acces-simples" title="Permanent link"></a></h5>
+<p>La directive <strong>Require</strong> :</p>
+<table>
+    <tr>
+        <th>DIRECTIVE</th>
+        <th>DEFINITION</th>
+        <th>EXEMPLE</th>
+    </tr>
+    <tr>
+        <th>Require all granted</th>
+        <td>L'accès est autorisé à tous</td>
+        <td><code>Require all granted</code></td>
+    </tr>
+    <tr>
+        <th>Require all denied</th>
+        <td>L'accès est refusé à tous</td>
+        <td><code>Require all denied</code></td>
+    </tr>
+    <tr>
+        <th>Require ip <i>@IP</i></th>
+        <td>Seul l'hôte &lt;@IP&gt; est autorisé</td>
+        <td><code>Require ip 192.168.10.200</code></td>
+    </tr>
+    <tr>
+        <th>Require ip <i>adresse_reseau</i></th>
+        <td>N'autorise que les hôtes du réseau donné (ici 192.168.10.0/24), le 0 est facultatif (?)</td>
+        <td><code>Require ip 192.168.10</code></td>
+    </tr>
+    <tr>
+        <th>Require host <i>suffixe_dns</i></th>
+        <td>N'autorise que les hôtes dont le nom contient le suffixe DNS donné.<br>
+            Recherche DNS Inverse (@IP > FQDN) puis recherche DNS Directe (FQDN > @IP)</td>
+        <td><code>Require host tssr.lcl</code></td>
+    </tr>
+    <tr>
+        <th>Require forward-dns <i>nom_hôte</i></th>
+        <td>N'autorise que l'hôte défini (adresse IP).<br>
+            Recherche DNS directe (FQDN > @IP)</td>
+        <td><code>Require forward-dns ad.tssr.lcl</code></td>
+    </tr>
+    <tr>
+        <th>Require local</th>
+        <td>N'autorise ques les adresses locales (127.0.0.0/8, ::1, les ip de l'hôte)</td>
+        <td><code>Require local</code></td>
+    </tr>
+</table>
+
+<h5 id="gestion-des-acces-multiple">Gestion des accès multiple<a class="headerlink" href="#gestion-des-acces-multiple" title="Permanent link"></a></h5>
+<ul>
+<li>La directive <code>RequireAll</code> : toutes les directives <strong>require</strong> doivent être validées.</li>
+<li>La directive  <code>RequireAny</code> : Au moins une directive <strong>require</strong> doit être validée.</li>
+<li>La directive <code>RequireNone</code> : Aucune directive <strong>require</strong> ne doit être validée.</li>
+</ul>
+<table>     
+    <tr><th></th><th></th><th></th><th></th></tr>
+    <tr>            
+        <th style="vertical-align: middle"><b>ET</b></th>
+        <td style="vertical-align: middle">
+            Autorise le réseau 192.168.10.0/24<br>
+            Refuse l'hôte 192.168.10.100</td>
+        <td style="vertical-align: middle"><pre>&lt;RequireAll&gt;<br>   Require ip 192.168.10<br>   Require not ip 192.168.10.100<br>&lt;/RequireAll&gt;</pre></td>
+        <th></th>
+    </tr>
+    <tr>            
+        <th style="vertical-align: middle"><b>OU</b></th>
+        <td style="vertical-align: middle">
+            Autorise le réseau 192.168.10.0/24<br>
+            Autorise le réseau 192.168.30.0/24<br>
+            Refuse le réseau 192.168.20.0/24</td>
+        <td style="vertical-align: middle"><pre>&lt;RequireAny&gt;<br>   Require ip 192.168.10<br>   Require ip 192.168.30<br>   Require not ip 192.168.20<br>&lt;/RequireAny&gt;</pre></td>
+        <th></th>
+    </tr>
+        <tr>            
+        <th style="vertical-align: middle"><b>OU</b></th>
+        <td style="vertical-align: middle">
+            Refuse le réseau 192.168.10.0/24<br>
+            Refuse le réseau 192.168.20.0/24
+        <td style="vertical-align: middle"><pre>&lt;RequireNone&gt;<br>   Require ip 192.168.10<br>   Require ip 192.168.20<br>&lt;/RequireNone&gt;</pre></td>
+        <th></th>
+    </tr>
+    <tr><th></th><th></th><th></th><th></th></tr>
+</table>
+
+<h5 id="directive-options">Directive <code>Options</code><a class="headerlink" href="#directive-options" title="Permanent link"></a></h5>
+<ul>
+<li>Permet d&rsquo;ajouter ou de supprimer des fonctionnalités</li>
+<li>Positionner sur :<ul>
+<li>sur la configuration globale du serveur (<strong>apache2.conf</strong>)</li>
+<li>sur un hôte virtuel (<strong>VirtualHost</strong>)</li>
+<li>sur une répertoire (<strong>Directory</strong>)</li>
+</ul>
+</li>
+<li>Structure de la directive : <code>Options [+|-]option1 [+|-]option2</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">Nom</th>
+<th align="left">Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">All</td>
+<td align="left">Configuration par défaut. Toutes les options, sauf MultiViews</td>
+</tr>
+<tr>
+<td align="center">FollowSymLinks</td>
+<td align="left">Autorise le suivi des liens symboliques à positionner dans les répertoires</td>
+</tr>
+<tr>
+<td align="center">Indexes</td>
+<td align="left">Gère l&rsquo;affichage du contenu si aucun fichier de démarrage présent</td>
+</tr>
+<tr>
+<td align="center">MultiViews</td>
+<td align="left">Gère la compatibilité d&rsquo;affichage en fonction du navigateur</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemples d’utilisation</strong></p>
+<ul>
+<li>
+<p>Pour le dossier <strong>/var/www</strong> : autoriser l’indexation de fichiers, la compatibilité multilingue et le suivi des liens symboliques du système de fichiers
+<div class="highlight"><pre>&lt;Directory /var/www&gt;
+    Options Indexes MultiViews FollowSymlinks
+&lt;/Directory&gt;
+</pre></div></p>
+</li>
+<li>
+<p>Pour le dossier <strong>/var/www/specs</strong> : Utilisation de <code>-</code> et <code>+</code> pour préciser autorisation ou interdiction d’options. </p>
+</li>
+</ul>
+<p>Ex. Indexation interdite mais exécution de scripts cgi autorisée.
+<div class="highlight"><pre>&lt;Directory /var/www/specs&gt;
+    Options -Indexes +ExecCGI
+&lt;/Directory&gt;
+</pre></div></p>
+<h5 id="directive-directoryindex">Directive <code>DirectoryIndex</code><a class="headerlink" href="#directive-directoryindex" title="Permanent link"></a></h5>
+<ul>
+<li>Tous les fichiers des sites sont stockés dans /var/www</li>
+<li>Créer un sous-répertoire par site</li>
+<li>Fichier de démarrage : <ul>
+<li>Copier les fichiers du site Web dans le répertoire /var/www/<a href="http://www.tssr.lcl">www.tssr.lcl</a></li>
+<li>Le nom du fichier à envoyer au navigateur dépend de la directive <strong>DirectoryIndex</strong></li>
+</ul>
+</li>
+</ul>
+<p>Exemple: Fichier de démarrage <strong>Index.html</strong></p>
+<p>(sic)</p>
+<h5 id="exemple-de-configuration">Exemple de configuration<a class="headerlink" href="#exemple-de-configuration" title="Permanent link"></a></h5>
+<p>Pour le site <strong><a href="http://www.tssr.lcl">www.tssr.lcl</a></strong> </p>
+<ul>
+<li>Répertoire du site : /var/www/<a href="http://www.tssr.lcl">www.tssr.lcl</a> </li>
+<li>Fichier de configuration : /etc/apache2/sites-available/001-tssr.conf </li>
+</ul>
+<div class="highlight"><pre>&lt;VirtualHost *:80&gt;
+    DocumentRoot /var/www/www.tssr.lcl
+    ServerName www.tssr.lcl
+    &lt;Directory /var/www/www.tssr.lcl&gt;
+        Options MultiViews FollowSymlinks
+        AllowOverride None
+        Require all granted
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</pre></div>
+
+<h3 id="15-creation-de-sites-sous-iis">1.5 Création de sites sous IIS<a class="headerlink" href="#15-creation-de-sites-sous-iis" title="Permanent link"></a></h3>
+<h3 id="16-distinction-entre-les-sites">1.6 Distinction entre les sites<a class="headerlink" href="#16-distinction-entre-les-sites" title="Permanent link"></a></h3>
+<p class="fin">~Fin~</p>
+
+<p><link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/headings.css"></p></article></body></html>
