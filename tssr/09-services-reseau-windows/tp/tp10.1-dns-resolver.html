@@ -1331,36 +1331,36 @@ body .markdown-body
 <ol>
 <li>Sur SRV01 &gt; Gestionnaire de Serveur &gt; Gérer &gt; Ajouter des fonctionnalités </li>
 <li>Rôles de serveurs &gt; cocher Serveur DHCP 
-<a href=".ressources/img/tp9-2.png" target="_blank"><img alt="dhcp" src=".ressources/img/tp9-2.png" /></a> </li>
+<a href="../../ressources/img/09-services-reseau-windows/tp9-2.png" target="_blank"><img alt="dhcp" src="../../ressources/img/09-services-reseau-windows/tp9-2.png" /></a> </li>
 </ol>
 <p><strong>Définir le plan d&rsquo;adressage</strong></p>
 <ol>
 <li>Sur SRV01 &gt; Gestionnaire de Serveur &gt; Outils &gt; DHCP pour ouvrir le gestionnaire de DHCP</li>
 <li>Selectionner IPv4 &gt; menu Action (à droite) &gt; Nouvelle étendue pour ouvrir le wizard de création d&rsquo;étendue
-<a href=".ressources/img/tp9-8.png" target="_blank"><img alt="etendue" src=".ressources/img/tp9-8.png" /></a> </li>
+<a href="../../ressources/img/09-services-reseau-windows/tp9-8.png" target="_blank"><img alt="etendue" src="../../ressources/img/09-services-reseau-windows/tp9-8.png" /></a> </li>
 <li>entrer un nom d&rsquo;étendue (ex. TP09)</li>
 <li><del>donner une plage d&rsquo;ip comprenant les ip des postes clients déjà installé</del> On s&rsquo;en fout parce qu&rsquo;on va passer tout le monde en DHCP plus tard&hellip;</li>
 <li>Ingorer les plages d&rsquo;exclusion </li>
 <li>Laisser la durée de bail par défaut (8 jours)</li>
 <li>Répondre <strong>Oui</strong> à <em>voulez-vous configurer les options maintenant ?</em></li>
 <li>Ajouter la passerelle par défaut
-<a href=".ressources/img/tp9-10.png" target="_blank"><img alt="passerelle" src=".ressources/img/tp9-10.png" /></a> </li>
+<a href="../../ressources/img/09-services-reseau-windows/tp9-10.png" target="_blank"><img alt="passerelle" src="../../ressources/img/09-services-reseau-windows/tp9-10.png" /></a> </li>
 <li>Ajouter le nom et l&rsquo;ip du serveur DNS (si n&rsquo;est pas déjà dans la liste)</li>
 <li>Activer l&rsquo;étendue 
-<a href=".ressources/img/tp9-12.png" target="_blank"><img alt="activation" src=".ressources/img/tp9-12.png" /></a> </li>
+<a href="../../ressources/img/09-services-reseau-windows/tp9-12.png" target="_blank"><img alt="activation" src="../../ressources/img/09-services-reseau-windows/tp9-12.png" /></a> </li>
 <li>final 
-<a href=".ressources/img/tp9-13.png" target="_blank"><img alt="activation" src=".ressources/img/tp9-13.png" /></a> </li>
+<a href="../../ressources/img/09-services-reseau-windows/tp9-13.png" target="_blank"><img alt="activation" src="../../ressources/img/09-services-reseau-windows/tp9-13.png" /></a> </li>
 </ol>
 <p><strong>Configurer DHCP sur serveur1</strong></p>
 <ol>
 <li>Sur SRV01 &gt; Gestionnaire de Serveur &gt; Outils &gt; DHCP</li>
 <li>Etendues &gt; Réservations &gt; Autres actions &gt; Nouvelle réservation
-<a href=".ressources/img/tp9-14.png" target="_blank"><img alt="reservation" src=".ressources/img/tp9-14.png" /></a> </li>
+<a href="../../ressources/img/09-services-reseau-windows/tp9-14.png" target="_blank"><img alt="reservation" src="../../ressources/img/09-services-reseau-windows/tp9-14.png" /></a> </li>
 <li>entrer nom de la réservation (au pif) + ip + MAC du serveur1 
-<a href=".ressources/img/tp9-15.png" target="_blank"><img alt="reservation" src=".ressources/img/tp9-15.png" /></a> </li>
+<a href="../../ressources/img/09-services-reseau-windows/tp9-15.png" target="_blank"><img alt="reservation" src="../../ressources/img/09-services-reseau-windows/tp9-15.png" /></a> </li>
 <li>faire Ajouter puis Fermer</li>
 <li>final
-<a href=".ressources/img/tp9-16.png" target="_blank"><img alt="reservation" src=".ressources/img/tp9-16.png" /></a> </li>
+<a href="../../ressources/img/09-services-reseau-windows/tp9-16.png" target="_blank"><img alt="reservation" src="../../ressources/img/09-services-reseau-windows/tp9-16.png" /></a> </li>
 </ol>
 <h5 id="etape-2">Etape 2<a class="headerlink" href="#etape-2" title="Permanent link"></a></h5>
 <ol>
@@ -1385,7 +1385,7 @@ body .markdown-body
 <li>entrer nom de la réservation (au pif) + 10e ip (172.23.17.20) + MAC du client2</li>
 <li>faire Ajouter puis Fermer</li>
 <li>final
-<a href=".ressources/img/tp9-17.png" target="_blank"><img alt="reservation" src=".ressources/img/tp9-17.png" /></a> </li>
+<a href="../../ressources/img/09-services-reseau-windows/tp9-17.png" target="_blank"><img alt="reservation" src="../../ressources/img/09-services-reseau-windows/tp9-17.png" /></a> </li>
 </ol>
 <p><strong>Renouveler Bail</strong></p>
 <ol>
@@ -1397,14 +1397,14 @@ cmd&gt; ipconfig /renew
 
 <ol start="5">
 <li>final
-<a href=".ressources/img/tp9-18.png" target="_blank"><img alt="renew" src=".ressources/img/tp9-18.png" /></a> </li>
+<a href="../../ressources/img/09-services-reseau-windows/tp9-18.png" target="_blank"><img alt="renew" src="../../ressources/img/09-services-reseau-windows/tp9-18.png" /></a> </li>
 </ol>
 <p><strong>Statistiques</strong></p>
 <ol>
 <li>Sur SRV01 &gt; Gestionnaire de Serveur &gt; Outils &gt; DHCP</li>
 <li>clic droit sur Etendue &gt; Afficher les statistiques</li>
 </ol>
-<p><a href=".ressources/img/tp9-20.png" target="_blank"><img alt="stats" src=".ressources/img/tp9-20.png" /></a> </p>
+<p><a href="../../ressources/img/09-services-reseau-windows/tp9-20.png" target="_blank"><img alt="stats" src="../../ressources/img/09-services-reseau-windows/tp9-20.png" /></a> </p>
 <p><strong>Faire un snapshot</strong></p>
 <h3 id="bonus-analyse-de-trame">Bonus : Analyse de trame<a class="headerlink" href="#bonus-analyse-de-trame" title="Permanent link"></a></h3>
 <p>A l&rsquo;aide de l&rsquo;outil d&rsquo;analyse de trames <strong>Wireshark</strong>, </p>
@@ -1425,7 +1425,7 @@ cmd&gt; ipconfig /renew
 <li>DNS 1 : 172.23.17.1</li>
 <li>DNS 2 : 10.35.0.3</li>
 </ol>
-<p><a href=".ressources/img/tp9-3.png" target="_blank"><img alt="ncpa.cpl" src=".ressources/img/tp9-3.png" /></a> </p>
+<p><a href="../../ressources/img/09-services-reseau-windows/tp9-3.png" target="_blank"><img alt="ncpa.cpl" src="../../ressources/img/09-services-reseau-windows/tp9-3.png" /></a> </p>
 <h5 id="changer-hostname-ajouter-dans-le-domaine">Changer hostname + ajouter dans le domaine<a class="headerlink" href="#changer-hostname-ajouter-dans-le-domaine" title="Permanent link"></a></h5>
 <ol>
 <li>executer <strong>sysdm.cpl</strong></li>
@@ -1434,6 +1434,6 @@ cmd&gt; ipconfig /renew
 <li>Entrer login et mdp d&rsquo;un utilisateur du domaine</li>
 <li>Redémarrer</li>
 </ol>
-<p><a href=".ressources/img/tp9-4.png" target="_blank"><img alt="ncpa.cpl" src=".ressources/img/tp9-4.png" /></a></p>
-<p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/style.css"></p></article></body></html>
+<p><a href="../../ressources/img/09-services-reseau-windows/tp9-4.png" target="_blank"><img alt="ncpa.cpl" src="../../ressources/img/09-services-reseau-windows/tp9-4.png" /></a></p>
+<p><link rel="stylesheet" type="text/css" href="../../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../ressources/css/style.css"></p></article></body></html>

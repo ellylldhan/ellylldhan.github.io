@@ -1126,7 +1126,7 @@ nameserver 10.0.0.3       <span class="o">(</span>dns nantes<span class="o">)</s
 search eni-ecole.net
 </pre></div>
 
-<p><img alt="/etc/resolve.conf" src="/media/reno/Toshiba/DEV/COURS_ENI/3-tssr/05-linux-admin/notes/....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadmintp5-etc-resolve.conf.png" title="/etc/resolve.conf" /></p>
+<p><img alt="/etc/resolve.conf" src="../ressources/img/05-linux-sysadmin/tp5-etc-resolve.conf.png" title="/etc/resolve.conf" /></p>
 <p><strong>Notes prof</strong> :
 - search &amp; domain : pour ajouter un suffixe à la partie hote
 - name server pour l&rsquo;adresse ip du server dns</p>
@@ -1182,7 +1182,7 @@ ff02::2 ip6-allrouters
 </pre></div></li>
 <li>Save and close the file.</li>
 </ul>
-<p><img alt="/etc/hosts" src="/media/reno/Toshiba/DEV/COURS_ENI/3-tssr/05-linux-admin/notes/....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadmintp5-etc-hosts.png" title="/etc/hosts" /></p>
+<p><img alt="/etc/hosts" src="../ressources/img/05-linux-sysadmin/tp5-etc-hosts.png" title="/etc/hosts" /></p>
 <p><strong>Notes prof</strong>:</p>
 <ul>
 <li>Le fichier /etc/hosts est pour la résolution locales des noms. L&rsquo;ordre dans lequel on écrit les hosts n&rsquo;importe pas. </li>
@@ -1196,7 +1196,7 @@ ff02::2 ip6-allrouters
 </li>
 </ol>
 <p>On ajoute la carte à chaud dans VMWare et on voit la nouvelle carte en faisant <code>ip a</code> et on voit que son state est <code>down</code></p>
-<p><img alt="new" src="/media/reno/Toshiba/DEV/COURS_ENI/3-tssr/05-linux-admin/notes/....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadmintp5-new-network-interface.png" title="Ajout interface réseau" /></p>
+<p><img alt="new" src="../ressources/img/05-linux-sysadmin/tp5-new-network-interface.png" title="Ajout interface réseau" /></p>
 <p>Modifier <code>/etc/network/interfaces</code></p>
 <div class="highlight"><pre>auto ens37
 iface ens37 inet static
@@ -1205,12 +1205,12 @@ iface ens37 inet static
 
 <p>Save &amp; restart avec <code>systemctl restart networking</code></p>
 <p>Verifier avec <code>systemctl status networking</code></p>
-<p><img alt="tout" src="/media/reno/Toshiba/DEV/COURS_ENI/3-tssr/05-linux-admin/notes/....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadmintp5-ajout-iface.png" /></p>
+<p><img alt="tout" src="../ressources/img/05-linux-sysadmin/tp5-ajout-iface.png" /></p>
 <h4 id="2-configuration-dun-adressage-ip-statique-via-les-outils-graphiques-sur-la-station-avec-environnement-graphique">2. Configuration d’un adressage IP statique via les outils graphiques : sur la station avec environnement graphique<a class="headerlink" href="#2-configuration-dun-adressage-ip-statique-via-les-outils-graphiques-sur-la-station-avec-environnement-graphique" title="Permanent link"></a></h4>
 <p>1) Configurer un adressage IP statique compatible avec la 1ere carte réseau de la VM Debian sans environnement graphique
     + Pouvez-vous pinguer l&rsquo;autre VM Debian ?
     + Pouvez-vous pinguer les serveurs ENI ?</p>
-<p><img alt="gui" src="/media/reno/Toshiba/DEV/COURS_ENI/3-tssr/05-linux-admin/notes/....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadmintp5-iface-via-gui.png" title="Ajout interface réseau via GUI" /></p>
+<p><img alt="gui" src="../ressources/img/05-linux-sysadmin/tp5-iface-via-gui.png" title="Ajout interface réseau via GUI" /></p>
 <ul>
 <li>deb-srv     : <strong>10.51.15.1/16</strong> </li>
 <li>deb-desktop : <strong>10.51.1.15/16</strong></li>

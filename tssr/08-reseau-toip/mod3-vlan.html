@@ -1136,7 +1136,7 @@ Formatrice : Elisabeth LEFRANC</p>
 <li>Chaque VLAN aura sa propre plage d&rsquo;adressage ip unique</li>
 <li>Domaines de diffusion plus petits</li>
 </ul>
-<p><img alt="illu-vlan.png" src="../ressources/img/08-reseau-toipillu-vlan.png" /></p>
+<p><img alt="illu-vlan.png" src="../ressources/img/08-reseau-toip/illu-vlan.png" /></p>
 <table>
 <thead>
 <tr>
@@ -1333,7 +1333,7 @@ Number of existing extended VLANs : 0
 <li>Autoriser plusieurs VLAN sur un port </li>
 <li>Etendre le VLAN sur l&rsquo;ensemble du réseau</li>
 </ul>
-<p><img alt="illu-trunk.png" src="../ressources/img/08-reseau-toipillu-trunk.png" /></p>
+<p><img alt="illu-trunk.png" src="../ressources/img/08-reseau-toip/illu-trunk.png" /></p>
 <h4 id="commandes-de-configuration-de-trunk">Commandes de configuration de trunk<a class="headerlink" href="#commandes-de-configuration-de-trunk" title="Permanent link"></a></h4>
 <p>Les trunks sont de couche 2 et transportent le trafic pour tous les VLAN.</p>
 <table>
@@ -1473,7 +1473,7 @@ S1# show port-security address
 </pre></div>
 
 <p><strong>Exemple</strong> </p>
-<p><img alt="port-security-ex1.png" src="../ressources/img/08-reseau-toipport-security-ex1.png" /></p>
+<p><img alt="port-security-ex1.png" src="../ressources/img/08-reseau-toip/port-security-ex1.png" /></p>
 <h4 id="modes-de-violation-de-la-securite-des-ports">Modes de violation de la sécurité des ports<a class="headerlink" href="#modes-de-violation-de-la-securite-des-ports" title="Permanent link"></a></h4>
 <p><strong>Syntaxe</strong></p>
 <div class="highlight"><pre>switch(config-if)# switchport port-security violation {shutdown | restrict | protect}
@@ -1511,12 +1511,12 @@ S1# show port-security address
 </pre></div>
 
 <p><strong>Exemple</strong> : passage en mode restrict (le plus courant)</p>
-<p><img alt="port-security-ex2.png" src="../ressources/img/08-reseau-toipport-security-ex2.png" /></p>
+<p><img alt="port-security-ex2.png" src="../ressources/img/08-reseau-toip/port-security-ex2.png" /></p>
 <h4 id="ports-en-etat-desactive-par-erreur">Ports en état désactivé par erreur<a class="headerlink" href="#ports-en-etat-desactive-par-erreur" title="Permanent link"></a></h4>
 <p>Quand un port est désactivé et placé dans l&rsquo;état <strong>error-disabled</strong>, aucun trafic n&rsquo;est envoyé ou reçu sur ce port. </p>
 <p>Une série de message liés à la sécurité des ports s&rsquo;affiche sur la console, comme illustré dans l&rsquo;exemple suivant.</p>
 <p><strong>Remarque</strong> : le protocole de port et l&rsquo;état de la liaison passent à l&rsquo;état <strong>down</strong> et le voyant du port est éteint</p>
-<p><img alt="port-security-ex3.png" src="../ressources/img/08-reseau-toipport-security-ex3.png" /></p>
+<p><img alt="port-security-ex3.png" src="../ressources/img/08-reseau-toip/port-security-ex3.png" /></p>
 <h5 id="exemple">Exemple<a class="headerlink" href="#exemple" title="Permanent link"></a></h5>
 <ol>
 <li>Ici la commande <strong>show interface</strong> identifie le port comme étant <strong>error-disabled</strong>.</li>
@@ -1525,17 +1525,17 @@ S1# show port-security address
 <li>L&rsquo;administrateur doit déterminer la cause de la violation de sécurité. Si un périphérique non autorisé est connecté à un port sécurisé, la menace de sécurité est éliminée avant de réactiver le port. </li>
 <li>Pour réactiver le port, utilisez d&rsquo;abord la commande <strong>shutdown</strong> puis la commande <strong>no shutdown</strong>.</li>
 </ol>
-<p><img alt="port-security-ex4.png" src="../ressources/img/08-reseau-toipport-security-ex4.png" /></p>
+<p><img alt="port-security-ex4.png" src="../ressources/img/08-reseau-toip/port-security-ex4.png" /></p>
 <h4 id="verifier-la-securite-des-ports">Vérifier la sécurité des ports<a class="headerlink" href="#verifier-la-securite-des-ports" title="Permanent link"></a></h4>
 <h5 id="show-port-security-interface">show port-security interface<a class="headerlink" href="#show-port-security-interface" title="Permanent link"></a></h5>
 <p>Permet d&rsquo;afficher les détails d&rsquo;une interface spécifique.</p>
-<p><img alt="port-security-ex5.png" src="../ressources/img/08-reseau-toipport-security-ex5.png" /></p>
+<p><img alt="port-security-ex5.png" src="../ressources/img/08-reseau-toip/port-security-ex5.png" /></p>
 <h5 id="show-run">show run<a class="headerlink" href="#show-run" title="Permanent link"></a></h5>
 <p>Permet de vérifier que les adresse MAC sticky sont enregistrées dans la configuration.</p>
-<p><img alt="port-security-ex6.png" src="../ressources/img/08-reseau-toipport-security-ex6.png" /></p>
+<p><img alt="port-security-ex6.png" src="../ressources/img/08-reseau-toip/port-security-ex6.png" /></p>
 <h5 id="show-port-security-address">show port-security address<a class="headerlink" href="#show-port-security-address" title="Permanent link"></a></h5>
 <p>Permet d&rsquo;afficher toutes les adresses MAC sécurisées configurées manuellement ou apprises dynamiquement sur toutes les interfaces de commutateur. </p>
-<p><img alt="port-security-ex7.png" src="../ressources/img/08-reseau-toipport-security-ex7.png" /></p>
+<p><img alt="port-security-ex7.png" src="../ressources/img/08-reseau-toip/port-security-ex7.png" /></p>
 <h3 id="acces-a-distance-securise">Accès à distance sécurisé<a class="headerlink" href="#acces-a-distance-securise" title="Permanent link"></a></h3>
 <h4 id="configuration-de-ssh">Configuration de SSH<a class="headerlink" href="#configuration-de-ssh" title="Permanent link"></a></h4>
 <p>Le protocole TelNet 23 étant non chiffré, nous utiliserons le protocole SSH 22</p>

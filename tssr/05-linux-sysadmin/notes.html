@@ -1431,7 +1431,7 @@ Le kernel est dit modulaire, car il est constitué de plusieurs fichiers.</p>
 <h4 id="432-relation-grubkernel">4.3.2 Relation GRUB/kernel<a class="headerlink" href="#432-relation-grubkernel" title="Permanent link"></a></h4>
 <p>C&rsquo;est GRUB qui est chargé de lancer le noyau d&rsquo;un système. 
 Les informations sont dans le fichier de lancement de GRUB (<code>/boot/grub/grub.cfg</code>) ou directement avec le menu GRUB en modifiant une ligne de lancement.</p>
-<p><img alt="GRUB" src="....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadminecran-grub.png" title="Ecran GRUB" /></p>
+<p><img alt="GRUB" src="../ressources/img/05-linux-sysadmin/ecran-grub.png" title="Ecran GRUB" /></p>
 <h5 id="4321-constitution-de-la-ligne-de-lancement-du-noyau">4.3.2.1 Constitution de la ligne de lancement du noyau<a class="headerlink" href="#4321-constitution-de-la-ligne-de-lancement-du-noyau" title="Permanent link"></a></h5>
 <p>La ligne dans laquelle il est possible d&rsquo;apporter des modifications est :</p>
 <div class="highlight"><pre>linux /vmlinuz-4.9.0-8-amd64 <span class="nv">root</span><span class="o">=</span>/dev/mapper/debian--vg-root ro quiet
@@ -1678,8 +1678,8 @@ iface ens33 inet static
 <li><code>nmtui</code> : interface UI dans terminal (type BIOS) pour régler l&rsquo;interface réseau</li>
 <li><code>nmcli</code> : invite de commande pour régler l&rsquo;interface réseau</li>
 </ul>
-<p><img alt="nmtui" src="....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadminnmtui.png" title="nmtui" /></p>
-<p><img alt="nmcli" src="....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadminnmcli.png" title="nmcli" /></p>
+<p><img alt="nmtui" src="../ressources/img/05-linux-sysadmin/nmtui.png" title="nmtui" /></p>
+<p><img alt="nmcli" src="../ressources/img/05-linux-sysadmin/nmcli.png" title="nmcli" /></p>
 <p>Après une configuration, il est possible de relancer graphiquement le service ou via <code>systemctl</code>.</p>
 <div class="highlight"><pre># systemctl restart NetworkManager
 </pre></div>
@@ -1982,7 +1982,7 @@ iproute2: /sbin/ip
 <li>Partition étendue : si on veut plus de 4 partitions, une des partitions sera alors remplacer par une partition étendue qui se divisera en partition logiques (aka partitions secondaires).</li>
 <li>Partition logiques : partitions supplémentaires quand le nombre de partitions dépasse 4. La quatrième partition s&rsquo;appelle alors la partition étendue et contiendra les partitions supplémentaire (partitions logiques)</li>
 </ul>
-<p><img alt="partitions" src="....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadminpartitions.png" title="Partitionnement" /></p>
+<p><img alt="partitions" src="../ressources/img/05-linux-sysadmin/partitions.png" title="Partitionnement" /></p>
 <h4 id="814-outils-de-partitionnement">8.1.4 Outils de partitionnement<a class="headerlink" href="#814-outils-de-partitionnement" title="Permanent link"></a></h4>
 <p>Il existe plusieurs outils console ou graphique pour la gestion des partitions. </p>
 <p>Les plus courants : <code>parted</code>, <code>gparted</code>, <code>fdisk</code>, <code>sfdisk</code>, <code>cfdisk</code>, etc.</p>
@@ -2376,7 +2376,7 @@ root@debian:~# blkid
 
 <h6 id="lsblk">lsblk<a class="headerlink" href="#lsblk" title="Permanent link"></a></h6>
 <p>La commande <strong>lsblk</strong> permet d&rsquo;afficher sous forme arborescente les infos relatives aux périphériques et aux systèmes de fichiers.</p>
-<p><img alt="lsblk" src="....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadminlsblk.png" title="lsblk" /></p>
+<p><img alt="lsblk" src="../ressources/img/05-linux-sysadmin/lsblk.png" title="lsblk" /></p>
 <p><em>Voir TP 7 - Gestion des espaces disque</em></p>
 <p><a href="#05-linux-sysadmin">Retour en haut</a></p>
 <h3 id="84-montage-dun-systeme-de-fichiers">8.4 Montage d&rsquo;un système de fichiers<a class="headerlink" href="#84-montage-dun-systeme-de-fichiers" title="Permanent link"></a></h3>
@@ -2422,10 +2422,10 @@ root@debian:~# blkid /dev/sdb1
 <p>Les commandes <strong>mont</strong> et <strong>findmnt</strong> permettent d&rsquo;afficher des informations sur les différents pour des montages.</p>
 <h5 id="8431-mount">8.4.3.1 mount<a class="headerlink" href="#8431-mount" title="Permanent link"></a></h5>
 <p>La sortie de <strong>mount</strong> est faiblement lisible mais permet de savoir facilement les options de montage appliquées.</p>
-<p><img alt="mount" src="....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadminmount-output.png" title="mount output" /></p>
+<p><img alt="mount" src="../ressources/img/05-linux-sysadmin/mount-output.png" title="mount output" /></p>
 <h5 id="8432-findmnt">8.4.3.2 findmnt<a class="headerlink" href="#8432-findmnt" title="Permanent link"></a></h5>
 <p>Cette commande permet une meilleure lisibilité et surtout de prendre l&rsquo;information sur un seul point de montage.</p>
-<p><img alt="findmnt" src="....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadminfindmnt-output.png" /></p>
+<p><img alt="findmnt" src="../ressources/img/05-linux-sysadmin/findmnt-output.png" /></p>
 <p>Pour voir l&rsquo;information sur un seul point de montage, il suffit de cibler :</p>
 <div class="highlight"><pre>root@debian:~# findmnt /mnt
   TARGET SOURCE     FSTYPE  OPTIONS
@@ -2557,7 +2557,7 @@ Représentent les utilisateurs &ldquo;humains&rdquo;.</p>
 <li>liste des membres ayant ce groupe en groupe secondaire</li>
 </ul>
 <p>S&rsquo;il y a un <code>x</code> dans la colonne du mot de passe, cela indique que le mot de passe est dans le fichier <code>/etc/gshadow</code>.</p>
-<p><img alt="etc-group" src="....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadminetc-group-explained.png" title="/etc/group" /></p>
+<p><img alt="etc-group" src="../ressources/img/05-linux-sysadmin/etc-group-explained.png" title="/etc/group" /></p>
 <p>Exemple :</p>
 <div class="highlight"><pre><span class="nv">$ </span>cat /etc/group
   root:x:0:
@@ -2661,7 +2661,7 @@ Cette valeur doit être unique. Par défaut c&rsquo;est le plus petit id supéri
 <li>répertoire personnel (chemin)</li>
 <li>shell (chemin)</li>
 </ul>
-<p><img alt="etc-passwd" src="....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadminetc-passwd-explained.png" title="/etc/passwd" /></p>
+<p><img alt="etc-passwd" src="../ressources/img/05-linux-sysadmin/etc-passwd-explained.png" title="/etc/passwd" /></p>
 <p>Exemple :</p>
 <div class="highlight"><pre><span class="nv">$ </span>cat /etc/passwd
   <span class="o">[</span>...<span class="o">]</span>
@@ -3682,19 +3682,19 @@ lsof: WARNING: can&#39;t stat() fuse.gvfsd‐fuse file system /run/user/1000/gvf
 <h6 id="115181-infos-en-temps-reel-top-htop-atop-glances">11.5.1.8.1 Infos en temps réel (top, htop, atop, glances)<a class="headerlink" href="#115181-infos-en-temps-reel-top-htop-atop-glances" title="Permanent link"></a></h6>
 <p>Plusieurs outils sont disponibles pour monitorer les process en temps réel.</p>
 <p><strong>top (native)</strong></p>
-<p><img alt="top" src="....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadminresmon_top.png" title="top (natif)" /></p>
+<p><img alt="top" src="../ressources/img/05-linux-sysadmin/resmon_top.png" title="top (natif)" /></p>
 <p><strong>htop (à installer)</strong></p>
-<p><img alt="htop" src="....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadminresmon_htop.png" title="htop (à installer)" /></p>
+<p><img alt="htop" src="../ressources/img/05-linux-sysadmin/resmon_htop.png" title="htop (à installer)" /></p>
 <div class="highlight"><pre><span class="nv">$ </span>sudo apt install htop
 </pre></div>
 
 <p><strong>atop (à installer)</strong></p>
-<p><img alt="atop" src="....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadminresmon_atop.png" title="atop (à installer)" /></p>
+<p><img alt="atop" src="../ressources/img/05-linux-sysadmin/resmon_atop.png" title="atop (à installer)" /></p>
 <div class="highlight"><pre><span class="nv">$ </span>sudo apt install atop
 </pre></div>
 
 <p><strong>glances (à installer)</strong> - écrit en python3</p>
-<p><img alt="glances" src="....../ressources/img/05-linux-sysadmin05-linux-sysadmin05-linux-sysadminresmon_glances.png" title="glances (à installer)" /></p>
+<p><img alt="glances" src="../ressources/img/05-linux-sysadmin/resmon_glances.png" title="glances (à installer)" /></p>
 <p>Glances est une version plus poussée des outils d&rsquo;analyse en temps réel avec beaucoup d&rsquo;options. Il peut être installé en mode client/serveur, remonter ses informations dans des logiciels de supervision, etc. Plus d&rsquo;information sur le site du projet : <a class="magiclink magiclink-github magiclink-repository" href="https://github.com/nicolargo/glances/" title="GitHub Repository: nicolargo/glances">nicolargo/glances</a></p>
 <p>Installation avec <code>pip</code> : </p>
 <div class="highlight"><pre><span class="nv">$ </span>pip install --user glances

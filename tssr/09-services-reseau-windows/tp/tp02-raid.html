@@ -1192,19 +1192,19 @@ body .markdown-body
 <li>Dans <strong>VMWare Workstation</strong>, sélectionner la VM <strong>SRV01</strong>, clic sur <strong>Edit Virtual Machine Settings</strong></li>
 <li>Cliquer sur le bouton <strong>Add</strong> pour ajouter des disques durs</li>
 </ol>
-<p><a href=".ressources/img/tp02-01.png"><img alt="Ajout disque" src=".ressources/img/tp02-01.png" /></a></p>
+<p><a href="../../ressources/img/09-services-reseau-windows/tp02-01.png"><img alt="Ajout disque" src="../../ressources/img/09-services-reseau-windows/tp02-01.png" /></a></p>
 <ol start="3">
 <li>Sélectionner <strong>Hard drive</strong> puis l&rsquo;option <strong>SCSI</strong></li>
 </ol>
 <div class="img-row">
     <div class="img-col">
-        <a href=".ressources/img/tp02-02.png" target="_blank">
-            <img src=".ressources/img/tp02-02.png" alt="ajout HDD" style="width:100%">
+        <a href="../../ressources/img/09-services-reseau-windows/tp02-02.png" target="_blank">
+            <img src="../../ressources/img/09-services-reseau-windows/tp02-02.png" alt="ajout HDD" style="width:100%">
         </a>
     </div>
     <div class="img-col">
-        <a href=".ressources/img/tp02-03.png" target="_blank">
-            <img src=".ressources/img/tp02-03.png" alt="ajout HDD" style="width:100%">
+        <a href="../../ressources/img/09-services-reseau-windows/tp02-03.png" target="_blank">
+            <img src="../../ressources/img/09-services-reseau-windows/tp02-03.png" alt="ajout HDD" style="width:100%">
         </a>
     </div>
 </div>
@@ -1212,15 +1212,15 @@ body .markdown-body
 <ol start="4">
 <li>
 <p>Créer un disque entier <strong>Create a new virtual disk</strong>
-<a href=".ressources/img/tp02-04.png"><img alt="Create" src=".ressources/img/tp02-04.png" /></a></p>
+<a href="../../ressources/img/09-services-reseau-windows/tp02-04.png"><img alt="Create" src="../../ressources/img/09-services-reseau-windows/tp02-04.png" /></a></p>
 </li>
 <li>
 <p>Sélectionner la taille
-<a href=".ressources/img/tp02-05.png"><img alt="Taille" src=".ressources/img/tp02-05.png" /></a></p>
+<a href="../../ressources/img/09-services-reseau-windows/tp02-05.png"><img alt="Taille" src="../../ressources/img/09-services-reseau-windows/tp02-05.png" /></a></p>
 </li>
 <li>
 <p>Laisser l’emplacement par défaut pour enregistrer dans le répertoire de la VM
-<a href=".ressources/img/tp02-06.png"><img alt="Emplacement" src=".ressources/img/tp02-06.png" /></a></p>
+<a href="../../ressources/img/09-services-reseau-windows/tp02-06.png"><img alt="Emplacement" src="../../ressources/img/09-services-reseau-windows/tp02-06.png" /></a></p>
 </li>
 <li>
 <p>Répéter l’opération jusqu’à avoir 3 disques supplémentaires </p>
@@ -1235,19 +1235,19 @@ body .markdown-body
 <li>Sur <strong>SRV01</strong>, executer <strong>diskmgmt.msc</strong>, le Gestionnaire de disque. </li>
 <li>Au démarrage, une pop-up s&rsquo;affiche, demandant d&rsquo;initialiser les 3 disques ajoutés. Sélectionner <strong>Partition GPT</strong> puis <strong>OK</strong>. <strong>Remarque</strong>: si rien ne s&rsquo;est affiché, clic-droit sur un des nouveaux disque &gt; <strong>Initialiser le disque</strong>.</li>
 </ol>
-<p><a href=".ressources/img/tp02-071.png" target="_blank"><img alt="Nouveau RAID-5" src=".ressources/img/tp02-071.png" /></a>  </p>
+<p><a href="../../ressources/img/09-services-reseau-windows/tp02-071.png" target="_blank"><img alt="Nouveau RAID-5" src="../../ressources/img/09-services-reseau-windows/tp02-071.png" /></a>  </p>
 <ol start="3">
 <li>Modifier la lettre du lecteur optique (actuellement D:) pour pouvoir l&rsquo;affecter ailleurs. Clic droit sur le lecteur &gt; <strong>Modifier la lettre</strong> &gt; Choisir une lettre au pif (ex. Z).</li>
 </ol>
 <div class="img-row">
     <div class="img-col">
-        <a href=".ressources/img/tp02-070.png" target="_blank">
-            <img src=".ressources/img/tp02-070.png" alt=".ressources/img/tp02-070.png"  style="width:100%">
+        <a href="../../ressources/img/09-services-reseau-windows/tp02-070.png" target="_blank">
+            <img src="../../ressources/img/09-services-reseau-windows/tp02-070.png" alt="../../ressources/img/09-services-reseau-windows/tp02-070.png"  style="width:100%">
         </a>
     </div>
     <div class="img-col">
-        <a href=".ressources/img/tp02-07.png" target="_blank">
-            <img src=".ressources/img/tp02-07.png" alt=".ressources/img/tp02-07.png" style="width:100%">
+        <a href="../../ressources/img/09-services-reseau-windows/tp02-07.png" target="_blank">
+            <img src="../../ressources/img/09-services-reseau-windows/tp02-07.png" alt="../../ressources/img/09-services-reseau-windows/tp02-07.png" style="width:100%">
         </a>
     </div>
 </div>
@@ -1257,7 +1257,7 @@ body .markdown-body
 <li>Selectionner les 3 disques dans la partie <strong>Disponible</strong> &gt; cliquer sur le bouton <strong>Ajouter</strong> </li>
 <li>
 <p>Indiquer l&rsquo;espace souhaité en Mo. Ici, nous voulons une taille totale d&rsquo;environ 6 Go, donc, en tenant compte de la nature du RAID-5 (2 disques + 1 miroir), nous devons indiquer <strong>3000</strong> Mo.
-<a href=".ressources/img/tp02-10.png"><img alt="Nouveau RAID-5" src=".ressources/img/tp02-10.png" /></a></p>
+<a href="../../ressources/img/09-services-reseau-windows/tp02-10.png"><img alt="Nouveau RAID-5" src="../../ressources/img/09-services-reseau-windows/tp02-10.png" /></a></p>
 </li>
 <li>
 <p>Attribuer une lettre au lecteur et un nom de volume. </p>
@@ -1265,13 +1265,13 @@ body .markdown-body
 </ol>
 <div class="img-row">
     <div class="img-col">
-        <a href=".ressources/img/tp02-11.png" target="_blank">
-            <img src=".ressources/img/tp02-11.png" alt="lettre" style="width:100%">
+        <a href="../../ressources/img/09-services-reseau-windows/tp02-11.png" target="_blank">
+            <img src="../../ressources/img/09-services-reseau-windows/tp02-11.png" alt="lettre" style="width:100%">
         </a>
     </div>
     <div class="img-col">
-        <a href=".ressources/img/tp02-12.png" target="_blank">
-            <img src=".ressources/img/tp02-12.png" alt="label" style="width:100%">
+        <a href="../../ressources/img/09-services-reseau-windows/tp02-12.png" target="_blank">
+            <img src="../../ressources/img/09-services-reseau-windows/tp02-12.png" alt="label" style="width:100%">
         </a>
     </div>
 </div>
@@ -1281,13 +1281,13 @@ body .markdown-body
 </ol>
 <div class="img-row">
     <div class="img-col">
-        <a href=".ressources/img/tp02-13.png" target="_blank">
-            <img src=".ressources/img/tp02-13.png" alt="récap RAID-5" style="width:100%">
+        <a href="../../ressources/img/09-services-reseau-windows/tp02-13.png" target="_blank">
+            <img src="../../ressources/img/09-services-reseau-windows/tp02-13.png" alt="récap RAID-5" style="width:100%">
         </a>
     </div>
     <div class="img-col">
-        <a href=".ressources/img/tp02-14.png" target="_blank">
-            <img src=".ressources/img/tp02-14.png" alt="warning RAID-5" style="width:100%">
+        <a href="../../ressources/img/09-services-reseau-windows/tp02-14.png" target="_blank">
+            <img src="../../ressources/img/09-services-reseau-windows/tp02-14.png" alt="warning RAID-5" style="width:100%">
         </a>
     </div>
 </div>
@@ -1303,14 +1303,14 @@ body .markdown-body
 <li>Dans le <strong>Gestionnaire de disques</strong> (diskmgmt.msc)</li>
 <li>
 <p>Clic droit sur un des espaces non-alloué &gt; <strong>Nouveau volume en miroir</strong>
-<a href=".ressources/img/tp02-15.png"><img alt="Nouveau RAID-1" src=".ressources/img/tp02-15.png" /></a></p>
+<a href="../../ressources/img/09-services-reseau-windows/tp02-15.png"><img alt="Nouveau RAID-1" src="../../ressources/img/09-services-reseau-windows/tp02-15.png" /></a></p>
 </li>
 <li>
 <p>Dans la partie <strong>Disponible</strong>, selectionner les disques 1 et 3 puis clic <strong>Ajouter</strong></p>
 </li>
 <li>
 <p>Leur attribuer <strong>4000 Mo</strong> d&rsquo;espace.
-<a href=".ressources/img/tp02-16.png"><img alt="Réglages RAID-1" src=".ressources/img/tp02-16.png" /></a></p>
+<a href="../../ressources/img/09-services-reseau-windows/tp02-16.png"><img alt="Réglages RAID-1" src="../../ressources/img/09-services-reseau-windows/tp02-16.png" /></a></p>
 </li>
 <li>
 <p>Selectionner <strong>Monter le dossier NTFS&hellip;</strong> et parcourir jusqu’à l&rsquo;emplacement voulu. </p>
@@ -1320,26 +1320,26 @@ body .markdown-body
 </ol>
 <div class="img-row">
     <div class="img-col">
-        <a href=".ressources/img/tp02-17.png" target="_blank">
-            <img src=".ressources/img/tp02-17.png" alt="monter NTFS" style="width:100%">
+        <a href="../../ressources/img/09-services-reseau-windows/tp02-17.png" target="_blank">
+            <img src="../../ressources/img/09-services-reseau-windows/tp02-17.png" alt="monter NTFS" style="width:100%">
         </a>
     </div>
     <div class="img-col">
-        <a href=".ressources/img/tp02-18.png" target="_blank">
-            <img src=".ressources/img/tp02-18.png" alt="NTFS" style="width:100%">
+        <a href="../../ressources/img/09-services-reseau-windows/tp02-18.png" target="_blank">
+            <img src="../../ressources/img/09-services-reseau-windows/tp02-18.png" alt="NTFS" style="width:100%">
         </a>
     </div>
 </div>
 
 <div class="img-row">
     <div class="img-col">
-        <a href=".ressources/img/tp02-19.png" target="_blank">
-            <img src=".ressources/img/tp02-19.png" alt="NTFS" style="width:100%">
+        <a href="../../ressources/img/09-services-reseau-windows/tp02-19.png" target="_blank">
+            <img src="../../ressources/img/09-services-reseau-windows/tp02-19.png" alt="NTFS" style="width:100%">
         </a>
     </div>
     <div class="img-col">
-        <a href=".ressources/img/tp02-20.png" target="_blank">
-            <img src=".ressources/img/tp02-20.png" alt="NTFS" style="width:100%">
+        <a href="../../ressources/img/09-services-reseau-windows/tp02-20.png" target="_blank">
+            <img src="../../ressources/img/09-services-reseau-windows/tp02-20.png" alt="NTFS" style="width:100%">
         </a>
     </div>
 </div>
@@ -1362,32 +1362,32 @@ body .markdown-body
 </ol>
 <div class="img-row">
     <div class="img-col">
-        <a href=".ressources/img/tp02-21.png" target="_blank">
-            <img src=".ressources/img/tp02-21.png" alt="NTFS" style="width:100%">
+        <a href="../../ressources/img/09-services-reseau-windows/tp02-21.png" target="_blank">
+            <img src="../../ressources/img/09-services-reseau-windows/tp02-21.png" alt="NTFS" style="width:100%">
         </a>
     </div>
     <div class="img-col">
-        <a href=".ressources/img/tp02-22.png" target="_blank">
-            <img src=".ressources/img/tp02-22.png" alt="NTFS" style="width:100%">
+        <a href="../../ressources/img/09-services-reseau-windows/tp02-22.png" target="_blank">
+            <img src="../../ressources/img/09-services-reseau-windows/tp02-22.png" alt="NTFS" style="width:100%">
         </a>
     </div>
 </div>
 
 <div class="img-row">
     <div class="img-col">
-        <a href=".ressources/img/tp02-23.png" target="_blank">
-            <img src=".ressources/img/tp02-23.png" alt="NTFS" style="width:100%">
+        <a href="../../ressources/img/09-services-reseau-windows/tp02-23.png" target="_blank">
+            <img src="../../ressources/img/09-services-reseau-windows/tp02-23.png" alt="NTFS" style="width:100%">
         </a>
     </div>
     <div class="img-col">
-        <a href=".ressources/img/tp02-24.png" target="_blank">
-            <img src=".ressources/img/tp02-24.png" alt="NTFS" style="width:100%">
+        <a href="../../ressources/img/09-services-reseau-windows/tp02-24.png" target="_blank">
+            <img src="../../ressources/img/09-services-reseau-windows/tp02-24.png" alt="NTFS" style="width:100%">
         </a>
     </div>
 </div>
 
 <p><strong>Résultat final</strong> :</p>
-<p><a href=".ressources/img/tp02-25.png"><img alt="Final" src=".ressources/img/tp02-25.png" /></a></p>
+<p><a href="../../ressources/img/09-services-reseau-windows/tp02-25.png"><img alt="Final" src="../../ressources/img/09-services-reseau-windows/tp02-25.png" /></a></p>
 <h3 id="configuration-du-stockage-sur-le-serveur">Configuration du stockage sur le serveur<a class="headerlink" href="#configuration-du-stockage-sur-le-serveur" title="Permanent link"></a></h3>
 <ul>
 <li>Créer les volumes correspondants aux besoins via la console de <strong>Gestion des disques</strong>.</li>
@@ -1428,8 +1428,8 @@ body .markdown-body
 <li>Une fois l&rsquo;update effectuée, rebranchez votre VM sur le vSwitch Host-Only</li>
 <li>Reconfigurez l&rsquo;adresse fixe IPv4 de SRV01 (172.23.X.2/24)</li>
 </ul>
-<p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/style.css"></p>
+<p><link rel="stylesheet" type="text/css" href="../../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../ressources/css/style.css"></p>
 <style>
 
 * {

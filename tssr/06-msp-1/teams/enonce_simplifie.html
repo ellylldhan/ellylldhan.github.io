@@ -1066,208 +1066,370 @@ body .markdown-body
 .highlight .vi{color:teal}
 .highlight .il{color:#009999}
 .highlight .gc{color:#999;background-color:#EAF2F5}
-</style><title>mod3-tp4-secu-port</title></head><body><article class="markdown-body"><h1 id="m03-tp3-packet-tracer-configuring-switch-port-security">M03 TP3 - Packet Tracer - Configuring Switch Port Security<a class="headerlink" href="#m03-tp3-packet-tracer-configuring-switch-port-security" title="Permanent link"></a></h1>
-<p><em>ENI TSSR 08 - Réseau &amp; ToIP</em></p>
+</style><title>msp1-systemes-clients</title></head><body><article class="markdown-body"><h1 id="msp-1-systemes-clients">MSP 1 - Systemes clients<a class="headerlink" href="#msp-1-systemes-clients" title="Permanent link"></a></h1>
 <div class="toc">
 <ul>
-<li><a href="#m03-tp3-packet-tracer-configuring-switch-port-security">M03 TP3 - Packet Tracer - Configuring Switch Port Security</a><ul>
-<li><a href="#part-1-configure-port-security">Part 1: Configure Port Security</a></li>
-<li><a href="#part-2-verify-port-security">Part 2: Verify Port Security</a></li>
+<li><a href="#msp-1-systemes-clients">MSP 1 - Systemes clients</a><ul>
+<li><a href="#partie-1-installation">Partie 1 - Installation</a><ul>
+<li><a href="#instructions-reseau">Instructions Réseau</a></li>
+<li><a href="#caracteristiques-materielles-des-vm">Caractéristiques matérielles des VM</a></li>
+<li><a href="#documents-a-produire">Documents à produire</a><ul>
+<li><a href="#1-schema">1. Schéma</a></li>
+<li><a href="#2-tableau-recapitulatif">2. Tableau récapitulatif</a></li>
+</ul>
+</li>
+<li><a href="#installation-win10">Installation WIN10</a></li>
+<li><a href="#installation-de-debian-10">Installation de Debian 10</a><ul>
+<li><a href="#partitionnement">Partitionnement</a></li>
+<li><a href="#package-et-source-a-linstallation">Package et source (à l&rsquo;installation)</a></li>
+</ul>
+</li>
+<li><a href="#test-connectivite">Test Connectivité</a></li>
+</ul>
+</li>
+<li><a href="#groupes-et-utilisateurs">Groupes et utilisateurs</a><ul>
+<li><a href="#liste-des-membres-du-personnel">Liste des membres du personnel</a></li>
+<li><a href="#conventions-didentification">Conventions d&rsquo;Identification</a></li>
+<li><a href="#particularites-win10">Particularités Win10</a><ul>
+<li><a href="#contraintes-supplementaires">Contraintes supplémentaires</a></li>
+</ul>
+</li>
+<li><a href="#particularites-deb10">Particularités Deb10</a></li>
+</ul>
+</li>
+<li><a href="#configuration-environnement-de-travail">Configuration environnement de travail</a><ul>
+<li><a href="#win10-restrictions">Win10 (restrictions)</a></li>
+<li><a href="#deb10-vim">Deb10 (vim)</a></li>
+</ul>
+</li>
+<li><a href="#configuration-du-stockage-et-des-ressources">Configuration du stockage et des ressources</a><ul>
+<li><a href="#partionnement-de-disque">Partionnement de disque</a><ul>
+<li><a href="#win10">Win10</a></li>
+<li><a href="#deb10">Deb10</a></li>
+</ul>
+</li>
+<li><a href="#occupation-des-espaces-disques">Occupation des espaces disques</a><ul>
+<li><a href="#win10_1">Win10</a></li>
+<li><a href="#deb10_1">Deb10</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
-<p><img alt="mod3-tp4-secu-port" src="mod3-tp4-secu-port.png" /></p>
-<p><strong>Addressing Table</strong></p>
+<h2 id="partie-1-installation">Partie 1 - Installation<a class="headerlink" href="#partie-1-installation" title="Permanent link"></a></h2>
+<p><strong>Objectif</strong> : installer et configurer progressivement deux OS, Win10 et Debian 10.</p>
+<h3 id="instructions-reseau">Instructions Réseau<a class="headerlink" href="#instructions-reseau" title="Permanent link"></a></h3>
+<p><img alt="Réseau" src="../../ressources/img/06-msp-1/reseau.png" /></p>
+<ol>
+<li>
+<p>Partager les sous-réseaux<br>
+Vous et votre binôme prendrez les <strong>dernières adresses disponibles</strong> du <strong>dernier sous-réseau en /26</strong>.<br>En classe, vous définirez les X premiers sous-réseaux, X étant le nombre de binômes dans la classe.<br>Suite à cela, vous définirez les sous-réseaux appartenant à chaque binôme.</p>
+</li>
+<li>
+<p>Utiliser VMWARE<br>
+Vous installerez 2 systèmes clients à l&rsquo;aide de l&rsquo;outil de virtualisation VMWARE WORKSTATION en respectant les caractéristiques fournies plus loin.</p>
+</li>
+<li>
+<p>Travailler parfois en binôme<br>
+Certaines tâches nécessiteront de travailler en binôme.</p>
+</li>
+<li>
+<p>Créer des procédures le plus souvent possible<br>
+Vous prendrez soin de créer des procédures relatant toutes vos actions. Utiliser l&rsquo;outil PSR si besoin (qualité pourrie) ou faire les screens à la main, ça va aussi vite.</p>
+</li>
+</ol>
+<h3 id="caracteristiques-materielles-des-vm">Caractéristiques matérielles des VM<a class="headerlink" href="#caracteristiques-materielles-des-vm" title="Permanent link"></a></h3>
+<table>
+  <thead>
+        <tr>
+            <th scope="row"></th>
+            <th scope="row">Machine 1</th>
+            <th scope="row">Machine 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="col">Nom</th>
+            <td scope="row">W10-NumeroDeStagiaire </td>
+            <td scope="row">DEB10-NumeroDeStagiaire</td>
+        </tr>
+        <tr>
+            <th scope="col">OS</th>
+            <td scope="row">Win10 Pro</td>
+            <td scope="row">Debian 10</td>
+        </tr>
+        <tr>
+            <th scope="col">CPU</th>
+            <td scope="row" rowspan="2"><i>suivre reco Microsoft</i></td>
+            <td scope="row">1x vCPU</td>
+        </tr>
+        <tr>
+            <th scope="col">RAM</th>
+            <td scope="row">2048 MB</td>
+        </tr>
+        <tr>
+            <th scope="col">HDD1</th>
+            <td scope="row">32 Go</td>
+            <td scope="row">20 Go</td>
+        </tr>
+        <tr>
+            <th scope="col">HDD2</th>
+            <td scope="row">40 Go</td>
+            <td scope="row">40 Go</td>
+        </tr>
+        <tr>
+            <th scope="col">Réseau</th>
+            <td scope="row">1x carte en "Host-Only"</td>
+            <td scope="row">1x carte en "Host-Only"</td>
+        </tr>
+    </tbody>
+</table>
+
+<p><strong>Notes</strong>: Lorsque vous aurez besoin d&rsquo;une connection internet, ou du réseau de l&rsquo;école, vous passerez en carte réseau <em>Bridged</em> et en DHCP.</p>
+<h3 id="documents-a-produire">Documents à produire<a class="headerlink" href="#documents-a-produire" title="Permanent link"></a></h3>
+<h4 id="1-schema">1. Schéma<a class="headerlink" href="#1-schema" title="Permanent link"></a></h4>
+<p>Reproduire le schéma du réseau et compléter avec les infos d&rsquo;adressage IP. (avec drawio, par ex.)</p>
+<a href="../../ressources/img/06-msp-1/cartographie.png" target="_blank">
+  <img src="../../ressources/img/06-msp-1/cartographie.png" alt="carto">
+</a>
+<h4 id="2-tableau-recapitulatif">2. Tableau récapitulatif<a class="headerlink" href="#2-tableau-recapitulatif" title="Permanent link"></a></h4>
+<p>Produire un tableau récapitulatif de l&rsquo;ensemble des infos relatives aux configurations système (ex. login, mdp, hostname, ip, CPU, RAM).</p>
+<h3 id="installation-win10">Installation WIN10<a class="headerlink" href="#installation-win10" title="Permanent link"></a></h3>
+<ul>
+<li>La VM avec Win10 :<ul>
+<li>le premier HDD ne comportera qu&rsquo;une seule partition utilisant l&rsquo;intégralité de l&rsquo;espace</li>
+<li>configurer l&rsquo;ip, le hostname</li>
+<li>empêcher Win Update de se connecter aux serveurs Microsoft.</li>
+<li>utiliser l&rsquo;iso d&rsquo;install sur le réseau <code>\\10.0.0.6\Distrib\iso\os\windows\10\xxxxx.iso</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="installation-de-debian-10">Installation de Debian 10<a class="headerlink" href="#installation-de-debian-10" title="Permanent link"></a></h3>
+<ul>
+<li>La VM Debian <ul>
+<li>installer l&rsquo;iso &ldquo;DVD&rdquo; de Debian 10.x <strong>avec un environnement graphique</strong></li>
+<li>iso dispo ici : <code>\\10.0.0.6\Distrib\iso\os\unix-linux\linux\Debian\XXXX.iso</code></li>
+<li>mettre la nic en bridged pour l&rsquo;installation.</li>
+</ul>
+</li>
+</ul>
+<h4 id="partitionnement">Partitionnement<a class="headerlink" href="#partitionnement" title="Permanent link"></a></h4>
+<ul>
+<li>Partitionner le disque manuellement selon le schéma suivant en prenant garde de pouvoir exploiter ultérieurement l&rsquo;espace non-alloué.</li>
+<li>Conserver le système de fichier par défauts des différents points de montage</li>
+</ul>
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="col">/</th>
+            <td>17 Go</td>
+        </tr>
+        <tr>
+            <th scope="col">/boot</th>
+            <td>512 Mo</td>
+        </tr>
+        <tr>
+            <th scope="col">swap</th>
+            <td>256 Mo</td>
+        </tr>
+        <tr>
+            <th scope="col">/home</th>
+            <td>1 Go</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="package-et-source-a-linstallation">Package et source (à l&rsquo;installation)<a class="headerlink" href="#package-et-source-a-linstallation" title="Permanent link"></a></h4>
+<ul>
+<li>Laisser cocher les paquets par défaut </li>
+<li>Serveur miroir : choisir le premier serveur miroir français de la liste (ftp.debian.org). </li>
+<li>Pas de proxy</li>
+</ul>
+<h3 id="test-connectivite">Test Connectivité<a class="headerlink" href="#test-connectivite" title="Permanent link"></a></h3>
+<ul>
+<li>Passer les cartes en bridged et ping le binôme (les VM, la passerelle).</li>
+<li>S&rsquo;assurer que ça ping bien dans tous les sens.</li>
+</ul>
+<h2 id="groupes-et-utilisateurs">Groupes et utilisateurs<a class="headerlink" href="#groupes-et-utilisateurs" title="Permanent link"></a></h2>
+<h3 id="liste-des-membres-du-personnel">Liste des membres du personnel<a class="headerlink" href="#liste-des-membres-du-personnel" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
-<th align="left">Device</th>
-<th align="left">Interface</th>
-<th align="left">IP Address</th>
-<th align="left">Subnet Mask</th>
+<th align="left">Service</th>
+<th align="left">Membres</th>
+<th align="left">login</th>
+<th align="left">mdp</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">S1</td>
-<td align="left">VLAN 1</td>
-<td align="left">10.10.10.2</td>
-<td align="left">255.255.255.0</td>
+<td align="left">Direction</td>
+<td align="left">Rick Grimes</td>
+<td align="left">rgrimes</td>
+<td align="left">#TWD35rg</td>
 </tr>
 <tr>
-<td align="left">PC1</td>
-<td align="left">NIC</td>
-<td align="left">10.10.10.10</td>
-<td align="left">255.255.255.0</td>
+<td align="left">Commercial</td>
+<td align="left">Daryl Dixon<br>Gabriel Stokes<br>Maggie Greene</td>
+<td align="left">ddixon<br>gstokes<br>mgreene</td>
+<td align="left">#TWD35dd<br>#TWD35gs<br>#TWD35mg</td>
 </tr>
 <tr>
-<td align="left">PC2</td>
-<td align="left">NIC</td>
-<td align="left">10.10.10.10</td>
-<td align="left">255.255.255.0</td>
+<td align="left">Comptabilité</td>
+<td align="left">Eugene Porter<br>Carol Peletier (intérimaire)</td>
+<td align="left">eporter<br>cpeletier</td>
+<td align="left">#TWD35ep<br>#TWD35cp</td>
 </tr>
 <tr>
-<td align="left">Rogue Laptop</td>
-<td align="left">NIC</td>
-<td align="left">10.10.10.10</td>
-<td align="left">255.255.255.0</td>
+<td align="left">Informatique</td>
+<td align="left"><em>Vous-même</em> (administrateur)<br><em>Votre binôme</em> (prestataire)</td>
+<td align="left">rlizot<br>cbarrault</td>
+<td align="left">#TWD35rl<br>#TWD35cb</td>
+</tr>
+<tr>
+<td align="left">Logistique</td>
+<td align="left">Rosita Espinosa<br>Morgan Jones</td>
+<td align="left">respinosa<br>mjones</td>
+<td align="left">#TWD35re<br>#TWD35rg</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Objective</strong></p>
+<h3 id="conventions-didentification">Conventions d&rsquo;Identification<a class="headerlink" href="#conventions-didentification" title="Permanent link"></a></h3>
 <ul>
-<li>Part 1: Configure Port Security</li>
-<li>Part 2: Verify Port Security</li>
+<li>Chaque utilisateur sera identifié par la 1re lettre de son prénom, suivi de son nom (ex <strong>rgrimes</strong>, <strong>cpeletier</strong>)</li>
+<li>Les mdp seront affectés à ma convenance, tout en respectant les recommandations de l&rsquo;ANSSI <code>https://www.ssi.gouv.fr/guide/mot-de-passe/</code></li>
+<li>
+<p>Les mdp n&rsquo;expirent jamais</p>
+</li>
+<li>
+<p>Adopter une convention de nommage pour les groupes, que l&rsquo;on conservera à travers tous les OS. </p>
+</li>
 </ul>
-<p><strong>Background</strong></p>
-<p>In this activity, you will configure and verify port security on a switch. Port security allows you to restrict a port&rsquo;s ingress traffic by limiting the MAC addresses that are allowed to send traffic into the port.</p>
-<h2 id="part-1-configure-port-security">Part 1: Configure Port Security<a class="headerlink" href="#part-1-configure-port-security" title="Permanent link"></a></h2>
-<p>a. Access the command line for <strong>S1</strong> and <strong>enable port security</strong> on Fast Ethernet ports 0/1 and 0/2.</p>
-<div class="highlight"><pre>S1&gt;en
-S1#conf t
-Enter configuration commands, one per line.  End with CNTL/Z.
+<h3 id="particularites-win10">Particularités Win10<a class="headerlink" href="#particularites-win10" title="Permanent link"></a></h3>
+<ul>
+<li>Le système Win10 sera utilisé par les membres des services COMPTABILITE et COMMERCIAUX.</li>
+<li>Créer les groupes et comptes nécessaire, en précisant dans leur description leur service d&rsquo;appartenance.<ul>
+<li>Créer la partie DIRECTION et COMPTA via CLI</li>
+<li>Créer la partie INFORMATIQUE et LOGISTIQUE via POWERSHELL</li>
+<li>Créer la partie COMMERCIAUX en mode graphique</li>
+</ul>
+</li>
+<li>Ces utilisateurs possèderont tous dans le dossier <strong>Bureau</strong> de leur profil un dossier nommé <strong>Procédures</strong> qui contiendra, en outre, un fichier <strong>Règlement intérieur</strong>.</li>
+<li>Le poste d&rsquo;intérimaire COMPTABLE est un emploi à mi-temps. Rendre l&rsquo;ouverture de session possible uniquement de 9h00 à 12h00 tous les jours ouvrés.</li>
+</ul>
+<h4 id="contraintes-supplementaires">Contraintes supplémentaires<a class="headerlink" href="#contraintes-supplementaires" title="Permanent link"></a></h4>
+<ul>
+<li>la <strong>stratégie globale de sécurité de mdp</strong> comportera les contraintes suivantes : <ul>
+<li>12 car. minimum</li>
+<li>changement obligatoire tous les 25 jours</li>
+<li>exigences de complexité activées</li>
+</ul>
+</li>
+<li>Ajouter un autre compte administrateur du système en cli avec <code>cmd</code> et lui indiquer un mot de passe (voir <code>net user</code>)</li>
+<li>Les membres du service <strong>INFORMATIQUE</strong> doivent à l&rsquo;aide de leur compte pouvoir se connecter sur le système et bénéficier des privilèges administrateurs.</li>
+<li>Le changement du mdp du compte du binôme devra être forcé à sa première connection.</li>
+</ul>
+<h3 id="particularites-deb10">Particularités Deb10<a class="headerlink" href="#particularites-deb10" title="Permanent link"></a></h3>
+<ul>
+<li>Tous les users de la société sont susceptibles d&rsquo;utiliser ce poste <strong>localement</strong> ou en <strong>connection à distance</strong>. Par conséquent, la base de comptes de ce poste contiendra tous les users et groupes. </li>
+<li>Tous les users auront un shell <strong>/bin/bash</strong> par défaut, sauf le prestataire qui aura un <strong>/bin/ksh</strong>.</li>
+<li>Le changement du mdp du compte du binôme devra être forcé à sa première connection.</li>
+</ul>
+<h2 id="configuration-environnement-de-travail">Configuration environnement de travail<a class="headerlink" href="#configuration-environnement-de-travail" title="Permanent link"></a></h2>
+<h3 id="win10-restrictions">Win10 (restrictions)<a class="headerlink" href="#win10-restrictions" title="Permanent link"></a></h3>
+<ul>
+<li>
+<p>Paramètrer les restrictions suivantes pour <strong>tous les utilisateurs non-admin</strong> du système</p>
+<ul>
+<li>supprimer les fonctions de gravure CD </li>
+<li>empêcher tout accès au lecteur CD/DVD </li>
+<li>empêcher le lancement des outils de modification du registre (ex. regedit)</li>
+<li>forcer l&rsquo;utilisation d&rsquo;une image de votre choix en tant que fond d&rsquo;écran</li>
+</ul>
+</li>
+<li>
+<p>Pour <strong>tous les utilisateurs sans distinction</strong></p>
+<ul>
+<li>pare-feu obligatoirement actif par défaut quel que soit l&rsquo;utilisateur connecté </li>
+</ul>
+</li>
+</ul>
+<h3 id="deb10-vim">Deb10 (vim)<a class="headerlink" href="#deb10-vim" title="Permanent link"></a></h3>
+<ul>
+<li>Mettre à jour <strong>vim</strong> via le package manager </li>
+<li>Activer la coloration syntaxique (<code>syntax on</code>) </li>
+<li>Et la numérotation des lignes (<code>:set nu</code>)</li>
+<li>Avec <code>vim</code>, dans /etc/apt/sources.list :<ul>
+<li>avec la commande <code>:g/</code>, commenter les lignes commençant par <strong>deb-src</strong> </li>
+<li>commenter la ligne indiquant le DVD si pas déjà fait </li>
+</ul>
+</li>
+</ul>
+<h2 id="configuration-du-stockage-et-des-ressources">Configuration du stockage et des ressources<a class="headerlink" href="#configuration-du-stockage-et-des-ressources" title="Permanent link"></a></h2>
+<h3 id="partionnement-de-disque">Partionnement de disque<a class="headerlink" href="#partionnement-de-disque" title="Permanent link"></a></h3>
+<h4 id="win10">Win10<a class="headerlink" href="#win10" title="Permanent link"></a></h4>
+<ul>
+<li>Sur le HDD2, utiliser le format de table de partition <strong>MBR</strong></li>
+<li>Créer via DISKPART une partition nommée <strong>DATA</strong> avec la lettre <strong>D:</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">Disque</th>
+<th align="center">Label</th>
+<th align="center">Lettre</th>
+<th align="center">Methode</th>
+<th align="center">Taille</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">HDD2</td>
+<td align="center">DATA</td>
+<td align="center">D:</td>
+<td align="center">DISKPART</td>
+<td align="center">10 Go puis étendre au 5 Go supplémentaires</td>
+</tr>
+</tbody>
+</table>
+<h4 id="deb10">Deb10<a class="headerlink" href="#deb10" title="Permanent link"></a></h4>
+<ul>
+<li>Créer 3 partitions principales sur le HDD2<ul>
+<li>
+<ol>
+<li>ext4 &ldquo;PROFILS&rdquo; 15 Go</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>ext4 &ldquo;DATA&rdquo;    15 Go</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>xfs  &ldquo;LOGS&rdquo;    tout l&rsquo;espace restant (<strong>note</strong>: le système de fichier xfs n&rsquo;est pas installé par défaut)</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="occupation-des-espaces-disques">Occupation des espaces disques<a class="headerlink" href="#occupation-des-espaces-disques" title="Permanent link"></a></h3>
+<blockquote><i>C'est le moment de réaliser un snapshot des VM.</i></blockquote>
 
-S1(config)#interface range f0/1-2
-S1(config-if-range)#switchport port-security
-</pre></div>
+<h4 id="win10_1">Win10<a class="headerlink" href="#win10_1" title="Permanent link"></a></h4>
+<h4 id="deb10_1">Deb10<a class="headerlink" href="#deb10_1" title="Permanent link"></a></h4>
+<!-- CSS only -->
 
-<p>b. <strong>Set the maximum</strong> so that only one device can access the Fast Ethernet ports 0/1 and 0/2.</p>
-<div class="highlight"><pre>S1(config-if-range)#switchport port-security maximum 1
-</pre></div>
-
-<p>c. Secure the ports so that the MAC address of a device is <strong>dynamically learned</strong> and added to the running configuration.</p>
-<div class="highlight"><pre>S1(config-if-range)#switchport port-security mac-address sticky
-</pre></div>
-
-<p>d. <strong>Set the violation</strong> so that the Fast Ethernet ports 0/1 and 0/2 are <strong>not disabled</strong> when a violation occurs, but a <strong>notification</strong> of the security violation is generated and packets from the unknown source are dropped.</p>
-<div class="highlight"><pre>S1(config-if-range)#switchport port-security violation restrict
-S1(config-if-range)#end
-</pre></div>
-
-<p><strong>Check</strong> :</p>
-<div class="highlight"><pre>S1#sh port-security 
-Secure Port MaxSecureAddr CurrentAddr SecurityViolation Security Action
-               (Count)       (Count)        (Count)
---------------------------------------------------------------------
-        Fa0/1        1          0                 0         Restrict
-        Fa0/2        1          0                 0         Restrict
-----------------------------------------------------------------------
-</pre></div>
-
-<p>e. <strong>Disable all the remaining unused ports</strong>. Hint: Use the <code>range</code> keyword to apply this configuration to all the ports simultaneously.</p>
-<p><strong>Notes</strong>: pour voir toutes les interfaces dispo, faire un <code>sh run</code></p>
-<div class="highlight"><pre>S1(config)#interface range f0/3-24,g0/1-2
-S1(config-if-range)#shutdown
-
-%LINK-5-CHANGED: Interface FastEthernet0/3, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/4, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/5, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/6, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/7, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/8, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/9, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/10, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/11, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/12, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/13, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/14, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/15, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/16, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/17, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/18, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/19, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/20, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/21, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/22, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/23, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/24, changed state to administratively down
-%LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to administratively down
-%LINK-5-CHANGED: Interface GigabitEthernet0/2, changed state to administratively down
-</pre></div>
-
-<h2 id="part-2-verify-port-security">Part 2: Verify Port Security<a class="headerlink" href="#part-2-verify-port-security" title="Permanent link"></a></h2>
-<p>a. From PC1, ping PC2. =&gt; Success !</p>
-<p>b. <strong>Verify port security</strong> is enabled and the MAC addresses of <strong>PC1</strong> and <strong>PC2</strong> were added to the running configuration.</p>
-<div class="highlight"><pre>S1#show port-security interface f0/1
-Port Security              : Enabled
-Port Status                : Secure-up
-Violation Mode             : Restrict
-Aging Time                 : 0 mins
-Aging Type                 : Absolute
-SecureStatic Address Aging : Disabled
-Maximum MAC Addresses      : 1
-Total MAC Addresses        : 1
-Configured MAC Addresses   : 0
-Sticky MAC Addresses       : 1
-Last Source Address:Vlan   : 00E0.B027.2245:1
-Security Violation Count   : 0
-
-S1#show port-security interface f0/2
-Port Security              : Enabled
-Port Status                : Secure-up
-Violation Mode             : Restrict
-Aging Time                 : 0 mins
-Aging Type                 : Absolute
-SecureStatic Address Aging : Disabled
-Maximum MAC Addresses      : 1
-Total MAC Addresses        : 1
-Configured MAC Addresses   : 0
-Sticky MAC Addresses       : 1
-Last Source Address:Vlan   : 0001.647C.697E:1
-Security Violation Count   : 0
-</pre></div>
-
-<p><strong>Notes</strong>: Les adresses MAC de PC1 et PC2 sont enregistrées grâce au sticky.</p>
-<p>c. Attach Rogue Laptop to any unused switch port and notice that the link lights are red.</p>
-<p>Parce que les ports autres que f0/1 et f0/2 ont été désactivés&hellip; </p>
-<p>d. Enable the port and verify that <strong>Rogue Laptop</strong> can ping <strong>PC1</strong> and <strong>PC2</strong>. 
-After verification, shut down the port connected to <strong>Rogue Laptop</strong>.</p>
-<div class="highlight"><pre>S1#conf t
-Enter configuration commands, one per line.  End with CNTL/Z.
-S1(config)#int f0/3
-S1(config-if)#no shutdown 
-%LINK-5-CHANGED: Interface FastEthernet0/3, changed state to up
-%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to up
-</pre></div>
-
-<p>e. Disconnect <strong>PC2</strong> and connect <strong>Rogue Laptop</strong> to <strong>PC2</strong>&lsquo;s port. 
-Verify that <strong>Rogue Laptop</strong> is unable to ping <strong>PC1</strong>.</p>
-<p>Parce que le switch enregistre les adresses MAC (sticky!) et pas les ports ni les ip. </p>
-<p>f. Display the port security violations for the port <strong>Rogue Laptop</strong> is connected to.</p>
-<div class="highlight"><pre>S1#sh port-security int f0/2
-Port Security              : Enabled
-Port Status                : Secure-up
-Violation Mode             : Restrict
-Aging Time                 : 0 mins
-Aging Type                 : Absolute
-SecureStatic Address Aging : Disabled
-Maximum MAC Addresses      : 1
-Total MAC Addresses        : 1
-Configured MAC Addresses   : 0
-Sticky MAC Addresses       : 1
-Last Source Address:Vlan   : 0002.4A42.C51C:1
-Security Violation Count   : 2
-</pre></div>
-
-<p>Le compteur de violation à augmenter de 2, ce qui correspond au nombre de paquets envoyé par l&rsquo;action du ping.</p>
-<p>g. Disconnect <strong>Rogue Laptop</strong> and reconnect <strong>PC2</strong>. Verify <strong>PC2</strong> can ping <strong>PC1</strong>.</p>
-<div class="highlight"><pre>S1#sh port-security int f0/2
-Port Security              : Enabled
-Port Status                : Secure-up
-Violation Mode             : Restrict
-Aging Time                 : 0 mins
-Aging Type                 : Absolute
-SecureStatic Address Aging : Disabled
-Maximum MAC Addresses      : 1
-Total MAC Addresses        : 1
-Configured MAC Addresses   : 0
-Sticky MAC Addresses       : 1
-Last Source Address:Vlan   : 0001.647C.697E:1
-Security Violation Count   : 0
-</pre></div>
-
-<p>Le compteur de violation a été remis à zéro.</p>
-<p>h. Why is <strong>PC2</strong> able to ping <strong>PC1</strong>, but the <strong>Rogue Laptop</strong> is not?</p>
-<p>Parce que la sécurité des ports enregistre les adresses MAC et non juste les noms des interfaces.</p>
-<p><link rel="stylesheet" href="../../../ressources/css/style.css"></p></article></body></html>
+<p><lnk href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="../../ressources/css/style.css"></p>
+<style type="text/css" media="screen">
+* {
+    font-size: 20px;
+    line-height: 1.5em;
+}
+</style></article></body></html>

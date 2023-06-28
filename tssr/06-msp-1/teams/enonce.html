@@ -1066,208 +1066,146 @@ body .markdown-body
 .highlight .vi{color:teal}
 .highlight .il{color:#009999}
 .highlight .gc{color:#999;background-color:#EAF2F5}
-</style><title>mod3-tp4-secu-port</title></head><body><article class="markdown-body"><h1 id="m03-tp3-packet-tracer-configuring-switch-port-security">M03 TP3 - Packet Tracer - Configuring Switch Port Security<a class="headerlink" href="#m03-tp3-packet-tracer-configuring-switch-port-security" title="Permanent link"></a></h1>
-<p><em>ENI TSSR 08 - Réseau &amp; ToIP</em></p>
+</style><title>msp1-systemes-clients</title></head><body><article class="markdown-body"><h2 id="msp-1-systemes-clients">MSP 1 - Systemes clients<a class="headerlink" href="#msp-1-systemes-clients" title="Permanent link"></a></h2>
 <div class="toc">
 <ul>
-<li><a href="#m03-tp3-packet-tracer-configuring-switch-port-security">M03 TP3 - Packet Tracer - Configuring Switch Port Security</a><ul>
-<li><a href="#part-1-configure-port-security">Part 1: Configure Port Security</a></li>
-<li><a href="#part-2-verify-port-security">Part 2: Verify Port Security</a></li>
+<li><a href="#msp-1-systemes-clients">MSP 1 - Systemes clients</a><ul>
+<li><a href="#partie-1-installation">Partie 1 - Installation</a><ul>
+<li><a href="#11-presentation">1.1 Présentation</a><ul>
+<li><a href="#q111-partager-les-sous-reseaux">Q1.1.1 Partager les sous-réseaux</a></li>
+<li><a href="#q112-utiliser-vmware">Q1.1.2 Utiliser VMWARE</a></li>
+<li><a href="#q113-travailler-parfois-en-binome">Q1.1.3 Travailler parfois en binôme</a></li>
+</ul>
+</li>
+<li><a href="#12-caracteristiques-materielles-des-vm">1.2 Caractéristiques matérielles des VM</a></li>
+<li><a href="#13-taches-a-realiser">1.3 Tâches à réaliser</a><ul>
+<li><a href="#131-schema">1.3.1 Schéma</a></li>
+<li><a href="#132-tableau-recapitulatif">1.3.2 Tableau récapitulatif</a></li>
+<li><a href="#133-installation-de-win10">1.3.3 Installation de Win10</a></li>
+<li><a href="#134-installation-de-debian-10">1.3.4 Installation de Debian 10</a></li>
+<li><a href="#135-partitionnement">1.3.5 Partitionnement</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
-<p><img alt="mod3-tp4-secu-port" src="mod3-tp4-secu-port.png" /></p>
-<p><strong>Addressing Table</strong></p>
-<table>
-<thead>
-<tr>
-<th align="left">Device</th>
-<th align="left">Interface</th>
-<th align="left">IP Address</th>
-<th align="left">Subnet Mask</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">S1</td>
-<td align="left">VLAN 1</td>
-<td align="left">10.10.10.2</td>
-<td align="left">255.255.255.0</td>
-</tr>
-<tr>
-<td align="left">PC1</td>
-<td align="left">NIC</td>
-<td align="left">10.10.10.10</td>
-<td align="left">255.255.255.0</td>
-</tr>
-<tr>
-<td align="left">PC2</td>
-<td align="left">NIC</td>
-<td align="left">10.10.10.10</td>
-<td align="left">255.255.255.0</td>
-</tr>
-<tr>
-<td align="left">Rogue Laptop</td>
-<td align="left">NIC</td>
-<td align="left">10.10.10.10</td>
-<td align="left">255.255.255.0</td>
-</tr>
-</tbody>
+<h3 id="partie-1-installation">Partie 1 - Installation<a class="headerlink" href="#partie-1-installation" title="Permanent link"></a></h3>
+<h4 id="11-presentation">1.1 Présentation<a class="headerlink" href="#11-presentation" title="Permanent link"></a></h4>
+<p><strong>Objectif</strong> : installer et configurer progressivement deux OS, Win10 et Debian 10.</p>
+<p><img alt="Réseau" src="../../ressources/img/06-msp-1/reseau.png" /></p>
+<h5 id="q111-partager-les-sous-reseaux">Q1.1.1 Partager les sous-réseaux<a class="headerlink" href="#q111-partager-les-sous-reseaux" title="Permanent link"></a></h5>
+<p>Vous et votre binôme prendrez les <strong>dernières adresses disponibles</strong> du <strong>dernier sous-réseau en /26</strong>.<br>En classe, vous définirez les X premiers sous-réseaux, X étant le nombre de binômes dans la classe.<br>Suite à cela, vous définirez les sous-réseaux appartenant à chaque binôme.</p>
+<h5 id="q112-utiliser-vmware">Q1.1.2 Utiliser VMWARE<a class="headerlink" href="#q112-utiliser-vmware" title="Permanent link"></a></h5>
+<p>Vous installerez 2 systèmes clients à l&rsquo;aide de l&rsquo;outil de virtualisation VMWARE WORKSTATION en respectant les caractéristiques fournies plus loin.</p>
+<h5 id="q113-travailler-parfois-en-binome">Q1.1.3 Travailler parfois en binôme<a class="headerlink" href="#q113-travailler-parfois-en-binome" title="Permanent link"></a></h5>
+<p>Certaines tâches nécessiteront de travailler en binôme.</p>
+<p><strong>Note</strong> : vous prendrez soin de créer des procédures relatant toutes vos actions. Utiliser l&rsquo;outil PSR si besoin (qualité pourrie) ou faire les screens à la main, ça va aussi vite.</p>
+<h4 id="12-caracteristiques-materielles-des-vm">1.2 Caractéristiques matérielles des VM<a class="headerlink" href="#12-caracteristiques-materielles-des-vm" title="Permanent link"></a></h4>
+<table class="table">
+  <thead class="thead-dark">
+        <tr>
+            <th scope="row"></th>
+            <th scope="row">Machine 1</th>
+            <th scope="row">Machine 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="col">Nom</th>
+            <td scope="col">W10-NumeroDeStagiaire </td>
+            <td scope="col">DEB10-NumeroDeStagiaire</td>
+        </tr>
+        <tr>
+            <th scope="col">OS</th>
+            <td scope="col">Win10 Pro</td>
+            <td scope="col">Debian 10</td>
+        </tr>
+        <tr>
+            <th scope="col">CPU</th>
+            <td scope="col" rowspan="2"><i>suivre reco Microsoft</i></td>
+            <td scope="col">1x vCPU</td>
+        </tr>
+        <tr>
+            <th scope="col">RAM</th>
+            <td scope="col">2048 MB</td>
+        </tr>
+        <tr>
+            <th scope="col">HDD1</th>
+            <td scope="col">32 Go</td>
+            <td scope="col">20 Go</td>
+        </tr>
+        <tr>
+            <th scope="col">HDD2</th>
+            <td scope="col">40 Go</td>
+            <td scope="col">40 Go</td>
+        </tr>
+        <tr>
+            <th scope="col">Réseau</th>
+            <td scope="col">1x carte en "Host-Only"</td>
+            <td scope="col">1x carte en "Host-Only"</td>
+        </tr>
+    </tbody>
 </table>
-<p><strong>Objective</strong></p>
+
+<p><strong>Notes</strong>: Lorsque vous aurez besoin d&rsquo;une connection internet, ou du réseau de l&rsquo;école, vous passerez en carte réseau <em>Bridged</em> et en DHCP.</p>
+<h4 id="13-taches-a-realiser">1.3 Tâches à réaliser<a class="headerlink" href="#13-taches-a-realiser" title="Permanent link"></a></h4>
+<h5 id="131-schema">1.3.1 Schéma<a class="headerlink" href="#131-schema" title="Permanent link"></a></h5>
+<p>Reproduire le schéma du réseau et compléter avec les infos d&rsquo;adressage IP. (avec drawio, par ex.)</p>
+<a href="../../ressources/img/06-msp-1/cartographie.png" target="_blank">
+  <img src="../../ressources/img/06-msp-1/cartographie.png" alt="carto">
+</a>
+<h5 id="132-tableau-recapitulatif">1.3.2 Tableau récapitulatif<a class="headerlink" href="#132-tableau-recapitulatif" title="Permanent link"></a></h5>
+<p>Produire un tableau récapitulatif de l&rsquo;ensemble des infos relatives aux configurations système (ex. login, mdp, hostname, ip, CPU, RAM).</p>
+<h5 id="133-installation-de-win10">1.3.3 Installation de Win10<a class="headerlink" href="#133-installation-de-win10" title="Permanent link"></a></h5>
 <ul>
-<li>Part 1: Configure Port Security</li>
-<li>Part 2: Verify Port Security</li>
+<li>La VM avec Win10 :<ul>
+<li>le premier HDD ne comportera qu&rsquo;une seule partition utilisant l&rsquo;intégralité de l&rsquo;espace</li>
+<li>configurer l&rsquo;ip, le hostname</li>
+<li>empêcher Win Update de se connecter aux serveurs Microsoft.</li>
+<li>utiliser l&rsquo;iso d&rsquo;install sur le réseau <code>\\10.0.0.6\Distrib\iso\os\windows\10\xxxxx.iso</code></li>
 </ul>
-<p><strong>Background</strong></p>
-<p>In this activity, you will configure and verify port security on a switch. Port security allows you to restrict a port&rsquo;s ingress traffic by limiting the MAC addresses that are allowed to send traffic into the port.</p>
-<h2 id="part-1-configure-port-security">Part 1: Configure Port Security<a class="headerlink" href="#part-1-configure-port-security" title="Permanent link"></a></h2>
-<p>a. Access the command line for <strong>S1</strong> and <strong>enable port security</strong> on Fast Ethernet ports 0/1 and 0/2.</p>
-<div class="highlight"><pre>S1&gt;en
-S1#conf t
-Enter configuration commands, one per line.  End with CNTL/Z.
+</li>
+</ul>
+<h5 id="134-installation-de-debian-10">1.3.4 Installation de Debian 10<a class="headerlink" href="#134-installation-de-debian-10" title="Permanent link"></a></h5>
+<ul>
+<li>La VM Debian <ul>
+<li>installer l&rsquo;iso &ldquo;DVD&rdquo; de Debian 10.x <strong>avec un environnement graphique</strong></li>
+<li>iso dispo ici : <code>\\10.0.0.6\Distrib\iso\os\unix-linux\linux\Debian\XXXX.iso</code></li>
+<li>mettre la nic en bridged pour l&rsquo;installation.</li>
+</ul>
+</li>
+</ul>
+<h5 id="135-partitionnement">1.3.5 Partitionnement<a class="headerlink" href="#135-partitionnement" title="Permanent link"></a></h5>
+<ul>
+<li>Partitionner le disque manuellement selon le schéma suivant en prenant garde de pouvoir exploiter ultérieurement l&rsquo;espace non-alloué.</li>
+<li>Conserver le système de fichier par défauts des différents points de montage</li>
+</ul>
+<table class="table thead-dark">
+    <tbody>
+        <tr>
+            <th  scope="col">/</th>
+            <td>17 Go</td>
+        </tr>
+        <tr>
+            <th scope="col">/boot</th>
+            <td>512 Mo</td>
+        </tr>
+        <tr>
+            <th scope="col">swap</th>
+            <td>256 Mo</td>
+        </tr>
+        <tr>
+            <th scope="col">/home</th>
+            <td>1 Go</td>
+        </tr>
+    </tbody>
+</table>
 
-S1(config)#interface range f0/1-2
-S1(config-if-range)#switchport port-security
-</pre></div>
+<!-- CSS only -->
 
-<p>b. <strong>Set the maximum</strong> so that only one device can access the Fast Ethernet ports 0/1 and 0/2.</p>
-<div class="highlight"><pre>S1(config-if-range)#switchport port-security maximum 1
-</pre></div>
-
-<p>c. Secure the ports so that the MAC address of a device is <strong>dynamically learned</strong> and added to the running configuration.</p>
-<div class="highlight"><pre>S1(config-if-range)#switchport port-security mac-address sticky
-</pre></div>
-
-<p>d. <strong>Set the violation</strong> so that the Fast Ethernet ports 0/1 and 0/2 are <strong>not disabled</strong> when a violation occurs, but a <strong>notification</strong> of the security violation is generated and packets from the unknown source are dropped.</p>
-<div class="highlight"><pre>S1(config-if-range)#switchport port-security violation restrict
-S1(config-if-range)#end
-</pre></div>
-
-<p><strong>Check</strong> :</p>
-<div class="highlight"><pre>S1#sh port-security 
-Secure Port MaxSecureAddr CurrentAddr SecurityViolation Security Action
-               (Count)       (Count)        (Count)
---------------------------------------------------------------------
-        Fa0/1        1          0                 0         Restrict
-        Fa0/2        1          0                 0         Restrict
-----------------------------------------------------------------------
-</pre></div>
-
-<p>e. <strong>Disable all the remaining unused ports</strong>. Hint: Use the <code>range</code> keyword to apply this configuration to all the ports simultaneously.</p>
-<p><strong>Notes</strong>: pour voir toutes les interfaces dispo, faire un <code>sh run</code></p>
-<div class="highlight"><pre>S1(config)#interface range f0/3-24,g0/1-2
-S1(config-if-range)#shutdown
-
-%LINK-5-CHANGED: Interface FastEthernet0/3, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/4, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/5, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/6, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/7, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/8, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/9, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/10, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/11, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/12, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/13, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/14, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/15, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/16, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/17, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/18, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/19, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/20, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/21, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/22, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/23, changed state to administratively down
-%LINK-5-CHANGED: Interface FastEthernet0/24, changed state to administratively down
-%LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to administratively down
-%LINK-5-CHANGED: Interface GigabitEthernet0/2, changed state to administratively down
-</pre></div>
-
-<h2 id="part-2-verify-port-security">Part 2: Verify Port Security<a class="headerlink" href="#part-2-verify-port-security" title="Permanent link"></a></h2>
-<p>a. From PC1, ping PC2. =&gt; Success !</p>
-<p>b. <strong>Verify port security</strong> is enabled and the MAC addresses of <strong>PC1</strong> and <strong>PC2</strong> were added to the running configuration.</p>
-<div class="highlight"><pre>S1#show port-security interface f0/1
-Port Security              : Enabled
-Port Status                : Secure-up
-Violation Mode             : Restrict
-Aging Time                 : 0 mins
-Aging Type                 : Absolute
-SecureStatic Address Aging : Disabled
-Maximum MAC Addresses      : 1
-Total MAC Addresses        : 1
-Configured MAC Addresses   : 0
-Sticky MAC Addresses       : 1
-Last Source Address:Vlan   : 00E0.B027.2245:1
-Security Violation Count   : 0
-
-S1#show port-security interface f0/2
-Port Security              : Enabled
-Port Status                : Secure-up
-Violation Mode             : Restrict
-Aging Time                 : 0 mins
-Aging Type                 : Absolute
-SecureStatic Address Aging : Disabled
-Maximum MAC Addresses      : 1
-Total MAC Addresses        : 1
-Configured MAC Addresses   : 0
-Sticky MAC Addresses       : 1
-Last Source Address:Vlan   : 0001.647C.697E:1
-Security Violation Count   : 0
-</pre></div>
-
-<p><strong>Notes</strong>: Les adresses MAC de PC1 et PC2 sont enregistrées grâce au sticky.</p>
-<p>c. Attach Rogue Laptop to any unused switch port and notice that the link lights are red.</p>
-<p>Parce que les ports autres que f0/1 et f0/2 ont été désactivés&hellip; </p>
-<p>d. Enable the port and verify that <strong>Rogue Laptop</strong> can ping <strong>PC1</strong> and <strong>PC2</strong>. 
-After verification, shut down the port connected to <strong>Rogue Laptop</strong>.</p>
-<div class="highlight"><pre>S1#conf t
-Enter configuration commands, one per line.  End with CNTL/Z.
-S1(config)#int f0/3
-S1(config-if)#no shutdown 
-%LINK-5-CHANGED: Interface FastEthernet0/3, changed state to up
-%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to up
-</pre></div>
-
-<p>e. Disconnect <strong>PC2</strong> and connect <strong>Rogue Laptop</strong> to <strong>PC2</strong>&lsquo;s port. 
-Verify that <strong>Rogue Laptop</strong> is unable to ping <strong>PC1</strong>.</p>
-<p>Parce que le switch enregistre les adresses MAC (sticky!) et pas les ports ni les ip. </p>
-<p>f. Display the port security violations for the port <strong>Rogue Laptop</strong> is connected to.</p>
-<div class="highlight"><pre>S1#sh port-security int f0/2
-Port Security              : Enabled
-Port Status                : Secure-up
-Violation Mode             : Restrict
-Aging Time                 : 0 mins
-Aging Type                 : Absolute
-SecureStatic Address Aging : Disabled
-Maximum MAC Addresses      : 1
-Total MAC Addresses        : 1
-Configured MAC Addresses   : 0
-Sticky MAC Addresses       : 1
-Last Source Address:Vlan   : 0002.4A42.C51C:1
-Security Violation Count   : 2
-</pre></div>
-
-<p>Le compteur de violation à augmenter de 2, ce qui correspond au nombre de paquets envoyé par l&rsquo;action du ping.</p>
-<p>g. Disconnect <strong>Rogue Laptop</strong> and reconnect <strong>PC2</strong>. Verify <strong>PC2</strong> can ping <strong>PC1</strong>.</p>
-<div class="highlight"><pre>S1#sh port-security int f0/2
-Port Security              : Enabled
-Port Status                : Secure-up
-Violation Mode             : Restrict
-Aging Time                 : 0 mins
-Aging Type                 : Absolute
-SecureStatic Address Aging : Disabled
-Maximum MAC Addresses      : 1
-Total MAC Addresses        : 1
-Configured MAC Addresses   : 0
-Sticky MAC Addresses       : 1
-Last Source Address:Vlan   : 0001.647C.697E:1
-Security Violation Count   : 0
-</pre></div>
-
-<p>Le compteur de violation a été remis à zéro.</p>
-<p>h. Why is <strong>PC2</strong> able to ping <strong>PC1</strong>, but the <strong>Rogue Laptop</strong> is not?</p>
-<p>Parce que la sécurité des ports enregistre les adresses MAC et non juste les noms des interfaces.</p>
-<p><link rel="stylesheet" href="../../../ressources/css/style.css"></p></article></body></html>
+<p><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script></p></article></body></html>

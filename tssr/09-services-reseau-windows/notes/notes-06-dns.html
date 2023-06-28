@@ -1251,7 +1251,7 @@ body .markdown-body
 <li>DNS permet la résolution de <strong>noms d&rsquo;hôtes pleinement qualifiés</strong> (<strong>FQDN</strong> pour <em>Fully Qualified Domain Name</em>) en adresse IP.</li>
 </ul>
 <p>Ex. FQDN : <a href="http://www.nainwak.com">http://www.nainwak.com</a> </p>
-<p><img alt="FQDN" height="300px" src="../.ressources/img/FQDN-wiki.png" /></p>
+<p><img alt="FQDN" height="300px" src="../../ressources/img/09-services-reseau-windows/FQDN-wiki.png" /></p>
 <p>Le point sert de séparateur hôte/domaine. </p>
 <ul>
 <li>La 1er partie du nom identifie le poste au sein de son espace de nom. On parlera de <strong>partie hôte du nom</strong>.</li>
@@ -1272,7 +1272,7 @@ body .markdown-body
 </ul>
 <h4 id="la-hierarchisation-des-espaces-de-noms">La hiérarchisation des espaces de noms<a class="headerlink" href="#la-hierarchisation-des-espaces-de-noms" title="Permanent link"></a></h4>
 <p>L&rsquo;espace des noms est <strong>hiérarchique</strong> et cette hiérarchisation est respéctée par <strong>chaque espace de nom</strong>.</p>
-<p><img alt="Hiérarchie DNS" height="400px" src="../.ressources/img/dns-hierarchie.png" /></p>
+<p><img alt="Hiérarchie DNS" height="400px" src="../../ressources/img/09-services-reseau-windows/dns-hierarchie.png" /></p>
 <p>La <strong>racine</strong> est constituée de <strong>13 adresses IP</strong> joignables à l&rsquo;échelle mondiale.</p>
 <p>Gestion de ces serveurs :</p>
 <ol>
@@ -1333,13 +1333,13 @@ body .markdown-body
 <li><strong>I</strong>térative = <strong>I</strong>ndication, indice.</li>
 </ul>
 <h5 id="requetes-recursives">Requêtes récursives<a class="headerlink" href="#requetes-recursives" title="Permanent link"></a></h5>
-<p><a href="../.ressources/img/notes-28.png" target="_blank"><img alt="28" src="../.ressources/img/notes-28.png" /></a></p>
+<p><a href="../../ressources/img/09-services-reseau-windows/notes-28.png" target="_blank"><img alt="28" src="../../ressources/img/09-services-reseau-windows/notes-28.png" /></a></p>
 <ol>
 <li>Le client fait une requête récursive au serveur pour obtenir l&rsquo;adresse IP d&rsquo;un hôte.</li>
 <li>Le serveur fournit l&rsquo;adresse demandée au client.</li>
 </ol>
 <h5 id="requetes-iteratives">Requêtes itératives<a class="headerlink" href="#requetes-iteratives" title="Permanent link"></a></h5>
-<p><a href="../.ressources/img/notes-29.png" target="_blank"><img alt="29" src="../.ressources/img/notes-29.png" /></a></p>
+<p><a href="../../ressources/img/09-services-reseau-windows/notes-29.png" target="_blank"><img alt="29" src="../../ressources/img/09-services-reseau-windows/notes-29.png" /></a></p>
 <ol>
 <li>Le client demande à son <strong>serveur DNS résolveur</strong> de résoudre <strong><a href="http://www.amendes.gouv.fr">www.amendes.gouv.fr</a></strong></li>
 <li>Le serveur n&rsquo;héberge pas l&rsquo;espace de noms <em>amendes.gouv.fr.</em></li>
@@ -1361,7 +1361,7 @@ body .markdown-body
 <li>Sans configuration particulière, un serveur DNS ira interroger les serveurs <strong>racine</strong> afin de résoudre les requêtes de ses clients</li>
 <li>Si un serveur est configuré de telle sorte à utiliser la redirection, il demandera à son serveur redirecteur de trouver les réponses aux requêtes de ses clients. </li>
 </ul>
-<p><a href="../.ressources/img/notes-30.png" target="_blank"><img alt="30" src="../.ressources/img/notes-30.png" /></a></p>
+<p><a href="../../ressources/img/09-services-reseau-windows/notes-30.png" target="_blank"><img alt="30" src="../../ressources/img/09-services-reseau-windows/notes-30.png" /></a></p>
 <h5 id="le-redirecteur-conditionnel">Le redirecteur conditionnel<a class="headerlink" href="#le-redirecteur-conditionnel" title="Permanent link"></a></h5>
 <ul>
 <li>
@@ -1375,7 +1375,7 @@ body .markdown-body
 </ul>
 </li>
 </ul>
-<p><a href="../.ressources/img/notes-31.png" target="_blank"><img alt="31" src="../.ressources/img/notes-31.png" /></a></p>
+<p><a href="../../ressources/img/09-services-reseau-windows/notes-31.png" target="_blank"><img alt="31" src="../../ressources/img/09-services-reseau-windows/notes-31.png" /></a></p>
 <h5 id="la-mise-en-cache">La mise en cache<a class="headerlink" href="#la-mise-en-cache" title="Permanent link"></a></h5>
 <ul>
 <li>Chaque fois qu&rsquo;un serveur DNS faire appel à d&rsquo;autres serveurs pour ses demandes de résolutions, il enregistre dans <strong>le cache DNS</strong> les résultats obtenus. </li>
@@ -1404,10 +1404,10 @@ body .markdown-body
 <li>Un serveur faisant autorité est en mesure de répondre <strong>directement</strong> aux requêtes concernant l&rsquo;espace de noms correspondant. </li>
 <li>S&rsquo;il fait autorité sur une <strong>zone directe</strong>, il peut résoudre <strong>un nom en adresse IP</strong>.</li>
 </ul>
-<p><a href="../.ressources/img/notes-32.png" target="_blank"><img alt="32" src="../.ressources/img/notes-32.png" /></a></p>
+<p><a href="../../ressources/img/09-services-reseau-windows/notes-32.png" target="_blank"><img alt="32" src="../../ressources/img/09-services-reseau-windows/notes-32.png" /></a></p>
 <h5 id="zone-inverse">Zone inverse<a class="headerlink" href="#zone-inverse" title="Permanent link"></a></h5>
 <p>S&rsquo;il fait autorité sur une <strong>zone inverse</strong>, il peut résoudre une <strong>adresse ip en nom</strong></p>
-<p><a href="../.ressources/img/notes-33.png" target="_blank"><img alt="33" src="../.ressources/img/notes-33.png" /></a></p>
+<p><a href="../../ressources/img/09-services-reseau-windows/notes-33.png" target="_blank"><img alt="33" src="../../ressources/img/09-services-reseau-windows/notes-33.png" /></a></p>
 <h5 id="zone-principale-et-zone-secondaire">Zone principale et zone secondaire<a class="headerlink" href="#zone-principale-et-zone-secondaire" title="Permanent link"></a></h5>
 <table class="table-hover">
     <tr>
@@ -1478,8 +1478,8 @@ body .markdown-body
 </table>
 
 <h5 id="recapitulatif-des-etapes-de-resolution">Récapitulatif des étapes de résolution<a class="headerlink" href="#recapitulatif-des-etapes-de-resolution" title="Permanent link"></a></h5>
-<p><a href="../.ressources/img/notes-34.png" target="_blank"><img alt="34" src="../.ressources/img/notes-34.png" /></a></p>
-<p><a href="../.ressources/img/notes-34-2.png" target="_blank"><img alt="34-2" src="../.ressources/img/notes-34-2.png" /></a></p>
+<p><a href="../../ressources/img/09-services-reseau-windows/notes-34.png" target="_blank"><img alt="34" src="../../ressources/img/09-services-reseau-windows/notes-34.png" /></a></p>
+<p><a href="../../ressources/img/09-services-reseau-windows/notes-34-2.png" target="_blank"><img alt="34-2" src="../../ressources/img/09-services-reseau-windows/notes-34-2.png" /></a></p>
 <h4 id="tp102-dns-hebergeur">TP10.2 - DNS hébergeur<a class="headerlink" href="#tp102-dns-hebergeur" title="Permanent link"></a></h4>
 <p>Voir <a href="../tp/tp10.2-dns-hebergeur.html" target="_blank">TP 10.2 - DNS Hébergeur</a></p>
 <h3 id="les-mises-a-jour">Les mises à jour<a class="headerlink" href="#les-mises-a-jour" title="Permanent link"></a></h3>
@@ -1492,7 +1492,7 @@ body .markdown-body
 <p>(?)</p>
 <h4 id="le-transfert-de-zone">Le transfert de zone<a class="headerlink" href="#le-transfert-de-zone" title="Permanent link"></a></h4>
 <p>Le transfert de zone est le processus d&rsquo;échange de données d&rsquo;une zone entre un serveur maître et un serveur esclave.</p>
-<p><img alt="37" src="../.ressources/img/notes-37.png" /></p>
+<p><img alt="37" src="../../ressources/img/09-services-reseau-windows/notes-37.png" /></p>
 <p><strong>TODO: A REFAIRE</strong></p>
 <ol>
 <li>Le serveur DNS esclave interroge le maître pour obtenir le numéro de version de la zone.</li>
@@ -1520,14 +1520,14 @@ Ces listes partiront des MàJ les plus anciennes vers les plus récentes. Une mo
 <p>Voir <a href="../tp/tp10.3-dns-hebergeur-redondance.html" target="_blank">TP 10.3 - DNS Hébergeur &amp; Redondance</a></p>
 <h3 id="les-sous-domaines">Les sous-domaines<a class="headerlink" href="#les-sous-domaines" title="Permanent link"></a></h3>
 <p>Les sous-domaines permettent d&rsquo;organiser un espace de noms en regroupant des enregistrements par leur appartenance à une même entité (site, service).</p>
-<p><a href="../.ressources/img/notes-35.png" target="_blank"><img alt="35" src="../.ressources/img/notes-35.png" /></a></p>
+<p><a href="../../ressources/img/09-services-reseau-windows/notes-35.png" target="_blank"><img alt="35" src="../../ressources/img/09-services-reseau-windows/notes-35.png" /></a></p>
 <h4 id="les-delegations">Les délégations<a class="headerlink" href="#les-delegations" title="Permanent link"></a></h4>
 <p>La gestion des espaces de noms enfants peut être assurée par d&rsquo;autres serveurs DNS si une <strong>délégation de zone</strong> est faite. </p>
-<p><a href="../.ressources/img/notes-36.png" target="_blank"><img alt="36" src="../.ressources/img/notes-36.png" /></a></p>
+<p><a href="../../ressources/img/09-services-reseau-windows/notes-36.png" target="_blank"><img alt="36" src="../../ressources/img/09-services-reseau-windows/notes-36.png" /></a></p>
 <h4 id="tp104-dns-delegations-et-redirections">TP10.4 - DNS délégations et redirections<a class="headerlink" href="#tp104-dns-delegations-et-redirections" title="Permanent link"></a></h4>
 <p>Voir TP10.4 - DNS délégations et redirections (pas eu) </p>
 <div class="fin">~Fin~</div>
 
-<p><link rel="stylesheet" type="text/css" href="../.ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../.ressources/css/style.css">
-<link rel="stylesheet" type="text/css" href="../.ressources/css/headings.css"></p></article></body></html>
+<p><link rel="stylesheet" type="text/css" href="../../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href="../../ressources/css/headings.css"></p></article></body></html>

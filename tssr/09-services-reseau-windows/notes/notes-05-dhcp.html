@@ -1204,7 +1204,7 @@ body .markdown-body
 <li>d&rsquo;autres paramètres </li>
 </ul>
 <h4 id="obtention-dun-bail-dora">Obtention d&rsquo;un bail (DORA)<a class="headerlink" href="#obtention-dun-bail-dora" title="Permanent link"></a></h4>
-<p><a href="../.ressources/img/notes-21.png" target="_blank"><img alt="21" src="../.ressources/img/notes-21.png" /></a></p>
+<p><a href="../../ressources/img/09-services-reseau-windows/notes-21.png" target="_blank"><img alt="21" src="../../ressources/img/09-services-reseau-windows/notes-21.png" /></a></p>
 <ol>
 <li>DHCP DISCOVER : le client demande des informations d&rsquo;adressage.</li>
 <li>DHCP OFFER : un serveur DHCP lui propose un bail.</li>
@@ -1212,7 +1212,7 @@ body .markdown-body
 <li>DHCP ACK : le serveur valide la demande du client.</li>
 </ol>
 <h4 id="renouvellement-du-bail">Renouvellement du bail<a class="headerlink" href="#renouvellement-du-bail" title="Permanent link"></a></h4>
-<p><a href="../.ressources/img/notes-22.png" target="_blank"><img alt="22" src="../.ressources/img/notes-22.png" /></a></p>
+<p><a href="../../ressources/img/09-services-reseau-windows/notes-22.png" target="_blank"><img alt="22" src="../../ressources/img/09-services-reseau-windows/notes-22.png" /></a></p>
 <p>Le renouvellement du bail intervient :</p>
 <ul>
 <li>au démarrage du client </li>
@@ -1225,7 +1225,7 @@ body .markdown-body
 <li>DHCP ACK : le serveur lui répond.</li>
 </ol>
 <h4 id="resiliation-du-bail">Résiliation du bail<a class="headerlink" href="#resiliation-du-bail" title="Permanent link"></a></h4>
-<p><a href="../.ressources/img/notes-23.png" target="_blank"><img alt="23" src="../.ressources/img/notes-23.png" /></a></p>
+<p><a href="../../ressources/img/09-services-reseau-windows/notes-23.png" target="_blank"><img alt="23" src="../../ressources/img/09-services-reseau-windows/notes-23.png" /></a></p>
 <p>Le client peut renoncer au bail en renvoyant un DHCP RELEASE au serveur.</p>
 <p>Attention : lors de l&rsquo;arrêt du poste, le <strong>bail N&rsquo;EST PAS résilié</strong>. La résiliation du bail peut par exemple être liée à la demande de l&rsquo;utilisateur pour libérer son adressage (lors d&rsquo;un changement de réseau par exemple).</p>
 <h3 id="les-conteneurs">Les conteneurs<a class="headerlink" href="#les-conteneurs" title="Permanent link"></a></h3>
@@ -1281,10 +1281,10 @@ body .markdown-body
 <h3 id="le-dhcp-et-les-reseaux">Le DHCP et les réseaux<a class="headerlink" href="#le-dhcp-et-les-reseaux" title="Permanent link"></a></h3>
 <h4 id="un-serveur-dhcp-pour-plusieurs-reseaux">Un serveur DHCP pour plusieurs réseaux<a class="headerlink" href="#un-serveur-dhcp-pour-plusieurs-reseaux" title="Permanent link"></a></h4>
 <p>Dans le cas d&rsquo;un serveur DHCP pour plusieurs réseaux, on tombe sur la problématique suivante : les trames sont envoyées en <strong>diffusion</strong>. </p>
-<p><img alt="24" src="../.ressources/img/notes-24.png" /></p>
+<p><img alt="24" src="../../ressources/img/09-services-reseau-windows/notes-24.png" /></p>
 <p>Solution : l&rsquo;agent <strong>relais DHCP</strong></p>
-<p><img alt="25" src="../.ressources/img/notes-25.png" /></p>
-<p><img alt="26" src="../.ressources/img/notes-26.png" /></p>
+<p><img alt="25" src="../../ressources/img/09-services-reseau-windows/notes-25.png" /></p>
+<p><img alt="26" src="../../ressources/img/09-services-reseau-windows/notes-26.png" /></p>
 <p>Un agent relais DHCP transmet les messages DHCP provenant des clients vers un serveur DHCP d&rsquo;un autre réseau. Il effectue l&rsquo;opération inverse pour les messages provenant du serveur. </p>
 <p>Ces trames ne peuvent franchir les routeurs, il faut donc utiliser un agent de relais DHCP qui se chargera d&rsquo;acheminer les trames en unicast vers le serveur DHCP désigné. Certains routeurs disposent de cette fonctionnalité.</p>
 <p>Client &lt;-----&gt; Relais en BROADCAST 

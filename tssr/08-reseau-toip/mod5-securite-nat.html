@@ -1125,7 +1125,7 @@ Formatrice : Elisabeth LEFRANC</p>
 <p><strong>La requête arrive jusqu&rsquo;au serveur Web, et ce dernier voit que la requête provient de l&rsquo;adresse IP 61.61.61.61</strong>. Autrement dit, il associe mon PC1 à l&rsquo;adresse IP publique 61.61.61.61, et à aucun moment il n&rsquo;aura connaissance de mon adresse IP privée, à savoir 192.168.1.10/24.</p>
 </li>
 </ol>
-<p><img alt="nat-principe-1.png" src="../ressources/img/08-reseau-toipnat-principe-1.png" title="Principe du NAT" /></p>
+<p><img alt="nat-principe-1.png" src="../ressources/img/08-reseau-toip/nat-principe-1.png" title="Principe du NAT" /></p>
 <p><strong>Retour</strong></p>
 <p>Pour la phase retour, lorsque le serveur web va répondre au client pour lui indiquer le contenu de la page Web du site, par exemple.</p>
 <ol start="4">
@@ -1136,7 +1136,7 @@ Formatrice : Elisabeth LEFRANC</p>
 <p><strong>La box a mémorisée cette connection (grâce à une table de translation) et donc elle sait qu&rsquo;elle doit adresser le paquet reçu de la part du serveur web à notre PC1</strong>. A partir de son adresse IP 192.168.1.1, le routeur envoie la réponse à PC1, mais PC1 voit la réponse comme si elle provenait directement du serveur web 50.50.50.50.</p>
 </li>
 </ol>
-<p><img alt="nat-principe-2.png" src="../ressources/img/08-reseau-toipnat-principe-2.png" title="Principe du NAT" /></p>
+<p><img alt="nat-principe-2.png" src="../ressources/img/08-reseau-toip/nat-principe-2.png" title="Principe du NAT" /></p>
 <p><strong>Le mécanisme de NAT sert d&rsquo;intermédiaire entre le réseau local et Internet</strong>. Il présente l&rsquo;avantage de <strong>masquer les machines du réseau vis-à-vis d&rsquo;Internet</strong> car elles ne sont pas directement accessibles d&rsquo;Internet vers le réseau local. C&rsquo;est une sécurité en plus mais nous verrons par la suite que l&rsquo;on peut permettre cet accès par l&rsquo;intermédiaire d&rsquo;une redirection de ports.</p>
 <h4 id="22-les-types-de-nat">2.2 Les Types de NAT<a class="headerlink" href="#22-les-types-de-nat" title="Permanent link"></a></h4>
 <h5 id="221-nat-statique">2.2.1 NAT statique<a class="headerlink" href="#221-nat-statique" title="Permanent link"></a></h5>
@@ -1171,14 +1171,14 @@ Formatrice : Elisabeth LEFRANC</p>
 <p>Le NAT dynamique est différent du NAT statique car <strong>les associations entre une adresse IP privée correspondante à une machine et une adresse IP publique disponible sur le routeur seront dynamiques et temporaires</strong>. </p>
 <p>Ainsi si l&rsquo;on a 50 ordinateurs, 10 smartphones et 20 tablettes connectés à son réseau local, et que l&rsquo;on dispose de 4 adresses IP publiques, elles seront exploitées dynamiquement par nos machines afin de permettre un accès à Internet. </p>
 <p><strong>Lorsqu&rsquo;une connection vers Internet est effectuée par une machine, le routeur associe temporairement l&rsquo;adresse IP privée à l&rsquo;adresse IP publique</strong>. Pour cela, une adresse IP appartenant à votre pool d&rsquo;adresses IP publiques est utilisée. Quand la connection est terminée, l&rsquo;adresse IP est libérée et potentiellement attribuable à une autre machine.</p>
-<p><img alt="nat-dynamique.png" src="../ressources/img/08-reseau-toipnat-dynamique.png" /></p>
+<p><img alt="nat-dynamique.png" src="../ressources/img/08-reseau-toip/nat-dynamique.png" /></p>
 <p><a href="#toc">Retour au sommaire</a></p>
 <h5 id="223-pat">2.2.3 PAT<a class="headerlink" href="#223-pat" title="Permanent link"></a></h5>
 <p>Le Port Address Translation est une forme de NAT dynamique, que l&rsquo;on appelle &ldquo;<strong>NAT Overlay</strong>&rdquo; ou &ldquo;<strong>Masquerade NAT</strong>&rdquo;, avec quelques différences très intéressantes, qui font du PAT le mode le plus couramment utilisé. </p>
 <p>Comme le NAT dynamique, le PAT va effectuer une association dynamique et temporaire entre une adresse IP privée et une adresse IP publique, sauf qu&rsquo;il va ajouter à cette association une autre information : <strong>un numéro port</strong>, d&rsquo;où le terme &ldquo;PAT&rdquo;.</p>
 <p><strong>Grâce au PAT, une seule et même adresse IP publique peut-être utilisée par X machines connectées sur le réseau local</strong>. C&rsquo;est exactement ce qu&rsquo;il se passe à la maison : votre ordinateur, votre smartphone, votre tablette, voire même vos prises connectées et votre robot aspirateur sont connectées à votre réseau local et utilisent tous <strong>la même adresse IP publique pour accéder à Internet</strong>.</p>
 <p>Pour s&rsquo;en convaincre, il suffit de regarder notre adresse IP publique à partir de différents appareils connectés: c&rsquo;est la même !</p>
-<p><img alt="pat-port-address-translation" src="../ressources/img/08-reseau-toippat-port-address-translation.png" /></p>
+<p><img alt="pat-port-address-translation" src="../ressources/img/08-reseau-toip/pat-port-address-translation.png" /></p>
 <p>Ce schéma illustre ce fonctionnement, avec 2 ordi sur le même réseau local et qui accèdent à Internet via une même connection Internet, c&rsquo;est-à-dire la même box. Si ces 2 ordi se connectent au même serveur Web, <strong>le serveur web distant verra deux connexions différentes en provenance de l&rsquo;IP publique 61.61.61.61 grâce au mécanisme PAT</strong>.</p>
 <p>Afin de pouvoir identifier ces connexions et de retourner chaque réponse du serveur Web au bon ordi, <strong>un numéro de port est associé à chaque connexion</strong> : c&rsquo;est ce qui constitue la <strong>table de traduction</strong> (<em>table of translation</em>)</p>
 <h4 id="23-dnat-pour-les-redirections-de-ports">2.3 DNAT pour les redirections de ports<a class="headerlink" href="#23-dnat-pour-les-redirections-de-ports" title="Permanent link"></a></h4>
