@@ -1066,64 +1066,128 @@ body .markdown-body
 .highlight .vi{color:teal}
 .highlight .il{color:#009999}
 .highlight .gc{color:#999;background-color:#EAF2F5}
-</style><title>tp05 - aide powershell</title></head><body><article class="markdown-body"><h1 id="eni-tssr-03-services-client-windows">ENI TSSR 03 - Services Client Windows<a class="headerlink" href="#eni-tssr-03-services-client-windows" title="Permanent link"></a></h1>
+</style><title>tp07 - gestion stockage</title></head><body><article class="markdown-body"><h1 id="eni-tssr-03-services-client-windows">ENI TSSR 03 - Services Client Windows<a class="headerlink" href="#eni-tssr-03-services-client-windows" title="Permanent link"></a></h1>
+<h2 id="tp07-gestion-du-stockage">TP07 - Gestion du stockage<a class="headerlink" href="#tp07-gestion-du-stockage" title="Permanent link"></a></h2>
 <div class="toc">
 <ul>
 <li><a href="#eni-tssr-03-services-client-windows">ENI TSSR 03 - Services Client Windows</a><ul>
-<li><a href="#tp-05-manipuler-laide-de-powershell">TP 05 - Manipuler l&rsquo;aide de Powershell</a><ul>
-<li><a href="#afficher-laide-complete-de-la-cmdlet-get-alias">Afficher l&rsquo;aide complète de la cmdlet Get-Alias</a></li>
-<li><a href="#difference-sur-win11">Différence sur Win11 ?</a></li>
-<li><a href="#maj-depot-local">Màj dépot local</a></li>
-<li><a href="#obtenir-les-exemples-de-get-help">Obtenir les exemples de get-help</a></li>
-<li><a href="#afficher-la-liste-de-tous-les-concepts-disponibles-et-utilisables">Afficher la liste de tous les concepts disponibles et utilisables</a></li>
-<li><a href="#en-apprendre-plus-sur-le-concept-dalias">En apprendre plus sur le concept d&rsquo;alias</a></li>
-<li><a href="#historique-de-commande-get-history">Historique de commande : get-history</a></li>
+<li><a href="#tp07-gestion-du-stockage">TP07 - Gestion du stockage</a><ul>
+<li><a href="#taches-a-realiser">Tâches à réaliser</a></li>
+<li><a href="#utilisation-de-diskmgmtmsc">Utilisation de diskmgmt.msc</a></li>
+<li><a href="#utilisation-de-diskpart">Utilisation de diskpart</a></li>
+<li><a href="#investigation-sur-la-vm-win11-avec-powershell">Investigation sur la VM win11 avec Powershell</a><ul>
+<li><a href="#get-disk">get-disk</a></li>
+<li><a href="#get-volume">get-volume</a></li>
+<li><a href="#set-volume">set-volume</a></li>
+</ul>
+</li>
+<li><a href="#bonus-sur-la-vm-win10">Bonus: sur la vm win10</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </div>
-<h2 id="tp-05-manipuler-laide-de-powershell">TP 05 - Manipuler l&rsquo;aide de Powershell<a class="headerlink" href="#tp-05-manipuler-laide-de-powershell" title="Permanent link"></a></h2>
-<h4 id="afficher-laide-complete-de-la-cmdlet-get-alias">Afficher l&rsquo;aide complète de la cmdlet Get-Alias<a class="headerlink" href="#afficher-laide-complete-de-la-cmdlet-get-alias" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-help</span> <span class="n">-full</span> <span class="nb">get-alias</span>
+<h4 id="taches-a-realiser">Tâches à réaliser<a class="headerlink" href="#taches-a-realiser" title="Permanent link"></a></h4>
+<p>Sur la VM Win10, ajouter <strong>2 disques durs de 60 Go chacun</strong> (<em>store virtual disk as a single file</em>).</p>
+<p><strong>1. En mode graphique (diskmgmt.msc)</strong></p>
+<ol>
+<li>Sur le 1er disque, créer 3 partitions principales de <strong>15 Go</strong> chacune sans assigner de lettre au lecteur et sans formater.</li>
+<li>Créer une 4e partition de <strong>7 Go</strong> sans assigner de lettre de lecteur et sans formater.</li>
+<li>Formater les 2 premières partitions de <strong>15 Go</strong> en <strong>NTFS</strong>. La première sera nommée <strong>DATA</strong>, la seconde <strong>TOOLS</strong>.</li>
+<li>Attribuer la lettre <strong>D</strong> au volume <strong>DATA</strong> et la lettre <strong>E</strong> au volume <strong>TOOLS</strong>.</li>
+<li>Formater la partition de <strong>7 Go</strong> restante en <strong>FAT32</strong>, que vous nommerez <strong>ARCHIVE</strong> et lui attribuer la lettre de votre choix.</li>
+<li>Etendre le volume <strong>DATA</strong> disponible de <strong>15 Go</strong> supplémentaire. Pour cela, on utilisera que l&rsquo;espace libre disponible sur le disque 2.</li>
+</ol>
+<p><strong>2. En mode terminal (diskpart)</strong></p>
+<ol>
+<li>Formater la 3eme partition de <strong>15 Go</strong> en <strong>NTFS</strong>. Lui attribuer le label <strong>COMMUN</strong> et une lettre au choix.</li>
+<li>Etendre le volume <strong>COMMUN</strong> en utilisant l&rsquo;espace libre restant sur le disque 1.</li>
+<li>Supprimer le volume <strong>DATA</strong>.</li>
+<li>Recréer le volume <strong>DATA</strong> avec l&rsquo;ensemble de l&rsquo;espace libre des deux disques.</li>
+</ol>
+<p><strong>3. Investigation de la VM Win11</strong> </p>
+<ol>
+<li>Afficher le numéro, la taille et le type de table de partitionnement des disques durs présents sur la VM (get-disk)</li>
+<li>Afficher la lettre de lecteur le nom, la taille totale des volumes qui possèdent un FriendlyName (get-volume)</li>
+<li>Attribuer le nom <strong>SYSTEM</strong> au disque <strong>C:</strong> (set-volume)</li>
+</ol>
+<h4 id="utilisation-de-diskmgmtmsc">Utilisation de diskmgmt.msc<a class="headerlink" href="#utilisation-de-diskmgmtmsc" title="Permanent link"></a></h4>
+<p>Rien de nouveau</p>
+<h4 id="utilisation-de-diskpart">Utilisation de diskpart<a class="headerlink" href="#utilisation-de-diskpart" title="Permanent link"></a></h4>
+<ol>
+<li>Ouvrir PS ou CMD en admin et lancer <code>diskpart</code>.</li>
+<li>Formater la 3e partition de 15 Go en NTFS. La nommer <strong>COMMUN</strong>, assigner une lettre au choix.</li>
+<li>Etendre le volume <strong>COMMUN</strong> en utilisant l&rsquo;espace libre restant sur le <strong>disque 1</strong>.</li>
+<li>Supprimer le volume <strong>DATA</strong>.</li>
+<li>Recréer le volume <strong>DATA</strong> avec l&rsquo;ensemble de l&rsquo;espace libre de deux disques.</li>
+</ol>
+<p>Voir la <a href="tp07-diskpart-verbatim.html" target="_blank">totalité du procédé avec DISKPART</a> </p>
+<p><strong>Résumé</strong></p>
+<div class="highlight"><pre>C:\Windows\system32&gt;diskpart
+
+DISKPART&gt; list disk
+DISKPART&gt; select disk 1
+
+DISKPART&gt; list volume
+DISKPART&gt; select volume 1
+
+# FORMAT + LABEL
+DISKPART&gt; format fs=ntfs label=&quot;COMMUN&quot; quick
+
+# ASSIGNER LETTRE
+DISKPART&gt; assign letter=Q
+
+# EXTEND COMMUN
+DISKPART&gt; select disk 1
+DISKPART&gt; extend
+
+# REMOVE DATA
+DISKPART&gt; select volume 3
+DISKPART&gt; remove                   (supprime la lettre du lecteur)
+DISKPART&gt; select disk 0
+DISKPART&gt; select volume 3
+DISKPART&gt; assign letter=D
+DISKPART&gt; delete volume
+
+# RECREATION OF &quot;DATA&quot; VOLUME
+DISKPART&gt; select disk 1
+DISKPART&gt; create volume simple disk=1
+DISKPART&gt; assign letter=D
+DISKPART&gt; format fs=ntfs label=&quot;Data&quot; quick
+DISKPART&gt; extend disk=2
 </pre></div>
 
-<h4 id="difference-sur-win11">Différence sur Win11 ?<a class="headerlink" href="#difference-sur-win11" title="Permanent link"></a></h4>
-<p>Oui parce que l&rsquo;update-help a été faite sur win10.</p>
-<h4 id="maj-depot-local">Màj dépot local<a class="headerlink" href="#maj-depot-local" title="Permanent link"></a></h4>
-<p>Mettre vm en bridge pour avoir accès au net. Attention c&rsquo;est le login AD machine hôte</p>
-<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">update-help</span> <span class="n">-SourcePath</span> <span class="p">\\</span><span class="n">ad</span><span class="p">.</span><span class="n">campus-eni</span><span class="p">.</span><span class="n">fr</span><span class="p">\</span><span class="n">Campus</span><span class="p">\</span><span class="n">distrib</span><span class="p">\</span><span class="n">depot</span><span class="p">\</span><span class="n">powershell</span> <span class="n">-UICulture</span> <span class="n">en-us</span> <span class="n">-Credential</span> <span class="n">rlizot2019</span>
+<h4 id="investigation-sur-la-vm-win11-avec-powershell">Investigation sur la VM win11 avec Powershell<a class="headerlink" href="#investigation-sur-la-vm-win11-avec-powershell" title="Permanent link"></a></h4>
+<h5 id="get-disk">get-disk<a class="headerlink" href="#get-disk" title="Permanent link"></a></h5>
+<p>Afficher le numéro, la taille et le type de table de partitionnement des disques durs présents sur la VM (get-disk)</p>
+<div class="highlight"><pre><span class="n">REM</span> <span class="n">Moi</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-partition</span> <span class="p">|</span> <span class="n">select</span> <span class="n">DiskNumber</span><span class="p">,</span> <span class="n">Size</span><span class="p">,</span> <span class="n">Type</span>
+
+<span class="n">REM</span> <span class="n">Correction</span> <span class="p">(</span><span class="n">la</span> <span class="n">bonne</span> <span class="n">solution</span><span class="p">)</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-disk</span> <span class="p">|</span> <span class="n">select</span> <span class="n">DiskNumber</span><span class="p">,</span> <span class="n">PartitionStyle</span><span class="p">,</span> <span class="n">Size</span>
 </pre></div>
 
-<h4 id="obtenir-les-exemples-de-get-help">Obtenir les exemples de get-help<a class="headerlink" href="#obtenir-les-exemples-de-get-help" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-help</span> <span class="n">-examples</span> <span class="nb">get-help</span>
+<h5 id="get-volume">get-volume<a class="headerlink" href="#get-volume" title="Permanent link"></a></h5>
+<p>Afficher la lettre de lecteur le nom, la taille totale des volumes qui possèdent un FriendlyName (get-volume)</p>
+<div class="highlight"><pre><span class="n">REM</span> <span class="n">Moi</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-volume</span> <span class="p">|</span> <span class="n">select</span> <span class="n">DriveLetter</span><span class="p">,</span> <span class="n">FileSystemLabel</span><span class="p">,</span> <span class="n">Size</span><span class="p">,</span> <span class="n">SizeRemaining</span>
 </pre></div>
 
-<h4 id="afficher-la-liste-de-tous-les-concepts-disponibles-et-utilisables">Afficher la liste de tous les concepts disponibles et utilisables<a class="headerlink" href="#afficher-la-liste-de-tous-les-concepts-disponibles-et-utilisables" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-help</span> <span class="n">about_</span><span class="p">*</span>
+<h5 id="set-volume">set-volume<a class="headerlink" href="#set-volume" title="Permanent link"></a></h5>
+<p>Attribuer le nom &ldquo;SYSTEM&rdquo; au disque C: (set-volume)</p>
+<div class="highlight"><pre><span class="n">REM</span> <span class="n">Moi</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">set-volume</span> <span class="n">-DriveLetter</span> <span class="s2">&quot;C&quot;</span> <span class="n">-NewFileSystemLabel</span> <span class="s2">&quot;SYSTEM&quot;</span>
 </pre></div>
 
-<h4 id="en-apprendre-plus-sur-le-concept-dalias">En apprendre plus sur le concept d&rsquo;alias<a class="headerlink" href="#en-apprendre-plus-sur-le-concept-dalias" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-help</span> <span class="n">-ShowWindow</span> <span class="n">about_alias</span>
+<h4 id="bonus-sur-la-vm-win10">Bonus: sur la vm win10<a class="headerlink" href="#bonus-sur-la-vm-win10" title="Permanent link"></a></h4>
+<p>Sur le lecteur <strong>ARCHIVE</strong>, créer des répertoires et des fichiers. Convertir le format du systeme de fichiers de <strong>FAT32</strong> à <strong>NTFS</strong> sans perte de données.</p>
+<div class="highlight"><pre>REM Boucle
+cmd&gt; for($i=0;$i -lt 8;$i++) { md rep$i; echo $i &gt; file$i.txt }
+
+REM Formatage (/v:verbose)
+cmd&gt; convert A: /fs:nfts /v    
 </pre></div>
 
-<pre><code>History &amp; Aliases
-The aliases you create are saved only in the current session
-Aliases can be imported/exported
-</code></pre>
-<h4 id="historique-de-commande-get-history">Historique de commande : <code>get-history</code><a class="headerlink" href="#historique-de-commande-get-history" title="Permanent link"></a></h4>
-<ul>
-<li>
-<p>Nombre maxi de ligne d&rsquo;historique conservée définie dans la variable <code>$MaximumHistoryCount</code>. 
-Valeur par défaut : <strong>4096 (lignes)</strong></p>
-</li>
-<li>
-<p>Modifier cette valeur :</p>
-</li>
-</ul>
-<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-history</span> <span class="n">-count</span> <span class="p">&lt;</span><span class="n">int32</span><span class="p">&gt;</span>
-</pre></div>
-
-<p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/style.css"></p></article></body></html>
+<p><link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css"></p></article></body></html>

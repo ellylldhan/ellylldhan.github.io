@@ -154,5 +154,5 @@ cmd> net user voisin1 /time:l-v,9:00,17:00
 
 Oui, les jours sont en français...
 
-<link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css">

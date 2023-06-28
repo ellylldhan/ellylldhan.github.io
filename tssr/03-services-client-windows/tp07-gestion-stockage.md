@@ -122,5 +122,5 @@ REM Formatage (/v:verbose)
 cmd> convert A: /fs:nfts /v    
 ```
 
-<link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css">

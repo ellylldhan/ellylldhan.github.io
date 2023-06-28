@@ -799,7 +799,7 @@ Sur un volume formaté en NTFS :
 - les DACL filtrent les groupes locaux, les groupes prédéfinis (généralement Administrateurs ou Utilisateurs), les entités de sécurités, les utilisateurs
 - **ACE** (Access Control Entry) privilèges d'accès du groupe en question
 
-![illu](./.ressources/img/DACL-ACE.png)
+![illu](./../ressources/img/03-services-client-windows/DACL-ACE.png)
 
 - Pour les **besoins courants**, les ACE de base sont utilisées et cumulatives
 - Configurable depuis le menu modifier
@@ -807,7 +807,7 @@ Sur un volume formaté en NTFS :
 	+ **Modification** : ecriture, modification
 	+ **Contrôle total**
 
-![illustration](./.ressources/img/ACE.png)
+![illustration](./../ressources/img/03-services-client-windows/ACE.png)
 
 - Pour les **besoins spécifiques**, des autorisations spéciales peuvent être configurées (via menu Avancé). 
 	+ Permet d'affiner les privilèges (création de fichier, suppression de subfolder, etc)
@@ -1335,7 +1335,7 @@ Comment accéder aux fichiers partagés depuis Windows 10 ?
 
 Bonne pratique : préférez l'entité sécurité **Utilisateurs Authentifiés**
 
-![illu3](.ressources/img/partage-01.png)
+![illu3](../ressources/img/03-services-client-windows/partage-01.png)
 
 #### Depuis le composant MMC "Dossiers Partagés" (fsmgmt.msc)
 - **fsmgmt.msc** : Composant MMC
@@ -1344,7 +1344,7 @@ Bonne pratique : préférez l'entité sécurité **Utilisateurs Authentifiés**
 - Vues **Sessions** et **Fichiers Ouverts**
 - Affichage des partages administratirs générés par le système
 
-![illu4](.ressources/img/partage-02.png )
+![illu4](../ressources/img/03-services-client-windows/partage-02.png )
 
 
 #### En ligne de commande
@@ -1648,7 +1648,7 @@ Enregistrement des modifications du système
 
 #### Options Avancées
 
-!["Récupération"](.ressources/img/recuperation.png)
+!["Récupération"](../ressources/img/03-services-client-windows/recuperation.png)
 
 - Restauration du système
 	+ utilisation d'un point de restauration système
@@ -2330,5 +2330,5 @@ cmd> dir /os /s %userprofile%\Desktop
 
 
 
-<link rel="stylesheet" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" href=".ressources/css/style.css">
+<link rel="stylesheet" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" href="../ressources/css/style.css">

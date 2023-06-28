@@ -1066,45 +1066,211 @@ body .markdown-body
 .highlight .vi{color:teal}
 .highlight .il{color:#009999}
 .highlight .gc{color:#999;background-color:#EAF2F5}
-</style><title>tp04 - powershell 101</title></head><body><article class="markdown-body"><h1 id="eni-tssr-03-services-client-windows">ENI TSSR 03 - Services Client Windows<a class="headerlink" href="#eni-tssr-03-services-client-windows" title="Permanent link"></a></h1>
+</style><title>tp09 - NTFS &amp; ACL</title></head><body><article class="markdown-body"><h1 id="eni-tssr-03-services-client-windows">ENI TSSR 03 - Services Client Windows<a class="headerlink" href="#eni-tssr-03-services-client-windows" title="Permanent link"></a></h1>
+<h2 id="tp09-ntfs-acl">TP09 - NTFS &amp; ACL<a class="headerlink" href="#tp09-ntfs-acl" title="Permanent link"></a></h2>
 <div class="toc">
 <ul>
 <li><a href="#eni-tssr-03-services-client-windows">ENI TSSR 03 - Services Client Windows</a><ul>
-<li><a href="#tp-04-premier-pas-avec-powershell">TP 04 - Premier pas avec PowerShell</a><ul>
-<li><a href="#quelle-version-de-powershell">Quelle version de Powershell ?</a></li>
-<li><a href="#afficher-le-contenu-dun-repertoire">Afficher le contenu d&rsquo;un repertoire</a></li>
-<li><a href="#afficher-la-liste-des-alias-dans-powershell">Afficher la liste des alias dans Powershell</a></li>
-<li><a href="#afficher-contenu-dun-fichier-footxt">Afficher contenu d&rsquo;un fichier foo.txt</a></li>
+<li><a href="#tp09-ntfs-acl">TP09 - NTFS &amp; ACL</a><ul>
+<li><a href="#vm-win10-gui">VM Win10 - GUI</a><ul>
+<li><a href="#question-1">Question 1</a></li>
+<li><a href="#question-2">Question 2</a></li>
+<li><a href="#question-3">Question 3</a><ul>
+<li><a href="#reponses">Reponses</a></li>
+<li><a href="#une-solution-possible-modification-de-lheritage">Une Solution possible : Modification de l’héritage</a></li>
+</ul>
+</li>
+<li><a href="#les-tests-dacces-important">Les tests d&rsquo;accès (important)</a><ul>
+<li><a href="#solution-1-probante-tests-grandeur-reelle">Solution 1 (+ probante) : Tests grandeur réelle</a></li>
+<li><a href="#solution-2-rapide-via-onglet-acces-effectif">Solution 2 (+ rapide) : via onglet &ldquo;Accès Effectif&rdquo;</a></li>
+<li><a href="#solution-2-plus-rapide-via-longlet-acces-effectif">Solution 2 (plus rapide) : via l’onglet “Accès effectif”</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </div>
-<h2 id="tp-04-premier-pas-avec-powershell">TP 04 - Premier pas avec PowerShell<a class="headerlink" href="#tp-04-premier-pas-avec-powershell" title="Permanent link"></a></h2>
-<h4 id="quelle-version-de-powershell">Quelle version de Powershell ?<a class="headerlink" href="#quelle-version-de-powershell" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nv">$PSVERSIONTABLE</span>
-<span class="n">v5</span><span class="p">.</span><span class="n">1</span><span class="p">.</span><span class="n">19041</span><span class="p">.</span><span class="n">906</span>
-</pre></div>
+<h3 id="vm-win10-gui">VM Win10 - GUI<a class="headerlink" href="#vm-win10-gui" title="Permanent link"></a></h3>
+<p><strong>Objectif</strong> : Configurer les autorisations d&rsquo;accès sur les dossiers donnés sur Win10.</p>
+<h4 id="question-1">Question 1<a class="headerlink" href="#question-1" title="Permanent link"></a></h4>
+<p>Sur le volume <strong>DATA</strong>, créer le dossier <strong>Echange</strong>.</p>
+<p><strong>Q1: Quelles sont les autorisations positionnées par défaut sur le dossier Echange ?</strong> </p>
+<p>Pour connaître les autorisations NFTS positionnées par défaut sur ce répertoire :</p>
+<ol>
+<li>clic droit sur <strong>Echange</strong> &gt; <strong>Propriétés</strong> &gt; onglet <strong>Sécurité</strong></li>
+<li>L’entité de sécurité <strong>Utilisateurs authentifiés</strong> possède des autorisations en <strong>Modification</strong></li>
+<li>L’entité de sécurité <strong>Système</strong> possède des autorisations en <strong>Contrôle total</strong></li>
+<li>Le groupe prédéfini <strong>Administrateurs</strong> possède des autorisations en <strong>Contrôle total</strong></li>
+<li>Le groupe prédéfini <strong>Utilisateurs</strong> possède des autorisations en <strong>Lecture</strong></li>
+</ol>
+<p>Ces autorisations proviennent de l’héritage du volume <strong>D:</strong> (c’est pourquoi les cases sont grisées…).</p>
+<p><a href="../ressources/img/03-services-client-windows/tp09-01.png" target="_blank"><img alt="Echange" src="../ressources/img/03-services-client-windows/tp09-01.png" /></a> </p>
+<h4 id="question-2">Question 2<a class="headerlink" href="#question-2" title="Permanent link"></a></h4>
+<p>Peuplez ce répertoire de fichiers, de dossiers.</p>
+<p><strong>Q2: Héritent-ils des autorisations du dossier parent ?</strong></p>
+<ol>
+<li>Dans le dossier <strong>Echange</strong>, créer une nouveau document texte</li>
+<li>Clic droit &gt; <strong>Propriétés</strong> &gt; onglet <strong>Sécurité</strong></li>
+<li><strong>Oui</strong>, les nouveaux fichiers héritent des autorisations du dossier parent <strong>Echange</strong> (qui lui-même hérite des autorisations du lecteur <strong>D:</strong>). Pour s’en assurer, il suffit d’observer la présence des coches grisées. </li>
+</ol>
+<p>Pour plus de détails, cliquer sur <strong>Avancé</strong>.</p>
+<div class="img-row">
+    <div class="img-col">
+        <a href="../ressources/img/03-services-client-windows/tp09-02.png" target="_blank">
+            <img src="../ressources/img/03-services-client-windows/tp09-02.png" alt="../ressources/img/03-services-client-windows/tp09-02.png"  style="width:100%">
+        </a>
+    </div>
+    <div class="img-col">
+        <a href="../ressources/img/03-services-client-windows/tp09-03.png" target="_blank">
+            <img src="../ressources/img/03-services-client-windows/tp09-03.png" alt="../ressources/img/03-services-client-windows/tp09-03.png" style="width:100%">
+        </a>
+    </div>
+</div>
 
-<h4 id="afficher-le-contenu-dun-repertoire">Afficher le contenu d&rsquo;un repertoire<a class="headerlink" href="#afficher-le-contenu-dun-repertoire" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="n">ls</span> <span class="n">c</span><span class="err">:</span><span class="p">\</span><span class="n">users</span>
-<span class="n">ps</span><span class="p">&gt;</span> <span class="n">dir</span> <span class="n">c</span><span class="err">:</span><span class="p">\</span><span class="n">users</span>
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-childitem</span> <span class="n">c</span><span class="err">:</span><span class="p">\</span><span class="n">users</span>
-</pre></div>
+<h4 id="question-3">Question 3<a class="headerlink" href="#question-3" title="Permanent link"></a></h4>
+<p>Configurer les autorisations d’accès au répertoire <strong>Echange</strong> :</p>
+<ul>
+<li>Les <strong>collègues</strong> pourront <strong>modifier</strong> tous les objets et sous-objets du dossier</li>
+<li>Les <strong>admin</strong> auront le <strong>contrôle total</strong></li>
+<li>Les <strong>utilisateurs du poste</strong> auront les droit en <strong>lecture</strong></li>
+<li>Tester</li>
+</ul>
+<h5 id="reponses">Reponses<a class="headerlink" href="#reponses" title="Permanent link"></a></h5>
+<p>Ici plusieurs possibilités, en voici une en modifiant les héritages</p>
+<ol>
+<li>Lecteur D: &gt; Clic droit &gt; <strong>Propriétés</strong></li>
+<li>Onglet <strong>Sécurité</strong> &gt; <strong>Modifier</strong></li>
+<li>Sélectionnez <strong>Utilisateurs authentifiés</strong> &gt; <strong>Supprimer</strong></li>
+</ol>
+<h5 id="une-solution-possible-modification-de-lheritage">Une Solution possible : <em>Modification de l’héritage</em><a class="headerlink" href="#une-solution-possible-modification-de-lheritage" title="Permanent link"></a></h5>
+<ol>
+<li>Lecteur <strong>D:</strong> &gt; Clic droit &gt; <strong>Propriétés</strong> </li>
+<li>Onglet <strong>Sécurité</strong> &gt; <strong>Modifier</strong></li>
+<li>Séléctionner <strong>Utilisateurs authentifiés</strong> &gt; <strong>Supprimer</strong></li>
+<li>Par bonne pratique Microsoft, laisser <strong>Système</strong> et <strong>Administrateurs</strong> en <strong>Contrôle total</strong></li>
+<li>Laisser aussi <strong>Utilisateurs</strong> en <strong>Lecture</strong> car ce n’est pas demandé ici.</li>
+<li>Valider</li>
+</ol>
+<hr />
+<ul>
+<li>Dossier <strong>Echange</strong> &gt; clic droit <strong>Propriétés</strong> &gt; onglet <strong>Sécurité</strong></li>
+<li>On observe que l’entité de sécurité <strong>Utilisateurs authentifiés</strong> n’est plus présente, par héritage.</li>
+<li><strong>Modifier</strong> &gt; <strong>Ajouter…</strong></li>
+<li>Entrer les noms des objets à sélectionner : <strong>L_Collegues</strong> &gt; <strong>Entrée</strong></li>
+<li>Cocher <strong>Modification</strong> (<strong>Ecriture</strong> se coche automatiquement)</li>
+<li><strong>Appliquer</strong> &gt; <strong>OK</strong></li>
+</ul>
+<div class="img-row">
+    <div class="img-col">
+        <a href="../ressources/img/03-services-client-windows/tp09-04.png" target="_blank">
+            <img src="../ressources/img/03-services-client-windows/tp09-04.png" alt="../ressources/img/03-services-client-windows/tp09-04.png" style="width:100%">
+        </a>
+    </div>
+    <div class="img-col">
+        <a href="../ressources/img/03-services-client-windows/tp09-05.png" target="_blank">
+            <img src="../ressources/img/03-services-client-windows/tp09-05.png" alt="../ressources/img/03-services-client-windows/tp09-05.png" style="width:100%">
+        </a>
+    </div>
+</div>
 
-<h4 id="afficher-la-liste-des-alias-dans-powershell">Afficher la liste des alias dans Powershell<a class="headerlink" href="#afficher-la-liste-des-alias-dans-powershell" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-alias</span> <span class="n">-Definition</span> <span class="nb">get-childitem</span>             <span class="c"># Correction</span>
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-alias</span> <span class="p">|</span> <span class="nb">where-object</span> <span class="n">ResolvedCommand</span> <span class="o">-like</span> <span class="nb">get-childitem</span>
-</pre></div>
-
-<h4 id="afficher-contenu-dun-fichier-footxt">Afficher contenu d&rsquo;un fichier foo.txt<a class="headerlink" href="#afficher-contenu-dun-fichier-footxt" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="n">cat</span> <span class="n">foo</span><span class="p">.</span><span class="n">txt</span>
-<span class="n">ps</span><span class="p">&gt;</span> <span class="n">type</span> <span class="n">foo</span><span class="p">.</span><span class="n">txt</span>
-<span class="n">ps</span><span class="p">&gt;</span> <span class="n">more</span> <span class="n">foo</span><span class="p">.</span><span class="n">txt</span>                    <span class="c"># less ne fonctionne pas </span>
-<span class="n">ps</span><span class="p">&gt;</span> <span class="n">foo</span><span class="p">.</span><span class="n">txt</span>
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-content</span> <span class="n">foo</span><span class="p">.</span><span class="n">txt</span>
-</pre></div>
-
-<p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/style.css"></p></article></body></html>
+<h4 id="les-tests-dacces-important">Les tests d&rsquo;accès (important)<a class="headerlink" href="#les-tests-dacces-important" title="Permanent link"></a></h4>
+<p><strong>Q4: Comment tester les accès ?</strong></p>
+<h6 id="solution-1-probante-tests-grandeur-reelle">Solution 1 (+ probante) : Tests grandeur réelle<a class="headerlink" href="#solution-1-probante-tests-grandeur-reelle" title="Permanent link"></a></h6>
+<p>Première solution (peut-être la plus probante) : faire des tests &ldquo;grandeur réelle&rdquo;</p>
+<ol>
+<li>Fermez votre session actuelle (<strong>logoff</strong>) puis ouvrez une session locale avec l&rsquo;utilisateur <strong>Romain</strong>.</li>
+<li>Tester l&rsquo;accès au dossier <strong>Echange</strong> (<strong>Lecture</strong> possible car <strong>Romain</strong> (utilisateur) possède les autorisations en <strong>Lecture</strong>).</li>
+<li>Tester la création d&rsquo;un nouveau fichier dans le dossier <strong>Echange</strong> (impossible car <strong>Romain</strong> n&rsquo;a pas les autorisations en <strong>Modification</strong>, il fait partie du groupe prédéfini <strong>Utilisateurs</strong>).</li>
+</ol>
+<p><a href="../ressources/img/03-services-client-windows/tp09-06.png" target="_blank"><img alt="Tester les accès" src="../ressources/img/03-services-client-windows/tp09-06.png" /></a> </p>
+<ol start="4">
+<li>Fermez la session de <strong>Romain</strong> et ouvrez une session avec <strong>un de vos utilisateurs supplémentaires</strong>.</li>
+<li>Tester l&rsquo;accès au dossier <strong>Echange</strong> (<strong>Lecture</strong> possible car votre utilisateur supplémentaire (<strong>L_Collegues</strong>) possède les autorisations en <strong>Lecture</strong>).</li>
+<li>Tester la création d&rsquo;un nouveau fichier dans le dossier <strong>Echange</strong> (possible car votre utilisateur possède les autorisations en <strong>Modification</strong>, par l&rsquo;intermédiaire du groupe <strong>L_Collegues</strong>).</li>
+<li>Tester l&rsquo;accès à l&rsquo;onglet <strong>Sécurité</strong> du dossier <strong>Echange</strong> pour tenter de modifier les ACL (Impossible car l&rsquo;utilisateur supplémentaire, qui fait partie du groupe <strong>L_Collegues</strong>, ne possède pas les autorisations en <strong>Contrôle Total</strong>, le bouton <strong>Modifier</strong> est protégé par l&rsquo;UAC).</li>
+</ol>
+<p><a href="../ressources/img/03-services-client-windows/tp09-07.png" target="_blank"><img alt="Tester les accès" src="../ressources/img/03-services-client-windows/tp09-07.png" /></a> </p>
+<ol start="8">
+<li>Fermer la session actuelle et ouvrez une session locale avec l&rsquo;utilisateur <strong>francois</strong>.</li>
+<li>Tester l&rsquo;accès au dossier <strong>Echange</strong> (lecture possible car <strong>francois</strong> (Administrateurs) possède les autorisations en <strong>Lecture</strong>).</li>
+<li>Tester la création d&rsquo;un nouveau fichier dans le dossier <strong>Echange</strong> (possible car <strong>francois</strong> possède les autorisations en <strong>Modification</strong>, par l&rsquo;intermédiaire du groupe prédéfini <strong>Administrateurs</strong>).</li>
+<li>Tester l&rsquo;accès à l&rsquo;onglet Sécurité du dossier <strong>Echange</strong> pour tenter de modifier les ACL (possible car <strong>francois</strong>, qui fait partie du groupe prédéfini <strong>Administrateurs</strong> possède les autorisations en <strong>Contrôle Total</strong>).</li>
+</ol>
+<p><a href="../ressources/img/03-services-client-windows/tp09-08.png" target="_blank"><img alt="Tester les accès" src="../ressources/img/03-services-client-windows/tp09-08.png" /></a> </p>
+<h6 id="solution-2-rapide-via-onglet-acces-effectif">Solution 2 (+ rapide) : via onglet &ldquo;Accès Effectif&rdquo;<a class="headerlink" href="#solution-2-rapide-via-onglet-acces-effectif" title="Permanent link"></a></h6>
+<p>Deuxième possibilité (plus rapide) par l&rsquo;intermédiaire de l&rsquo;onglet Accès effectif__
+- Ouvrez une session avec un utilisateur membre du groupe Administrateurs
+- Affichez les propriétés du dossier <strong>Echange</strong> (clic droit &gt; Propriétés)
+-  Onglet Sécurité
+- Avancé
+- Onglet Accès effectif
+- Sélectionner un utilisateur</p>
+<p><strong>Tests d&rsquo;autorisation d&rsquo;accès avec un utilisateur membre du groupe utilisateurs</strong></p>
+<ul>
+<li>Entrez le nom de l&rsquo;objet à sélectionner : <strong>Romain</strong></li>
+<li>Entrée</li>
+<li>Afficher l&rsquo;accès effectif</li>
+<li>On observe que <strong>romain</strong> n&rsquo;a que des accès en <strong>Lecture</strong> (pas de création, d&rsquo;écriture et de suppression possible).</li>
+</ul>
+<p><img alt="img1" src="../ressources/img/03-services-client-windows/mod6-tp09-07.png" /></p>
+<p><strong>Tests d&rsquo;autorisation d&rsquo;accès avec un utilisateur membre du groupe *<em>L_Collegues</em></strong>*
++ Sélectionner un utilisateur
++ Entrez le nom de l&rsquo;objet à sélectionner : <em>l&rsquo;un de vos utilisateurs supplémentaires</em>
++ Entrée
++ Afficher l&rsquo;accès effectif
++ On observe qu&rsquo;Alix possède un niveau d&rsquo;autorisation plus élevé que <strong>romain</strong> car le groupe <strong>L_Collegues</strong> possède des accès en <strong>Modification</strong></p>
+<p><img alt="img1" src="../ressources/img/03-services-client-windows/mod6-tp09-08.png" /></p>
+<p><strong>Tests d&rsquo;autorisation d&rsquo;accès avec un utilisateur membre du groupe Administrateurs</strong>
++ Sélectionner un utilisateur
++ Entrez le nom de l&rsquo;objet à sélectionner : <strong>francois</strong>
++ Entrée
++ Afficher l&rsquo;accès effectif
++ De par son appartenance au groupe prédéfini Administrateurs, <strong>francois</strong> possède le niveau d&rsquo;accès Contrôle Total</p>
+<p><img alt="img1" src="../ressources/img/03-services-client-windows/mod6-tp09-09.png" /></p>
+<h6 id="solution-2-plus-rapide-via-longlet-acces-effectif">Solution 2 (plus rapide) : via l’onglet “Accès effectif”<a class="headerlink" href="#solution-2-plus-rapide-via-longlet-acces-effectif" title="Permanent link"></a></h6>
+<ul>
+<li>Ouvrir une session avec un utilisateur du groupe Administrateurs.</li>
+<li>Dossier Echange &gt; clic droit Propriétés &gt; onglet Sécurité </li>
+<li>Avancé &gt; onglet Accès effectif</li>
+<li>On observe que romain (groupe Utilisateur) n’a que des accès en Lecture (pas de création, d’écriture et de suppression possible)</li>
+<li>On observe qu’alix (groupe L_Voisins) possède un niveau d’autorisation plus élevé que romain car le groupe L_Voisins possède des accès en Modification. </li>
+<li>On observe que francois (groupe Administrateurs) possède le niveau d’accès <strong>Contrôle total</strong>. </li>
+</ul>
+<ol start="4">
+<li>Sur le volume TOOLS, créer les répertoires Logiciels et “Manuels    d’utilisation”<ul>
+<li>Yann et François auront les droits en Modification</li>
+<li>Les utilisateurs standards auront un accès en Lecture et les administrateurs posséderont un <strong>Contrôle total</strong></li>
+<li>Testez le bon fonctionnement des autorisations</li>
+</ul>
+</li>
+</ol>
+<p>Ici plusieurs possibilités, en voici une en modifiant les héritages
+    - Lecteur E: &gt; Clic droit &gt; Propriétés &gt; Onglet Sécurité
+    - Modifier &gt; Utilisateurs authentifiés &gt; Supprimer
+    -  Par bonne pratique Microsoft, laissez Système et Administrateurs en <strong>Contrôle total</strong> 
+    - Laissez aussi Utilisateurs en Lecture car c&rsquo;est ce qui est demandé ici.
+    - OK &gt; Appliquer &gt; OK</p>
+<pre><code>- Créer les dossiers Logiciels et “Manuels d'utilisation” sur le volume TOOLS.
+- Par héritage, ces dossiers permettent au Système et aux Administrateurs d'en avoir le **Contrôle total**. Les membres du groupe Utilisateurs, n'ont qu'un accès en Lecture.
+</code></pre>
+<p>Pour les autorisations d’accès de Yann et François :
+    - Les DACL ne doivent contenir que des groupes. This is the way.
+    - Yann et François sont tous les deux membres du groupe L_Informatique. 
+    - Il suffit donc de rajouter le groupe L_Informatique dans les DACL des dossiers Logiciels et Manuel d’utilisation.</p>
+<p>Sur les dossiers Logiciels et Manuel d’utilisation :
+    - clic-droit &gt; Propriétés &gt; onglet Sécurité
+    - On observe que l’entité de sécurité Utilisateurs authentifiés n’est plus présente, par héritage.
+    - Modifier &gt; Ajouter &gt; “L_Informatique” &gt; OK
+    - Cocher la case Modification
+    - Tester les autorisations “grandeur réelle” ou via l’onglet Accès effectif</p>
+<p>VM Win11 - Powershell
+    - Afficher la liste des droits d&rsquo;accès au dossier 2022 du lecteur M:
+      ps&gt; get-acl m:\2022
+    - Modifier les ACL d&rsquo;un dossier
+      ps&gt; set-acl [&hellip;]</p>
+<p><link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css"></p></article></body></html>

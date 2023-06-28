@@ -29,7 +29,7 @@ Pour connaître les autorisations NTFS positionnées par défaut sur ce réperto
 
 Ces autorisations proviennent de l'héritage du volume D: (un indice du fait qu'apparaissent des coches grisées).
 
-![img1](.ressources/img/mod6-tp09-01.png)
+![img1](../ressources/img/03-services-client-windows/mod6-tp09-01.png)
 
 ### 2.
 - Q: Peuplez ce répertoire de fichiers, de dossiers. Héritent-ils des autorisations du dossier parent ?
@@ -44,9 +44,9 @@ Oui, les nouveaux fichiers héritent des autorisations du dossier parent **Echan
 
 Pour s'en assurer, il suffit d'observer la présence des coches grisées. Pour plus de détail, cliquez sur le bouton **Avancé**.
 
-![img1](.ressources/img/mod6-tp09-02.png)
+![img1](../ressources/img/03-services-client-windows/mod6-tp09-02.png)
 
-![img1](.ressources/img/mod6-tp09-03.png)
+![img1](../ressources/img/03-services-client-windows/mod6-tp09-03.png)
 
 ### 3.
 
@@ -80,9 +80,9 @@ Par bonne pratique Microsoft, laissez **Système** et **Administrateurs** en **C
 	* Cocher **Modification** (vous observerez que **Ecriture** va se cocher automatiquement)
 	* **Appliquer** > **OK**
 	
-![img1](.ressources/img/mod6-tp09-04.png)
+![img1](../ressources/img/03-services-client-windows/mod6-tp09-04.png)
 
-![img1](.ressources/img/mod6-tp09-05.png)
+![img1](../ressources/img/03-services-client-windows/mod6-tp09-05.png)
 
 
 ##### Les tests d'accès (important)
@@ -93,7 +93,7 @@ Première solution (peut-être la plus probante) : faire des tests "grandeur ré
 - Tester l'accès au dossier **Echange** (**Lecture** possible car **Romain** (utilisateur) possède les autorisations en **Lecture**).
 - Tester la création d'un nouveau fichier dans le dossier **Echange** (impossible car **Romain** n'a pas les autorisations en **Modification**, il fait partie du groupe prédéfini **Utilisateurs**).
 
-![img1](.ressources/img/mod6-tp09-06.png)
+![img1](../ressources/img/03-services-client-windows/mod6-tp09-06.png)
 
 - Fermez la session de **Romain** et ouvrez une session avec **un de vos utilisateurs supplémentaires**.
 - Tester l'accès au dossier **Echange** (**Lecture** possible car votre utilisateur supplémentaire (**L_Collegues**) possède les autorisations en **Lecture**).
@@ -119,7 +119,7 @@ Deuxième possibilité (plus rapide) par l'intermédiaire de l'onglet Accès eff
 - Afficher l'accès effectif
 - On observe que **romain** n'a que des accès en **Lecture** (pas de création, d'écriture et de suppression possible).
 
-![img1](.ressources/img/mod6-tp09-07.png)
+![img1](../ressources/img/03-services-client-windows/mod6-tp09-07.png)
 
 **Tests d'autorisation d'accès avec un utilisateur membre du groupe **L_Collegues****
 + Sélectionner un utilisateur
@@ -128,7 +128,7 @@ Deuxième possibilité (plus rapide) par l'intermédiaire de l'onglet Accès eff
 + Afficher l'accès effectif
 + On observe qu'Alix possède un niveau d'autorisation plus élevé que **romain** car le groupe **L_Collegues** possède des accès en **Modification**
 
-![img1](.ressources/img/mod6-tp09-08.png)
+![img1](../ressources/img/03-services-client-windows/mod6-tp09-08.png)
 
 **Tests d'autorisation d'accès avec un utilisateur membre du groupe Administrateurs**
 + Sélectionner un utilisateur
@@ -137,7 +137,7 @@ Deuxième possibilité (plus rapide) par l'intermédiaire de l'onglet Accès eff
 + Afficher l'accès effectif
 + De par son appartenance au groupe prédéfini Administrateurs, **francois** possède le niveau d'accès Contrôle Total
 
-![img1](.ressources/img/mod6-tp09-09.png)
+![img1](../ressources/img/03-services-client-windows/mod6-tp09-09.png)
 
 
 ### 4.
@@ -190,5 +190,5 @@ Set-Acl
 ```
 
 
-<link rel="stylesheet" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" href=".ressources/css/style.css">
+<link rel="stylesheet" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" href="../ressources/css/style.css">

@@ -1066,205 +1066,97 @@ body .markdown-body
 .highlight .vi{color:teal}
 .highlight .il{color:#009999}
 .highlight .gc{color:#999;background-color:#EAF2F5}
-</style><title>tp09-acl</title></head><body><article class="markdown-body"><p>title : tp09 - ACL</p>
-<h2 id="les-acl">Les ACL<a class="headerlink" href="#les-acl" title="Permanent link"></a></h2>
-<p>TP du Module 06 – La sécurité NTFS et les ACL</p>
+</style><title>tp06 - powershell 201</title></head><body><article class="markdown-body"><h1 id="eni-tssr-03-services-client-windows">ENI TSSR 03 - Services Client Windows<a class="headerlink" href="#eni-tssr-03-services-client-windows" title="Permanent link"></a></h1>
+<h2 id="tp06-devenir-autonome-avec-powershell">TP06 - Devenir autonome avec PowerShell<a class="headerlink" href="#tp06-devenir-autonome-avec-powershell" title="Permanent link"></a></h2>
 <div class="toc">
 <ul>
-<li><a href="#les-acl">Les ACL</a><ul>
-<li><a href="#1">1.</a></li>
-<li><a href="#2">2.</a></li>
-<li><a href="#3">3.</a><ul>
-<li><a href="#reponses">Reponses</a><ul>
-<li><a href="#les-tests-dacces-important">Les tests d&rsquo;accès (important)</a><ul>
-<li><a href="#solution-1-probante-tests-grandeur-reelle">Solution 1 (+ probante) : Tests grandeur réelle</a></li>
-<li><a href="#solution-2-rapide-via-onglet-acces-effectif">Solution 2 (+ rapide) : via onglet &ldquo;Accès Effectif&rdquo;</a></li>
+<li><a href="#eni-tssr-03-services-client-windows">ENI TSSR 03 - Services Client Windows</a><ul>
+<li><a href="#tp06-devenir-autonome-avec-powershell">TP06 - Devenir autonome avec PowerShell</a><ul>
+<li><a href="#win10">Win10</a><ul>
+<li><a href="#afficher-les-commandes-disponibles-sur-le-systeme">Afficher les commandes disponibles sur le Système</a></li>
+<li><a href="#afficher-seulement-les-cmdlets">Afficher seulement les cmdlets</a></li>
+<li><a href="#afficher-seulement-les-cmdlets-commencant-par-get">Afficher seulement les cmdlets commençant par get</a></li>
+<li><a href="#afficher-la-liste-des-groupes-locaux-presents-sur-le-systeme">Afficher la liste des groupes locaux présents sur le Système</a></li>
+<li><a href="#afficher-les-autres-proprietes-des-groupes-locaux-qui-ne-sont-pas-affiches-par-le-systeme">Afficher les autres propriétés des groupes locaux qui ne sont pas affichés par le Système</a></li>
+<li><a href="#afficher-sid-et-source-principale-du-groupe-utilisateurs-du-bureau-a-distance">Afficher SID et source principale du groupe Utilisateurs du bureau à distance</a></li>
+</ul>
+</li>
+<li><a href="#win11">Win11</a><ul>
+<li><a href="#afficher-les-disques-dur-de-la-vm">Afficher les disques dur de la vm</a></li>
+<li><a href="#afficher-numero-et-modele-des-disques">Afficher numéro et modèle des disques</a></li>
+<li><a href="#afficher-seulement-le-nom-le-type-de-bus-et-le-fabricant-du-disque-no-2">Afficher seulement le nom, le type de bus et le fabricant du disque no. 2</a></li>
+<li><a href="#afficher-nom-status-description-du-pilote-de-ladaptateur-reseau-de-la-vm">Afficher nom, status, description du pilote de l&rsquo;adaptateur réseau de la vm</a></li>
+<li><a href="#afficher-les-membres-du-groupe-local-administrateurs-de-la-vm">Afficher les membres du groupe local Administrateurs de la vm</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#4">4.</a><ul>
-<li><a href="#reponses_1">Réponses</a></li>
-</ul>
-</li>
-<li><a href="#sur-la-vm-discovery-en-powershell">Sur la VM Discovery en PowerShell</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<h3 id="1">1.<a class="headerlink" href="#1" title="Permanent link"></a></h3>
-<ul>
-<li>Sur votre VM Win10-XX, configurez les autorisations d&rsquo;accès sur les répertoires suivants :<ol>
-<li>Sur le volume DATA, créer le répertoire Echange</li>
-<li>Quelles sont les autorisations positionnées par défaut sur le répertoire Echange ?</li>
-</ol>
-</li>
-</ul>
-<p><strong>Reponse 1)</strong></p>
-<ul>
-<li>Depuis l&rsquo;explorateur Windows, explorer le lecteur <strong>d:\DATA</strong></li>
-<li>Clic droit &gt; <strong>Nouveau</strong> &gt; <strong>Dossier</strong></li>
-<li>Nommez-le <strong>Echange</strong></li>
-</ul>
-<p><strong>Reponse 2)</strong></p>
-<p>Pour connaître les autorisations NTFS positionnées par défaut sur ce répertoire :</p>
-<ul>
-<li>Clic droit sur <strong>Echange</strong> &gt; <strong>Propriétés</strong></li>
-<li>Onglet <strong>Sécurité</strong></li>
-<li>L&rsquo;entité de sécurité <strong>Utilisateurs authentifiés</strong> possède des autorisations en <strong>Modification</strong></li>
-<li>L&rsquo;entité de sécurité <strong>Système</strong> possède des autorisations en <strong>Contrôle total</strong></li>
-<li>Le groupe prédéfini <strong>Administrateurs</strong> possède des autorisations en <strong>Contrôle total</strong></li>
-<li>Le groupe prédéfini <strong>Utilisateurs</strong> possède des autorisations en <strong>Lecture</strong></li>
-</ul>
-<p>Ces autorisations proviennent de l&rsquo;héritage du volume D: (un indice du fait qu&rsquo;apparaissent des coches grisées).</p>
-<p><img alt="img1" src=".ressources/img/mod6-tp09-01.png" /></p>
-<h3 id="2">2.<a class="headerlink" href="#2" title="Permanent link"></a></h3>
-<ul>
-<li>
-<p>Q: Peuplez ce répertoire de fichiers, de dossiers. Héritent-ils des autorisations du dossier parent ?</p>
-</li>
-<li>
-<p>Dans le dossier <strong>Echange</strong></p>
-</li>
-<li>Clic droit &gt; <strong>Nouveau</strong> &gt; <strong>Document texte</strong></li>
-<li>Sur <strong>Nouveau document texte</strong></li>
-<li>Clic droit &gt; <strong>Propriétés</strong></li>
-<li>Onglet <strong>Sécurité</strong></li>
-</ul>
-<p>Oui, les nouveaux fichiers héritent des autorisations du dossier parent <strong>Echange</strong> (qui lui-même hérite des autorisations du lecteur <strong>D:</strong>).</p>
-<p>Pour s&rsquo;en assurer, il suffit d&rsquo;observer la présence des coches grisées. Pour plus de détail, cliquez sur le bouton <strong>Avancé</strong>.</p>
-<p><img alt="img1" src=".ressources/img/mod6-tp09-02.png" /></p>
-<p><img alt="img1" src=".ressources/img/mod6-tp09-03.png" /></p>
-<h3 id="3">3.<a class="headerlink" href="#3" title="Permanent link"></a></h3>
-<p>Configurez les autorisations d&rsquo;accès au répertoire <strong>Echange</strong>
-    + Vos <strong>collègues</strong> pourront modifier tous les objets et sous-objets de ce répertoire
-    + Les administrateurs auront le contrôle total
-    + Vous accorderez les droits en <strong>Lecture</strong> sur le répertoire aux utilisateurs de votre poste
-    + Testez le bon fonctionnement des autorisations</p>
-<h4 id="reponses">Reponses<a class="headerlink" href="#reponses" title="Permanent link"></a></h4>
-<p>Ici plusieurs possibilités, en voici une en modifiant les héritages
-    * Lecteur D:
-    * Clic droit &gt; <strong>Propriétés</strong>
-    * Onglet <strong>Sécurité</strong>
-    * <strong>Modifier</strong>
-    * Sélectionnez <strong>Utilisateurs authentifiés</strong>
-    * <strong>Supprimer</strong></p>
-<p>Par bonne pratique Microsoft, laissez <strong>Système</strong> et <strong>Administrateurs</strong> en <strong>Contrôle total</strong>
-    * Laissez aussi <strong>Utilisateurs</strong> en <strong>Lecture</strong> car c&rsquo;est ce qui est demandé dans la consigne
-    * <strong>OK</strong> &gt; <strong>Appliquer</strong> &gt; <strong>OK</strong>
-    * Dossier <strong>Echange</strong>
-    * Clic droit &gt; <strong>Propriétés</strong>
-    * Onglet <strong>Sécurité</strong>
-    * On observe que l&rsquo;entité de sécurité <strong>Utilisateurs authentifiés</strong> n&rsquo;est plus présente, par héritage.
-    * <strong>Modifier</strong>
-    * <strong>Ajouter</strong>&hellip;
-    * Entrez les noms des objets à sélectionner : <strong>L_Collegues</strong>
-    * <strong>Entrée</strong>
-    * Cocher <strong>Modification</strong> (vous observerez que <strong>Ecriture</strong> va se cocher automatiquement)
-    * <strong>Appliquer</strong> &gt; <strong>OK</strong></p>
-<p><img alt="img1" src=".ressources/img/mod6-tp09-04.png" /></p>
-<p><img alt="img1" src=".ressources/img/mod6-tp09-05.png" /></p>
-<h5 id="les-tests-dacces-important">Les tests d&rsquo;accès (important)<a class="headerlink" href="#les-tests-dacces-important" title="Permanent link"></a></h5>
-<h6 id="solution-1-probante-tests-grandeur-reelle">Solution 1 (+ probante) : Tests grandeur réelle<a class="headerlink" href="#solution-1-probante-tests-grandeur-reelle" title="Permanent link"></a></h6>
-<p>Première solution (peut-être la plus probante) : faire des tests &ldquo;grandeur réelle&rdquo;</p>
-<ul>
-<li>Fermez votre session actuelle (<strong>logoff</strong>) puis ouvrez une session locale avec l&rsquo;utilisateur <strong>Romain</strong>.</li>
-<li>Tester l&rsquo;accès au dossier <strong>Echange</strong> (<strong>Lecture</strong> possible car <strong>Romain</strong> (utilisateur) possède les autorisations en <strong>Lecture</strong>).</li>
-<li>Tester la création d&rsquo;un nouveau fichier dans le dossier <strong>Echange</strong> (impossible car <strong>Romain</strong> n&rsquo;a pas les autorisations en <strong>Modification</strong>, il fait partie du groupe prédéfini <strong>Utilisateurs</strong>).</li>
-</ul>
-<p><img alt="img1" src=".ressources/img/mod6-tp09-06.png" /></p>
-<ul>
-<li>Fermez la session de <strong>Romain</strong> et ouvrez une session avec <strong>un de vos utilisateurs supplémentaires</strong>.</li>
-<li>Tester l&rsquo;accès au dossier <strong>Echange</strong> (<strong>Lecture</strong> possible car votre utilisateur supplémentaire (<strong>L_Collegues</strong>) possède les autorisations en <strong>Lecture</strong>).</li>
-<li>Tester la création d&rsquo;un nouveau fichier dans le dossier <strong>Echange</strong> (possible car votre utilisateur possède les autorisations en <strong>Modification</strong>, par l&rsquo;intermédiaire du groupe <strong>L_Collegues</strong>).</li>
-<li>Tester l&rsquo;accès à l&rsquo;onglet <strong>Sécurité</strong> du dossier <strong>Echange</strong> pour tenter de modifier les ACL (Impossible car l&rsquo;utilisateur supplémentaire, qui fait partie du groupe <strong>L_Collegues</strong>, ne possède pas les autorisations en <strong>Contrôle Total</strong>, le bouton <strong>Modifier</strong> est protégé par l&rsquo;UAC).</li>
-<li>Fermer la session actuelle et ouvrez une session locale avec l&rsquo;utilisateur <strong>francois</strong>.</li>
-<li>Tester l&rsquo;accès au dossier <strong>Echange</strong> (lecture possible car <strong>francois</strong> (Administrateurs) possède les autorisations en <strong>Lecture</strong>).</li>
-<li>Tester la création d&rsquo;un nouveau fichier dans le dossier <strong>Echange</strong> (possible car <strong>francois</strong> possède les autorisations en <strong>Modification</strong>, par l&rsquo;intermédiaire du groupe prédéfini Administrateurs).</li>
-<li>Tester l&rsquo;accès à l&rsquo;onglet Sécurité du dossier <strong>Echange</strong> pour tenter de modifier les ACL (possible car <strong>francois</strong>, qui fait partie du groupe prédéfini Administrateurs possède les autorisations en Contrôle Total).</li>
-</ul>
-<h6 id="solution-2-rapide-via-onglet-acces-effectif">Solution 2 (+ rapide) : via onglet &ldquo;Accès Effectif&rdquo;<a class="headerlink" href="#solution-2-rapide-via-onglet-acces-effectif" title="Permanent link"></a></h6>
-<p>Deuxième possibilité (plus rapide) par l&rsquo;intermédiaire de l&rsquo;onglet Accès effectif__
-- Ouvrez une session avec un utilisateur membre du groupe Administrateurs
-- Affichez les propriétés du dossier <strong>Echange</strong> (clic droit &gt; Propriétés)
--  Onglet Sécurité
-- Avancé
-- Onglet Accès effectif
-- Sélectionner un utilisateur</p>
-<p><strong>Tests d&rsquo;autorisation d&rsquo;accès avec un utilisateur membre du groupe utilisateurs</strong>
-- Entrez le nom de l&rsquo;objet à sélectionner : <strong>Romain</strong>
-- Entrée
-- Afficher l&rsquo;accès effectif
-- On observe que <strong>romain</strong> n&rsquo;a que des accès en <strong>Lecture</strong> (pas de création, d&rsquo;écriture et de suppression possible).</p>
-<p><img alt="img1" src=".ressources/img/mod6-tp09-07.png" /></p>
-<p><strong>Tests d&rsquo;autorisation d&rsquo;accès avec un utilisateur membre du groupe *<em>L_Collegues</em></strong>*
-+ Sélectionner un utilisateur
-+ Entrez le nom de l&rsquo;objet à sélectionner : <em>l&rsquo;un de vos utilisateurs supplémentaires</em>
-+ Entrée
-+ Afficher l&rsquo;accès effectif
-+ On observe qu&rsquo;Alix possède un niveau d&rsquo;autorisation plus élevé que <strong>romain</strong> car le groupe <strong>L_Collegues</strong> possède des accès en <strong>Modification</strong></p>
-<p><img alt="img1" src=".ressources/img/mod6-tp09-08.png" /></p>
-<p><strong>Tests d&rsquo;autorisation d&rsquo;accès avec un utilisateur membre du groupe Administrateurs</strong>
-+ Sélectionner un utilisateur
-+ Entrez le nom de l&rsquo;objet à sélectionner : <strong>francois</strong>
-+ Entrée
-+ Afficher l&rsquo;accès effectif
-+ De par son appartenance au groupe prédéfini Administrateurs, <strong>francois</strong> possède le niveau d&rsquo;accès Contrôle Total</p>
-<p><img alt="img1" src=".ressources/img/mod6-tp09-09.png" /></p>
-<h3 id="4">4.<a class="headerlink" href="#4" title="Permanent link"></a></h3>
-<ul>
-<li>Sur le volume TOOLS, créer les répertoires logiciels et manuels d&rsquo;utilisation<ul>
-<li>Yann et <strong>François</strong> accéderont en <strong>Modification</strong>s à ces répertoires.</li>
-<li>Les utilisateurs standard auront un accès en <strong>Lecture</strong> et les administrateurs posséderont un contrôle total</li>
-<li>Testez le bon fonctionnement des autorisations</li>
-</ul>
-</li>
-</ul>
-<h4 id="reponses_1">Réponses<a class="headerlink" href="#reponses_1" title="Permanent link"></a></h4>
-<p>Ici plusieurs possibilités, en voici une en modifiant les héritages</p>
-<ul>
-<li>Lecteur e:</li>
-<li>Clic droit &gt; Propriétés</li>
-<li>Onglet Sécurité</li>
-<li>Modifier</li>
-<li>Sélectionnez Utilisateurs authentifiés</li>
-<li>Supprimer</li>
-<li>Par bonne pratique Microsoft, laissez Système et Administrateurs en Contrôle total</li>
-<li>Laissez aussi Utilisateurs en <strong>Lecture</strong> car c&rsquo;est ce qui est demandé dans la consigne.</li>
-<li>OK &gt; Appliquer &gt; OK</li>
-<li>Créer les dossiers logiciels et manuels d&rsquo;utilisation dans le volume TOOLS (clic droit dans le volume TOOLS &gt; Nouveau &gt; Dossier).</li>
-<li>Par héritage, ces dossiers permettent au Système et aux Administrateurs d&rsquo;en avoir le Contrôle total. Les membres du groupe Utilisateurs, n&rsquo;ont qu&rsquo;un accès en <strong>Lecture</strong></li>
-</ul>
-<p>Occupons-nous maintenant des autorisations d&rsquo;accès de Yann et <strong>François</strong>
-Les DACL ne doivent contenir que des groupes. C&rsquo;est la bonne pratique.
-Yann et <strong>François</strong> sont tous les deux membres du groupe L_Informatiques
-Il suffit donc de rajouter le groupe L_Informatiques dans les DACL des dossiers logiciels et manuels d&rsquo;utilisation</p>
-<ul>
-<li>Sur les dossiers logiciels et manuels d&rsquo;utilisation</li>
-<li>Clic droit &gt; Propriétés</li>
-<li>Onglet Sécurité</li>
-<li>On observe que l&rsquo;entité de sécurité Utilisateurs authentifiés n&rsquo;est plus présente, par héritage.</li>
-<li>Modifier</li>
-<li>Ajouter&hellip;</li>
-<li>Entrez les noms des objets à sélectionner : L_Informatiques</li>
-<li>Entrée</li>
-<li>Cocher <strong>Modification</strong> (vous observerez que Ecriture va se cocher automatiquement).</li>
-<li>Toujours faire les tests d&rsquo;autorisation d&rsquo;accès &ldquo;grandeur réelle&rdquo; ou bien en passant par l&rsquo;onglet Accès Effectif</li>
-</ul>
-<h3 id="sur-la-vm-discovery-en-powershell">Sur la VM Discovery en PowerShell<a class="headerlink" href="#sur-la-vm-discovery-en-powershell" title="Permanent link"></a></h3>
-<ul>
-<li>
-<p>Afficher la liste des droits d&rsquo;accès au dossier 2022 du lecteur M:
-<div class="highlight"><pre><span class="nb">Get-Acl</span> <span class="n">m</span><span class="err">:</span><span class="p">\</span><span class="n">2022</span>
-</pre></div></p>
-</li>
-<li>
-<p>Quelle cmdlet permet la <strong>Modification</strong> des ACL sur un dossier ?
-<div class="highlight"><pre><span class="nb">Set-Acl</span>
-</pre></div></p>
-</li>
-</ul>
-<p><link rel="stylesheet" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" href=".ressources/css/style.css"></p></article></body></html>
+<h3 id="win10">Win10<a class="headerlink" href="#win10" title="Permanent link"></a></h3>
+<h4 id="afficher-les-commandes-disponibles-sur-le-systeme">Afficher les commandes disponibles sur le Système<a class="headerlink" href="#afficher-les-commandes-disponibles-sur-le-systeme" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span>
+</pre></div>
+
+<h4 id="afficher-seulement-les-cmdlets">Afficher seulement les cmdlets<a class="headerlink" href="#afficher-seulement-les-cmdlets" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span> <span class="n">-type</span> <span class="n">cmdlet</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span> <span class="n">-commandtype</span> <span class="n">cmdlet</span>
+</pre></div>
+
+<h4 id="afficher-seulement-les-cmdlets-commencant-par-get">Afficher seulement les cmdlets commençant par get<a class="headerlink" href="#afficher-seulement-les-cmdlets-commencant-par-get" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span> <span class="n">-commandtype</span> <span class="n">cmdlet</span> <span class="p">|</span> <span class="n">where</span> <span class="n">Name</span> <span class="o">-like</span> <span class="n">get</span><span class="p">*</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span> <span class="n">-commandtype</span> <span class="n">cmdlet</span> <span class="p">[</span><span class="n">-Name</span><span class="p">]</span> <span class="n">get</span><span class="p">*</span> 
+</pre></div>
+
+<h4 id="afficher-la-liste-des-groupes-locaux-presents-sur-le-systeme">Afficher la liste des groupes locaux présents sur le Système<a class="headerlink" href="#afficher-la-liste-des-groupes-locaux-presents-sur-le-systeme" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span> <span class="p">*</span><span class="n">group</span><span class="p">*</span>         <span class="c"># recherche</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-localgroup</span>              <span class="c"># trouvé</span>
+</pre></div>
+
+<p><strong>Q: Quelles sont les 2 propriétés des groupes locaux que le Système affiche par défaut ?</strong> 
+Name, Description</p>
+<h4 id="afficher-les-autres-proprietes-des-groupes-locaux-qui-ne-sont-pas-affiches-par-le-systeme">Afficher les autres propriétés des groupes locaux qui ne sont pas affichés par le Système<a class="headerlink" href="#afficher-les-autres-proprietes-des-groupes-locaux-qui-ne-sont-pas-affiches-par-le-systeme" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-localgroup</span> <span class="p">|</span> <span class="n">select</span> <span class="p">*</span>       <span class="c"># solution 1</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-localgroup</span> <span class="p">|</span> <span class="nb">format-list</span>    <span class="c"># solution 2</span>
+</pre></div>
+
+<h4 id="afficher-sid-et-source-principale-du-groupe-utilisateurs-du-bureau-a-distance">Afficher SID et source principale du groupe Utilisateurs du bureau à distance<a class="headerlink" href="#afficher-sid-et-source-principale-du-groupe-utilisateurs-du-bureau-a-distance" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-localgroup</span> <span class="n">-Name</span> <span class="p">*</span><span class="n">bureau</span><span class="p">*</span><span class="n">distance</span> <span class="p">|</span> <span class="n">select</span> <span class="n">SID</span><span class="p">,</span><span class="n">PrincipalSource</span>
+</pre></div>
+
+<h3 id="win11">Win11<a class="headerlink" href="#win11" title="Permanent link"></a></h3>
+<h4 id="afficher-les-disques-dur-de-la-vm">Afficher les disques dur de la vm<a class="headerlink" href="#afficher-les-disques-dur-de-la-vm" title="Permanent link"></a></h4>
+<p>Combien de disques ?</p>
+<div class="highlight"><pre><span class="c"># Moi</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span> <span class="p">*</span><span class="n">drive</span><span class="p">*</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-psdrive</span> <span class="n">-provider</span> <span class="n">filesystem</span>
+
+<span class="c"># Correction</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-command</span> <span class="p">*</span><span class="n">disk</span><span class="p">*</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-disk</span>
+</pre></div>
+
+<h4 id="afficher-numero-et-modele-des-disques">Afficher numéro et modèle des disques<a class="headerlink" href="#afficher-numero-et-modele-des-disques" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-disk</span> <span class="p">|</span> <span class="n">select</span> <span class="n">Number</span><span class="p">,</span> <span class="n">Model</span>
+</pre></div>
+
+<h4 id="afficher-seulement-le-nom-le-type-de-bus-et-le-fabricant-du-disque-no-2">Afficher seulement le nom, le type de bus et le fabricant du disque no. 2<a class="headerlink" href="#afficher-seulement-le-nom-le-type-de-bus-et-le-fabricant-du-disque-no-2" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span class="c"># Moi</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-disk</span> <span class="p">|</span> <span class="n">select</span> <span class="n">Name</span><span class="p">,</span> <span class="n">BusType</span><span class="p">,</span> <span class="n">Manufacturer</span> <span class="p">|</span> <span class="n">where</span> <span class="n">Number</span> <span class="o">-like</span> <span class="n">2</span>
+
+<span class="c"># Correction</span>
+<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-disk</span> <span class="n">-Number</span> <span class="n">2</span> <span class="p">|</span> <span class="n">select</span> <span class="n">Name</span><span class="p">,</span> <span class="n">BusType</span><span class="p">,</span> <span class="n">Manufacturer</span>
+</pre></div>
+
+<h4 id="afficher-nom-status-description-du-pilote-de-ladaptateur-reseau-de-la-vm">Afficher nom, status, description du pilote de l&rsquo;adaptateur réseau de la vm<a class="headerlink" href="#afficher-nom-status-description-du-pilote-de-ladaptateur-reseau-de-la-vm" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-netadapter</span> <span class="p">|</span> <span class="n">select</span> <span class="n">name</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">driverdescription</span>
+</pre></div>
+
+<h4 id="afficher-les-membres-du-groupe-local-administrateurs-de-la-vm">Afficher les membres du groupe local Administrateurs de la vm<a class="headerlink" href="#afficher-les-membres-du-groupe-local-administrateurs-de-la-vm" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-localGroupMember</span> <span class="n">administrateurs</span>
+</pre></div>
+
+<p><link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css"></p></article></body></html>

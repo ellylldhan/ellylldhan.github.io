@@ -26,7 +26,7 @@ Pour connaître les autorisations NFTS positionnées par défaut sur ce réperto
 
 Ces autorisations proviennent de l’héritage du volume **D:** (c’est pourquoi les cases sont grisées…).
 
-[![Echange](.ressources/img/tp09-01.png)](.ressources/img/tp09-01.png){:target="_blank"} 
+[![Echange](../ressources/img/03-services-client-windows/tp09-01.png)](../ressources/img/03-services-client-windows/tp09-01.png){:target="_blank"} 
 
 #### Question 2
 Peuplez ce répertoire de fichiers, de dossiers.
@@ -41,13 +41,13 @@ Pour plus de détails, cliquer sur **Avancé**.
 
 <div class="img-row">
   	<div class="img-col">
-  		<a href=".ressources/img/tp09-02.png" target="_blank">
-			<img src=".ressources/img/tp09-02.png" alt=".ressources/img/tp09-02.png"  style="width:100%">
+  		<a href="../ressources/img/03-services-client-windows/tp09-02.png" target="_blank">
+			<img src="../ressources/img/03-services-client-windows/tp09-02.png" alt="../ressources/img/03-services-client-windows/tp09-02.png"  style="width:100%">
 		</a>
 	</div>
   	<div class="img-col">
-  		<a href=".ressources/img/tp09-03.png" target="_blank">
-	  		<img src=".ressources/img/tp09-03.png" alt=".ressources/img/tp09-03.png" style="width:100%">
+  		<a href="../ressources/img/03-services-client-windows/tp09-03.png" target="_blank">
+	  		<img src="../ressources/img/03-services-client-windows/tp09-03.png" alt="../ressources/img/03-services-client-windows/tp09-03.png" style="width:100%">
 	  	</a>
 	</div>
 </div>	
@@ -90,13 +90,13 @@ Ici plusieurs possibilités, en voici une en modifiant les héritages
 
 <div class="img-row">
   	<div class="img-col">
-  		<a href=".ressources/img/tp09-04.png" target="_blank">
-			<img src=".ressources/img/tp09-04.png" alt=".ressources/img/tp09-04.png" style="width:100%">
+  		<a href="../ressources/img/03-services-client-windows/tp09-04.png" target="_blank">
+			<img src="../ressources/img/03-services-client-windows/tp09-04.png" alt="../ressources/img/03-services-client-windows/tp09-04.png" style="width:100%">
 		</a>
 	</div>
   	<div class="img-col">
-  		<a href=".ressources/img/tp09-05.png" target="_blank">
-	  		<img src=".ressources/img/tp09-05.png" alt=".ressources/img/tp09-05.png" style="width:100%">
+  		<a href="../ressources/img/03-services-client-windows/tp09-05.png" target="_blank">
+	  		<img src="../ressources/img/03-services-client-windows/tp09-05.png" alt="../ressources/img/03-services-client-windows/tp09-05.png" style="width:100%">
 	  	</a>
 	</div>
 </div>	
@@ -113,21 +113,21 @@ Première solution (peut-être la plus probante) : faire des tests "grandeur ré
 2. Tester l'accès au dossier **Echange** (**Lecture** possible car **Romain** (utilisateur) possède les autorisations en **Lecture**).
 3. Tester la création d'un nouveau fichier dans le dossier **Echange** (impossible car **Romain** n'a pas les autorisations en **Modification**, il fait partie du groupe prédéfini **Utilisateurs**).
 
-[![Tester les accès](.ressources/img/tp09-06.png)](.ressources/img/tp09-06.png){:target="_blank"} 
+[![Tester les accès](../ressources/img/03-services-client-windows/tp09-06.png)](../ressources/img/03-services-client-windows/tp09-06.png){:target="_blank"} 
 
 4. Fermez la session de **Romain** et ouvrez une session avec **un de vos utilisateurs supplémentaires**.
 5. Tester l'accès au dossier **Echange** (**Lecture** possible car votre utilisateur supplémentaire (**L_Collegues**) possède les autorisations en **Lecture**).
 6. Tester la création d'un nouveau fichier dans le dossier **Echange** (possible car votre utilisateur possède les autorisations en **Modification**, par l'intermédiaire du groupe **L_Collegues**).
 7. Tester l'accès à l'onglet **Sécurité** du dossier **Echange** pour tenter de modifier les ACL (Impossible car l'utilisateur supplémentaire, qui fait partie du groupe **L_Collegues**, ne possède pas les autorisations en **Contrôle Total**, le bouton **Modifier** est protégé par l'UAC).
 
-[![Tester les accès](.ressources/img/tp09-07.png)](.ressources/img/tp09-07.png){:target="_blank"} 
+[![Tester les accès](../ressources/img/03-services-client-windows/tp09-07.png)](../ressources/img/03-services-client-windows/tp09-07.png){:target="_blank"} 
 
 8. Fermer la session actuelle et ouvrez une session locale avec l'utilisateur **francois**.
 9. Tester l'accès au dossier **Echange** (lecture possible car **francois** (Administrateurs) possède les autorisations en **Lecture**).
 10. Tester la création d'un nouveau fichier dans le dossier **Echange** (possible car **francois** possède les autorisations en **Modification**, par l'intermédiaire du groupe prédéfini **Administrateurs**).
 11. Tester l'accès à l'onglet Sécurité du dossier **Echange** pour tenter de modifier les ACL (possible car **francois**, qui fait partie du groupe prédéfini **Administrateurs** possède les autorisations en **Contrôle Total**).
 
-[![Tester les accès](.ressources/img/tp09-08.png)](.ressources/img/tp09-08.png){:target="_blank"} 
+[![Tester les accès](../ressources/img/03-services-client-windows/tp09-08.png)](../ressources/img/03-services-client-windows/tp09-08.png){:target="_blank"} 
 
 
 ###### Solution 2 (+ rapide) : via onglet "Accès Effectif"
@@ -147,7 +147,7 @@ Deuxième possibilité (plus rapide) par l'intermédiaire de l'onglet Accès eff
 - Afficher l'accès effectif
 - On observe que **romain** n'a que des accès en **Lecture** (pas de création, d'écriture et de suppression possible).
 
-![img1](.ressources/img/mod6-tp09-07.png)
+![img1](../ressources/img/03-services-client-windows/mod6-tp09-07.png)
 
 **Tests d'autorisation d'accès avec un utilisateur membre du groupe **L_Collegues****
 + Sélectionner un utilisateur
@@ -156,7 +156,7 @@ Deuxième possibilité (plus rapide) par l'intermédiaire de l'onglet Accès eff
 + Afficher l'accès effectif
 + On observe qu'Alix possède un niveau d'autorisation plus élevé que **romain** car le groupe **L_Collegues** possède des accès en **Modification**
 
-![img1](.ressources/img/mod6-tp09-08.png)
+![img1](../ressources/img/03-services-client-windows/mod6-tp09-08.png)
 
 **Tests d'autorisation d'accès avec un utilisateur membre du groupe Administrateurs**
 + Sélectionner un utilisateur
@@ -165,7 +165,7 @@ Deuxième possibilité (plus rapide) par l'intermédiaire de l'onglet Accès eff
 + Afficher l'accès effectif
 + De par son appartenance au groupe prédéfini Administrateurs, **francois** possède le niveau d'accès Contrôle Total
 
-![img1](.ressources/img/mod6-tp09-09.png)
+![img1](../ressources/img/03-services-client-windows/mod6-tp09-09.png)
 
 
 ###### Solution 2 (plus rapide) : via l’onglet “Accès effectif”
@@ -216,5 +216,5 @@ VM Win11 - Powershell
 
 
 
-<link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css">

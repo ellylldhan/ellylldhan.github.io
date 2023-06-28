@@ -1066,159 +1066,64 @@ body .markdown-body
 .highlight .vi{color:teal}
 .highlight .il{color:#009999}
 .highlight .gc{color:#999;background-color:#EAF2F5}
-</style><title>tp08 - users &amp; groups</title></head><body><article class="markdown-body"><h1 id="eni-tssr-03-services-client-windows">ENI TSSR 03 - Services Client Windows<a class="headerlink" href="#eni-tssr-03-services-client-windows" title="Permanent link"></a></h1>
-<h2 id="tp08-gestion-des-utilisateurs-et-des-groupes">TP08 - Gestion des utilisateurs et des groupes<a class="headerlink" href="#tp08-gestion-des-utilisateurs-et-des-groupes" title="Permanent link"></a></h2>
+</style><title>tp05 - aide powershell</title></head><body><article class="markdown-body"><h1 id="eni-tssr-03-services-client-windows">ENI TSSR 03 - Services Client Windows<a class="headerlink" href="#eni-tssr-03-services-client-windows" title="Permanent link"></a></h1>
 <div class="toc">
 <ul>
 <li><a href="#eni-tssr-03-services-client-windows">ENI TSSR 03 - Services Client Windows</a><ul>
-<li><a href="#tp08-gestion-des-utilisateurs-et-des-groupes">TP08 - Gestion des utilisateurs et des groupes</a><ul>
-<li><a href="#taches-a-faire">Tâches à faire</a></li>
-<li><a href="#cmdexe">CMD.EXE</a><ul>
-<li><a href="#afficher-les-infos-du-user-account-francois">Afficher les infos du user account François</a></li>
-<li><a href="#afficher-les-membres-du-groupe-administrateurs">Afficher les membres du groupe Administrateurs</a></li>
-<li><a href="#creer-un-utilisateur-romain-avec-mdp-attention-le-mdp-ne-devra-pas-etre-visible-en-cli">Créer un utilisateur ROMAIN avec mdp. Attention le mdp ne devra pas être visible en CLI</a></li>
-<li><a href="#ajouter-romain-au-groupe-l_responsables">Ajouter Romain au groupe L_Responsables</a></li>
-<li><a href="#afficher-le-sid-du-current-user-puis-les-sid-des-groupes-dont-il-est-membre">Afficher le SID du current user, puis les SID des groupes dont il est membre</a></li>
-</ul>
-</li>
-<li><a href="#powershell-sur-win11">POWERSHELL sur WIN11</a><ul>
-<li><a href="#afficher-la-liste-des-utilisateurs-sur-le-systeme-nom-sid-description">Afficher la liste des utilisateurs sur le Système (nom, sid, description)</a></li>
-<li><a href="#afficher-les-informations-suivantes-pour-lutilisateur-james">Afficher les informations suivantes pour l&rsquo;utilisateur James</a></li>
-<li><a href="#ajouter-la-description-compte-generique-avec-privileges-dadministration">Ajouter la description &ldquo;Compte générique avec privilèges d&rsquo;administration&rdquo;</a></li>
-<li><a href="#afficher-le-nom-et-le-sid-des-membres-du-groupe-local-l_supportinfo">Afficher le nom et le SID des membres du groupe local L_SupportInfo</a></li>
-</ul>
-</li>
-<li><a href="#bonus-creation-dutilisateur">Bonus : Création d&rsquo;utilisateur</a></li>
-<li><a href="#bonus-2-restrictions-dhoraires">Bonus 2 : Restrictions d&rsquo;horaires</a></li>
+<li><a href="#tp-05-manipuler-laide-de-powershell">TP 05 - Manipuler l&rsquo;aide de Powershell</a><ul>
+<li><a href="#afficher-laide-complete-de-la-cmdlet-get-alias">Afficher l&rsquo;aide complète de la cmdlet Get-Alias</a></li>
+<li><a href="#difference-sur-win11">Différence sur Win11 ?</a></li>
+<li><a href="#maj-depot-local">Màj dépot local</a></li>
+<li><a href="#obtenir-les-exemples-de-get-help">Obtenir les exemples de get-help</a></li>
+<li><a href="#afficher-la-liste-de-tous-les-concepts-disponibles-et-utilisables">Afficher la liste de tous les concepts disponibles et utilisables</a></li>
+<li><a href="#en-apprendre-plus-sur-le-concept-dalias">En apprendre plus sur le concept d&rsquo;alias</a></li>
+<li><a href="#historique-de-commande-get-history">Historique de commande : get-history</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </div>
-<h3 id="taches-a-faire">Tâches à faire<a class="headerlink" href="#taches-a-faire" title="Permanent link"></a></h3>
-<p><strong>Dans la console de Gestion des utilisateurs (lusrmgr.msc)</strong></p>
+<h2 id="tp-05-manipuler-laide-de-powershell">TP 05 - Manipuler l&rsquo;aide de Powershell<a class="headerlink" href="#tp-05-manipuler-laide-de-powershell" title="Permanent link"></a></h2>
+<h4 id="afficher-laide-complete-de-la-cmdlet-get-alias">Afficher l&rsquo;aide complète de la cmdlet Get-Alias<a class="headerlink" href="#afficher-laide-complete-de-la-cmdlet-get-alias" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-help</span> <span class="n">-full</span> <span class="nb">get-alias</span>
+</pre></div>
+
+<h4 id="difference-sur-win11">Différence sur Win11 ?<a class="headerlink" href="#difference-sur-win11" title="Permanent link"></a></h4>
+<p>Oui parce que l&rsquo;update-help a été faite sur win10.</p>
+<h4 id="maj-depot-local">Màj dépot local<a class="headerlink" href="#maj-depot-local" title="Permanent link"></a></h4>
+<p>Mettre vm en bridge pour avoir accès au net. Attention c&rsquo;est le login AD machine hôte</p>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">update-help</span> <span class="n">-SourcePath</span> <span class="p">\\</span><span class="n">ad</span><span class="p">.</span><span class="n">campus-eni</span><span class="p">.</span><span class="n">fr</span><span class="p">\</span><span class="n">Campus</span><span class="p">\</span><span class="n">distrib</span><span class="p">\</span><span class="n">depot</span><span class="p">\</span><span class="n">powershell</span> <span class="n">-UICulture</span> <span class="n">en-us</span> <span class="n">-Credential</span> <span class="n">rlizot2019</span>
+</pre></div>
+
+<h4 id="obtenir-les-exemples-de-get-help">Obtenir les exemples de get-help<a class="headerlink" href="#obtenir-les-exemples-de-get-help" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-help</span> <span class="n">-examples</span> <span class="nb">get-help</span>
+</pre></div>
+
+<h4 id="afficher-la-liste-de-tous-les-concepts-disponibles-et-utilisables">Afficher la liste de tous les concepts disponibles et utilisables<a class="headerlink" href="#afficher-la-liste-de-tous-les-concepts-disponibles-et-utilisables" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-help</span> <span class="n">about_</span><span class="p">*</span>
+</pre></div>
+
+<h4 id="en-apprendre-plus-sur-le-concept-dalias">En apprendre plus sur le concept d&rsquo;alias<a class="headerlink" href="#en-apprendre-plus-sur-le-concept-dalias" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-help</span> <span class="n">-ShowWindow</span> <span class="n">about_alias</span>
+</pre></div>
+
+<pre><code>History &amp; Aliases
+The aliases you create are saved only in the current session
+Aliases can be imported/exported
+</code></pre>
+<h4 id="historique-de-commande-get-history">Historique de commande : <code>get-history</code><a class="headerlink" href="#historique-de-commande-get-history" title="Permanent link"></a></h4>
 <ul>
-<li>Créer les groupes L_Informatique et L_Responsables </li>
-<li>François possèdera un mdp qui n&rsquo;expire jamais.</li>
-<li>François fera partie des groupes L_Informatique et L_Responsables</li>
-<li>Yann fera partie des mêmes groupes que François</li>
-<li>Créer des comptes utilisateurs correspondant à vos voisins de table, faisant partie du groupe L_Voisins</li>
+<li>
+<p>Nombre maxi de ligne d&rsquo;historique conservée définie dans la variable <code>$MaximumHistoryCount</code>. 
+Valeur par défaut : <strong>4096 (lignes)</strong></p>
+</li>
+<li>
+<p>Modifier cette valeur :</p>
+</li>
 </ul>
-<p><strong>Mise en place de privilèges d&rsquo;administration</strong></p>
-<ul>
-<li>François aura la possibilité d&rsquo;administrer l&rsquo;ensemble des ressources du poste Win10-XX (xx= numero étudiant, 17)</li>
-<li>Yann pourra consulter les journaux d&rsquo;évènements et configurer la carte réseau.</li>
-<li>Vous accorderez à vos voisins la possibilité de sauvegarder votre poste Win10-17 </li>
-<li>Retirer l&rsquo;un de vos voisins du groupes <strong>Utilisateurs</strong>.</li>
-</ul>
-<p><strong>Informations concernant les utilisateurs et groupes</strong></p>
-<ul>
-<li>En naviguant dans la console graphique des utilisateurs et des groupes, lister les propriétés d&rsquo;un utilisateur</li>
-<li>Lister les propriétés d&rsquo;un groupe </li>
-</ul>
-<p><strong>En ligne de commande (cmd.exe)</strong></p>
-<ul>
-<li>Afficher les informations du compte utilisateur François</li>
-<li>Afficher les membres du groupe Administrateurs </li>
-<li>Créer un utilisateur Romain, avec mot de passe. Attention, le mot de passe ne devra pas s&rsquo;afficher à l&rsquo;écran.</li>
-<li>Ajouter Romain au groupe L_Responsables</li>
-</ul>
-<p><strong>Manipulations supplémentaires avec l&rsquo;interface graphique de Windows 10</strong></p>
-<ul>
-<li>Fermer la session de l&rsquo;utilisateur en cours</li>
-<li>Quels utilisateurs peuvent ouvrir une session sur le poste ?</li>
-<li>L&rsquo;un de vos voisins ne peut pas ouvrir de session. Pourquoi ?</li>
-<li>Ouvrir une session avec François puis afficher les profils présents sur le Système. Que peut-on observer ?</li>
-<li>En invite de commande, afficher son SID, puis afficher les SID des groupes dont il est membre.</li>
-</ul>
-<p><strong>Sur WIN11 et avec powershell</strong></p>
-<ul>
-<li>Afficher la liste des utilisateurs sur le Système. Afficher le nom, le sid et la description de chacun d&rsquo;eux.</li>
-<li>Afficher les informations suivantes concernant l&rsquo;utilisateur <strong>james</strong></li>
-<li>Ajouter la description <strong>Compte générique avec privilèges d&rsquo;administration</strong> à l&rsquo;utilisateur <strong>adm</strong>.</li>
-<li>Afficher le nom et le SID des membres du groupe local <strong>L_SupportInfo</strong></li>
-</ul>
-<p><strong>Bonus</strong></p>
-<ul>
-<li>Limiter les horaires d&rsquo;accès de vos voisins sur le poste Win10-17 du lundi au vendredi entre 9h et 17h.</li>
-</ul>
-<h3 id="cmdexe">CMD.EXE<a class="headerlink" href="#cmdexe" title="Permanent link"></a></h3>
-<h4 id="afficher-les-infos-du-user-account-francois">Afficher les infos du user account François<a class="headerlink" href="#afficher-les-infos-du-user-account-francois" title="Permanent link"></a></h4>
-<div class="highlight"><pre>cmd&gt; net user francois
+<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-history</span> <span class="n">-count</span> <span class="p">&lt;</span><span class="n">int32</span><span class="p">&gt;</span>
 </pre></div>
 
-<h4 id="afficher-les-membres-du-groupe-administrateurs">Afficher les membres du groupe Administrateurs<a class="headerlink" href="#afficher-les-membres-du-groupe-administrateurs" title="Permanent link"></a></h4>
-<div class="highlight"><pre>cmd&gt; net localgroup administrateurs
-</pre></div>
-
-<h4 id="creer-un-utilisateur-romain-avec-mdp-attention-le-mdp-ne-devra-pas-etre-visible-en-cli">Créer un utilisateur ROMAIN avec mdp. Attention le mdp ne devra pas être visible en CLI<a class="headerlink" href="#creer-un-utilisateur-romain-avec-mdp-attention-le-mdp-ne-devra-pas-etre-visible-en-cli" title="Permanent link"></a></h4>
-<div class="highlight"><pre>cmd&gt; net user Romain * /ADD
-(prompt pour mdp + confirmation)
-</pre></div>
-
-<h4 id="ajouter-romain-au-groupe-l_responsables">Ajouter Romain au groupe L_Responsables<a class="headerlink" href="#ajouter-romain-au-groupe-l_responsables" title="Permanent link"></a></h4>
-<div class="highlight"><pre>cmd&gt; net localgroup L_Responsables Romain /ADD
-</pre></div>
-
-<h4 id="afficher-le-sid-du-current-user-puis-les-sid-des-groupes-dont-il-est-membre">Afficher le SID du current user, puis les SID des groupes dont il est membre<a class="headerlink" href="#afficher-le-sid-du-current-user-puis-les-sid-des-groupes-dont-il-est-membre" title="Permanent link"></a></h4>
-<div class="highlight"><pre>cmd&gt; whoami /USER
-cmd&gt; whoami /USER /GROUPS
-</pre></div>
-
-<h3 id="powershell-sur-win11">POWERSHELL sur WIN11<a class="headerlink" href="#powershell-sur-win11" title="Permanent link"></a></h3>
-<h4 id="afficher-la-liste-des-utilisateurs-sur-le-systeme-nom-sid-description">Afficher la liste des utilisateurs sur le Système (nom, sid, description)<a class="headerlink" href="#afficher-la-liste-des-utilisateurs-sur-le-systeme-nom-sid-description" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-localuser</span> <span class="p">|</span> <span class="n">select</span> <span class="n">name</span><span class="p">,</span><span class="n">sid</span><span class="p">,</span><span class="n">description</span>
-</pre></div>
-
-<h4 id="afficher-les-informations-suivantes-pour-lutilisateur-james">Afficher les informations suivantes pour l&rsquo;utilisateur James<a class="headerlink" href="#afficher-les-informations-suivantes-pour-lutilisateur-james" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-localuser</span> <span class="n">james</span> <span class="p">|</span> <span class="n">select</span> <span class="n">fullname</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">objectclass</span><span class="p">,</span> <span class="n">lastlogon</span> 
-</pre></div>
-
-<h4 id="ajouter-la-description-compte-generique-avec-privileges-dadministration">Ajouter la description &ldquo;Compte générique avec privilèges d&rsquo;administration&rdquo;<a class="headerlink" href="#ajouter-la-description-compte-generique-avec-privileges-dadministration" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">set-localuser</span> <span class="n">-Name</span> <span class="s2">&quot;adm&quot;</span> <span class="n">-Description</span> <span class="s2">&quot;Compte générique avec privilèges d&#39;admin&quot;</span>
-</pre></div>
-
-<p><span class="attention">ATTENTION</span>, il y a une limite de 50 caractères en powershell mais que sur la description, dans ce cas de figure-ci.</p>
-<h4 id="afficher-le-nom-et-le-sid-des-membres-du-groupe-local-l_supportinfo">Afficher le nom et le SID des membres du groupe local L_SupportInfo<a class="headerlink" href="#afficher-le-nom-et-le-sid-des-membres-du-groupe-local-l_supportinfo" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">get-LocalGroupMember</span> <span class="n">-Name</span> <span class="s2">&quot;L_SupportInfo&quot;</span> <span class="p">|</span> <span class="n">select</span> <span class="n">name</span><span class="p">,</span><span class="n">sid</span>
-</pre></div>
-
-<h3 id="bonus-creation-dutilisateur">Bonus : Création d&rsquo;utilisateur<a class="headerlink" href="#bonus-creation-dutilisateur" title="Permanent link"></a></h3>
-<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nv">$pswd</span><span class="p">=</span><span class="nb">Read-Host</span> <span class="n">-AsSecureString</span>
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">New-LocalUser</span> <span class="s2">&quot;francois&quot;</span> <span class="n">-Password</span> <span class="nv">$pswd</span> <span class="n">-FullName</span> <span class="s2">&quot;François&quot;</span> 
-                            <span class="n">-Description</span> <span class="s2">&quot;Responsable Info&quot;</span> 
-                            <span class="n">-UserMayNotChangePassword</span> 
-                            <span class="n">-PasswordNeverExpires</span>
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&quot;L_Reesponsables&quot;</span> <span class="n">-Member</span> <span class="s2">&quot;francois&quot;</span>
-</pre></div>
-
-<p><strong>La totale :</strong></p>
-<div class="highlight"><pre><span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localuser</span> <span class="s2">&quot;francois&quot;</span> <span class="n">-Password</span> <span class="nv">$mdp</span> <span class="n">-FullName</span> <span class="s2">&quot;François&quot;</span> <span class="n">-UserMayNotChangePassword</span> <span class="n">-PasswordNeverExpires</span>
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localuser</span> <span class="s2">&quot;romain&quot;</span>   <span class="n">-Password</span> <span class="nv">$mdp</span> <span class="n">-FullName</span> <span class="s2">&quot;Romain&quot;</span>   <span class="n">-UserMayNotChangePassword</span> <span class="n">-PasswordNeverExpires</span>
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localuser</span> <span class="s2">&quot;yann&quot;</span>     <span class="n">-Password</span> <span class="nv">$mdp</span> <span class="n">-FullName</span> <span class="s2">&quot;Yann&quot;</span>     <span class="n">-UserMayNotChangePassword</span> <span class="n">-PasswordNeverExpires</span>
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localuser</span> <span class="s2">&quot;voisin1&quot;</span>  <span class="n">-Password</span> <span class="nv">$mdp</span> <span class="n">-FullName</span> <span class="s2">&quot;Voisin&quot;</span>   <span class="n">-UserMayNotChangePassword</span> <span class="n">-PasswordNeverExpires</span>
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localuser</span> <span class="s2">&quot;voisin2&quot;</span>  <span class="n">-Password</span> <span class="nv">$mdp</span> <span class="n">-FullName</span> <span class="s2">&quot;Voisin&quot;</span>   <span class="n">-UserMayNotChangePassword</span> <span class="n">-PasswordNeverExpires</span>
-
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localgroup</span> <span class="n">L_Responsables</span>
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localgroup</span> <span class="n">L_Voisins</span>
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">new-localgroup</span> <span class="n">L_Informatique</span>
-
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&quot;L_Responsables&quot;</span> <span class="n">-Member</span> <span class="s2">&quot;francois&quot;</span> 
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&quot;L_Informatique&quot;</span> <span class="n">-Member</span> <span class="s2">&quot;francois&quot;</span> 
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&quot;Administrateurs&quot;</span> <span class="n">-Member</span> <span class="s2">&quot;francois&quot;</span>
-
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&quot;L_Voisins&quot;</span> <span class="n">-Member</span> <span class="s2">&quot;voisin1&quot;</span>
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&quot;L_Voisins&quot;</span> <span class="n">-Member</span> <span class="s2">&quot;voisin2&quot;</span>
-
-<span class="n">ps</span><span class="p">&gt;</span> <span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&quot;L_Responsables&quot;</span> <span class="n">-Member</span> <span class="s2">&quot;romain&quot;</span>
-</pre></div>
-
-<h3 id="bonus-2-restrictions-dhoraires">Bonus 2 : Restrictions d&rsquo;horaires<a class="headerlink" href="#bonus-2-restrictions-dhoraires" title="Permanent link"></a></h3>
-<p>Vos voisins pourront ouvrir une session uniquement du lundi au vendredi entre 9h et 17h</p>
-<div class="highlight"><pre><span class="n">cmd</span><span class="p">&gt;</span> <span class="n">net</span> <span class="n">user</span> <span class="n">voisin1</span> <span class="p">/</span><span class="n">time</span><span class="err">:</span><span class="n">l-v</span><span class="p">,</span><span class="n">9</span><span class="err">:</span><span class="n">00</span><span class="p">,</span><span class="n">17</span><span class="err">:</span><span class="n">00</span>
-</pre></div>
-
-<p>Oui, les jours sont en français&hellip;</p>
-<p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/style.css"></p></article></body></html>
+<p><link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css"></p></article></body></html>
