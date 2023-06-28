@@ -1239,7 +1239,7 @@ Options:
 <div class="highlight"><pre>check_cpu &quot;warn=load &gt; 75&quot; &quot;crit=load &gt; 85&quot;
 </pre></div>
 
-<p><img src="../.ressources/img/tp02-2.1.png" alt="2.2.1" /></p>
+<p><img src="../../ressources/img/17-supervision/tp02-2.1.png" alt="2.2.1" /></p>
 <p><em>Comment il sait qui il interroge ????</em></p>
 <blockquote>
 <p>Parce qu&rsquo;il est exécuté en localhost</p>
@@ -1251,7 +1251,7 @@ Options:
 <div class="highlight"><pre>check_memory warn=75 crit=90 type=committed
 </pre></div>
 
-<p><img src="../.ressources/img/tp02-2.2.png" alt="2.2.2" /></p>
+<p><img src="../../ressources/img/17-supervision/tp02-2.2.png" alt="2.2.2" /></p>
 <h5 id="23-verification-du-stockage">2.3 Vérification du stockage<a class="headerlink" href="#23-verification-du-stockage" title="Permanent link"></a></h5>
 <ul>
 <li>Vérification du lecteur C:</li>
@@ -1260,8 +1260,8 @@ Options:
 <div class="highlight"><pre>check_drivesize drive=c warn=70 crit=80
 </pre></div>
 
-<p><img src="../.ressources/img/tp02-2.3A.png" alt="2.2.3A" /></p>
-<p><img src="../.ressources/img/tp02-2.3B.png" alt="2.2.3B" /></p>
+<p><img src="../../ressources/img/17-supervision/tp02-2.3A.png" alt="2.2.3A" /></p>
+<p><img src="../../ressources/img/17-supervision/tp02-2.3B.png" alt="2.2.3B" /></p>
 <div class="highlight"><pre>/usr/lib/nagios/plugins/check_centreon_nrpe3 -H 172.16.1.100 -c check_drivesize <span class="s2">&quot;warn=used &gt; 70&quot;</span> <span class="s2">&quot;crit=used &gt; 85&quot;</span> <span class="s2">&quot;drive=c&quot;</span>
 </pre></div>
 
@@ -1348,6 +1348,6 @@ Options:
 
 <p class="fin">~Fin TP2~</p>
 
-<p><link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../ressources/css/style.css">
-<link rel="stylesheet" type="text/css" href="../ressources/css/headings.css"></p></article></body></html>
+<p><link rel="stylesheet" type="text/css" href="../../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href="../../ressources/css/headings.css"></p></article></body></html>

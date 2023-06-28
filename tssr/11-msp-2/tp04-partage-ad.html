@@ -1102,7 +1102,7 @@ body .markdown-body
 <li>L&rsquo;atelier 3 doit avoir été réalisé.</li>
 </ul>
 <h3 id="resume-des-parametres">Résumé des paramètres<a class="headerlink" href="#resume-des-parametres" title="Permanent link"></a></h3>
-<p><a href="../ressources/img/11-msp-2carto.png" target="_blank"><img alt="Cartographie" src="../ressources/img/11-msp-2carto.png" /></a></p>
+<p><a href="../ressources/img/11-msp-2/carto.png" target="_blank"><img alt="Cartographie" src="../ressources/img/11-msp-2/carto.png" /></a></p>
 <table class="table table-hover">
     <thead>
         <tr>
@@ -1276,7 +1276,7 @@ body .markdown-body
 <h4 id="procedure-de-creation-du-volume-f">Procédure de création du volume F:<a class="headerlink" href="#procedure-de-creation-du-volume-f" title="Permanent link"></a></h4>
 <p>Ce document présente la procédure pour créer un disque en RAID-5 </p>
 <p>Rappel :</p>
-<p>file:///media/reno/Toshiba/DEV/COURS_ENI/3-tssr/09-services-reseau-windows/notes/../ressources/img/11-msp-2raid-5.png</p>
+<p>../ressources/img/11-msp-2/raid-5.png</p>
 <h5 id="dans-vmware-workstation">Dans VMWare Workstation<a class="headerlink" href="#dans-vmware-workstation" title="Permanent link"></a></h5>
 <ol>
 <li>Eteindre la VM</li>
@@ -1293,41 +1293,41 @@ body .markdown-body
 <ol>
 <li>Ouvrir le Gestionnaire de disque en executant la commande &ldquo;diskmgmt.msc&rdquo; </li>
 <li>Clic droit sur chacun des disques ajoutés &gt; sélectionner &ldquo;En ligne&rdquo; pour les activer
-<img alt="Activation" src="../ressources/img/11-msp-2tp04-05.png" /></li>
+<img alt="Activation" src="../ressources/img/11-msp-2/tp04-05.png" /></li>
 <li>Clic droit à nouveau &gt; sélectionner &ldquo;Initialiser&rdquo;. Garder les réglages par défaut.
-<img alt="Init" src="../ressources/img/11-msp-2tp04-06.png" /></li>
+<img alt="Init" src="../ressources/img/11-msp-2/tp04-06.png" /></li>
 <li>Clic droit un des nouveaux disques &gt; sélectionner &ldquo;Nouveau volume RAID-5&hellip;&rdquo;
-<img alt="RAID-5" src="../ressources/img/11-msp-2tp04-07.png" /></li>
+<img alt="RAID-5" src="../ressources/img/11-msp-2/tp04-07.png" /></li>
 <li>Sélectionner les 3 disques dans la partie &ldquo;Disponible&rdquo; &gt; cliquer sur le bouton &ldquo;Ajouter&rdquo;. On garde l&rsquo;espace indiqué par défaut (1006 Mo).
-<img alt="Ajout" src="../ressources/img/11-msp-2tp04-08.png" /></li>
+<img alt="Ajout" src="../ressources/img/11-msp-2/tp04-08.png" /></li>
 <li>Attribuer la lettre <strong>F</strong> au lecteur</li>
 <li>Sélectionner &ldquo;Formater ce volume&hellip;&rdquo; en NTFS, sans préciser de nom de volume.</li>
 <li>clic Suivant &gt; Terminer &gt; Répondre Oui au message d’avertissement</li>
 </ol>
-<p><img alt="Fin" src="../ressources/img/11-msp-2tp04-10.png" /></p>
+<p><img alt="Fin" src="../ressources/img/11-msp-2/tp04-10.png" /></p>
 <h4 id="procedure-de-configuration-du-partages-et-des-autorisation">Procédure de configuration du partages et des autorisation<a class="headerlink" href="#procedure-de-configuration-du-partages-et-des-autorisation" title="Permanent link"></a></h4>
 <ol>
 <li>Sur le serveur AD <strong>SRV1-WIN</strong>, dans la console de Gestion de l&rsquo;Active Directory, on va créer les OU pour les groupes globaux. Ils correspondent à chaque service de l&rsquo;entreprise.
-<img alt="GG" src="../ressources/img/11-msp-2tp04-11.png" /></li>
+<img alt="GG" src="../ressources/img/11-msp-2/tp04-11.png" /></li>
 <li>
 <p>Création des domaines locaux. Un DL correspond à un type de permission. On y ajoutera les membres (Groupes Globaux) en fonction de leur droits ACL.
-<img alt="DL" src="../ressources/img/11-msp-2tp04-12.png" /></p>
+<img alt="DL" src="../ressources/img/11-msp-2/tp04-12.png" /></p>
 </li>
 <li>
 <p>Attribution des membres
-<img alt="Enoncé" src="../ressources/img/11-msp-2tp04-14.png" /></p>
+<img alt="Enoncé" src="../ressources/img/11-msp-2/tp04-14.png" /></p>
 </li>
 </ol>
-<p><img alt="Par services" src="../ressources/img/11-msp-2tp04-13.png" /></p>
+<p><img alt="Par services" src="../ressources/img/11-msp-2/tp04-13.png" /></p>
 <ol start="4">
 <li>Attribution des permissions : dans la console <strong>Utilisateurs et Ordinateur Active Directory</strong>, ajouter les membres à chaque OU dans GROUPES &gt; DL 
-<img alt="Ajout" src="../ressources/img/11-msp-2tp04-15.png" /></li>
+<img alt="Ajout" src="../ressources/img/11-msp-2/tp04-15.png" /></li>
 </ol>
-<p><img alt="Ajout OUTILS" src="../ressources/img/11-msp-2tp04-16.png" /></p>
+<p><img alt="Ajout OUTILS" src="../ressources/img/11-msp-2/tp04-16.png" /></p>
 <ol start="5">
 <li>
 <p>Ajouter les membres (utilisateurs) à leur Groupe Global respectif
-<img alt="Ajout aux GG" src="../ressources/img/11-msp-2tp04-17.png" /></p>
+<img alt="Ajout aux GG" src="../ressources/img/11-msp-2/tp04-17.png" /></p>
 </li>
 <li>
 <p>Partager les dossiers : dans l&rsquo;explorateur de fichiers, aller à F:\DATA\SERVICES &gt; clic droit &gt; Propriétés &gt; Partage Avancé</p>
@@ -1336,33 +1336,33 @@ body .markdown-body
 <li>Retirer &ldquo;Tout le monde&rdquo; </li>
 <li>
 <p>Ajouter &ldquo;Utilisateurs authentifiés&rdquo; et leur attribuer un contrôle total
-<img alt="Partage avancé" src="../ressources/img/11-msp-2tp04-18.png" /></p>
+<img alt="Partage avancé" src="../ressources/img/11-msp-2/tp04-18.png" /></p>
 </li>
 <li>
 <p>Descendre dans le répertoire SERVICES, </p>
 </li>
 <li>Pour chaque dossier à partager, ouvrir les propriétés &gt; onglet &ldquo;Sécurité&rdquo; &gt; attribuer les permissions à chaque DL correspondants (bouton Modifier). Garder les utilisateurs Système, Administrateur local et Admins du domaine en contrôle total.
-<img alt="Exemple" src="../ressources/img/11-msp-2tp04-19.png" /></li>
+<img alt="Exemple" src="../ressources/img/11-msp-2/tp04-19.png" /></li>
 </ol>
 <p><strong>Remarque</strong> : Pour parvenir à modifier les autorisations, il faudra au préalable désactiver l&rsquo;héritage en cliquant sur le bouton &ldquo;Avancé&rdquo; puis sur le bouton &ldquo;Désactiver l&rsquo;héritage&rdquo;</p>
 <ol start="12">
 <li>
 <p>Faire la même chose pour le dossier <strong>F:\DATA\Informatique</strong>, à la différence qu&rsquo;on lui donnera un nom de partage : <strong>&ldquo;OUTILS&rdquo;</strong>. Partager avec &ldquo;Tout le monde&rdquo; en contrôle total. 
-<img alt="Outils" src="../ressources/img/11-msp-2tp04-20.png" /></p>
+<img alt="Outils" src="../ressources/img/11-msp-2/tp04-20.png" /></p>
 </li>
 <li>
 <p>Dans les propriétés du dossier &gt; onglet Sécurité &gt; &ldquo;Avancé&rdquo; puis &ldquo;Désactiver l&rsquo;héritage&rdquo;</p>
 </li>
 <li>
 <p>&ldquo;Modifier&rdquo; les permissions. Garder Système et Administrateur local en contrôle total. Ajouter Admins du domaine (contrôle total), et les groupes DL correspondants.
-<img alt="Permissions" src="../ressources/img/11-msp-2tp04-21.png" /></p>
+<img alt="Permissions" src="../ressources/img/11-msp-2/tp04-21.png" /></p>
 </li>
 <li>
 <p>Partager le dossier PUBLIC. Désactiver l&rsquo;héritage des ACL, ajouter &ldquo;Utilisateurs authentifiés&rdquo; et leur donner les droits en modification. </p>
 </li>
 </ol>
 <p><strong>Remarque</strong> : Le contrôle total permettrait à l&rsquo;utilisateur de modifier les droits ACL sur le dossier en question, donc ce n&rsquo;est pas souhaitable sur un dossier public.</p>
-<p><img alt="Public" src="../ressources/img/11-msp-2tp04-22.png" /></p>
+<p><img alt="Public" src="../ressources/img/11-msp-2/tp04-22.png" /></p>
 <h3 id="tests-effectifs">Tests Effectifs<a class="headerlink" href="#tests-effectifs" title="Permanent link"></a></h3>
 <table>
 <thead>

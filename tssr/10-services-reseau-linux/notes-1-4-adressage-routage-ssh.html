@@ -1205,7 +1205,7 @@ body .markdown-body
 <li>un inter-réseau est utilisé pour la communication entre le routeur et le pare-feu</li>
 <li>un réseau public, commun à toutes les infrastructures, permet de fournir des services génériques</li>
 </ul>
-<p><a href="../ressources/img/10-services-reseau-linuxtssr10-vue_synoptique-v5.0.png" target="_blank"><img alt="Infrastructure" src="../ressources/img/10-services-reseau-linuxtssr10-vue_synoptique-v5.0.png" /></a> </p>
+<p><a href="../ressources/img/10-services-reseau-linux/tssr10-vue_synoptique-v5.0.png" target="_blank"><img alt="Infrastructure" src="../ressources/img/10-services-reseau-linux/tssr10-vue_synoptique-v5.0.png" /></a> </p>
 <p>Dans un contexte réel, des commutateurs distincts ou VLAN distincts seraient utilisés. Pour le maquettage, nous utiliserons des réseaux de machines virtuelles(VMNet) distincts.</p>
 <h2 id="2-configuration-de-ladressage-reseau">2. Configuration de l&rsquo;adressage réseau<a class="headerlink" href="#2-configuration-de-ladressage-reseau" title="Permanent link"></a></h2>
 <p>Afin qu&rsquo;une communication puisse se faire entre 2 postes, des liens physiques et logiques doivent exister.</p>
@@ -1531,7 +1531,7 @@ nameserver 10.100.0.3
 <h2 id="3-routage-et-traduction">3. Routage et traduction<a class="headerlink" href="#3-routage-et-traduction" title="Permanent link"></a></h2>
 <h3 id="31-concepts-du-routage">3.1 Concepts du routage<a class="headerlink" href="#31-concepts-du-routage" title="Permanent link"></a></h3>
 <p>Le routage est le processus permettant la communication entre des hôtes de réseaux logiques distincts.
-<a href="../ressources/img/10-services-reseau-linuxroutage-1.png" target="_blank"><img alt="Routage" src="../ressources/img/10-services-reseau-linuxroutage-1.png" /></a> </p>
+<a href="../ressources/img/10-services-reseau-linux/routage-1.png" target="_blank"><img alt="Routage" src="../ressources/img/10-services-reseau-linux/routage-1.png" /></a> </p>
 <p>Lorsqu&rsquo;un hôte (<strong>A</strong>) cherche à communiquer avec une autre hôte (<strong>C</strong>):</p>
 <ul>
 <li>l&rsquo;hôte <strong>A</strong>, au moyen de son adresse ip d&rsquo;hôte et son masque de réseau, détermine si l&rsquo;hôte distant <strong>C</strong> est sur le même réseau logique que lui.</li>
@@ -1636,7 +1636,7 @@ net.ipv4.ip_forward=1
 <p>Dans le cadre des ateliers pratiques, vous mettrez en oeuvre la traduction d&rsquo;adresse au moyen d&rsquo;une VM <strong>pfSense</strong>. </p>
 <h4 id="371-parametre-nat-pfsense">3.7.1 Paramètre NAT pfSense<a class="headerlink" href="#371-parametre-nat-pfsense" title="Permanent link"></a></h4>
 <p>LE NAT/NAPT se configure dans le menu <strong>Firewall</strong> &gt; <strong>NAT</strong>.</p>
-<p><a href="../ressources/img/10-services-reseau-linuxpfsense-nat.png" target="_blank"><img alt="pfSense NAT" src="../ressources/img/10-services-reseau-linuxpfsense-nat.png" /></a> </p>
+<p><a href="../ressources/img/10-services-reseau-linux/pfsense-nat.png" target="_blank"><img alt="pfSense NAT" src="../ressources/img/10-services-reseau-linux/pfsense-nat.png" /></a> </p>
 <p>Plusieurs types de paramétrages sont disponibles :</p>
 <ul>
 <li><strong>Port Forward</strong> : redirection de port (et d&rsquo;adresse), principalement destiné à la gestion des paquets entrants sur l&rsquo;interface WAN mais également paramétrable  pour les autres interfaces.</li>
@@ -1654,15 +1654,15 @@ net.ipv4.ip_forward=1
 </ul>
 <p>Cela permet donc à tous les hôtes des réseaux privés derrière le routeur/pare-feu d&rsquo;atteindre les ressources dans les réseaux publics.</p>
 <p>Paramétrage par défaut du mode <strong>Outbound</strong> :
-<a href="../ressources/img/10-services-reseau-linuxpfsense-2.png" target="_blank"><img alt="pfSense NAT Outbound Mode" src="../ressources/img/10-services-reseau-linuxpfsense-2.png" /></a> </p>
+<a href="../ressources/img/10-services-reseau-linux/pfsense-2.png" target="_blank"><img alt="pfSense NAT Outbound Mode" src="../ressources/img/10-services-reseau-linux/pfsense-2.png" /></a> </p>
 <p>Règles par défaut :
-<a href="../ressources/img/10-services-reseau-linuxpfsense-3.png" target="_blank"><img alt="pfSense NAT Outbound Règles" src="../ressources/img/10-services-reseau-linuxpfsense-3.png" /></a> </p>
+<a href="../ressources/img/10-services-reseau-linux/pfsense-3.png" target="_blank"><img alt="pfSense NAT Outbound Règles" src="../ressources/img/10-services-reseau-linux/pfsense-3.png" /></a> </p>
 <p>Le mode <strong>automatique</strong> (<em>Automatic Outbound NAT rule generation</em>) est préconfiguré après l&rsquo;installation du système pfSense. Dans ce mode, les règles ne sont pas configurables mais cela convient aux besoins de base. </p>
 <p>Pour pouvoir <strong>éditer et/ou ajouter</strong> des règles <strong>Outbound</strong>, il faut activer le mode <strong>hybride</strong> ou <strong>manuel</strong>.</p>
 <p>Il est également possible de <strong>désactiver</strong> le NAT sortant avec le mode <strong>Disable Outbound NAT rule generation</strong>.</p>
 <table>
     <tr>
-        <td width="100"><img src="../ressources/img/10-services-reseau-linuxwarning-2-64.png" alt="warning"></td>
+        <td width="100"><img src="../ressources/img/10-services-reseau-linux/warning-2-64.png" alt="warning"></td>
         <td>La désactivation du pare-feu (option <b>Disable Firewall</b>) dans les paramètres systèmes avancés désactive toutes les règles de pare-feu AINSI QUE <b>toutes les règles NAT</b> préconfigurées.</td>
     </tr>
 </table>
@@ -1670,7 +1670,7 @@ net.ipv4.ip_forward=1
 <p>Vous trouverez des informations détaillées sur les paramétrages NAT dans la documentation officielle: <a href="https://docs.netgate.com/pfsense/en/latest/nat/outbound-nat.html">https://docs.netgate.com/pfsense/en/latest/nat/outbound-nat.html</a></p>
 <table>
     <tr>
-        <td width="100"><img src="../ressources/img/10-services-reseau-linuxwrench-screwdriver-32.png" alt="wrench"></td>
+        <td width="100"><img src="../ressources/img/10-services-reseau-linux/wrench-screwdriver-32.png" alt="wrench"></td>
         <td>NEXT : <b>Atelier 3. Intégration d'un routeur NAT sous pfSense</b></td>
     </tr>
 </table>
@@ -1767,7 +1767,7 @@ The key&#39;s randomart image is:
 <p>Pour simplifier la mise en oeuvre, on utilise ici les paramètres par défaut, sans indiquer de <em>passphrase</em>. Le type, le nom et la taille de la clé peuvent être précisés avec les options de <code>ssh-keygen</code></p>
 <table class="warning-table">
     <tr>
-        <td width="100"><img src="../ressources/img/10-services-reseau-linuxwarning-2-64.png" alt="warning"></td>
+        <td width="100"><img src="../ressources/img/10-services-reseau-linux/warning-2-64.png" alt="warning"></td>
         <td>Il est vivement conseillé, dans un contexte de production, d'indiquer une <b>passphrase</b>.<br>Cette passphrase devra ensuite être fournie à chaque connection. Elle peut être gérée et mise en cache côté client avec le composant <b>ssh-agent</b></td>
     </tr>
 </table>
@@ -1814,7 +1814,7 @@ root@deb-srv:~# cp /home/admin/.ssh/authorized_keys /root/.ssh
 
 <table class="warning-table">
     <tr>
-        <td width="100"><img src="../ressources/img/10-services-reseau-linuxwarning-2-64.png" alt="warning"></td>
+        <td width="100"><img src="../ressources/img/10-services-reseau-linux/warning-2-64.png" alt="warning"></td>
         <td>La procédure a été simplifiée et n'est adaptée qu'à un contexte avec un <u>nombre limité</u> de serveurs et de clients. Dans une infra plus complexe, il faudra gérer un ensemble de clés et manipuler avec précaution le fichier <b>authorized_keys</b>.<br><br>Pour plus de détails, consulter <a href="https://www.ssh.com/ssh/" target="_blank">https://www.ssh.com/ssh/</a></td>
     </tr>
 </table>
@@ -1830,12 +1830,12 @@ root@deb-srv:~# cp /home/admin/.ssh/authorized_keys /root/.ssh
     </thead>
     <tbody>
         <tr>
-            <td><b>Putty</b> <img src="../ressources/img/10-services-reseau-linuxputty.png" alt="putty"></td>
+            <td><b>Putty</b> <img src="../ressources/img/10-services-reseau-linux/putty.png" alt="putty"></td>
             <td>Outil de bas pour se connecter aux serveurs distants au temps des dinosaures.<br>Supporte les connections SSH, TelNet, Serial. Permet la sauvegarde des paramètres et informations de connection. Intègre la gestion des clés d'authentification (format PPK). Sous forme d'un fichier exécutable compact (moins d'1 Mo).<br>
             Logiciel Open Source sous licence MIT.</td>
         </tr>
         <tr>
-            <td><b>mRemoteNG</b> <img src="../ressources/img/10-services-reseau-linuxmRemoteNG.png" alt="mRemoteNG" label="mRemoteNG"></td>
+            <td><b>mRemoteNG</b> <img src="../ressources/img/10-services-reseau-linux/mRemoteNG.png" alt="mRemoteNG" label="mRemoteNG"></td>
             <td>Outil multifenêtres sous forme d'onglets et multiprotocoles.<br>
                 Supporte les connections SSH, RDP, VNC, HTTP, etc.<br>
             Permet la sauvegarde des paramètres et une gestion avancée des informations de connection. Compatbile avec les paramètrages de Putty. Existe au format portable.<br>
@@ -1843,7 +1843,7 @@ root@deb-srv:~# cp /home/admin/.ssh/authorized_keys /root/.ssh
             </td>
         </tr>
         <tr>
-            <td><b>MobaXTerm</b> <img src="../ressources/img/10-services-reseau-linuxMobaXTerm.png" alt="MobaXTerm" label="MobaXTerm"></td>
+            <td><b>MobaXTerm</b> <img src="../ressources/img/10-services-reseau-linux/MobaXTerm.png" alt="MobaXTerm" label="MobaXTerm"></td>
             <td>Outil multifenêtres et multiprotocoles avec une interface graphique évoluée.<br>
                 Supporte les connexions bureau et terminal à distance (RDP, VNC, XDMCP, SSH, TelNet, FTP, etc.) Prend en charge les tunnels SSH. Fournit une gestion avancée des connections et des outils complémentaires: SFTP, macros, environnement CLI de base (Cygwin), etc. Existe au format portable.<br>
                 Logiciel non libre, version Home gratuite limitée à 12 sessions et 2 tunnels SSH.<br>
@@ -1862,7 +1862,7 @@ root@deb-srv:~# cp /home/admin/.ssh/authorized_keys /root/.ssh
 </ul>
 <table>
     <tr>
-        <td width="100"><img src="../ressources/img/10-services-reseau-linuxwrench-screwdriver-32.png" alt="wrench"></td>
+        <td width="100"><img src="../ressources/img/10-services-reseau-linux/wrench-screwdriver-32.png" alt="wrench"></td>
         <td>NEXT : <b>Atelier 4. Configuration du service SSH</b></td>
     </tr>
 </table>

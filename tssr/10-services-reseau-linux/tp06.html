@@ -1218,7 +1218,7 @@ body .markdown-body
 <p><strong>Note</strong>: <em>pfSense est censé être branché sur le réseau qui sert de porte d&rsquo;entrée sur Internet (le modem du FAI). Pour que ce labo fonctionne chez moi, je dois remplacer les ip faisant référence au FAI de l&rsquo;ENI (<em>88.44.22.17</em> et <em>88.44.22.254</em>), par les IP de mon réseau FAI (<em>192.168.1.22</em> et <em>192.168.1.1</em>).</em></p>
 <h3 id="cartographie-reseau">Cartographie Réseau<a class="headerlink" href="#cartographie-reseau" title="Permanent link"></a></h3>
 <p>C&rsquo;est la version avec les ip du réseau FAI &ldquo;maison&rdquo;, et non plus celles données dans le TP original (FAI ENI). 
-<a href="../ressources/img/10-services-reseau-linuxtp06-carto.png" target="_blank"><img alt="Cartographie" src="../ressources/img/10-services-reseau-linuxtp06-carto.png" /></a> </p>
+<a href="../ressources/img/10-services-reseau-linux/tp06-carto.png" target="_blank"><img alt="Cartographie" src="../ressources/img/10-services-reseau-linux/tp06-carto.png" /></a> </p>
 <h3 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link"></a></h3>
 <h4 id="1-installation-du-relais-dhcp-sur-routux">1. Installation du relais DHCP sur ROUTUX<a class="headerlink" href="#1-installation-du-relais-dhcp-sur-routux" title="Permanent link"></a></h4>
 <ul>
@@ -1246,7 +1246,7 @@ body .markdown-body
 <p><strong>Interfaces connectées</strong></p>
 <p>Routux est raccordé aux LAN-CLIENTS via ens33 (ee:8d) <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/172" title="GitHub User: 172">@172</a>.18.17.254 &amp; LAN-SERVEURS via ens35 (84:63) <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/192" title="GitHub User: 192">@192</a>.168.17.254. (vérif via <code>ip route</code>)</p>
 <p>Normalement ROUTUX et DEB-SRV1 se ping sans problème.</p>
-<p><a href="../ressources/img/10-services-reseau-linuxtp06-01.png" target="_blank"><img alt="01" src="../ressources/img/10-services-reseau-linuxtp06-01.png" /></a> </p>
+<p><a href="../ressources/img/10-services-reseau-linux/tp06-01.png" target="_blank"><img alt="01" src="../ressources/img/10-services-reseau-linux/tp06-01.png" /></a> </p>
 <p><strong>Configuration de isc-dhcp-relay</strong></p>
 <p>Sur <strong>routux</strong>, on relance la configuration avec la commande suivante et on lui indique les interfaces de travail (ens33, ens35) et l&rsquo;ip de <strong>DEB-SRV1</strong> (192.168.17.11) comme adresse de serveur DHCP.</p>
 <p><strong>routux</strong> est connecté au serveur DHCP via son interface <strong>ens35</strong>.</p>
@@ -1261,13 +1261,13 @@ Options supplémentaires pour le démon de relais DHCp :
 <h4 id="2-configuration-du-service-isc-dhcp-server-sur-deb-srv1">2. Configuration du service <code>isc-dhcp-server</code> sur DEB-SRV1<a class="headerlink" href="#2-configuration-du-service-isc-dhcp-server-sur-deb-srv1" title="Permanent link"></a></h4>
 <div class="img-row">
     <div class="img-col">
-    <a href="../ressources/img/10-services-reseau-linuxtp05-01.png" target="_blank">
-      <img src="../ressources/img/10-services-reseau-linuxtp05-01.png" alt="../ressources/img/10-services-reseau-linuxtp05-01.png" style="width:100%">
+    <a href="../ressources/img/10-services-reseau-linux/tp05-01.png" target="_blank">
+      <img src="../ressources/img/10-services-reseau-linux/tp05-01.png" alt="../ressources/img/10-services-reseau-linux/tp05-01.png" style="width:100%">
     </a>
   </div>
     <div class="img-col">
-      <a href="../ressources/img/10-services-reseau-linuxtp05-02.png" target="_blank">
-        <img src="../ressources/img/10-services-reseau-linuxtp05-02.png" alt="../ressources/img/10-services-reseau-linuxtp05-02.png" style="width:100%">
+      <a href="../ressources/img/10-services-reseau-linux/tp05-02.png" target="_blank">
+        <img src="../ressources/img/10-services-reseau-linux/tp05-02.png" alt="../ressources/img/10-services-reseau-linux/tp05-02.png" style="width:100%">
       </a>
   </div>
 </div>
@@ -1287,7 +1287,7 @@ Options supplémentaires pour le démon de relais DHCp :
 </li>
 <li>
 <p>Ajouter l&rsquo;adresse ip de <strong>deb-srv2</strong> comme DNS de <strong>deb-cli</strong>. Par exemple en modifiant la connection via <code>nmtui</code> 
-<a href="../ressources/img/10-services-reseau-linuxtp05-03.png" target="_blank"><img alt="03" src="../ressources/img/10-services-reseau-linuxtp05-03.png" /></a> </p>
+<a href="../ressources/img/10-services-reseau-linux/tp05-03.png" target="_blank"><img alt="03" src="../ressources/img/10-services-reseau-linux/tp05-03.png" /></a> </p>
 </li>
 <li>
 <p>Faire la même chose sur les 2 serveurs et <strong>routux</strong>. On peut modifier directement le fichier <strong>/etc/resolv.conf</strong>.</p>
@@ -1298,26 +1298,26 @@ Options supplémentaires pour le démon de relais DHCp :
 </ul>
 <div class="img-row">
     <div class="img-col">
-    <a href="../ressources/img/10-services-reseau-linuxtp05-04.png" target="_blank">
-      <img src="../ressources/img/10-services-reseau-linuxtp05-04.png" alt="../ressources/img/10-services-reseau-linuxtp05-04.png" style="width:100%">
+    <a href="../ressources/img/10-services-reseau-linux/tp05-04.png" target="_blank">
+      <img src="../ressources/img/10-services-reseau-linux/tp05-04.png" alt="../ressources/img/10-services-reseau-linux/tp05-04.png" style="width:100%">
     </a>
   </div>
     <div class="img-col">
-      <a href="../ressources/img/10-services-reseau-linuxtp05-05.png" target="_blank">
-        <img src="../ressources/img/10-services-reseau-linuxtp05-05.png" alt="../ressources/img/10-services-reseau-linuxtp05-05.png" style="width:100%">
+      <a href="../ressources/img/10-services-reseau-linux/tp05-05.png" target="_blank">
+        <img src="../ressources/img/10-services-reseau-linux/tp05-05.png" alt="../ressources/img/10-services-reseau-linux/tp05-05.png" style="width:100%">
       </a>
   </div>
 </div>
 
 <div class="img-row">
     <div class="img-col">
-    <a href="../ressources/img/10-services-reseau-linuxtp05-06.png" target="_blank">
-      <img src="../ressources/img/10-services-reseau-linuxtp05-06.png" alt="../ressources/img/10-services-reseau-linuxtp05-06.png" style="width:100%">
+    <a href="../ressources/img/10-services-reseau-linux/tp05-06.png" target="_blank">
+      <img src="../ressources/img/10-services-reseau-linux/tp05-06.png" alt="../ressources/img/10-services-reseau-linux/tp05-06.png" style="width:100%">
     </a>
   </div>
     <div class="img-col">
-      <a href="../ressources/img/10-services-reseau-linuxtp05-07.png" target="_blank">
-        <img src="../ressources/img/10-services-reseau-linuxtp05-07.png" alt="../ressources/img/10-services-reseau-linuxtp05-07.png" style="width:100%">
+      <a href="../ressources/img/10-services-reseau-linux/tp05-07.png" target="_blank">
+        <img src="../ressources/img/10-services-reseau-linux/tp05-07.png" alt="../ressources/img/10-services-reseau-linux/tp05-07.png" style="width:100%">
       </a>
   </div>
 </div>
@@ -1394,7 +1394,7 @@ Host srv2
     user admin
 </pre></div>
 
-<p><a href="../ressources/img/10-services-reseau-linuxtp05-08.png" target="_blank"><img alt="08" src="../ressources/img/10-services-reseau-linuxtp05-08.png" /></a> </p>
+<p><a href="../ressources/img/10-services-reseau-linux/tp05-08.png" target="_blank"><img alt="08" src="../ressources/img/10-services-reseau-linux/tp05-08.png" /></a> </p>
 <p><strong>Usage</strong></p>
 <div class="highlight"><pre>reno@deb-cli:~<span class="nv">$ </span>ssh routux
 admin@routux:~<span class="err">$</span>

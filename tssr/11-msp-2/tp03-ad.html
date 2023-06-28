@@ -1094,7 +1094,7 @@ body .markdown-body
 <li>Votre domaine AD utilise les informations d&rsquo;une nouvelle zone DNS : <strong>reno.domaine.tssr</strong></li>
 </ul>
 <h3 id="resume-des-parametres">Résumé des paramètres<a class="headerlink" href="#resume-des-parametres" title="Permanent link"></a></h3>
-<p><a href="../ressources/img/11-msp-2carto.png" target="_blank"><img alt="Cartographie" src="../ressources/img/11-msp-2carto.png" /></a></p>
+<p><a href="../ressources/img/11-msp-2/carto.png" target="_blank"><img alt="Cartographie" src="../ressources/img/11-msp-2/carto.png" /></a></p>
 <h3 id="1-creation-dun-domaine-active-directory">1. Création d&rsquo;un domaine Active Directory<a class="headerlink" href="#1-creation-dun-domaine-active-directory" title="Permanent link"></a></h3>
 <ul>
 <li>Sur <strong>SRV1-WIN</strong>, installer les composants permettant la prise en charge des services de domaine AD puis le promouvoir &ldquo;Contrôleur de domaine&rdquo; en respectant les contraintes suivantes :<ul>
@@ -1111,19 +1111,19 @@ body .markdown-body
 <li>Sélectionner DNS &amp; AD </li>
 <li>Laisser les réglages par défaut &gt; Installer </li>
 </ul>
-<p><a href="../ressources/img/11-msp-2tp03-01.png" target="_blank"><img alt="Installation Services AD &amp; DNS" src="../ressources/img/11-msp-2tp03-01.png" /></a></p>
+<p><a href="../ressources/img/11-msp-2/tp03-01.png" target="_blank"><img alt="Installation Services AD &amp; DNS" src="../ressources/img/11-msp-2/tp03-01.png" /></a></p>
 <ul>
 <li>
 <p>Gestionnaire de serveur &gt; menu en forme de drapeau &gt; &ldquo;Promouvoir ce serveur en Contrôleur&rdquo;
-<a href="../ressources/img/11-msp-2tp03-02.png" target="_blank"><img alt="Promotion" src="../ressources/img/11-msp-2tp03-02.png" /></a></p>
+<a href="../ressources/img/11-msp-2/tp03-02.png" target="_blank"><img alt="Promotion" src="../ressources/img/11-msp-2/tp03-02.png" /></a></p>
 </li>
 <li>
 <p>Entrer le nom de la forêt <strong>reno.domaine.tssr</strong>
-<a href="../ressources/img/11-msp-2tp03-03.png" target="_blank"><img alt="Domaine" src="../ressources/img/11-msp-2tp03-03.png" /></a></p>
+<a href="../ressources/img/11-msp-2/tp03-03.png" target="_blank"><img alt="Domaine" src="../ressources/img/11-msp-2/tp03-03.png" /></a></p>
 </li>
 <li>
 <p>Vérifier le niveau fonctionnel (Win Server 2019) et donner un mot de passe pour la restauration (ici: <strong>OuiOnPeut!</strong>)
-<a href="../ressources/img/11-msp-2tp03-04.png" target="_blank"><img alt="Niveau Fonctionnel" src="../ressources/img/11-msp-2tp03-04.png" /></a></p>
+<a href="../ressources/img/11-msp-2/tp03-04.png" target="_blank"><img alt="Niveau Fonctionnel" src="../ressources/img/11-msp-2/tp03-04.png" /></a></p>
 </li>
 <li>
 <p>Faire <strong>Suivant</strong> pour chaque question suivantes, puis <strong>Installer</strong> une fois la vérification passée.</p>
@@ -1135,7 +1135,7 @@ body .markdown-body
 <li>Afficher le contenu de la zone <strong>reno.domaine.tssr</strong> et observez les enregistrements ajoutés suite à la création du domaine.</li>
 </ul>
 <p><span class="arrow right"></span><span class="arrow right"></span><span class="arrow right"></span>&nbsp;<span class="reponse">Pour afficher le <b>Gestionnaire du DNS</b> : <b>Gestionnaire de Serveur</b> &gt; <b>Outils</b> &gt; <b>DNS</b> </span></p>
-<p><a href="../ressources/img/11-msp-2tp03-05.png" target="_blank"><img alt="Contenu de la zone DNS" src="../ressources/img/11-msp-2tp03-05.png" /></a></p>
+<p><a href="../ressources/img/11-msp-2/tp03-05.png" target="_blank"><img alt="Contenu de la zone DNS" src="../ressources/img/11-msp-2/tp03-05.png" /></a></p>
 <ul>
 <li>A quoi correspondent-ils et quelle est leur utilité ?</li>
 </ul>
@@ -1154,28 +1154,28 @@ body .markdown-body
 </ul>
 </blockquote>
 <p><span class="arrow right"></span><span class="arrow right"></span><span class="arrow right"></span>&nbsp;<span class="reponse">Pour ajouter un redirecteur conditionnel sur le serveur DNS, on ajoute le code suivant dans le fichier <code>/etc/bind/named.conf.local</code> sur <code>SRV3-DEB</code> :</span></p>
-<p><a href="../ressources/img/11-msp-2tp03-08.png" target="_blank"><img alt="Redirection conditionnelle" src="../ressources/img/11-msp-2tp03-08.png" /></a></p>
+<p><a href="../ressources/img/11-msp-2/tp03-08.png" target="_blank"><img alt="Redirection conditionnelle" src="../ressources/img/11-msp-2/tp03-08.png" /></a></p>
 <p><span class="reponse">Permet de rediriger les requêtes adressées à <code>reno.domaine.tssr</code> (notre AD) vers son IP 192.168.15.191 (serveur AD) (?!)</span></p>
 <ul>
 <li>Intégrer votre poste client Windows (<strong>CLI-WIN</strong>) au domaine AD.</li>
 </ul>
 <p><span class="arrow right"></span><span class="arrow right"></span><span class="arrow right"></span>&nbsp;<span class="reponse">Via la commande Powershell :</span>
 <pre>PS&gt; Add-Computer -DomainName &ldquo;reno.domaine.tssr&rdquo;</pre></p>
-<p><a href="../ressources/img/11-msp-2tp03-10.png" target="_blank"><img alt="Add-Computer" src="../ressources/img/11-msp-2tp03-10.png" /></a></p>
+<p><a href="../ressources/img/11-msp-2/tp03-10.png" target="_blank"><img alt="Add-Computer" src="../ressources/img/11-msp-2/tp03-10.png" /></a></p>
 <ul>
 <li>Intégrer le serveur Windows 2 (<strong>SRV2-WIN</strong>) au domaine AD.
-<a href="../ressources/img/11-msp-2tp03-09.png" target="_blank"><img alt="Add-Computer" src="../ressources/img/11-msp-2tp03-09.png" /></a></li>
+<a href="../ressources/img/11-msp-2/tp03-09.png" target="_blank"><img alt="Add-Computer" src="../ressources/img/11-msp-2/tp03-09.png" /></a></li>
 </ul>
 <p><span class="arrow right"></span><span class="arrow right"></span><span class="arrow right"></span>&nbsp;<span class="reponse"><b>Notes</b> : On peut également passer par la méthode graphique, via les propriétés du système (<kbd>WIN</kbd> + <kbd>X</kbd> &gt; <b>Système</b> &gt; <b>Propriétés avancées</b> &gt; onglet <b>Nom de l&rsquo;ordinateur</b> &gt; Ajouter au domaine.</p>
 <div class="img-row">
     <div class="img-col">
-        <a href="../ressources/img/11-msp-2tp03-06.png" target="_blank">
-            <img src="../ressources/img/11-msp-2tp03-06.png" alt="../ressources/img/11-msp-2tp03-06.png">
+        <a href="../ressources/img/11-msp-2/tp03-06.png" target="_blank">
+            <img src="../ressources/img/11-msp-2/tp03-06.png" alt="../ressources/img/11-msp-2/tp03-06.png">
         </a>
     </div>
     <div class="img-col">
-        <a href="../ressources/img/11-msp-2tp03-07.png" target="_blank">
-            <img src="../ressources/img/11-msp-2tp03-07.png" alt="../ressources/img/11-msp-2tp03-07.png">
+        <a href="../ressources/img/11-msp-2/tp03-07.png" target="_blank">
+            <img src="../ressources/img/11-msp-2/tp03-07.png" alt="../ressources/img/11-msp-2/tp03-07.png">
         </a>
     </div>
 </div>
@@ -1185,13 +1185,13 @@ body .markdown-body
 </ul>
 <div class="img-row">
     <div class="img-col">
-        <a href="../ressources/img/11-msp-2tp03-13.png" target="_blank">
-            <img src="../ressources/img/11-msp-2tp03-13.png" alt="../ressources/img/11-msp-2tp03-13.png">
+        <a href="../ressources/img/11-msp-2/tp03-13.png" target="_blank">
+            <img src="../ressources/img/11-msp-2/tp03-13.png" alt="../ressources/img/11-msp-2/tp03-13.png">
         </a>
     </div>
     <div class="img-col">
-        <a href="../ressources/img/11-msp-2tp03-12.png" target="_blank">
-            <img src="../ressources/img/11-msp-2tp03-12.png" alt="../ressources/img/11-msp-2tp03-12.png">
+        <a href="../ressources/img/11-msp-2/tp03-12.png" target="_blank">
+            <img src="../ressources/img/11-msp-2/tp03-12.png" alt="../ressources/img/11-msp-2/tp03-12.png">
         </a>
     </div>
 </div>
@@ -1200,20 +1200,20 @@ body .markdown-body
 <li>Contrôler l&rsquo;état de fonctionnement du service DHCP hébergé par le serveur Windows, celui-ci est-il toujours fonctionnel ? Pourquoi ?</li>
 </ul>
 <p><span class="arrow right"></span><span class="arrow right"></span><span class="arrow right"></span>&nbsp;<span class="reponse">Il est désactivé tant qu&rsquo;il n&rsquo;est pas autorisé auprès du serveur AD.</span></p>
-<p><img alt="DHCP kaput" src="../ressources/img/11-msp-2tp03-14.png" /></p>
+<p><img alt="DHCP kaput" src="../ressources/img/11-msp-2/tp03-14.png" /></p>
 <ul>
 <li>Au besoin, faire les modifications nécessaires pour rétablir le bon fonctionnement du service DHCP.</li>
 </ul>
 <p><span class="arrow right"></span><span class="arrow right"></span><span class="arrow right"></span>&nbsp;<span class="reponse">Il faut autoriser le DHCP auprès de l&rsquo;AD. Pour ce faire, clic droit sur le nom du DHCP &gt; <strong>Autoriser</strong>, puis <strong>Actualiser</strong> </span></p>
 <div class="img-row">
     <div class="img-col">
-        <a href="../ressources/img/11-msp-2tp03-15.png" target="_blank">
-            <img src="../ressources/img/11-msp-2tp03-15.png" alt="../ressources/img/11-msp-2tp03-15.png">
+        <a href="../ressources/img/11-msp-2/tp03-15.png" target="_blank">
+            <img src="../ressources/img/11-msp-2/tp03-15.png" alt="../ressources/img/11-msp-2/tp03-15.png">
         </a>
     </div>
     <div class="img-col">
-        <a href="../ressources/img/11-msp-2tp03-16.png" target="_blank">
-            <img src="../ressources/img/11-msp-2tp03-16.png" alt="../ressources/img/11-msp-2tp03-16.png">
+        <a href="../ressources/img/11-msp-2/tp03-16.png" target="_blank">
+            <img src="../ressources/img/11-msp-2/tp03-16.png" alt="../ressources/img/11-msp-2/tp03-16.png">
         </a>
     </div>
 </div>
@@ -1224,7 +1224,7 @@ body .markdown-body
 <li>Créer des UO afin de regrouper les utilisateurs d&rsquo;un même service et de séparer les comptes d&rsquo;ordinateur des postes clients et des serveurs.</li>
 <li>Créer des groupes afin de cibler les utilisateurs de chaque service.</li>
 </ul>
-<p><img alt="Structure AD prévue" src="../ressources/img/11-msp-2tp03-11.png" /></p>
+<p><img alt="Structure AD prévue" src="../ressources/img/11-msp-2/tp03-11.png" /></p>
 <table class="table table-hover">
     <thead>
         <tr>
@@ -1327,22 +1327,22 @@ body .markdown-body
 <p><strong>Création des utilisateurs (via GUI)</strong></p>
 <ol>
 <li>Création des modèles d&rsquo;utilisateurs pour chaque service. Les profils sont stockés dans chaque service.
-<a href="../ressources/img/11-msp-2tp03-17.png" target="_blank"><img alt="Modèle" src="../ressources/img/11-msp-2tp03-17.png" /></a></li>
+<a href="../ressources/img/11-msp-2/tp03-17.png" target="_blank"><img alt="Modèle" src="../ressources/img/11-msp-2/tp03-17.png" /></a></li>
 <li>Création des utilisateurs dans chaque groupe. 
-<a href="../ressources/img/11-msp-2tp03-18.png" target="_blank"><img alt="Utilisateurs" src="../ressources/img/11-msp-2tp03-18.png" /></a></li>
+<a href="../ressources/img/11-msp-2/tp03-18.png" target="_blank"><img alt="Utilisateurs" src="../ressources/img/11-msp-2/tp03-18.png" /></a></li>
 </ol>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox" disabled checked/> <strong>TOUS</strong> les utilisateurs parviennent bien à ouvrir une session depuis le client Windows.</li>
 </ul>
 <div class="img-row">
     <div class="img-col">
-        <a href="../ressources/img/11-msp-2tp03-19.png" target="_blank">
-            <img src="../ressources/img/11-msp-2tp03-19.png" alt="../ressources/img/11-msp-2tp03-19.png">
+        <a href="../ressources/img/11-msp-2/tp03-19.png" target="_blank">
+            <img src="../ressources/img/11-msp-2/tp03-19.png" alt="../ressources/img/11-msp-2/tp03-19.png">
         </a>
     </div>
     <div class="img-col">
-        <a href="../ressources/img/11-msp-2tp03-20.png" target="_blank">
-            <img src="../ressources/img/11-msp-2tp03-20.png" alt="../ressources/img/11-msp-2tp03-20.png">
+        <a href="../ressources/img/11-msp-2/tp03-20.png" target="_blank">
+            <img src="../ressources/img/11-msp-2/tp03-20.png" alt="../ressources/img/11-msp-2/tp03-20.png">
         </a>
     </div>
 </div>

@@ -1157,7 +1157,7 @@ endif
 <h3 id="82-tolerance-de-panne-avec-dhcp">8.2 Tolérance de panne avec DHCP<a class="headerlink" href="#82-tolerance-de-panne-avec-dhcp" title="Permanent link"></a></h3>
 <p>Pour accroître la tolérance de pannes du service, il est possible d&rsquo;ajouter d&rsquo;autres instances du service (autres serveurs DHCP). Il faut alors répartir la plage d&rsquo;adresses entre les différentes instances du service. </p>
 <p>Quand on dispose d&rsquo;un serveur DHCP principal et d&rsquo;un second (de secours), le serveur principal dispose du plus grand nombnre d&rsquo;adresses à allouer. Le serveur &ldquo;de secours&rdquo; ne peut distribuer qu&rsquo;un nombre limité d&rsquo;adresses, afin d&rsquo;opérer la continuité du service en attendant le rétablissement du serveur principal.</p>
-<p><a href=".ressouces/img/dhcp-tolerance.png" target="_blank"><img alt="DHCP Tolérance" src="../ressources/img/10-services-reseau-linuxdhcp-tolerance.png" /></a></p>
+<p><a href=".ressouces/img/dhcp-tolerance.png" target="_blank"><img alt="DHCP Tolérance" src="../ressources/img/10-services-reseau-linux/dhcp-tolerance.png" /></a></p>
 <p>C&rsquo;est généralement la règles des &ldquo;80/20&rdquo; que l&rsquo;on applique afin de répartir entre les 2 serveurs le pourcentages d&rsquo;adresses à distribuer. </p>
 <p>Pour privilégier le service du serveur &ldquo;principal&rdquo;, il est possible de <strong>retarder la délivrance de baux sur le serveur de secours</strong> en utilisant la directive de configuration <strong><code>min-secs</code></strong>.</p>
 <p>Exemple de configuration d&rsquo;un service DHCP de secours :
@@ -1185,7 +1185,7 @@ subnet 172.19.0.0 netmask 255.255.0.0 <span class="o">{</span>
 <li><strong>Baux d&rsquo;une même plage</strong> = cela évite de perdre une plage d&rsquo;adresse quand le serveur disposant de cette plage cesse de fonctionner. </li>
 </ul>
 <p>La configuration de la fonctionnalité DHCP Failover permet de bénéficier de tolérance de pannes tout en optimisant l&rsquo;utilisation de la plage d&rsquo;adresse ip distribuée.</p>
-<p><a href=".ressouces/img/dhcp-failover.png" target="_blank"><img alt="DHCP Failover" src="../ressources/img/10-services-reseau-linuxdhcp-failover.png" /></a></p>
+<p><a href=".ressouces/img/dhcp-failover.png" target="_blank"><img alt="DHCP Failover" src="../ressources/img/10-services-reseau-linux/dhcp-failover.png" /></a></p>
 <h4 id="832-configuration">8.3.2 Configuration<a class="headerlink" href="#832-configuration" title="Permanent link"></a></h4>
 <p>Sont présentées ci-dessous les configurations des services DHCP principal et secondaire:</p>
 <table>
@@ -1395,7 +1395,7 @@ zone &quot;eni.demo&quot; {
 </pre></div></p>
 <table class="warning-table">
     <tr>
-        <td width="100"><img src="../ressources/img/10-services-reseau-linuxwarning-2-64.png" alt="warning"></td>
+        <td width="100"><img src="../ressources/img/10-services-reseau-linux/warning-2-64.png" alt="warning"></td>
         <td>La mise à jour dynamique par les clients n'a lieu que si le <u>suffixe DNS</u> du domaine ciblé est <u>correctement configuré</u> sur les postes clients.<br>Pour les postes Windows, il s'agit du paramètre <b>Suffixe DNS Principal</b> dans les propriétés du nom de la machine. Pour les postes GNU/Linux, c'est la valeur `hostname` qui devra être configurée.</td>
     </tr>
 </table>

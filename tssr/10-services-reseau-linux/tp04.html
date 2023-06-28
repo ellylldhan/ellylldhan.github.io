@@ -1213,7 +1213,7 @@ body .markdown-body
 <p><strong>Note</strong>: <em>pfSense est censé être branché sur le réseau qui sert de porte d&rsquo;entrée sur Internet (le modem du FAI). Pour que ce labo fonctionne chez moi, je dois remplacer les ip faisant référence au FAI de l&rsquo;ENI (<em>88.44.22.17</em> et <em>88.44.22.254</em>), par les IP de mon réseau FAI (<em>192.168.1.22</em> et <em>192.168.1.1</em>).</em></p>
 <h3 id="cartographie-reseau">Cartographie Réseau<a class="headerlink" href="#cartographie-reseau" title="Permanent link"></a></h3>
 <p>C&rsquo;est la version avec les ip du réseau FAI &ldquo;maison&rdquo;, et non plus celles données dans le TP original (FAI ENI). 
-<a href="../ressources/img/10-services-reseau-linuxtp03-carto2.png" target="_blank"><img alt="Cartographie" src="../ressources/img/10-services-reseau-linuxtp03-carto2.png" /></a> </p>
+<a href="../ressources/img/10-services-reseau-linux/tp03-carto2.png" target="_blank"><img alt="Cartographie" src="../ressources/img/10-services-reseau-linux/tp03-carto2.png" /></a> </p>
 <h3 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link"></a></h3>
 <h4 id="1-installation-du-serveur-ssh-sur-tous-les-serveurs-debian">1. Installation du serveur SSH sur tous les serveurs Debian<a class="headerlink" href="#1-installation-du-serveur-ssh-sur-tous-les-serveurs-debian" title="Permanent link"></a></h4>
 <ul>
@@ -1236,7 +1236,7 @@ deb http://security.debian.org/debian-security bullseye-security main contrib
 </pre></div></p>
 </li>
 </ul>
-<p><a href="../ressources/img/10-services-reseau-linuxtp04-01.png" target="_blank"><img alt="01" src="../ressources/img/10-services-reseau-linuxtp04-01.png" /></a> </p>
+<p><a href="../ressources/img/10-services-reseau-linux/tp04-01.png" target="_blank"><img alt="01" src="../ressources/img/10-services-reseau-linux/tp04-01.png" /></a> </p>
 <h4 id="2-configuration-du-service-ssh">2. Configuration du service SSH<a class="headerlink" href="#2-configuration-du-service-ssh" title="Permanent link"></a></h4>
 <ul>
 <li>
@@ -1255,7 +1255,7 @@ deb http://security.debian.org/debian-security bullseye-security main contrib
 <div class="highlight"><pre>$ ssh-keygen
 </pre></div>
 
-<p><a href="../ressources/img/10-services-reseau-linuxtp04-02.png" target="_blank"><img alt="02" src="../ressources/img/10-services-reseau-linuxtp04-02.png" /></a> </p>
+<p><a href="../ressources/img/10-services-reseau-linux/tp04-02.png" target="_blank"><img alt="02" src="../ressources/img/10-services-reseau-linux/tp04-02.png" /></a> </p>
 <h5 id="copie-de-la-cle-sur-le-serveur-distant">Copie de la clé sur le serveur distant<a class="headerlink" href="#copie-de-la-cle-sur-le-serveur-distant" title="Permanent link"></a></h5>
 <p>Le serveur distant doit disposer de la clé publique de l&rsquo;utilisateur pour initier et valider la connexion. On utilise pour cela la commande <code>ssh-copy-id</code>. Par défaut le daemon <strong>sshd</strong> empêche la connexion en tant que <strong>root</strong> avec le mot de passe mais autorise les connexions avec les clé RSA.</p>
 <p>On va d&rsquo;abord crée un utilisateur <strong>admin</strong> faisant partie du groupe <strong>sudo</strong> sur chaque serveur.</p>
@@ -1270,9 +1270,9 @@ admin&quot;
 <span class="nv">$ </span>ssh-copy-id admin@192.168.17.12
 </pre></div>
 
-<p><a href="../ressources/img/10-services-reseau-linuxtp04-03.png" target="_blank"><img alt="03" src="../ressources/img/10-services-reseau-linuxtp04-03.png" /></a> </p>
+<p><a href="../ressources/img/10-services-reseau-linux/tp04-03.png" target="_blank"><img alt="03" src="../ressources/img/10-services-reseau-linux/tp04-03.png" /></a> </p>
 <h5 id="verifications">Vérifications<a class="headerlink" href="#verifications" title="Permanent link"></a></h5>
-<p><a href="../ressources/img/10-services-reseau-linuxtp04-04.png" target="_blank"><img alt="04" src="../ressources/img/10-services-reseau-linuxtp04-04.png" /></a> </p>
+<p><a href="../ressources/img/10-services-reseau-linux/tp04-04.png" target="_blank"><img alt="04" src="../ressources/img/10-services-reseau-linux/tp04-04.png" /></a> </p>
 <h4 id="3-copie-securisee">3. Copie sécurisée<a class="headerlink" href="#3-copie-securisee" title="Permanent link"></a></h4>
 <ul>
 <li>Sur le client, utiliser la commande <code>scp</code> pour copier les fichiers de configuration des serveurs Debian (interfaces, resolv.conf, sources.list).
@@ -1281,7 +1281,7 @@ admin&quot;
 <span class="nv">$ </span>scp admin@192.168.17.11:/etc/network/interfaces srv1-interfaces
 </pre></div></li>
 </ul>
-<p><a href="../ressources/img/10-services-reseau-linuxtp04-05.png" target="_blank"><img alt="04" src="../ressources/img/10-services-reseau-linuxtp04-05.png" /></a> </p>
+<p><a href="../ressources/img/10-services-reseau-linux/tp04-05.png" target="_blank"><img alt="04" src="../ressources/img/10-services-reseau-linux/tp04-05.png" /></a> </p>
 <h4 id="bonus">Bonus<a class="headerlink" href="#bonus" title="Permanent link"></a></h4>
 <ul>
 <li>Faire en sorte que le serveur SSH de <strong>routux</strong> soit accessible depuis votre poste physique en passant par votre serveur pfSense (besoin de l&rsquo;ip du poste formateur: <strong>10.53.101.37</strong>, le login est <strong>user17</strong>, mdp <strong>secret</strong>)</li>
@@ -1309,14 +1309,14 @@ user17@srv-formateur:~$
 </li>
 <li>
 <p>En faisant un <code>ip a</code> on peut voir que cette machine à une interface en 88.44.22.254/24. C&rsquo;est même l&rsquo;interface qui permet de sortir de notre lab. 
-<a href="../ressources/img/10-services-reseau-linuxtp04-06.png" target="_blank"><img alt="06" src="../ressources/img/10-services-reseau-linuxtp04-06.png" /></a> </p>
+<a href="../ressources/img/10-services-reseau-linux/tp04-06.png" target="_blank"><img alt="06" src="../ressources/img/10-services-reseau-linux/tp04-06.png" /></a> </p>
 </li>
 <li>
 <p>Il y a des chances qu&rsquo;on puisse alors pinguer notre pfSense qui a une interface en 88.44.22.17 (WAN em0). Problème: pour l&rsquo;instant, la machine en *.30 est juste une machine sortante pour mon reseau. On va avoir besoin de configurer notre pfSense pour qu&rsquo;il transfert le port SSH depuis son adresse publique vers mon port routux. De cette façon je pourrais me connecter à routux depuis l&rsquo;extérieur.</p>
 </li>
 <li>
 <p>Donc, dans l&rsquo;interface web de pfSense, menu <strong>Firewall</strong> &gt; <strong>NAT</strong> &gt; <strong>Port Forward</strong> &gt; ajouter une règle pour le ssh venant de l&rsquo;extérieur vers routux 
-<a href="../ressources/img/10-services-reseau-linuxtp04-07.png" target="_blank"><img alt="07" src="../ressources/img/10-services-reseau-linuxtp04-07.png" /></a> </p>
+<a href="../ressources/img/10-services-reseau-linux/tp04-07.png" target="_blank"><img alt="07" src="../ressources/img/10-services-reseau-linux/tp04-07.png" /></a> </p>
 </li>
 <li>
 <p>Pour vérifier, on se connecte en ssh sur le poste formateur, puis en ssh vers la passerelle routux en 88.44.22.17. On a donc fait un rebond : le poste d&rsquo;origine ne connait pas le réseau cible, mais en se connectant à un réseau qui connaît la cible, on peut faire plusieurs SSH. Ici, le port forwarding permet de transferer le flux ssh vers le port 172.30.30.254 lors que c&rsquo;est le 88.44.17.254 qui est demandé (?!).</p>

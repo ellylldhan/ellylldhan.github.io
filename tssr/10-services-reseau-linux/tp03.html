@@ -1227,7 +1227,7 @@ body .markdown-body
 <p><strong>Note</strong>: pfSense est censé être branché sur le réseau qui sert de porte d&rsquo;entrée sur Internet (le modem du FAI). Pour que ce labo fonctionne chez moi, je dois remplacer les ip faisant référence au FAI de l&rsquo;ENI (<em>88.44.22.17</em> et <em>88.44.22.254</em>), par les IP de mon réseau FAI (<em>192.168.1.22</em> et <em>192.168.1.1</em>).</p>
 <h3 id="cartographie-reseau">Cartographie Réseau<a class="headerlink" href="#cartographie-reseau" title="Permanent link"></a></h3>
 <p>C&rsquo;est la version avec les ip du réseau FAI &ldquo;maison&rdquo;, et non plus celles données dans le TP original (FAI ENI). 
-<a href="../ressources/img/10-services-reseau-linuxtp03-carto2.png" target="_blank"><img alt="Cartographie" src="../ressources/img/10-services-reseau-linuxtp03-carto2.png" /></a> </p>
+<a href="../ressources/img/10-services-reseau-linux/tp03-carto2.png" target="_blank"><img alt="Cartographie" src="../ressources/img/10-services-reseau-linux/tp03-carto2.png" /></a> </p>
 <h3 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link"></a></h3>
 <h4 id="1-ajout-dun-carte-vmnet2-au-client">1. Ajout d&rsquo;un carte VMNet2 au client<a class="headerlink" href="#1-ajout-dun-carte-vmnet2-au-client" title="Permanent link"></a></h4>
 <ul>
@@ -1235,7 +1235,7 @@ body .markdown-body
 <li>Associer la carte créée à la connection <strong>VMNet2</strong></li>
 <li>Configurer l&rsquo;adressage réseau de la nouvelle carte avec l&rsquo;adresse <strong>172.30.17.10/24</strong></li>
 </ul>
-<p><a href="../ressources/img/10-services-reseau-linuxtp03-01.png" target="_blank"><img alt="01" src="../ressources/img/10-services-reseau-linuxtp03-01.png" /></a> </p>
+<p><a href="../ressources/img/10-services-reseau-linux/tp03-01.png" target="_blank"><img alt="01" src="../ressources/img/10-services-reseau-linux/tp03-01.png" /></a> </p>
 <h5 id="adressage-reseau">Adressage Réseau<a class="headerlink" href="#adressage-reseau" title="Permanent link"></a></h5>
 <ol>
 <li>Pour identifier le nom de l&rsquo;interface, on utilise la commande <code>ip a</code></li>
@@ -1250,7 +1250,7 @@ iface ens35 inet static
 <li>Redémarrer</li>
 </ol>
 <p><strong>Vérification</strong></p>
-<p><a href="../ressources/img/10-services-reseau-linuxtp03-02.png" target="_blank"><img alt="02" src="../ressources/img/10-services-reseau-linuxtp03-02.png" /></a> </p>
+<p><a href="../ressources/img/10-services-reseau-linux/tp03-02.png" target="_blank"><img alt="02" src="../ressources/img/10-services-reseau-linux/tp03-02.png" /></a> </p>
 <h4 id="2-creation-dune-nouvelle-vm-pfsense">2. Création d&rsquo;une nouvelle VM &ldquo;pfSense&rdquo;<a class="headerlink" href="#2-creation-dune-nouvelle-vm-pfsense" title="Permanent link"></a></h4>
 <ul>
 <li>Créer une VM pfSense</li>
@@ -1262,17 +1262,17 @@ iface ens35 inet static
 <li>S&rsquo;assurer que <strong>pfSense</strong> communique bien avec l&rsquo;adresse 9.9.9.9 (serveur DNS <em>Quad9</em>).</li>
 </ul>
 <h5 id="installation-de-pfsense">Installation de pfSense<a class="headerlink" href="#installation-de-pfsense" title="Permanent link"></a></h5>
-<p><a href="../ressources/img/10-services-reseau-linuxtp03-03.png" target="_blank"><img alt="03" src="../ressources/img/10-services-reseau-linuxtp03-03.png" /></a> </p>
+<p><a href="../ressources/img/10-services-reseau-linux/tp03-03.png" target="_blank"><img alt="03" src="../ressources/img/10-services-reseau-linux/tp03-03.png" /></a> </p>
 <ol>
 <li>Au démarrage, laisser l&rsquo;autoboot choisir pour nous. Choisir ensuite <strong>Install pfSense</strong></li>
 <li>Choisir son clavier, même si ça ne change rien. Une commande existe pour le charger manuellement (voir plus loin)</li>
 <li>Partitionnement : choisir <strong>Auto UFS Bios</strong> ou <strong>Auto UFS UEFI</strong>.
-<a href="../ressources/img/10-services-reseau-linuxtp03-07.png" target="_blank"><img alt="07" src="../ressources/img/10-services-reseau-linuxtp03-07.png" /></a> </li>
+<a href="../ressources/img/10-services-reseau-linux/tp03-07.png" target="_blank"><img alt="07" src="../ressources/img/10-services-reseau-linux/tp03-07.png" /></a> </li>
 <li>Laisser l&rsquo;installation se faire. </li>
 <li>A la fin de l&rsquo;installation, on nous demande si on souhaite passer en mode shell pour modifier des réglages. </li>
 <li>Ensuite on peut choisir de redémarrer la machine ou passer en mode shell.</li>
 <li>pfSense est installé ! Penser à retirer l&rsquo;iso du cdrom. 
-<a href="../ressources/img/10-services-reseau-linuxtp03-08.png" target="_blank"><img alt="menu accueil pfSense" src="../ressources/img/10-services-reseau-linuxtp03-08.png" /></a> </li>
+<a href="../ressources/img/10-services-reseau-linux/tp03-08.png" target="_blank"><img alt="menu accueil pfSense" src="../ressources/img/10-services-reseau-linux/tp03-08.png" /></a> </li>
 </ol>
 <h5 id="configuration-des-interfaces-de-pfsense">Configuration des interfaces de pfSense<a class="headerlink" href="#configuration-des-interfaces-de-pfsense" title="Permanent link"></a></h5>
 <ol>
@@ -1398,7 +1398,7 @@ Press &lt;ENTER&gt; to continue
 <h5 id="verifications">Verifications<a class="headerlink" href="#verifications" title="Permanent link"></a></h5>
 <ol>
 <li>Vérifier que pfSense ping bien 9.9.9.9. Pour cela, choisir l&rsquo;option 7) dans le menu de pfSense et ping 9.9.9.9.
-<a href="../ressources/img/10-services-reseau-linuxtp03-09.png" target="_blank"><img alt="pfSense ping internet" src="../ressources/img/10-services-reseau-linuxtp03-09.png" /></a> </li>
+<a href="../ressources/img/10-services-reseau-linux/tp03-09.png" target="_blank"><img alt="pfSense ping internet" src="../ressources/img/10-services-reseau-linux/tp03-09.png" /></a> </li>
 </ol>
 <h5 id="configuration-pfsense-via-webconfigurator-routage">Configuration pfSense via webConfigurator (routage)<a class="headerlink" href="#configuration-pfsense-via-webconfigurator-routage" title="Permanent link"></a></h5>
 <ul>
@@ -1411,22 +1411,22 @@ Press &lt;ENTER&gt; to continue
 <ol>
 <li>
 <p><u><b>Passerelles</b></u> : menu <strong>System</strong> &gt; <strong>Routing</strong> &gt; <strong>Gateways</strong> &gt; ajouter la passerelle LAN (la voie vers Routux) &gt; <strong>Apply changes</strong>
-<a href="../ressources/img/10-services-reseau-linuxtp03-pf-corr-04.png" target="_blank"><img alt="pfSense gateway" src="../ressources/img/10-services-reseau-linuxtp03-pf-corr-04.png" /></a> </p>
+<a href="../ressources/img/10-services-reseau-linux/tp03-pf-corr-04.png" target="_blank"><img alt="pfSense gateway" src="../ressources/img/10-services-reseau-linux/tp03-pf-corr-04.png" /></a> </p>
 </li>
 <li>
 <p><u><b>Routage</b></u>: menu <strong>System</strong> &gt; <strong>Routing</strong> &gt; <strong>Static Routes</strong> &gt; ajouter les deux réseaux LAN et la passerelle sur Routux pour y accéder &gt; <strong>Apply changes</strong>
-<a href="../ressources/img/10-services-reseau-linuxtp03-pf-corr-05.png" target="_blank"><img alt="pfSense static routes" src="../ressources/img/10-services-reseau-linuxtp03-pf-corr-05.png" /></a> </p>
+<a href="../ressources/img/10-services-reseau-linux/tp03-pf-corr-05.png" target="_blank"><img alt="pfSense static routes" src="../ressources/img/10-services-reseau-linux/tp03-pf-corr-05.png" /></a> </p>
 </li>
 <li>
 <p><u><b>Pare-feu</b></u>: menu <strong>Firewall</strong> &gt; <strong>Rules</strong> &gt; modifier la règle principale : changer la <strong>source</strong> pour <strong>Any</strong> afin de laisser passer les requêtes ICMP entre autres.
-<a href="../ressources/img/10-services-reseau-linuxtp03-pf-corr-07.png" target="_blank"><img alt="pfSense firewall" src="../ressources/img/10-services-reseau-linuxtp03-pf-corr-07.png" /></a> </p>
+<a href="../ressources/img/10-services-reseau-linux/tp03-pf-corr-07.png" target="_blank"><img alt="pfSense firewall" src="../ressources/img/10-services-reseau-linux/tp03-pf-corr-07.png" /></a> </p>
 </li>
 <li>
 <p><strong>Vérification</strong> : menu <strong>Diagnostics</strong> &gt; <strong>Ping</strong> &gt; <strong>192.168.17.11</strong>
-<a href="../ressources/img/10-services-reseau-linuxtp03-pf-corr-06.png" target="_blank"><img alt="pfSense ping" src="../ressources/img/10-services-reseau-linuxtp03-pf-corr-06.png" /></a> </p>
+<a href="../ressources/img/10-services-reseau-linux/tp03-pf-corr-06.png" target="_blank"><img alt="pfSense ping" src="../ressources/img/10-services-reseau-linux/tp03-pf-corr-06.png" /></a> </p>
 </li>
 </ol>
-<p><a href="../ressources/img/10-services-reseau-linuxtp03-pf-corr-08.png" target="_blank"><img alt="pfSense ping depuis srv1" src="../ressources/img/10-services-reseau-linuxtp03-pf-corr-08.png" /></a> </p>
+<p><a href="../ressources/img/10-services-reseau-linux/tp03-pf-corr-08.png" target="_blank"><img alt="pfSense ping depuis srv1" src="../ressources/img/10-services-reseau-linux/tp03-pf-corr-08.png" /></a> </p>
 <h4 id="3-configuration-du-routage-et-de-la-resolution-dns-client">3. Configuration du routage et de la résolution DNS client<a class="headerlink" href="#3-configuration-du-routage-et-de-la-resolution-dns-client" title="Permanent link"></a></h4>
 <p>-[x] Sur Routux, configurer l&rsquo;adresse de votre serveur pfSense comme adresse de passerelle par défaut
 -[x] Vérifier les paramètrages par défaut NAT du routeur pfSense
@@ -1439,7 +1439,7 @@ Press &lt;ENTER&gt; to continue
 <h5 id="configurer-passerelle-par-defaut-de-routux">Configurer passerelle par défaut de routux<a class="headerlink" href="#configurer-passerelle-par-defaut-de-routux" title="Permanent link"></a></h5>
 <ul>
 <li>Ajouter la passerelle dans le fichier <strong>/etc/network/interfaces</strong>
-<a href="../ressources/img/10-services-reseau-linuxtp03-11.png" target="_blank"><img alt="routux passerelle pfSense" src="../ressources/img/10-services-reseau-linuxtp03-11.png" /></a> </li>
+<a href="../ressources/img/10-services-reseau-linux/tp03-11.png" target="_blank"><img alt="routux passerelle pfSense" src="../ressources/img/10-services-reseau-linux/tp03-11.png" /></a> </li>
 </ul>
 <h5 id="parametres-nat-par-defaut-du-routeur-pfsense">Paramètres NAT par défaut du routeur pfSense<a class="headerlink" href="#parametres-nat-par-defaut-du-routeur-pfsense" title="Permanent link"></a></h5>
 <p>Il s&rsquo;agit de mettre en oeuvre la traduction d&rsquo;adresse avec pfSense.</p>
@@ -1448,7 +1448,7 @@ Press &lt;ENTER&gt; to continue
 <li>Vérifier que les réglages sont bien sur <strong>Automatic outbound NAT</strong> </li>
 <li>Vérifier que les règles <strong>Outbound</strong> sont bien activées pour tous les sous-réseaux</li>
 </ul>
-<p><a href="../ressources/img/10-services-reseau-linuxtp03-12.png" target="_blank"><img alt="pfSense NAT" src="../ressources/img/10-services-reseau-linuxtp03-12.png" /></a> </p>
+<p><a href="../ressources/img/10-services-reseau-linux/tp03-12.png" target="_blank"><img alt="pfSense NAT" src="../ressources/img/10-services-reseau-linux/tp03-12.png" /></a> </p>
 <h5 id="parametres-dns-des-lan-clients-lan-serveurs">Paramètres DNS des LAN-CLIENTS &amp; LAN-SERVEURS<a class="headerlink" href="#parametres-dns-des-lan-clients-lan-serveurs" title="Permanent link"></a></h5>
 <p>Dans le TP, on nous demande de paramètrer le DNS du FAI de l&rsquo;ENI (66.55.44.33). Ici, on va utiliser le DNS de mon FAI qui est à la même adresse que ma passerelle vers Internet (192.168.1.1). C&rsquo;est normal, ma box fait office de routeur / DNS / DHCP.</p>
 <ol>
@@ -1465,26 +1465,26 @@ $ sudo ip link set ens33 up
 <p><strong>Note</strong>: Au besoin, si le réseau n&rsquo;est pas accessible, reboot.</p>
 <div class="img-row">
     <div class="img-col">
-    <a href="../ressources/img/10-services-reseau-linuxtp03-13.png" target="_blank">
-      <img src="../ressources/img/10-services-reseau-linuxtp03-13.png" alt="../ressources/img/10-services-reseau-linuxtp03-13.png" style="width:100%">
+    <a href="../ressources/img/10-services-reseau-linux/tp03-13.png" target="_blank">
+      <img src="../ressources/img/10-services-reseau-linux/tp03-13.png" alt="../ressources/img/10-services-reseau-linux/tp03-13.png" style="width:100%">
     </a>
   </div>
     <div class="img-col">
-      <a href="../ressources/img/10-services-reseau-linuxtp03-14.png" target="_blank">
-        <img src="../ressources/img/10-services-reseau-linuxtp03-14.png" alt="../ressources/img/10-services-reseau-linuxtp03-14.png" style="width:100%">
+      <a href="../ressources/img/10-services-reseau-linux/tp03-14.png" target="_blank">
+        <img src="../ressources/img/10-services-reseau-linux/tp03-14.png" alt="../ressources/img/10-services-reseau-linux/tp03-14.png" style="width:100%">
       </a>
   </div>
 </div>
 
 <div class="img-row">
     <div class="img-col">
-    <a href="../ressources/img/10-services-reseau-linuxtp03-15.png" target="_blank">
-      <img src="../ressources/img/10-services-reseau-linuxtp03-15.png" alt="../ressources/img/10-services-reseau-linuxtp03-15.png" style="width:100%">
+    <a href="../ressources/img/10-services-reseau-linux/tp03-15.png" target="_blank">
+      <img src="../ressources/img/10-services-reseau-linux/tp03-15.png" alt="../ressources/img/10-services-reseau-linux/tp03-15.png" style="width:100%">
     </a>
   </div>
     <div class="img-col">
-      <a href="../ressources/img/10-services-reseau-linuxtp03-16.png" target="_blank">
-        <img src="../ressources/img/10-services-reseau-linuxtp03-16.png" alt="../ressources/img/10-services-reseau-linuxtp03-16.png" style="width:100%">
+      <a href="../ressources/img/10-services-reseau-linux/tp03-16.png" target="_blank">
+        <img src="../ressources/img/10-services-reseau-linux/tp03-16.png" alt="../ressources/img/10-services-reseau-linux/tp03-16.png" style="width:100%">
       </a>
   </div>
 </div>
@@ -1496,6 +1496,6 @@ $ sudo ip link set ens33 up
 <span class="nv">$ </span>host nainwak.com 
 </pre></div>
 
-<p><a href="../ressources/img/10-services-reseau-linuxtp03-17.png" target="_blank"><img alt="verif de fin" src="../ressources/img/10-services-reseau-linuxtp03-17.png" /></a> </p>
+<p><a href="../ressources/img/10-services-reseau-linux/tp03-17.png" target="_blank"><img alt="verif de fin" src="../ressources/img/10-services-reseau-linux/tp03-17.png" /></a> </p>
 <p><link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../ressources/css/style.css"></p></article></body></html>

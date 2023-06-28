@@ -1144,7 +1144,7 @@ body .markdown-body
 </ul>
 <h4 id="structure-de-nommage">Structure de nommage<a class="headerlink" href="#structure-de-nommage" title="Permanent link"></a></h4>
 <p>La structure de nommage est arborescente.</p>
-<p><a href="../ressources/img/10-services-reseau-linuxnommage-dns.png" target="_blank"><img alt="Domaine" src="../ressources/img/10-services-reseau-linuxnommage-dns.png" /></a> </p>
+<p><a href="../ressources/img/10-services-reseau-linux/nommage-dns.png" target="_blank"><img alt="Domaine" src="../ressources/img/10-services-reseau-linux/nommage-dns.png" /></a> </p>
 <table>
     <thead>
         <tr><th colspan="2" class="horiz-align-middle">Structure</th></tr>
@@ -1194,8 +1194,8 @@ body .markdown-body
 </ul>
 <p>L&rsquo;implémentation et la configuration du service est distincte en fonction de l&rsquo;utilisation de celui-ci.</p>
 <h4 id="le-serveur-dns-resolveur-complet">Le serveur DNS résolveur complet<a class="headerlink" href="#le-serveur-dns-resolveur-complet" title="Permanent link"></a></h4>
-<p><a href="../ressources/img/10-services-reseau-linuxdns-resolver-complet.png" target="_blank">
-    <img src="../ressources/img/10-services-reseau-linuxdns-resolver-complet.png" alt="DNS Résolveur" max-height="250px">
+<p><a href="../ressources/img/10-services-reseau-linux/dns-resolver-complet.png" target="_blank">
+    <img src="../ressources/img/10-services-reseau-linux/dns-resolver-complet.png" alt="DNS Résolveur" max-height="250px">
 </a></p>
 <ul>
 <li>Le DNS résolveur est le service chargé de répondre aux requêtes des clients (1)</li>
@@ -1312,7 +1312,7 @@ include /etc/bind/named.conf.default-zones<span class="p">;</span>
 <p><strong><a href="https://ftp.isc.org/isc/bind9/cur/9.11/doc/arm/Bv9ARM.ch06.html">https://ftp.isc.org/isc/bind9/cur/9.11/doc/arm/Bv9ARM.ch06.html</a></strong></p>
 <table>
     <tr>
-        <td width="100"><img src="../ressources/img/10-services-reseau-linuxwrench-screwdriver-32.png" alt="wrench"></td>
+        <td width="100"><img src="../ressources/img/10-services-reseau-linux/wrench-screwdriver-32.png" alt="wrench"></td>
         <td>NEXT: <b>Atelier 5. Configurer un service DNS résolveur</b></td>
     </tr>
 </table>
@@ -1324,8 +1324,8 @@ include /etc/bind/named.conf.default-zones<span class="p">;</span>
 <li>A ce titre, il est interrogé par des serveurs DNS résolveurs pour résoiudre des noms de son domaine hébergé ou de domaines enfants.</li>
 <li>Il peut inscrire des informations dans la zone du domaine hébergé ou ne disposer que d&rsquo;une copie de la zone.</li>
 </ul>
-<p><a href="../ressources/img/10-services-reseau-linuxdns-autorite.png" target="_blank">
-    <img src="../ressources/img/10-services-reseau-linuxdns-autorite.png" alt="DNS faisant autorité" max-height="250px">
+<p><a href="../ressources/img/10-services-reseau-linux/dns-autorite.png" target="_blank">
+    <img src="../ressources/img/10-services-reseau-linux/dns-autorite.png" alt="DNS faisant autorité" max-height="250px">
 </a></p>
 <h4 id="712-les-notions-de-zone">7.1.2 Les notions de &ldquo;zone&rdquo;<a class="headerlink" href="#712-les-notions-de-zone" title="Permanent link"></a></h4>
 <p>Une <strong>zone</strong> rassemble un ensemble d&rsquo;éléments ayant une caractéristique commune. Cette caractéristique peut être une partie du nom de domaine ou un réseau ip d&rsquo;appartenance.</p>
@@ -1333,14 +1333,14 @@ include /etc/bind/named.conf.default-zones<span class="p">;</span>
 <ul>
 <li>Une <strong>zone directe</strong> référence des équipements appartenant à un <strong>même nom de domaine</strong>.</li>
 </ul>
-<p><a href="../ressources/img/10-services-reseau-linuxdns-zone-directe.png" target="_blank">
-    <img src="../ressources/img/10-services-reseau-linuxdns-zone-directe.png" alt="DNS zone directe" width="550px">
+<p><a href="../ressources/img/10-services-reseau-linux/dns-zone-directe.png" target="_blank">
+    <img src="../ressources/img/10-services-reseau-linux/dns-zone-directe.png" alt="DNS zone directe" width="550px">
 </a></p>
 <ul>
 <li>Une <strong>zone inverse</strong> référence des équipements appartenant à un <strong>même réseau logique</strong>.</li>
 </ul>
-<p><a href="../ressources/img/10-services-reseau-linuxdns-zone-inverse.png" target="_blank">
-    <img src="../ressources/img/10-services-reseau-linuxdns-zone-inverse.png" alt="DNS zone inverse" width="550px">
+<p><a href="../ressources/img/10-services-reseau-linux/dns-zone-inverse.png" target="_blank">
+    <img src="../ressources/img/10-services-reseau-linux/dns-zone-inverse.png" alt="DNS zone inverse" width="550px">
 </a></p>
 <h4 id="713-les-enregistrements">7.1.3 Les enregistrements<a class="headerlink" href="#713-les-enregistrements" title="Permanent link"></a></h4>
 <p>Les informations ou données d&rsquo;une zone sont stockées sous forme d&rsquo;<strong>enregistrements</strong>. </p>
@@ -1451,7 +1451,7 @@ zone <span class="s2">&quot;42.168.192.in-addr.arpa&quot;</span> <span class="o"
 
 <table class="warning-table">
     <tr>
-        <td width="100"><img src="../ressources/img/10-services-reseau-linuxwarning-2-64.png" alt="warning"></td>
+        <td width="100"><img src="../ressources/img/10-services-reseau-linux/warning-2-64.png" alt="warning"></td>
         <td>Les fichiers de configuration de zone précédemment présentés requièrent que les fichiers de zone correspondats <i>db.eni.demo</i> et <i>db.192.168.42.inv</i> existent et qu'ils contiennent toutes les informations concernant ces zones.<br><br>
         Des exemples de ces fichiers de zone sont présentés en annexe (chap. 8)</td>
     </tr>
@@ -1539,7 +1539,7 @@ $TTL 86400
 
 <table>
     <tr>
-        <td><img src="../ressources/img/10-services-reseau-linuxwrench-screwdriver-32.png" alt="wrench"></td>
+        <td><img src="../ressources/img/10-services-reseau-linux/wrench-screwdriver-32.png" alt="wrench"></td>
         <td>NEXT: <b>Atelier 7 - Configurer un service DNS faisant autorité</b></td>
     </tr>
 </table>
