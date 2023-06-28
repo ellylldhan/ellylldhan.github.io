@@ -89,9 +89,9 @@ Il faut remettre les protocoles, dont OSPF et SMTP. Il y en a d'autres.
 
 **Notes**
 
-<a href=".ressources/img/g01.png" target="_blank"><img src=".ressources/img/g01.png" alt="Modèle TCP/IP"></a><br>
-<a href=".ressources/img/g02.png" target="_blank"><img src=".ressources/img/g02.png" alt="TCP/IP"></a><br>
-<a href=".ressources/img/g03.png" target="_blank"><img src=".ressources/img/g03.png" alt="Tableau TCP/IP"></a>
+<a href="../ressources/img/g01.png" target="_blank"><img src="../ressources/img/g01.png" alt="Modèle TCP/IP"></a><br>
+<a href="../ressources/img/g02.png" target="_blank"><img src="../ressources/img/g02.png" alt="TCP/IP"></a><br>
+<a href="../ressources/img/g03.png" target="_blank"><img src="../ressources/img/g03.png" alt="Tableau TCP/IP"></a>
 
 **ChatGPT**
 
@@ -118,21 +118,21 @@ Ces protocoles, combinés dans le tableau TCP/IP, fournissent les fondements de 
 ### 7. MDM vs GLPI
 <div class="is-question">**Donner les avantages à utiliser un MDM pour les mobiles par rapport à un GLPI par exemple**</div>
 
-*Un MDM (Mobile Device Management) est une solution de gestion de ressources informatiques spécifiquement conçu pour la gestion des appareils mobiles. Il offre des fonctionnalités avancées et une gestion de la mobilité d'entreprise.*
+*Un MDM (Mobile Device Management) est une solution de gestion de../ressources informatiques spécifiquement conçu pour la gestion des appareils mobiles. Il offre des fonctionnalités avancées et une gestion de la mobilité d'entreprise.*
 
 **ChatGPT**
 
-<div class="is-success">Un MDM (Mobile Device Management) et GLPI (Gestionnaire Libre de Parc Informatique) sont deux solutions utilisées dans le domaine de la gestion des dispositifs et des ressources informatiques, mais elles diffèrent par leurs fonctionnalités et leurs domaines d'application. Voici quelques avantages distincts de l'utilisation d'un MDM pour la gestion des mobiles par rapport à GLPI :
+<div class="is-success">Un MDM (Mobile Device Management) et GLPI (Gestionnaire Libre de Parc Informatique) sont deux solutions utilisées dans le domaine de la gestion des dispositifs et des../ressources informatiques, mais elles diffèrent par leurs fonctionnalités et leurs domaines d'application. Voici quelques avantages distincts de l'utilisation d'un MDM pour la gestion des mobiles par rapport à GLPI :
 
-1. Gestion spécialisée des appareils mobiles : Un MDM est spécialement conçu pour la gestion des appareils mobiles tels que smartphones et tablettes. Il offre des fonctionnalités avancées spécifiquement adaptées aux besoins de la gestion des mobiles, comme la configuration à distance, la sécurité des données mobiles, la gestion des applications, le suivi de la localisation, etc. GLPI, quant à lui, est davantage axé sur la gestion des ressources informatiques globales telles que les ordinateurs, les serveurs, les imprimantes, etc.
+1. Gestion spécialisée des appareils mobiles : Un MDM est spécialement conçu pour la gestion des appareils mobiles tels que smartphones et tablettes. Il offre des fonctionnalités avancées spécifiquement adaptées aux besoins de la gestion des mobiles, comme la configuration à distance, la sécurité des données mobiles, la gestion des applications, le suivi de la localisation, etc. GLPI, quant à lui, est davantage axé sur la gestion des../ressources informatiques globales telles que les ordinateurs, les serveurs, les imprimantes, etc.
 
-2. Contrôle granulaire des appareils mobiles : Un MDM permet un contrôle plus granulaire sur les appareils mobiles gérés. Vous pouvez appliquer des politiques de sécurité, des restrictions d'utilisation, des configurations réseau spécifiques, et même effacer à distance les données des appareils perdus ou volés. GLPI est plus centré sur la gestion des informations et des ressources, mais n'offre pas le même niveau de contrôle sur les appareils mobiles individuels.
+2. Contrôle granulaire des appareils mobiles : Un MDM permet un contrôle plus granulaire sur les appareils mobiles gérés. Vous pouvez appliquer des politiques de sécurité, des restrictions d'utilisation, des configurations réseau spécifiques, et même effacer à distance les données des appareils perdus ou volés. GLPI est plus centré sur la gestion des informations et des../ressources, mais n'offre pas le même niveau de contrôle sur les appareils mobiles individuels.
 
 3. Gestion de la mobilité d'entreprise (EMM) : De nombreux MDM fournissent également des fonctionnalités d'Enterprise Mobility Management (EMM) qui permettent de gérer efficacement les appareils mobiles dans un environnement professionnel. Cela inclut des fonctionnalités avancées telles que la séparation des données personnelles et professionnelles, le déploiement d'applications spécifiques à l'entreprise, l'intégration avec des services de messagerie d'entreprise, etc. Ces capacités spécifiques à la mobilité d'entreprise ne sont généralement pas présentes dans GLPI.
 
-4. Support multiplateforme : Les MDM offrent une prise en charge étendue des différentes plateformes mobiles, y compris iOS, Android, Windows, etc. Cela permet de gérer de manière centralisée les dispositifs utilisant différents systèmes d'exploitation. GLPI, quant à lui, est plus orienté vers les ressources informatiques générales et ne propose pas la même prise en charge multiplateforme pour les appareils mobiles.
+4. Support multiplateforme : Les MDM offrent une prise en charge étendue des différentes plateformes mobiles, y compris iOS, Android, Windows, etc. Cela permet de gérer de manière centralisée les dispositifs utilisant différents systèmes d'exploitation. GLPI, quant à lui, est plus orienté vers les../ressources informatiques générales et ne propose pas la même prise en charge multiplateforme pour les appareils mobiles.
 
-En résumé, un MDM est spécifiquement conçu pour la gestion des appareils mobiles, offrant des fonctionnalités spécialisées, un contrôle avancé et une gestion de la mobilité d'entreprise. GLPI est plus adapté à la gestion globale des ressources informatiques, y compris les ordinateurs, les serveurs, etc. Le choix entre les deux dépend des besoins spécifiques de gestion des dispositifs mobiles par rapport à la gestion des ressources informatiques globales.</div>
+En résumé, un MDM est spécifiquement conçu pour la gestion des appareils mobiles, offrant des fonctionnalités spécialisées, un contrôle avancé et une gestion de la mobilité d'entreprise. GLPI est plus adapté à la gestion globale des../ressources informatiques, y compris les ordinateurs, les serveurs, etc. Le choix entre les deux dépend des besoins spécifiques de gestion des dispositifs mobiles par rapport à la gestion des../ressources informatiques globales.</div>
 
 **Exemples**
 
@@ -163,7 +163,7 @@ Gwen: Site à site, Nomade
 
 1. VPN basé sur le protocole IPsec (Internet Protocol Security) : IPsec est un protocole de sécurité largement utilisé pour établir des connexions VPN sécurisées. Il offre une authentification, un chiffrement et une intégrité des données pour sécuriser les communications sur un réseau public. Les VPN basés sur IPsec sont généralement utilisés pour des connexions point à point entre des réseaux locaux ou des appareils individuels.
 
-2. VPN basé sur le protocole SSL/TLS (Secure Sockets Layer/Transport Layer Security) : Les VPN basés sur SSL/TLS utilisent des protocoles de sécurité web pour établir une connexion sécurisée. Ces VPN sont souvent utilisés pour permettre un accès distant aux ressources d'un réseau privé via un navigateur web. Ils sont couramment utilisés pour les applications d'accès à distance et de travail à distance.
+2. VPN basé sur le protocole SSL/TLS (Secure Sockets Layer/Transport Layer Security) : Les VPN basés sur SSL/TLS utilisent des protocoles de sécurité web pour établir une connexion sécurisée. Ces VPN sont souvent utilisés pour permettre un accès distant aux../ressources d'un réseau privé via un navigateur web. Ils sont couramment utilisés pour les applications d'accès à distance et de travail à distance.
 
 3. VPN basé sur le protocole PPTP (Point-to-Point Tunneling Protocol) : PPTP est un protocole VPN plus ancien qui offre un moyen simple d'établir des connexions sécurisées. Il est souvent utilisé pour des connexions VPN entre des appareils individuels et des serveurs VPN. Cependant, PPTP est considéré comme moins sécurisé que les protocoles IPsec et SSL/TLS et n'est pas recommandé pour les environnements où la sécurité est une priorité.
 
@@ -261,7 +261,7 @@ Chat:
 
 6. Mettez à jour les liens internes : Si vous avez des liens internes dans votre site web (par exemple, des liens vers des images, des fichiers CSS, etc.), assurez-vous de les mettre à jour pour qu'ils utilisent des URL HTTPS au lieu de HTTP.
 
-7. Mettez à jour vos ressources externes : Si votre site web intègre des ressources externes provenant d'autres domaines (par exemple, des scripts, des images, des vidéos), assurez-vous que ces ressources sont également accessibles via HTTPS.
+7. Mettez à jour vos../ressources externes : Si votre site web intègre des../ressources externes provenant d'autres domaines (par exemple, des scripts, des images, des vidéos), assurez-vous que ces../ressources sont également accessibles via HTTPS.
 
 Une fois que vous avez suivi ces étapes, votre site web sera accessible via HTTPS, et les communications entre les utilisateurs et votre serveur seront chiffrées, offrant ainsi une connexion sécurisée.</div>
 
@@ -273,32 +273,32 @@ Une fois que vous avez suivi ces étapes, votre site web sera accessible via HTT
 
 Il y a un schéma.
 
-Gwen: j'ai expliqué qu'on peut créer une nouvelle machine pour diviser les ressources et faire plus de place. Vu que le jury ne m'a pas reposer la question, j'imagine que c'était la bonne réponse.
+Gwen: j'ai expliqué qu'on peut créer une nouvelle machine pour diviser les../ressources et faire plus de place. Vu que le jury ne m'a pas reposer la question, j'imagine que c'était la bonne réponse.
 
 Chat:
 
-1. vérifier les ressources allouées
+1. vérifier les../ressources allouées
 2. vérifier les paramètres de DRS (Distributed Resource Scheduler)
 3. analyser les performances avec des outils de surveillance 
 4. répartir manuellement les VM : si le DRS ne parvient pas à équilibrer les charges de travail, on peut répartir manuellement les VM sur différents hôtes Hyper-V pour soulager la charge. Il faudra alors migrer les VM d'un hôte à un autre avec des outils de migration direct (live migration) ou hors-ligne (offline migration) d'Hyper-V
-5. ajouter des ressources ou mettre à niveau 
+5. ajouter des../ressources ou mettre à niveau 
 6. problèmes de configuration ?
 
 **ChatGPT**
 
-<div class="is-success">Si vous avez un environnement Hyper-V avec le DRS (Distributed Resource Scheduler) de vSphere rempli dans une machine virtuelle, cela peut indiquer un problème de configuration ou de ressources insuffisantes. Voici quelques étapes que vous pouvez suivre pour résoudre ce problème :
+<div class="is-success">Si vous avez un environnement Hyper-V avec le DRS (Distributed Resource Scheduler) de vSphere rempli dans une machine virtuelle, cela peut indiquer un problème de configuration ou de../ressources insuffisantes. Voici quelques étapes que vous pouvez suivre pour résoudre ce problème :
 
-1. Vérifiez les ressources allouées : Assurez-vous que la machine virtuelle dispose des ressources adéquates, telles que la mémoire, le processeur et l'espace de stockage. Si les ressources sont insuffisantes, augmentez-les pour répondre aux besoins de la machine virtuelle.
+1. Vérifiez les../ressources allouées : Assurez-vous que la machine virtuelle dispose des../ressources adéquates, telles que la mémoire, le processeur et l'espace de stockage. Si les../ressources sont insuffisantes, augmentez-les pour répondre aux besoins de la machine virtuelle.
 
 2. Vérifiez les paramètres de DRS : Assurez-vous que les paramètres de DRS sont correctement configurés. DRS est conçu pour répartir les charges de travail de manière équilibrée sur les hôtes Hyper-V. Vérifiez les règles de DRS, les seuils de performances et les paramètres de planification pour vous assurer qu'ils correspondent aux besoins de votre environnement.
 
-3. Analysez les performances : Utilisez des outils de surveillance des performances pour analyser les métriques de performance de la machine virtuelle et des hôtes Hyper-V. Identifiez les goulots d'étranglement ou les problèmes de performances qui pourraient entraîner une utilisation excessive des ressources et une saturation du DRS.
+3. Analysez les performances : Utilisez des outils de surveillance des performances pour analyser les métriques de performance de la machine virtuelle et des hôtes Hyper-V. Identifiez les goulots d'étranglement ou les problèmes de performances qui pourraient entraîner une utilisation excessive des../ressources et une saturation du DRS.
 
 4. Répartissez manuellement les machines virtuelles : Si le DRS ne parvient pas à équilibrer automatiquement les charges de travail, vous pouvez répartir manuellement les machines virtuelles sur différents hôtes Hyper-V pour soulager la charge. Cela peut impliquer de migrer manuellement les machines virtuelles d'un hôte à un autre à l'aide des fonctionnalités de migration en direct (live migration) ou hors ligne (offline migration) d'Hyper-V.
 
-5. Ajoutez des ressources ou mettez à niveau : Si les ressources existantes ne suffisent pas à gérer la charge de travail de la machine virtuelle, envisagez d'ajouter des ressources supplémentaires à l'hôte Hyper-V ou de mettre à niveau l'hôte vers un modèle plus puissant pour mieux répondre aux exigences de performance.
+5. Ajoutez des../ressources ou mettez à niveau : Si les../ressources existantes ne suffisent pas à gérer la charge de travail de la machine virtuelle, envisagez d'ajouter des../ressources supplémentaires à l'hôte Hyper-V ou de mettre à niveau l'hôte vers un modèle plus puissant pour mieux répondre aux exigences de performance.
 
-6. Identifiez les problèmes de configuration : Vérifiez si la configuration de la machine virtuelle, telle que les paramètres de démarrage automatique des applications, les services en cours d'exécution ou les tâches planifiées, peut provoquer une utilisation excessive des ressources.
+6. Identifiez les problèmes de configuration : Vérifiez si la configuration de la machine virtuelle, telle que les paramètres de démarrage automatique des applications, les services en cours d'exécution ou les tâches planifiées, peut provoquer une utilisation excessive des../ressources.
 
 Si les problèmes persistent malgré ces actions, il peut être utile de consulter les forums de support dédiés à Hyper-V ou de contacter le support technique pour obtenir une assistance plus spécifique à votre environnement.</div>
 
@@ -488,8 +488,8 @@ Gwen: et on voyait sur l'image qu'il déployait des Win7 en x86 (dont 32 bits). 
 
 ### 24. Expliquer les deux couches matérielle dans le schéma
 
-<a href=".ressources/img/g04.png" target="_blank">
-<img src=".ressources/img/g04.png" alt="g04">
+<a href="../ressources/img/g04.png" target="_blank">
+<img src="../ressources/img/g04.png" alt="g04">
 </a>
 
 Moi: Ce schéma pourrait être celui d'un hyperviseur de type 2 (ou hyperviseur hébergé). La couche matérielle du bas symbolise le matériel physique sur lequel est installé la couche logicielle (par exemple VMware Workstation). Cette couche logicielle est utilisé pour émulé du matériel (ex. des machines virtuelles) sur lesquelles on vient installé des systèmes d'exploitation (ex. un Debian ou un Windows Server).
@@ -509,9 +509,9 @@ Chat:
 
 2. **migration à chaud** : permet de migrer des VM à chaud d'un hôte physique à un autre, même lorsqu'elles sont en cours d'exécution. Utile pour faire des opérations de maintenance sans interrompre le service.
 
-3. **équlibrage de charge** : les vm peuvent être réparties sur plusieurs hôtes physiques pour équilibrer la charge de travail. Permet d'optimisez l'utilisation des ressources disponibles et d'améliorer les performances globales du système.
+3. **équlibrage de charge** : les vm peuvent être réparties sur plusieurs hôtes physiques pour équilibrer la charge de travail. Permet d'optimisez l'utilisation des../ressources disponibles et d'améliorer les performances globales du système.
 
-4. **Evolutivité** : facile de créer de nouvelles vm ou d'ajuster les ressources allouées. 
+4. **Evolutivité** : facile de créer de nouvelles vm ou d'ajuster les../ressources allouées. 
 
 5. **Gestion centralisée** : avec aide de plateformes telles que vSphere, Hyper-V, KVM
 
@@ -529,15 +529,15 @@ Moi: Bridge, NAT, Host-Only, Custom
 
 1. NAT (Network Address Translation) :
    - NAT est une technique de traduction d'adresses réseau qui permet de connecter un réseau local (par exemple, une machine virtuelle) à un réseau externe (par exemple, Internet) en utilisant une seule adresse IP publique.
-   - Dans un réseau NAT, une adresse IP publique est attribuée au routeur ou au serveur NAT, qui traduit les adresses IP privées des machines virtuelles du réseau local vers cette adresse IP publique lorsqu'elles communiquent avec des ressources externes.
+   - Dans un réseau NAT, une adresse IP publique est attribuée au routeur ou au serveur NAT, qui traduit les adresses IP privées des machines virtuelles du réseau local vers cette adresse IP publique lorsqu'elles communiquent avec des../ressources externes.
    - NAT permet de masquer les adresses IP privées des machines virtuelles et de les regrouper derrière une seule adresse IP publique, offrant ainsi une certaine sécurité et une économie d'adresses IP.
-   - Cependant, avec NAT, les machines virtuelles du réseau local ne sont pas directement visibles depuis l'extérieur du réseau, ce qui peut limiter certaines fonctionnalités et empêcher l'accès à certaines ressources réseau.
+   - Cependant, avec NAT, les machines virtuelles du réseau local ne sont pas directement visibles depuis l'extérieur du réseau, ce qui peut limiter certaines fonctionnalités et empêcher l'accès à certaines../ressources réseau.
 
 2. Bridge (Pont) :
    - Un pont réseau, également appelé bridge, est utilisé pour connecter plusieurs réseaux locaux (par exemple, des machines virtuelles) afin qu'ils puissent communiquer directement les uns avec les autres.
    - Dans un réseau en pont, les interfaces réseau des machines virtuelles sont liées à une interface de pont, ce qui permet aux machines virtuelles de partager le même réseau logique.
    - Le pontage permet aux machines virtuelles de communiquer entre elles et avec d'autres appareils du réseau local, comme s'ils étaient directement connectés au même réseau physique.
-   - Contrairement à NAT, le pontage ne modifie pas les adresses IP des machines virtuelles et permet une communication transparente avec les ressources externes et autres appareils du réseau.
+   - Contrairement à NAT, le pontage ne modifie pas les adresses IP des machines virtuelles et permet une communication transparente avec les../ressources externes et autres appareils du réseau.
 
 En résumé, NAT est utilisé pour traduire les adresses IP privées des machines virtuelles en une seule adresse IP publique, tandis que le pontage (bridge) permet de connecter plusieurs machines virtuelles pour qu'elles puissent communiquer directement entre elles et avec d'autres appareils du réseau local sans modification des adresses IP.</div>
 
@@ -599,7 +599,7 @@ Chat:
 
 2. Clone :
    - Un clone est une copie complète et autonome d'une machine virtuelle existante. Il crée une réplique indépendante de la machine virtuelle source, y compris tous les fichiers, paramètres, disques virtuels, etc.
-   - Un clone peut être utilisé pour déployer rapidement plusieurs instances identiques d'une machine virtuelle. Chaque clone fonctionne indépendamment des autres, avec son propre ensemble de ressources et de paramètres.
+   - Un clone peut être utilisé pour déployer rapidement plusieurs instances identiques d'une machine virtuelle. Chaque clone fonctionne indépendamment des autres, avec son propre ensemble de../ressources et de paramètres.
    - Contrairement aux snapshots, les clones ne sont pas liés à l'état actuel de la machine virtuelle source. Ils sont créés comme des machines virtuelles distinctes et fonctionnent de manière autonome.
    - Les clones peuvent être personnalisés après leur création, tels que la modification des paramètres réseau, l'ajout de logiciels supplémentaires, etc.
 
@@ -651,9 +651,9 @@ Moi: twitter + inoreader
 - Bonus1: diff clone vs snapshot
 - Bonus2: veille techno. Citer ses sources ! it-connect, bytebytego, krassas, matthieu hammel (codingame) 
 
-<link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/style.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/headings.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/headings.css">
 
 
 <style>

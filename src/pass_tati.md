@@ -60,14 +60,14 @@ Avantages d'un outil de gestion de parc
 - Diminution du temps de gestion
 - Meilleure organisation
 - Réduction des pertes 
-- Amélioration de la comptabilité de ressources
+- Amélioration de la comptabilité de../ressources
 - Surveillance de l'état du parc informatique
 - Prévention de pannes
 
 <div class="chat">
 - Centralisation des informations
 - Suivi et inventaire précis
-- Optimisation des ressources : en identifiant les équipements sous-utilisés ou inutilisé 
+- Optimisation des../ressources : en identifiant les équipements sous-utilisés ou inutilisé 
 - Maintenance proactive : fournit des alertes sur les mises à jour
 - Gestion des licences
 - Sécurité renforcée : facilite la gestion des correctifs de sécurité, des politiques de mots de passe (?)
@@ -268,7 +268,7 @@ En principe, sur tous... selon les besoins en électricité
 Packet Tracer : Routes statiques à ajouter sur routeur central pour communication entre PC0 et PC3
 </div>
 
-[![17](.ressources/img/t17.png)](.ressources/img/t17.png)
+[![17](../ressources/img/t17.png)](../ressources/img/t17.png)
 
 ```cisco
 ip route 192.168.1.0 255.255.255.0 10.10.10.1
@@ -291,7 +291,7 @@ access-list 101 permit ip any any</pre>
 
 Interdire l'accès de l'ip 10.0.0.1 à 10.10.0.1 via les ports définis et autoriser le reste :
 
-[![18](.ressources/img/t18.png)](.ressources/img/t18.png)
+[![18](../ressources/img/t18.png)](../ressources/img/t18.png)
 
 **Moi** : Faut dire ce que fait la commande ???
 
@@ -359,7 +359,7 @@ Quel est l'intérêt de mettre des hyperviseurs en cluster ?
 
 **Moi**
 
-- Partage des ressources
+- Partage des../ressources
 - Répartition de la charge
 - ...
 
@@ -374,17 +374,17 @@ Mettre des hyperviseurs en cluster présente plusieurs avantages significatifs :
 
 2. Tolérance aux pannes : Grâce à la fonctionnalité de migration en temps réel, les hyperviseurs en cluster peuvent détecter les pannes matérielles ou les problèmes de performances sur un nœud spécifique. Les machines virtuelles peuvent être rapidement déplacées vers d'autres nœuds fonctionnels, garantissant ainsi la continuité des opérations sans interruption de service.
 
-3. Équilibrage de charge entre les noeuds du cluster : Cela optimise l'utilisation des ressources et évite la surcharge d'un seul nœud, assurant ainsi des performances équilibrées et une utilisation efficace des ressources disponibles.
+3. Équilibrage de charge entre les noeuds du cluster : Cela optimise l'utilisation des../ressources et évite la surcharge d'un seul nœud, assurant ainsi des performances équilibrées et une utilisation efficace des../ressources disponibles.
 
 4. Gestion centralisée : Les administrateurs peuvent utiliser une console de gestion commune pour déployer, surveiller et administrer les machines virtuelles réparties sur différents nœuds, simplifiant ainsi la gestion et réduisant la complexité opérationnelle.
 
-5. Évolutivité : L'ajout de nouveaux nœuds à un cluster d'hyperviseurs permet d'augmenter la capacité de calcul et de stockage disponible pour les machines virtuelles. Cela permet de faire face à la croissance des besoins en ressources sans perturber les opérations existantes, offrant ainsi une évolutivité flexible et rapide.
+5. Évolutivité : L'ajout de nouveaux nœuds à un cluster d'hyperviseurs permet d'augmenter la capacité de calcul et de stockage disponible pour les machines virtuelles. Cela permet de faire face à la croissance des besoins en../ressources sans perturber les opérations existantes, offrant ainsi une évolutivité flexible et rapide.
 
 6. Maintenance planifiée sans interruption : Les machines virtuelles peuvent être migrées en douceur vers d'autres nœuds du cluster avant la maintenance, évitant ainsi les temps d'arrêt prévus et assurant la continuité des opérations.
 
 7. Récupération après sinistre : En répliquant les machines virtuelles sur des nœuds distants ou des sites géographiquement séparés, le cluster offre une redondance géographique et permet la reprise rapide des services en cas de catastrophe ou de panne majeure.
 
-En combinant ces avantages, la mise en place d'un cluster d'hyperviseurs offre une infrastructure robuste, flexible et résiliente pour les environnements de virtualisation, garantissant une disponibilité élevée, une tolérance aux pannes et une gestion efficace des ressources.
+En combinant ces avantages, la mise en place d'un cluster d'hyperviseurs offre une infrastructure robuste, flexible et résiliente pour les environnements de virtualisation, garantissant une disponibilité élevée, une tolérance aux pannes et une gestion efficace des../ressources.
 </div>
 
 <a href="#toc">Retour en haut</a>
@@ -428,9 +428,9 @@ Si l'un des nœuds d'un cluster d'hyperviseurs affiche des performances dégrad�
 
 1. Équilibrage de charge : Vérifiez si la charge de travail est répartie de manière équilibrée entre les nœuds du cluster. Vous pouvez déplacer certaines machines virtuelles d'un nœud surchargé vers d'autres nœuds moins sollicités afin de répartir la charge de manière plus équitable.
 
-2. Allocation de ressources : Assurez-vous que les ressources telles que le CPU, la mémoire et le stockage sont correctement allouées aux machines virtuelles. Réévaluez et ajustez si nécessaire les allocations de ressources pour répondre aux besoins spécifiques des machines virtuelles et réduire la charge sur le nœud affecté.
+2. Allocation de../ressources : Assurez-vous que les../ressources telles que le CPU, la mémoire et le stockage sont correctement allouées aux machines virtuelles. Réévaluez et ajustez si nécessaire les allocations de../ressources pour répondre aux besoins spécifiques des machines virtuelles et réduire la charge sur le nœud affecté.
 
-3. Identification des goulots d'étranglement : Analysez les performances du nœud affecté pour identifier les goulots d'étranglement potentiels. Cela peut inclure des ressources spécifiques surchargées, des processus ou des machines virtuelles consommant excessivement des ressources. Une fois identifiés, vous pouvez prendre des mesures pour optimiser l'utilisation des ressources ou ajuster les configurations.
+3. Identification des goulots d'étranglement : Analysez les performances du nœud affecté pour identifier les goulots d'étranglement potentiels. Cela peut inclure des../ressources spécifiques surchargées, des processus ou des machines virtuelles consommant excessivement des../ressources. Une fois identifiés, vous pouvez prendre des mesures pour optimiser l'utilisation des../ressources ou ajuster les configurations.
 
 4. Mise à jour du matériel ou de l'infrastructure : Si les performances dégradées persistent malgré les ajustements, envisagez d'examiner le matériel sous-jacent ou l'infrastructure réseau. Il est possible que des mises à niveau matérielles, des correctifs de micrologiciels ou des optimisations du réseau soient nécessaires pour améliorer les performances globales du cluster.
 
@@ -438,13 +438,13 @@ Si l'un des nœuds d'un cluster d'hyperviseurs affiche des performances dégrad�
 
 6. Planification des opérations : Si la charge élevée est due à des opérations spécifiques, telles que des sauvegardes, des migrations ou des mises à jour, assurez-vous de les planifier de manière à minimiser l'impact sur les performances du nœud et des autres machines virtuelles du cluster.
 
-En appliquant ces mesures, vous devriez être en mesure de résoudre les problèmes de performances dégradées ou de charge élevée sur un nœud spécifique d'un cluster d'hyperviseurs, assurant ainsi un équilibre optimal des ressources et une continuité des opérations efficace.
+En appliquant ces mesures, vous devriez être en mesure de résoudre les problèmes de performances dégradées ou de charge élevée sur un nœud spécifique d'un cluster d'hyperviseurs, assurant ainsi un équilibre optimal des../ressources et une continuité des opérations efficace.
 </div>
 
 **Résumé**
 
 - Equilibrage des charges
-- Allocation de ressources
+- Allocation de../ressources
 - Identification des goulots d'étranglement
 - Mise à jour du matériel ou de l'infra
 - Surveiller et diagnostiquer
@@ -457,7 +457,7 @@ En appliquant ces mesures, vous devriez être en mesure de résoudre les problè
 Si on ajoute un nouveau disque (voir image), quel sera son nom ?
 </div>
 
-[![19](.ressources/img/t19.png)](.ressources/img/t19png)
+[![19](../ressources/img/t19.png)](../ressources/img/t19png)
 
 Si c'est un nouveau disque physique, le nouveau nom sera `/dev/sdb`.
 
@@ -630,7 +630,7 @@ Quels sont les inconvénients d'un terminal léger comparé à un poste fixe ?
 Quels sont les types de VPN ? (voir image)
 </div>
 
-[![20](.ressources/img/t20.png)](.ressources/img/t20.png)
+[![20](../ressources/img/t20.png)](../ressources/img/t20.png)
 
 Celui du haut = VPN Nomade
 Celui du bas  = VPN Site-to-Site
@@ -705,7 +705,7 @@ Infos à surveiller sur un commutateur de couche accès
 3. Erreurs sur les ports : collisions, paquets perdus
 4. Etats des liens : id liens inactifs, actifs, défectueux
 5. Tables d'adresses MAC : detecte attaques par MAC Spoofing
-6. Consommation des ressources : cpu, mémoire tampon, etc. Détection pb de surcharge
+6. Consommation des../ressources : cpu, mémoire tampon, etc. Détection pb de surcharge
 7. Sécurité : journaux d'activité, alertes de sécurité pour tentatives d'accès non autorisées
 </div>
 
@@ -743,7 +743,7 @@ Signifie que tous les services surveillés par Nagios sont en état critique.
 Un schéma à compléter
 </div>
 
-[![21](.ressources/img/t21.png)](.ressources/img/t21.png)
+[![21](../ressources/img/t21.png)](../ressources/img/t21.png)
 
 <a href="#toc">Retour en haut</a>
 
@@ -808,10 +808,10 @@ De nombreux appels au service Support ont été enregistrés : les lecteurs n'é
 Votre travail consiste à trouver et créer un autre type de stratégie pour connecter les lecteurs réseaux.
 
 
-<a href=".ressources/img/t01.png" target="_blank"><img src=".ressources/img/t01.png" alt="t01"></a>
-<a href=".ressources/img/t02.png" target="_blank"><img src=".ressources/img/t02.png" alt="t02"></a>
-<a href=".ressources/img/t03.png" target="_blank"><img src=".ressources/img/t03.png" alt="t03"></a>
-<a href=".ressources/img/t04.png" target="_blank"><img src=".ressources/img/t04.png" alt="t04"></a>
+<a href="../ressources/img/t01.png" target="_blank"><img src="../ressources/img/t01.png" alt="t01"></a>
+<a href="../ressources/img/t02.png" target="_blank"><img src="../ressources/img/t02.png" alt="t02"></a>
+<a href="../ressources/img/t03.png" target="_blank"><img src="../ressources/img/t03.png" alt="t03"></a>
+<a href="../ressources/img/t04.png" target="_blank"><img src="../ressources/img/t04.png" alt="t04"></a>
 
 <a href="#toc">Retour en haut</a>
 
@@ -820,9 +820,9 @@ Votre travail consiste à trouver et créer un autre type de stratégie pour con
 Vous devez mettre en place une série de mesures limitant la connection de l'utilisateur Sylvie BIGALKE afin qu'elle puisse se connecter qu'à partir de son poste de travail (**PC-CLIENT01**) et uniquement pendant les horaires d'ouverture des bureaux (7h-17h du lundi au vendredi
 
 
-<a href=".ressources/img/t05.png" target="_blank"><img src=".ressources/img/t05.png" alt="t05"></a>
-<a href=".ressources/img/t06.png" target="_blank"><img src=".ressources/img/t06.png" alt="t06"></a>
-<a href=".ressources/img/t07.png" target="_blank"><img src=".ressources/img/t07.png" alt="t07"></a>
+<a href="../ressources/img/t05.png" target="_blank"><img src="../ressources/img/t05.png" alt="t05"></a>
+<a href="../ressources/img/t06.png" target="_blank"><img src="../ressources/img/t06.png" alt="t06"></a>
+<a href="../ressources/img/t07.png" target="_blank"><img src="../ressources/img/t07.png" alt="t07"></a>
 
 
 <a href="#toc">Retour en haut</a>
@@ -831,7 +831,7 @@ Vous devez mettre en place une série de mesures limitant la connection de l'uti
 
 La quantité de données stockées dans le dossier partagé "Gestion" doit être contrôlée.
 
-Votre travail consiste à appliquer un modèle de quotas selon les critères suivants (Gestionnaire de ressources du serveur de fichiers) :
+Votre travail consiste à appliquer un modèle de quotas selon les critères suivants (Gestionnaire de../ressources du serveur de fichiers) :
 
 - Avertissement de l'utilisateur et de l'administrateur à partir de 4 Go de stockage
 - Interdiction d'écrire au-delà de 5 Go
@@ -839,20 +839,20 @@ Votre travail consiste à appliquer un modèle de quotas selon les critères sui
 ATTENTION ! Le serveur de messagerie n'est pas configuré sur cette plateforme, donc vous pouvez mettre en place l'avertissement mais pas le tester. **Ne tenez pas compte d'éventuels messages d'erreur à ce sujet**.
 
 
-<a href=".ressources/img/t08.png" target="_blank"><img src=".ressources/img/t08.png" alt="t08"></a>
-<a href=".ressources/img/t09.png" target="_blank"><img src=".ressources/img/t09.png" alt="t09"></a>
-<a href=".ressources/img/t10.png" target="_blank"><img src=".ressources/img/t10.png" alt="t10"></a>
+<a href="../ressources/img/t08.png" target="_blank"><img src="../ressources/img/t08.png" alt="t08"></a>
+<a href="../ressources/img/t09.png" target="_blank"><img src="../ressources/img/t09.png" alt="t09"></a>
+<a href="../ressources/img/t10.png" target="_blank"><img src="../ressources/img/t10.png" alt="t10"></a>
 
 Il est recommandé de créer des **quotas** uniquement à partir de modèles. De cette façon, vous pouvez facilement gérer vos quotas en modifiant les modèles plutôt que les quotas individuels. Le seul emplacement central pour la gestion des quotas facilite l'adoption de règles de stratégie de stockage.
 
-<a href=".ressources/img/t11.png" target="_blank"><img src=".ressources/img/t11.png" alt="t11"></a>
-<a href=".ressources/img/t12.png" target="_blank"><img src=".ressources/img/t12.png" alt="t12"></a>
-<a href=".ressources/img/t13.png" target="_blank"><img src=".ressources/img/t13.png" alt="t13"></a>
-<a href=".ressources/img/t14.png" target="_blank"><img src=".ressources/img/t14.png" alt="t14"></a>
+<a href="../ressources/img/t11.png" target="_blank"><img src="../ressources/img/t11.png" alt="t11"></a>
+<a href="../ressources/img/t12.png" target="_blank"><img src="../ressources/img/t12.png" alt="t12"></a>
+<a href="../ressources/img/t13.png" target="_blank"><img src="../ressources/img/t13.png" alt="t13"></a>
+<a href="../ressources/img/t14.png" target="_blank"><img src="../ressources/img/t14.png" alt="t14"></a>
 
 Et modifier ou ajouter l'avertissement à 80%, ce qui correspondra au 4 Go.
 
-<a href=".ressources/img/t15.png" target="_blank"><img src=".ressources/img/t15.png" alt="t15"></a>
+<a href="../ressources/img/t15.png" target="_blank"><img src="../ressources/img/t15.png" alt="t15"></a>
 
 <a href="#toc">Retour en haut</a>
 
@@ -899,7 +899,7 @@ Afin d'améliorer la sécurité de l'accès SSH à votre serveur, vous devez cha
 
 <div class="is-success">Dans le fichier **/etc/ssh/sshd_config** changer le numéro de port</div>
 
-<a href=".ressources/img/t16.png" target="_blank"><img src=".ressources/img/t16.png" alt="t16"></a>
+<a href="../ressources/img/t16.png" target="_blank"><img src="../ressources/img/t16.png" alt="t16"></a>
 
 <a href="#toc">Retour en haut</a>
 
@@ -942,9 +942,9 @@ Votre travail consiste à créer la ligne 110 et à la mettre en service pour l'
 
 
 
-<link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/style.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/headings.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/headings.css">
 
 
 <style>

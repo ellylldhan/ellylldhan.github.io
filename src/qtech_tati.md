@@ -19,26 +19,26 @@ De nombreux appels au service Support ont été enregistrés : les lecteurs n'é
 
 Votre travail consiste à trouver et créer un autre type de stratégie pour connecter les lecteurs réseaux.
 
-![[01](.ressources/img/t01.png)](.ressources/img/t01.png)
-![[02](.ressources/img/t02.png)](.ressources/img/t02.png)
-![[03](.ressources/img/t03.png)](.ressources/img/t03.png)
-![[04](.ressources/img/t04.png)](.ressources/img/t04.png)
+![[01](../ressources/img/t01.png)](../ressources/img/t01.png)
+![[02](../ressources/img/t02.png)](../ressources/img/t02.png)
+![[03](../ressources/img/t03.png)](../ressources/img/t03.png)
+![[04](../ressources/img/t04.png)](../ressources/img/t04.png)
 
 ### 2e demande
 
 Vous devez mettre en place une série de mesures limitant la connection de l'utilisateur Sylvie BIGALKE afin qu'elle puisse se connecter qu'à partir de son poste de travail (**PC-CLIENT01**) et uniquement pendant les horaires d'ouverture des bureaux (7h-17h du lundi au vendredi
 
 
-![[05](.ressources/img/t05.png)](.ressources/img/t05.png)
-![[06](.ressources/img/t06.png)](.ressources/img/t06.png)
-![[07](.ressources/img/t07.png)](.ressources/img/t07.png)
+![[05](../ressources/img/t05.png)](../ressources/img/t05.png)
+![[06](../ressources/img/t06.png)](../ressources/img/t06.png)
+![[07](../ressources/img/t07.png)](../ressources/img/t07.png)
 
 
 ### 3e Demande
 
 La quantité de données stockées dans le dossier partagé "Gestion" doit être contrôlée.
 
-Votre travail consiste à appliquer un modèle de quotas selon les critères suivants (Gestionnaire de ressources du serveur de fichiers) :
+Votre travail consiste à appliquer un modèle de quotas selon les critères suivants (Gestionnaire de../ressources du serveur de fichiers) :
 
 - Avertissement de l'utilisateur et de l'administrateur à partir de 4 Go de stockage
 - Interdiction d'écrire au-delà de 5 Go
@@ -46,20 +46,20 @@ Votre travail consiste à appliquer un modèle de quotas selon les critères sui
 ATTENTION ! Le serveur de messagerie n'est pas configuré sur cette plateforme, donc vous pouvez mettre en place l'avertissement mais pas le tester. **Ne tenez pas compte d'éventuels messages d'erreur à ce sujet**.
 
 
-![[08](.ressources/img/t08.png)](.ressources/img/t08.png)
-![[09](.ressources/img/t09.png)](.ressources/img/t09.png)
-![[10](.ressources/img/t10.png)](.ressources/img/t10.png)
+![[08](../ressources/img/t08.png)](../ressources/img/t08.png)
+![[09](../ressources/img/t09.png)](../ressources/img/t09.png)
+![[10](../ressources/img/t10.png)](../ressources/img/t10.png)
 
 Il est recommandé de créer des **quotas** uniquement à partir de modèles. De cette façon, vous pouvez facilement gérer vos quotas en modifiant les modèles plutôt que les quotas individuels. Le seul emplacement central pour la gestion des quotas facilite l'adoption de règles de stratégie de stockage.
 
-![[11](.ressources/img/t11.png)](.ressources/img/t11.png)
-![[12](.ressources/img/t12.png)](.ressources/img/t12.png)
-![[13](.ressources/img/t13.png)](.ressources/img/t13.png)
-![[14](.ressources/img/t14.png)](.ressources/img/t14.png)
+![[11](../ressources/img/t11.png)](../ressources/img/t11.png)
+![[12](../ressources/img/t12.png)](../ressources/img/t12.png)
+![[13](../ressources/img/t13.png)](../ressources/img/t13.png)
+![[14](../ressources/img/t14.png)](../ressources/img/t14.png)
 
 Et modifier ou ajouter l'avertissement à 80%, ce qui correspondra au 4 Go.
 
-![[15](.ressources/img/t15.png)](.ressources/img/t15.png)
+![[15](../ressources/img/t15.png)](../ressources/img/t15.png)
 
 ## Adaptation de scripts
 
@@ -98,7 +98,7 @@ Afin d'améliorer la sécurité de l'accès SSH à votre serveur, vous devez cha
 
 <div class="is-success">Dans le fichier **/etc/ssh/sshd_config** changer le numéro de port</div>
 
-![[16](.ressources/img/t16.png)](.ressources/img/t16.png)
+![[16](../ressources/img/t16.png)](../ressources/img/t16.png)
 
 ### 2e Demande
 Le site intranet se trouve sur le serveur **SRVLX02**.
@@ -135,9 +135,9 @@ Votre travail consiste à créer la ligne 110 et à la mettre en service pour l'
 
 
 
-<link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/style.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/headings.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/headings.css">
 
 
 <style>
