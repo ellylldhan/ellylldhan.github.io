@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>notes</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#tssr-02---bases-réseaux">TSSR 02 - Bases Réseaux</a>
+<ul>
+<li><a href="#m03-02-tp-calcul-adresses">M03-02-TP Calcul
+Adresses</a></li>
+<li><a href="#m03-03-tp-cidr">M03-03-TP CIDR</a>
+<ul>
+<li><a
+href="#a.-calcul-du-réseau-des-hôtes-et-de-ladresse-de-diffusion">A.
+Calcul du réseau, des hôtes et de l’adresse de diffusion</a></li>
+<li><a
+href="#c.-trouver-adresse-réseau-notation-cidr-depuis-range-dadr-ip-min-max">C.
+Trouver adresse réseau &amp; notation CIDR depuis range d’adr IP (min
+&amp; max)</a></li>
+</ul></li>
+<li><a href="#démo-packet-tracer">Démo packet Tracer</a></li>
+<li><a href="#tp-packet-tracer">TP Packet Tracer</a>
+<ul>
+<li><a href="#les-adresses-ip-données">Les Adresses IP données</a></li>
+<li><a href="#configuration-du-routeur">Configuration du
+Routeur</a></li>
+</ul></li>
+<li><a href="#notes-réseaux">Notes Réseaux</a>
+<ul>
+<li><a href="#pré-requis-pour-linfrastructure-réseau">Pré-requis pour
+l’infrastructure réseau</a></li>
+<li><a href="#aparté-les-ports">APARTÉ : Les ports</a></li>
+<li><a href="#dns">DNS</a></li>
+<li><a href="#différence-tcpudp">Différence TCP/UDP</a></li>
+<li><a href="#résumé">Résumé</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<p>title: notes reseau 101</p>
+<h1 id="tssr-02---bases-réseaux">TSSR 02 - Bases Réseaux</h1>
+<p>[TOC]</p>
+<p><strong>Sommaire</strong></p>
+<h2 id="m03-02-tp-calcul-adresses">M03-02-TP Calcul Adresses</h2>
+<p><strong>nb hôtes = 2^masque - 2</strong></p>
+<p>-2 parce que le 0 et le 2^masque sont réservé (ex. 0 et 127)</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Adresse</th>
+<th style="text-align: left;">Masque</th>
+<th style="text-align: left;">/?</th>
+<th style="text-align: left;">adr réseau</th>
+<th style="text-align: left;">nb hôtes / réseau</th>
+<th style="text-align: left;">adr diffusion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">10.44.160.1</td>
+<td style="text-align: left;">255.0.0.0</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">10.0.0.0</td>
+<td style="text-align: left;">16 777 214</td>
+<td style="text-align: left;">10.255.255.255</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">164.2.34.35</td>
+<td style="text-align: left;">255.255.0.0</td>
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">164.2.0.0</td>
+<td style="text-align: left;">65 534</td>
+<td style="text-align: left;">164.2.255.255</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">101.2.3.18</td>
+<td style="text-align: left;">255.0.0.0</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">101.0.0.0</td>
+<td style="text-align: left;">16 777 214</td>
+<td style="text-align: left;">101.255.255.255</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">210.222.5.121</td>
+<td style="text-align: left;">255.255.255.0</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">210.222.5.0</td>
+<td style="text-align: left;">254</td>
+<td style="text-align: left;">210.222.5.255</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.107.56.23</td>
+<td style="text-align: left;">255.0.0.0</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">11.0.0.0</td>
+<td style="text-align: left;">16 777 214</td>
+<td style="text-align: left;">11.255.255.255</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">223.254.254.254</td>
+<td style="text-align: left;">255.255.255.0</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">23.254.254.0</td>
+<td style="text-align: left;">254</td>
+<td style="text-align: left;">23.254.254.255</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">152.91.10.150</td>
+<td style="text-align: left;">255.255.0.0</td>
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">152.91.0.0</td>
+<td style="text-align: left;">65 534</td>
+<td style="text-align: left;">152.91.255.255</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">81.17.66.38</td>
+<td style="text-align: left;">255.0.0.0</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">81.0.0.0</td>
+<td style="text-align: left;">16 777 214</td>
+<td style="text-align: left;">81.255.255.255</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">128.21.30.253</td>
+<td style="text-align: left;">255.255.0.0</td>
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">128.21.0.0</td>
+<td style="text-align: left;">65 534</td>
+<td style="text-align: left;">128.21.255.255</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">192.168.18.69</td>
+<td style="text-align: left;">255.255.255.0</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">192.168.18.0</td>
+<td style="text-align: left;">254</td>
+<td style="text-align: left;">192.168.18.255</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">98.54.56.23</td>
+<td style="text-align: left;">255.0.0.0</td>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">98.0.0.0</td>
+<td style="text-align: left;">16 777 214</td>
+<td style="text-align: left;">98.255.255.255</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">194.224.199.234</td>
+<td style="text-align: left;">255.255.255.0</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">194.224.199.0</td>
+<td style="text-align: left;">254</td>
+<td style="text-align: left;">94.224.199.255</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">191.255.252.20</td>
+<td style="text-align: left;">255.255.0.0</td>
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">191.255.0.0</td>
+<td style="text-align: left;">65 534</td>
+<td style="text-align: left;">191.255.255.255</td>
+</tr>
+</tbody>
+</table>
+<h2 id="m03-03-tp-cidr">M03-03-TP CIDR</h2>
+<h3 id="a.-calcul-du-réseau-des-hôtes-et-de-ladresse-de-diffusion">A.
+Calcul du réseau, des hôtes et de l’adresse de diffusion</h3>
+<p><strong>191.255.252.20/22</strong></p>
+<ul>
+<li>191.255.252.20 : 1011 1111 . 1111 1111 . 1111 1100 . 0001 0100</li>
+<li>Masque (22 x 1) : 1111 1111 . 1111 1111 . 1111 1100 . 0000 0000</li>
+<li>Réseau (AND) : 1011 1111 . 1111 1111 . 1111 1100 . 0000 0000</li>
+<li>Diffusion : 1011 1111 . 1111 1111 . 1111 1111 . 1111 1111</li>
+<li>Masque (DEC) : 255.255.252.0</li>
+<li>Réseau (DEC) : 191.255.252.0</li>
+<li>Nb hôtes (n x 0) : 2^n - 2 = 2^10 - 2 = 1022</li>
+<li>Adr de diffusion : 191.255.255.255</li>
+</ul>
+<p>Adr de diffusion : passer tous les bits de idhotes à 1 dans masque ??
+Nb Hôtes : nb de 0 dans masque</p>
+<p><strong>98.54.56.23/13</strong></p>
+<ul>
+<li>98.54.56.23 : 0110 0010 . 0011 0110 . 0011 1000 . 0001 0111</li>
+<li>Masque (13 x 1) : 1111 1111 . 1111 1000 . 0000 0000 . 0000 0000</li>
+<li>Réseau (AND) : 0110 0010 . 0011 0000 . 0000 0000 . 0000 0000</li>
+<li>Diffusion (bits hôte à 1) : 0110 0010 . 0011 0111 . 1111 1111 . 1111
+1111</li>
+<li>Masque (DEC) : 255.248.0.0</li>
+<li>Réseau (DEC) : 98.48.0.0</li>
+<li>Diffusion (DEC) : 98.55.255.255</li>
+<li>Nb hôtes (n x 0) : 2^n - 2 = 2^19 -2 = 524 286</li>
+</ul>
+<h3
+id="c.-trouver-adresse-réseau-notation-cidr-depuis-range-dadr-ip-min-max">C.
+Trouver adresse réseau &amp; notation CIDR depuis range d’adr IP (min
+&amp; max)</h3>
+<p><strong>Exemple</strong> - 10.0.0.1 - 10.255.255.254 : adr réseau +
+CIDR = 10.0.0.0/8, masque = 255.0.0.0 - 172.16.80.1 - 172.16.87.254 -
+192.168.15.117 - 192.168.15.118 - 172.16.0.1 - 172.31.255.254</p>
+<p><strong>Méthode</strong>:</p>
+<ol type="1">
+<li>Convertir chaque adr ip en BIN</li>
+<li>Comparer les résultats : la partie non-commune est la partie
+réservée aux IP</li>
+<li>A la place de la partie commune, mettre que des 1, suivit de 0 pour
+la partie non-commune. C’est le masque. Convertir en DEC pour avoir le
+masque.</li>
+<li>Compter combien de 1 contient l’adr masque en BINAIRE : c’est le
+CIDR (/?)</li>
+<li>Faire un AND sur n’importe quelle IP (min ou max) avec le masque en
+BIN. C’est l’adr réseau.</li>
+</ol>
+<p><strong>Exemple</strong></p>
+<ul>
+<li>192.168.15.117 : 1100 0000 . 1010 1000 . 0000 1111 . 0111 01 |
+01</li>
+<li>192.168.15.118 : 1100 0000 . 1010 1000 . 0000 1111 . 0111 01 |
+10</li>
+<li>Masque : 1111 1111 . 1111 1111 . 1111 1111 . 1111 11 | 00 (30 x
+1)</li>
+<li>AND 1100 0000 . 1010 1000 . 0000 1111 . 0111 01 00</li>
+</ul>
+<p>Convertion : - Masque : 255.255.255.252 - Réseau (AND) :
+192.168.15.116/30</p>
+<h2 id="démo-packet-tracer">Démo packet Tracer</h2>
+<p><strong>PDU</strong> : <em>Protocol Data unit</em> is a single unit
+of info transmitted among peer entities of a computer network.</p>
+<p><strong>ARP</strong> : <em>Address Resolution Protocol</em> is a
+communication protocol used for discovering the link layer address, such
+as a MAC address, associated with a given internet layer address
+(typically on IPv4 address).</p>
+<p>In IPv6 networdks; the functionality of ARP is provided by the
+<em>Neighbor Discovery Protocol</em> (<strong>NDP</strong>).</p>
+<p><strong>ICMP</strong> : <em>Internet Control Message Protocol</em> is
+a supporting protool in the Internet protocol suite. Used by network
+devices (ex. Routers) to send error messages and operational info
+indicating success or failure when communication with another IP
+address. Typically, protocol used when doing a
+<strong>ping</strong>.</p>
+<p><strong>Get MAC address</strong> :</p>
+<pre><code>ipconfig /all</code></pre>
+<h2 id="tp-packet-tracer">TP Packet Tracer</h2>
+<p>D’après <a
+href="http://jodies.de/ipcalc?host=210.222.5.121&amp;mask1=29&amp;mask2=">jodies.de/ipcalc</a></p>
+<h3 id="les-adresses-ip-données">Les Adresses IP données</h3>
+<ul>
+<li>Adr0 : <strong>210.222.5.121/29</strong></li>
+</ul>
+<pre><code>Address:   210.222.5.121         11010010.11011110.00000101.01111 001
+Netmask:   255.255.255.248 = 29  11111111.11111111.11111111.11111 000
+Wildcard:  0.0.0.7               00000000.00000000.00000000.00000 111
+=&gt;
+Network:   210.222.5.120/29      11010010.11011110.00000101.01111 000 (Class C)
+Broadcast: 210.222.5.127         11010010.11011110.00000101.01111 111
+HostMin:   210.222.5.121         11010010.11011110.00000101.01111 001
+HostMax:   210.222.5.126         11010010.11011110.00000101.01111 110
+Hosts/Net: 6    </code></pre>
+<ul>
+<li>Adr1 : <strong>194.224.199.234/19</strong></li>
+</ul>
+<pre><code>Address:   194.224.199.234       11000010.11100000.110 00111.11101010
+Netmask:   255.255.224.0 = 19    11111111.11111111.111 00000.00000000
+Wildcard:  0.0.31.255            00000000.00000000.000 11111.11111111
+=&gt;
+Network:   194.224.192.0/19      11000010.11100000.110 00000.00000000 (Class C)
+Broadcast: 194.224.223.255       11000010.11100000.110 11111.11111111
+HostMin:   194.224.192.1         11000010.11100000.110 00000.00000001
+HostMax:   194.224.223.254       11000010.11100000.110 11111.11111110
+Hosts/Net: 8190      </code></pre>
+<h3 id="configuration-du-routeur">Configuration du Routeur</h3>
+<p>Sur le Routeur, configurer les ip des interfaces GigabitEthernet
+connectées à chaque réseau.</p>
+<ul>
+<li>Sur GigabitEthernet0/0, lui donner une IP (ip0) du réseau connecté à
+cette prise (net0). Ex. la dernière adresse de la plage dispo.</li>
+<li>Sur GigabitEthernet0/1, lui donner une autre IP (ip1) du réseau
+connecté à cette prise (net1)</li>
+<li>Sur chaque poste du réseau net0, donner l’adresse ip (ip0) du
+routeur comme passerelle par défaut (gateway)</li>
+<li>Sur chaque poste du réseau net1, donner l’adresse ip (ip1) du
+routeur comme passerelle par défaut</li>
+</ul>
+<p><strong>Réseau 1</strong></p>
+<ul>
+<li>ip srv-0 : 210.222.5.121</li>
+<li>ip pc-0 : 210.222.5.122</li>
+<li>ip lap-0 : 210.222.5.123</li>
+<li>ip router0 : 210.222.5.126</li>
+<li>passerelle : 210.222.5.126</li>
+<li>masque : 255.255.255.248</li>
+<li>network : 210.22.5.120/29</li>
+</ul>
+<p><strong>Réseau 2</strong></p>
+<ul>
+<li>ip srv-1 : 194.224.192.1</li>
+<li>ip pc-1 : 194.224.192.2</li>
+<li>ip lap-1 : 194.224.192.3</li>
+<li>ip router-1 : 194.224.223.254</li>
+<li>passerelle : 194.224.223.254</li>
+<li>masque : 255.255.254.0</li>
+<li>network : 194.224.192.0/19</li>
+</ul>
+<h2 id="notes-réseaux">Notes Réseaux</h2>
+<h3 id="pré-requis-pour-linfrastructure-réseau">Pré-requis pour
+l’infrastructure réseau</h3>
+<p>Ports et protocoles : tous les ports nécessaires doivent être ouverts
+dans le parefeu.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 43%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Protocole</th>
+<th style="text-align: left;">Port non sécurisé</th>
+<th style="text-align: left;">Port TLS/SSL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">HTTP Hypertext Transfert Protocol</td>
+<td style="text-align: left;">80</td>
+<td style="text-align: left;">443</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">POP3 Post Office Protocol</td>
+<td style="text-align: left;">110</td>
+<td style="text-align: left;">995</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IMAP4 Interactive Message Access
+Protocol</td>
+<td style="text-align: left;">143</td>
+<td style="text-align: left;">993</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SMTP Simple Mail Transfer Protocol</td>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Soumission client SMTP</td>
+<td style="text-align: left;">2525 (bloqué par FAI)</td>
+<td style="text-align: left;">587 ou 2525 (465 déprécié)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Le port 465 était le port de soumission en chiffrement implicite
+(465 déprécié et réaffecté à IGMPV sur cisco)</li>
+</ul>
+<h3 id="aparté-les-ports">APARTÉ : Les ports</h3>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 23%" />
+<col style="width: 15%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Protocole</th>
+<th style="text-align: left;">TCP/UDP</th>
+<th style="text-align: left;">Port</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">BGP Border Gateway Protocol</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">179</td>
+<td style="text-align: left;">Widely used on public internet and by ISP
+to maintain very large routing tables and traffic processing. BGP is one
+of the few protocols that have been designed to deal with the very large
+routing tables that must exist on the public Internet.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DHCP Dynamic Host Configuration
+Protocol</td>
+<td style="text-align: left;">UDP</td>
+<td style="text-align: left;">67/68</td>
+<td style="text-align: left;">USed on networks that do not use static IP
+address assignment (almost all of them). A DHCP server can be set up
+with a pool of addresses that are available for assignment. When a
+client device is turned on, it can request an IP from the local DHCP
+server which will assign an IP address, if one is available. The
+assignment is not permanent and expires at a configurable interval. If
+an address renewal is not requested and the lease expires, the address
+will be put back into the pool for assignment</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DNS Domain Name System</td>
+<td style="text-align: left;">TCP/UDP</td>
+<td style="text-align: left;">53</td>
+<td style="text-align: left;">Used on public and private networks to
+translate domain names into IP addresses, typically for network
+routing.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FTP File Transfert Protocol</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">20/21</td>
+<td style="text-align: left;">data on port 20, control handled on TCP
+port 21</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FTP over TLS/SSL</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">989/990</td>
+<td style="text-align: left;">FTP with secure connection using either
+SSL or TLS</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HTTP HyperText Transfer Protocol</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">80</td>
+<td style="text-align: left;">Main protocol used by web browsers and is
+thus used by any client that uses files located on these servers</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HTTPS HyperText Transfer Protocol over
+SSL/TLS</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">443</td>
+<td style="text-align: left;">Used in conjonction with HTTP to provide
+the same services but using a secure connection provided by either SSL
+or TLS.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IMAP Internet Message Access Protocol</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">143</td>
+<td style="text-align: left;">IMAP v4 is the second main protocols used
+to retrieve mail from a server. While POP has wider support, IMAP
+supports a wider array of remote mailbox.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IMAP over TLS/SSL</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">193</td>
+<td style="text-align: left;">IMAP over TLS/SSL.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LDAP Lightweight Directory Access
+Protocol</td>
+<td style="text-align: left;">TCP/UDP</td>
+<td style="text-align: left;">389</td>
+<td style="text-align: left;">Provides a mechanism of accessing and
+maintaining distributed deirectory information. Is based on the
+ITU-TX.500 standard but has been simplified ans altered to ork onver
+TCP/IP networks.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NetBIOS</td>
+<td style="text-align: left;">TCP/UDP</td>
+<td style="text-align: left;">137/138/139</td>
+<td style="text-align: left;">Not a protocol in itself but is typically
+used in combination with IP with the NetBIOS over TCP/IP (NBT) protocol.
+NBT has long been the central protocol to interconnect Microsoft Windows
+machines.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NFS Network File System</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Like SMB but for Linux. Not
+crossplatform.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NTP Network Time Protocol</td>
+<td style="text-align: left;">UDP</td>
+<td style="text-align: left;">123</td>
+<td style="text-align: left;">Used to synchronize devices on the
+Internet, ex. for time keeping. Most modern OS support NFT as a basis
+for an accurate clock. Important in networking as it provides an ability
+to easily interrelate troubles from one devie to another as the clock
+are precisely accurate.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">POP3 over SSL/TLS</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">995</td>
+<td style="text-align: left;">POP3 using a secured connection over
+TSL/SSL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">POP3 Post Office Protocol</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">110</td>
+<td style="text-align: left;">One of 2 protocols used to retrieve mails
+from a server. Allows clkient to retrieve the complete content of server
+mailbox and then deleting content from said servers</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RDP Remote Desktop Protocol</td>
+<td style="text-align: left;">TCP/UDP</td>
+<td style="text-align: left;">3389</td>
+<td style="text-align: left;">Used for remote desktop connections</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SMB Server Message Block</td>
+<td style="text-align: left;">TCP/UDP</td>
+<td style="text-align: left;">445</td>
+<td style="text-align: left;">Provides shared access to files, printers
+and serial ports between nodes on a network. Crossplatform.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SMTP chiffrement explicite</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">587</td>
+<td style="text-align: left;">Transfert mail avec chiffrement
+explicite</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SMTP chiffrement implicite</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">465</td>
+<td style="text-align: left;">Transfert mail avec chiffrement
+implicite</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SMTP Simple Mail Transfer Protocol</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">Used for two primary functions : mail
+transfer 1) from source to destination between mail servers, 2) from end
+users to mail system. Port 25 = sans chiffrement</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SNMP Simple Network Management
+Protocol</td>
+<td style="text-align: left;">TCP/UDP</td>
+<td style="text-align: left;">161/162</td>
+<td style="text-align: left;">Used by admins as a method of network
+management. Has a number of different abilities including the ability to
+monitor, configure and control network device. SNMP traps can also be
+configured on network devices to notify a central server when specific
+actions are occuring. Typically used when an alerting condition is
+happening</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SSH Secure Shell</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">Used to manage network devices securely at
+the command level. Secure alternative to Telnet.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Telnet</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">23</td>
+<td style="text-align: left;">Like SSH but unsecure</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TFTP Trivial File Transfer Protocol</td>
+<td style="text-align: left;">UDP</td>
+<td style="text-align: left;">69</td>
+<td style="text-align: left;">Method of file transfer without the
+session establishment requirements that FTP uses. Uses UDP instead of
+TCP, therefore has no way of ensuring the file has been properly
+transferred. The end device must be able to check the file to ensure
+proper transfer. Typically used by devices to upgrade software and
+firmware (ex. Cisco equipment).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>DHCP</strong> : <em>Dynamic Host Configuration Protocol</em>,
+assigns IP addr to client on request. IP taken for a poll of addresses
+set up by sysadmin. IP can expire. Expired IP return to the poll for
+futur assignment.</p>
+<p><strong>UDP</strong> : <em>User Datagram Protocol</em>, One-way,
+packet indépendant, pas de vérification, pas de garantie de réception,
+pas fiable mais rapide. Ex. jeux en ligne.</p>
+<p><strong>TCP</strong> : <em>Transmission Control Protocol</em>,
+paquets sont testés et vérifiés à la réception, fiable mais plus lent.
+Ex. appel téléphonique</p>
+<p><strong>DNS</strong> : <em>Domain Name System</em>, attention pas
+<em><em>service</em></em>. Annuaire qui ait le lien entre les adresses
+IP et les noms de domaines.</p>
+<h3 id="dns">DNS</h3>
+<ul>
+<li>Domain Name System are widely used to on public and private networks
+to translate domain names into IP addresses, typically for network
+routing.</li>
+<li>DNS is hieratical with main root servers that contains databases
+that list the managers of high level TLD (Top Level Domains), such as
+<code>.com</code>.</li>
+<li>These different TLD managers then contain information for the second
+level domains that are typically used by individual users (ex.
+<code>cisco.com</code>).</li>
+<li>A DNS server can also be set up within a private naming services
+between the hosts of the internal network without being part of the
+global system.</li>
+</ul>
+<h3 id="différence-tcpudp">Différence TCP/UDP</h3>
+<h4 id="udp">UDP</h4>
+<p>UDP signifie <strong>User Datagram Protocol</strong>. Ce protocole de
+connexion envoi des packets de données indépendants. On appelle ces
+packets indépendants des <em>datagrams</em>. Ces <em>datagrams</em>
+passent d’un ordinateur à un autre. <strong>Il n’y a pas de garantie sur
+la réception des données</strong>. Ce n’est pas un protocole de
+communication fiable.</p>
+<p>UDP est utile lorsque l’on as pas à vérifier chaque packet. Ce
+protocole est beaucoup plus rapide que le protocole TCP due au fait
+qu’il n’y a <strong>pas de vérifications à la réception</strong>.</p>
+<p>Le meilleur exemple du protocole UDP est l’exemple de l’horloge.
+Imaginez un programme qui envoi l’heure à un ordinateur lorsque celui-ci
+le demande. Si jamais l’ordinateur ne reçois pas le packet, ça n’as pas
+de sens de le renvoyer puis qu’entre temps, l’heure as changée.</p>
+<h4 id="tcp">TCP</h4>
+<p>TCP signifie <strong>Transmission Control Protocol</strong>. C’est
+probablement le protocole le plus utilisé sur internet. TCP est un
+protocole orienté connexion qui assure une certaine sécurité au niveau
+de l’échange des packets. <strong>Les informations sont testées et
+vérifiés</strong>. Ainsi, si un ordinateur ne reçois pas correctement un
+packet, ce-dernier est renvoyé.</p>
+<p>Le protocole TCP établit une communication entre un ordinateur source
+et un ordinateur de destination. Les ports sont reliés via un lien
+jusqu’à ce que la connexion soit terminée. Contrairement à UDP, les
+packets ne sont pas envoyés de manière indépendante, il y a une
+<strong>vérification à la récéption</strong>.</p>
+<p>Un des protocole TCP les plus connu est une conversation
+téléphonique. En effet, il faut bien que tout les packets soit
+réceptionnés. Sinon, la qualité de l’appel seras médiocre.</p>
+<h4 id="comparatif">Comparatif</h4>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">UDP</th>
+<th style="text-align: left;">TCP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Le protocole n’est pas orienté
+connexion</td>
+<td style="text-align: left;">Le protocole est orienté connexion</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Le protocole n’est pas sécurisé</td>
+<td style="text-align: left;">Le protocole est sécurisé</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">UDP envoi des packets indépendants appelés
+datagrams de la source à la destination</td>
+<td style="text-align: left;">Le protocole TCP crée une connexion entre
+une source et une destination</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Les packets peuvent se perdre</td>
+<td style="text-align: left;">Pas de perte de packets, le protocole est
+stable</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">La vitesse est plus importante que la
+stabilité</td>
+<td style="text-align: left;">La sécurité et la stabilité est plus
+importante que la vitesse</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Le header de UDP est de 8 bytes</td>
+<td style="text-align: left;">Le header de TCP est de 20 bytes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">UDP n’effectue aucune vérification</td>
+<td style="text-align: left;">TCP effectue trois vérification de
+récéption</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TCP utilise des méchanismes de détéction
+d’erreur, on peux donc catcher sur ces erreurs</td>
+<td style="text-align: left;">UDP n’as pas de système de vérification,
+on ne peux donc pas les détecter dans le code</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Exemple : un jeux vidéo en ligne</td>
+<td style="text-align: left;">Exemple : un appel téléphonique</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">UDP est utilisé pour les protocoles DNS,
+DHCP, SNMP, RIP, VOIP, TFTP</td>
+<td style="text-align: left;">TCP est utilisé pour les protocoles HTTP,
+HTTPS, FTP, SMTP</td>
+</tr>
+</tbody>
+</table>
+<h3 id="résumé">Résumé</h3>
+<h4 id="file-transfer">File transfer</h4>
+<table>
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 20%" />
+<col style="width: 17%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Protocole</th>
+<th style="text-align: left;">Port</th>
+<th style="text-align: left;">Nom</th>
+<th style="text-align: left;">Alias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">FTP</td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">File Transfert Protocol</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FTPS</td>
+<td style="text-align: left;">21 explicite<br>989/TCP control<br>990/TCP
+data</td>
+<td style="text-align: left;">FTP Secure</td>
+<td style="text-align: left;">FTP over TLS/SSL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TFTP</td>
+<td style="text-align: left;">69</td>
+<td style="text-align: left;">Trivial File Transfer Protocol</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SSH</td>
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">Secure Shell</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Telnet</td>
+<td style="text-align: left;">23</td>
+<td style="text-align: left;">Telnet</td>
+<td style="text-align: left;">Dinosaure</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SMB</td>
+<td style="text-align: left;">445</td>
+<td style="text-align: left;">Server Message Block</td>
+<td style="text-align: left;">Shared access, file &amp; printers</td>
+</tr>
+</tbody>
+</table>
+<h4 id="mailweb">Mail/Web</h4>
+<table>
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 20%" />
+<col style="width: 17%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Protocole</th>
+<th style="text-align: left;">Port</th>
+<th style="text-align: left;">Nom</th>
+<th style="text-align: left;">Alias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">POP3<br>over TLS/SSL</td>
+<td style="text-align: left;">110<br>995</td>
+<td style="text-align: left;">Post Office Protocol</td>
+<td style="text-align: left;">Mail grabbed and kept on client</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IMAP<br>over TLS/SSL</td>
+<td style="text-align: left;">143<br>993</td>
+<td style="text-align: left;">Internet Message Access Protocol</td>
+<td style="text-align: left;">Mail kept on mailserver</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SMTP<br>chiffr. explicite<br>chiffr.
+implicite</td>
+<td style="text-align: left;">25<br>465<br>587</td>
+<td style="text-align: left;">Simple Mail Transfer Protocol</td>
+<td style="text-align: left;">Mail transfer protocol between mail
+systems, and end users</td>
+</tr>
+</tbody>
+</table>
+<h4 id="web">Web</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Protocole</th>
+<th style="text-align: left;">Port</th>
+<th style="text-align: left;">Nom</th>
+<th style="text-align: left;">Alias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">HTTP<br>HTTPS</td>
+<td style="text-align: left;">80<br>443</td>
+<td style="text-align: left;">HyperText Transfer Protocol</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DNS</td>
+<td style="text-align: left;">53</td>
+<td style="text-align: left;">Domain Name System</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DHCP</td>
+<td style="text-align: left;">67/68</td>
+<td style="text-align: left;">Dynamic Host Configuration Protocol</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RDP</td>
+<td style="text-align: left;">3389</td>
+<td style="text-align: left;">Remote Desktop</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><link rel="stylesheet" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" href="../ressources/css/style.css"></p>
+</body>
+</html>

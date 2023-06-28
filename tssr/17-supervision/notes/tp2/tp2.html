@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>tp2</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#eni-tssr-17---supervision">ENI TSSR 17 - Supervision</a>
+<ul>
+<li><a href="#tp2">TP2</a>
+<ul>
+<li><a href="#rappels">Rappels</a></li>
+<li><a href="#créations-des-commandes">Créations des commandes</a></li>
+<li><a href="#correction">CORRECTION</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<p>title: tp2-sondes</p>
+<h1 id="eni-tssr-17---supervision">ENI TSSR 17 - Supervision</h1>
+<h2 id="tp2">TP2</h2>
+<p>Ecriture de sondes de supervision</p>
+<p>[TOC]</p>
+<h3 id="rappels">Rappels</h3>
+<ol type="1">
+<li>Les sondes de supervision se trouvent aux emplacements suivants :
+<ul>
+<li><strong>/usr/lib/centreon/plugins</strong></li>
+<li><strong>/usr/lib64/nagios/plugins</strong></li>
+<li><strong>/usr/lib/nabios/plugins</strong></li>
+</ul></li>
+<li>L’execution des commandes s’effectue <strong>toujours</strong> sous
+l’utilisateur <code>centreon-engine</code></li>
+</ol>
+<pre><code># su - centreon-engine</code></pre>
+<h3 id="créations-des-commandes">Créations des commandes</h3>
+<h4 id="communes-aux-2-postes-client">1. Communes aux 2 postes
+client</h4>
+<h5 id="vérification-du-ping">1.1 Vérification du ping</h5>
+<ul>
+<li><p>5 requêtes seront envoyées</p></li>
+<li><p>Seuil Warning : RTA de 3 ms ou 20% de perte</p></li>
+<li><p>Seuil Critique : RTA de 5 ms ou 60% de perte</p></li>
+<li><p>hôtes visés :</p>
+<ul>
+<li>DEB-CLI1 (172.16.1.101)</li>
+<li>WIN-CLI2 (172.16.1.100)</li>
+</ul></li>
+<li><p>service visé: <code>ping</code></p></li>
+</ul>
+<ol type="1">
+<li>Se connecter en ssh au server Centreon (172.16.1.10 root
+(Pa$$w0rd))</li>
+<li>Check aide si besoin</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/lib64/nagios/plugins/check_ping</span> <span class="at">-h</span></span></code></pre></div>
+<ol start="3" type="1">
+<li>Devenir utilisateur <code>centreon-engine</code> avant d’enregistrer
+des sondes</li>
+<li>Executer :</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">check_ping</span> <span class="at">--hostname</span><span class="op">=</span>172.16.1.100 <span class="at">--warning</span><span class="op">=</span>3,20% <span class="at">--critical</span><span class="op">=</span>5,60% <span class="at">--packets</span><span class="op">=</span>5</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">check_ping</span> <span class="at">-H</span> 172.16.1.101 <span class="at">-w</span> 3,20% <span class="at">-c</span> 5,60% <span class="at">-p</span> 5</span></code></pre></div>
+<p><strong>Commande entière</strong>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> root@172.16.1.10</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">su</span> <span class="at">-</span> centreon-engine</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /usr/lib64/nagios/plugins</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">./check_ping</span> <span class="at">--hostname</span><span class="op">=</span>172.16.1.100 <span class="at">--warning</span><span class="op">=</span>3,20% <span class="at">--critical</span><span class="op">=</span>5,60% <span class="at">--packets</span><span class="op">=</span>5</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">./check_ping</span> <span class="at">-H</span> 172.16.1.101 <span class="at">-w</span> 3,20% <span class="at">-c</span> 5,60% <span class="at">-p</span> 5</span></code></pre></div>
+<p><strong>OUTPUT</strong> :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ./check_ping <span class="at">--hostname</span><span class="op">=</span>172.16.1.100 <span class="at">--warning</span><span class="op">=</span>3,20% <span class="at">--critical</span><span class="op">=</span>5,60% <span class="at">--packets</span><span class="op">=</span>5</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">PING</span> CRITICAL <span class="at">-</span>  Paquets perdus = 100%<span class="kw">|</span><span class="va">rta</span><span class="op">=</span>5.000000ms<span class="kw">;</span><span class="ex">3.000000</span><span class="kw">;</span><span class="ex">5.000000</span><span class="kw">;</span><span class="ex">0.000000</span> pl=100%<span class="kw">;</span><span class="ex">20</span><span class="kw">;</span><span class="ex">60</span><span class="kw">;</span><span class="ex">0</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ./check_ping <span class="at">--hostname</span><span class="op">=</span>172.16.1.101 <span class="at">--warning</span><span class="op">=</span>3,20% <span class="at">--critical</span><span class="op">=</span>5,60% <span class="at">--packets</span><span class="op">=</span>5</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">PING</span> OK <span class="at">-</span>  Paquets perdus = 0%, RTA = 0.88 ms<span class="kw">|</span><span class="va">rta</span><span class="op">=</span>0.879000ms<span class="kw">;</span><span class="ex">3.000000</span><span class="kw">;</span><span class="ex">5.000000</span><span class="kw">;</span><span class="ex">0.000000</span> pl=0%<span class="kw">;</span><span class="ex">20</span><span class="kw">;</span><span class="ex">60</span><span class="kw">;</span><span class="ex">0</span></span></code></pre></div>
+<p>Après désactivation du pare-feu sur 172.16.1.100 :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ./check_ping <span class="at">--hostname</span><span class="op">=</span>172.16.1.100 <span class="at">--warning</span><span class="op">=</span>3,20% <span class="at">--critical</span><span class="op">=</span>5,60% <span class="at">--packets</span><span class="op">=</span>5PING OK <span class="at">-</span>  Paquets perdus = 0%, RTA = 1.17 ms<span class="kw">|</span><span class="va">rta</span><span class="op">=</span>1.172000ms<span class="kw">;</span><span class="ex">3.000000</span><span class="kw">;</span><span class="ex">5.000000</span><span class="kw">;</span><span class="ex">0.000000</span> pl=0%<span class="kw">;</span><span class="ex">20</span><span class="kw">;</span><span class="ex">60</span><span class="kw">;</span><span class="ex">0</span></span></code></pre></div>
+<p>Aide <code>check_ping</code></p>
+<pre><code>$ centreon-engine@centreon-central:/usr/lib64/nagios/plugins
+[0] ./check_ping -h
+check_ping v2.3.3 (nagios-plugins 2.3.3)
+Copyright (c) 1999 Ethan Galstad &lt;nagios@nagios.org&gt;
+Copyright (c) 2000-2014 Nagios Plugin Development Team
+        &lt;devel@nagios-plugins.org&gt;
+
+Utilise ping pour vérifier les statistiques de connections d&#39;un hôte distant.
+
+Utilisation:
+check_ping -H &lt;host_address&gt; -w &lt;wrta&gt;,&lt;wpl&gt;% -c &lt;crta&gt;,&lt;cpl&gt;%
+ [-p packets] [-t timeout] [-4|-6]
+
+Options:
+ -h, --help
+    Afficher l&#39;aide détaillée
+ -V, --version
+    Afficher les informations relative à la version
+ --extra-opts=[section][@file]
+    Read options from an ini file. See
+    https://www.nagios-plugins.org/doc/extra-opts.html
+    for usage and examples.
+ -4, --use-ipv4
+    Utiliser une connection IPv4
+ -6, --use-ipv6
+    Utiliser une connection IPv6
+ -H, --hostname=HOST
+    hôte à tester
+ -w, --warning=THRESHOLD
+    Valeurs pour le seuil d&#39;avertissement
+ -c, --critical=THRESHOLD
+    Valeurs pour le seuil critique
+ -p, --packets=INTEGER
+    nombre de paquets ICMP à envoyer (Défaut: 5)
+ -s, --show-resolution
+    show name resolution in the plugin output (DNS &amp; IP)
+ -L, --link
+    show HTML in the plugin output (obsoleted by urlize)
+ -t, --timeout=INTEGER:&lt;timeout state&gt;
+    Seconds before connection times out (default: 10)
+    Optional &quot;:&lt;timeout state&gt;&quot; can be a state integer (0,1,2,3) or a state STRING</code></pre>
+<h4 id="poste-windows-nrpe">2. Poste Windows (NRPE)</h4>
+<p>Ces sondes utiliseront toutes le protocole <strong>NRPE</strong>.</p>
+<p><strong>Paramètrages NRPE</strong></p>
+<ol type="1">
+<li>Ouvrir https://localhost:8443/ (Pa$$w0rd)</li>
+<li>Settings &gt; settings &gt; NRPE &gt; server</li>
+<li>Onglet Basic</li>
+<li>“allow arguments” : ecrire <code>true</code></li>
+<li>“allow nasty characters” : écrire <code>true</code></li>
+<li>Save</li>
+<li>Reload (Queries &gt; Control &gt; Reload)</li>
+</ol>
+<p>Retourner sur l’interface web</p>
+<ol type="1">
+<li>Modules &gt; sélectionner les modules voulus</li>
+<li>Queries &gt; entrer ses requêtes</li>
+</ol>
+<h5 id="vérification-de-la-charge-cpu">2.1 Vérification de la charge
+CPU</h5>
+<ul>
+<li><p>Seuil Warning à 75% d’utilisation et critique à 85%</p></li>
+<li><p>hôtes: WIN-CLI2 @ 172.16.1.100</p></li>
+<li><p>service : <code>check_load</code></p></li>
+</ul>
+<pre><code>check_cpu &quot;warn=load &gt; 75&quot; &quot;crit=load &gt; 85&quot;</code></pre>
+<p><img src="../.ressources/img/tp02-2.1.png" alt="2.2.1" /></p>
+<p><em>Comment il sait qui il interroge ????</em></p>
+<blockquote>
+<p>Parce qu’il est exécuté en localhost</p>
+</blockquote>
+<h5 id="vérification-de-la-quantité-de-mémoire">2.2 Vérification de la
+quantité de mémoire</h5>
+<ul>
+<li>Seuil warning à 75% d’utilisation et critique à 90%</li>
+</ul>
+<pre><code>check_memory warn=75 crit=90 type=committed</code></pre>
+<p><img src="../.ressources/img/tp02-2.2.png" alt="2.2.2" /></p>
+<h5 id="vérification-du-stockage">2.3 Vérification du stockage</h5>
+<ul>
+<li>Vérification du lecteur C:</li>
+<li>Seuil warning à 70% d’utilisation et critique à 80%</li>
+</ul>
+<pre><code>check_drivesize drive=c warn=70 crit=80</code></pre>
+<p><img src="../.ressources/img/tp02-2.3A.png" alt="2.2.3A" /></p>
+<p><img src="../.ressources/img/tp02-2.3B.png" alt="2.2.3B" /></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/lib/nagios/plugins/check_centreon_nrpe3</span> <span class="at">-H</span> 172.16.1.100 <span class="at">-c</span> check_drivesize <span class="st">&quot;warn=used &gt; 70&quot;</span> <span class="st">&quot;crit=used &gt; 85&quot;</span> <span class="st">&quot;drive=c&quot;</span></span></code></pre></div>
+<p>Output :</p>
+<pre><code>OK All 2 drive(s) are ok|&#39;C:\ used&#39;=18.92965GB;47.74218;53.70995;0;59.67773 &#39;C:\ used %&#39;=32%;80;90;0;100 &#39;D:\ used&#39;=0B;0;0;0;0</code></pre>
+<h4 id="poste-linux">3. Poste Linux</h4>
+<p>Ces sondes utiliseront toutes le protocole <strong>SNMP</strong></p>
+<h5 id="vérification-de-la-charge-cpu-1">3.1 Vérification de la charge
+CPU</h5>
+<ul>
+<li>Warning 70%, Critique 85%</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/lib/nagios/plugins/check_centreon_nrpe3</span> <span class="at">-H</span> 172.16.1.100 <span class="at">-c</span> check_cpu <span class="at">-a</span> <span class="st">&quot;warn=load &gt; 70&quot;</span> <span class="st">&quot;crit=load &gt; 85&quot;</span></span></code></pre></div>
+<p>Output:</p>
+<pre><code>OK: CPU load is ok.|&#39;total 5m&#39;=2%;70;85 &#39;total 1m&#39;=2%;70;85 &#39;total 5s&#39;=6%;70;85</code></pre>
+<h5 id="vérification-de-la-quantité-de-mémoire-1">3.2 Vérification de la
+quantité de mémoire</h5>
+<ul>
+<li>Warning 75% critique 90%</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/lib/nagios/plugins/check_centreon_nrpe3</span> <span class="at">-H</span> 172.16.1.100 <span class="at">-c</span> check_memory <span class="at">-a</span> <span class="st">&quot;warn=used &gt; 75&quot;</span> <span class="st">&quot;crit=used &gt; 90&quot;</span></span></code></pre></div>
+<p>Output :</p>
+<pre><code>OK: committed = 1.475GB, physical = 716.145MB|&#39;committed&#39;=1.47468GB;2.34303;2.81164;0;3.12404 &#39;committed %&#39;=47%;75;90;0;100 &#39;physical&#39;=0.69935GB;1.49928;1.79914;0;1.99904 &#39;physical %&#39;=35%;75;90;0;100</code></pre>
+<h5 id="vérification-du-stockage-1">3.3 Vérification du stockage</h5>
+<ul>
+<li><p>Warning à 60%, Critique 80%</p></li>
+<li><p>Vérification du point de montage <code>/</code></p></li>
+</ul>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./centreon_linux_snmp.pl</span> <span class="at">--plugin</span><span class="op">=</span>os::linux::snmp::plugin <span class="at">--mode</span><span class="op">=</span>storage <span class="at">--hostname</span><span class="op">=</span>172.16.1.101 <span class="at">--snmp-community</span><span class="op">=</span>sniper <span class="at">--snmp-version</span><span class="op">=</span>2  <span class="at">--name</span> <span class="at">--storage</span><span class="op">=</span><span class="st">&quot;/&quot;</span> <span class="at">--warning-usage</span><span class="op">=</span>80 <span class="at">--critical-usage</span><span class="op">=</span>90</span></code></pre></div>
+<ul>
+<li>Vérification du point de montage <code>/usr</code></li>
+</ul>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./centreon_linux_snmp.pl</span> <span class="at">--plugin</span><span class="op">=</span>os::linux::snmp::plugin <span class="at">--mode</span><span class="op">=</span>storage <span class="at">--hostname</span><span class="op">=</span>172.16.1.101 <span class="at">--snmp-community</span><span class="op">=</span>sniper <span class="at">--snmp-version</span><span class="op">=</span>2  <span class="at">--name</span> <span class="at">--storage</span><span class="op">=</span><span class="st">&quot;/usr&quot;</span> <span class="at">--warning-usage</span><span class="op">=</span>80 <span class="at">--critical-usage</span><span class="op">=</span>90</span></code></pre></div>
+<ul>
+<li>Vérification du point de montage <code>/home</code></li>
+</ul>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./centreon_linux_snmp.pl</span> <span class="at">--plugin</span><span class="op">=</span>os::linux::snmp::plugin <span class="at">--mode</span><span class="op">=</span>storage <span class="at">--hostname</span><span class="op">=</span>172.16.1.101 <span class="at">--snmp-community</span><span class="op">=</span>sniper <span class="at">--snmp-version</span><span class="op">=</span>2  <span class="at">--name</span> <span class="at">--storage</span><span class="op">=</span><span class="st">&quot;/home&quot;</span> <span class="at">--warning-usage</span><span class="op">=</span>80 <span class="at">--critical-usage</span><span class="op">=</span>90</span></code></pre></div>
+<h4 id="bonus">Bonus</h4>
+<p>Composer la sonde complète permettant de tester la charge CPU via
+SNMP du poste Windows.</p>
+<h3 id="correction">CORRECTION</h3>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check Ping</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/lib64/nagios/plugins/check_ping</span> <span class="at">-H</span> 172.16.1.100 <span class="at">-p</span> 5 <span class="at">-w</span> 3,60% <span class="at">-c</span> 5,80%</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows by NRPE</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ===========================================</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Check CPU :</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/lib/nagios/plugins/check_centreon_nrpe3</span> <span class="at">-H</span> 172.16.1.100 <span class="at">-c</span> check_cpu <span class="at">-a</span> <span class="st">&quot;warn=load &gt; 70&quot;</span>  <span class="st">&quot;crit=load &gt; 85&quot;</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Check MEM :</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/lib/nagios/plugins/check_centreon_nrpe3</span> <span class="at">-H</span> 172.16.1.100 <span class="at">-c</span> check_memory <span class="at">-a</span> <span class="st">&quot;warn=used &gt; 75&quot;</span>  <span class="st">&quot;crit=used &gt; 90&quot;</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Check Disk :</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/lib/nagios/plugins/check_centreon_nrpe3</span> <span class="at">-H</span> 172.16.1.100 <span class="at">-c</span> check_drivesize <span class="at">-a</span> <span class="st">&quot;warning=used &gt; 70&quot;</span> <span class="st">&quot;critical=used &gt; 85&quot;</span> <span class="st">&quot;drive=c&quot;</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Linux by SNMP</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ============================================</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Check_CPU :</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="ex">./centreon_linux_snmp.pl</span> <span class="at">--plugin</span><span class="op">=</span>os::linux::snmp::plugin <span class="at">--mode</span><span class="op">=</span>cpu <span class="at">--hostname</span><span class="op">=</span>172.16.1.101 <span class="at">--snmp-community</span><span class="op">=</span>sniper <span class="at">--snmp-version</span><span class="op">=</span>2 <span class="at">--warning-average</span><span class="op">=</span>70 <span class="at">--critical-average</span><span class="op">=</span>85</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Check_Memory</span></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="ex">./centreon_linux_snmp.pl</span> <span class="at">--plugin</span><span class="op">=</span>os::linux::snmp::plugin <span class="at">--mode</span><span class="op">=</span>memory <span class="at">--hostname</span><span class="op">=</span>172.16.1.101 <span class="at">--snmp-community</span><span class="op">=</span>sniper <span class="at">--snmp-version</span><span class="op">=</span>2  <span class="at">--warning-usage</span><span class="op">=</span>75 <span class="at">--critical-usage</span><span class="op">=</span>90</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Check_Disk : /</span></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="ex">./centreon_linux_snmp.pl</span> <span class="at">--plugin</span><span class="op">=</span>os::linux::snmp::plugin <span class="at">--mode</span><span class="op">=</span>storage <span class="at">--hostname</span><span class="op">=</span>172.16.1.101 <span class="at">--snmp-community</span><span class="op">=</span>sniper <span class="at">--snmp-version</span><span class="op">=</span>2  <span class="at">--name</span> <span class="at">--storage</span><span class="op">=</span><span class="st">&quot;/&quot;</span> <span class="at">--warning-usage</span><span class="op">=</span>80 <span class="at">--critical-usage</span><span class="op">=</span>90</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a><span class="ex">./centreon_linux_snmp.pl</span> <span class="at">--plugin</span><span class="op">=</span>os::linux::snmp::plugin <span class="at">--mode</span><span class="op">=</span>storage <span class="at">--hostname</span><span class="op">=</span>172.16.1.101 <span class="at">--snmp-community</span><span class="op">=</span>sniper <span class="at">--snmp-version</span><span class="op">=</span>2  <span class="at">--name</span> <span class="at">--storage</span><span class="op">=</span><span class="st">&quot;/usr&quot;</span> <span class="at">--warning-usage</span><span class="op">=</span>80 <span class="at">--critical-usage</span><span class="op">=</span>90</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a><span class="ex">./centreon_linux_snmp.pl</span> <span class="at">--plugin</span><span class="op">=</span>os::linux::snmp::plugin <span class="at">--mode</span><span class="op">=</span>storage <span class="at">--hostname</span><span class="op">=</span>172.16.1.101 <span class="at">--snmp-community</span><span class="op">=</span>sniper <span class="at">--snmp-version</span><span class="op">=</span>2  <span class="at">--name</span> <span class="at">--storage</span><span class="op">=</span><span class="st">&quot;/home&quot;</span> <span class="at">--warning-usage</span><span class="op">=</span>80 <span class="at">--critical-usage</span><span class="op">=</span>90</span></code></pre></div>
+<p class="fin">
+~Fin TP2~
+</p>
+<p><link rel="stylesheet" type="text/css" href="../.ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../.ressources/css/style.css">
+<link rel="stylesheet" type="text/css" href="../.ressources/css/headings.css"></p>
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>notes_CISCO</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#eni-tssr-02---bases-réseau-cisco">ENI TSSR 02 - Bases
+Réseau : CISCO</a>
+<ul>
+<li><a href="#cisco">Cisco</a>
+<ul>
+<li><a href="#routing">Routing</a></li>
+<li><a href="#route-static">Route static</a></li>
+<li><a href="#mise-en-place-dun-relais-dhcp">Mise en place d’un relais
+DHCP</a></li>
+<li><a href="#exercice-1">Exercice 1</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<p>title: notes cisco 101</p>
+<h1 id="eni-tssr-02---bases-réseau-cisco">ENI TSSR 02 - Bases Réseau :
+CISCO</h1>
+<p>[TOC]</p>
+<h2 id="cisco">Cisco</h2>
+<p>Cisco IOS est l’OS des routeurs &amp; switch, etc.</p>
+<p><strong>Notes</strong> :
+https://www.adminmalin.fr/commandes-de-base-cisco</p>
+<h5 id="modifier-lip-dune-interface">Modifier l’IP d’une interface</h5>
+<pre class="cisco"><code>router&gt; enable              # passer en mode root
+router# configure terminal
+router(config)# interface vlan1
+router(config-if)# ip address 192.168.10.2 255.255.255.0
+router(config-if)# end</code></pre>
+<h5 id="afficher-config-active">Afficher config active</h5>
+<pre class="cisco"><code>router# show running-config</code></pre>
+<h5 id="ajouter-une-passerelle-par-défaut">Ajouter une passerelle par
+défaut</h5>
+<pre class="cisco"><code>router&gt; en                  # &quot;enable&quot; 
+router# conf t              # &quot;configure terminal&quot;
+router(config)# ip default-gateway 10.17.200.254</code></pre>
+<h5 id="activer-enable-une-interface">Activer (enable) une
+interface</h5>
+<pre class="cisco"><code>router&gt; en
+router# conf t
+router(config)# interface gi1/0/23
+router(config-if)# no shutdown
+router(config-if)# end</code></pre>
+<h5 id="désactiver-disable-une-interface">Désactiver (disable) une
+interface</h5>
+<pre class="cisco"><code>router&gt; enable
+router&gt; enable terminal
+router(config)# interface g1/0/23
+router(config-if)# no shutdown
+router(config-if)# end</code></pre>
+<h5 id="activer-enable-mot-de-passe-sur-routeur">Activer (enable) mot de
+passe sur routeur</h5>
+<pre class="cisco"><code>router&gt; en
+router# conf t
+router(config)# enable password monPassword
+router(config)# end</code></pre>
+<h3 id="routing">Routing</h3>
+<p>Set up routeurs entre plusieurs réseaux.</p>
+<figure>
+<img src="../ressources/img/02-bases-reseau/routing-1.png"
+alt="Entre 2 routeurs" />
+<figcaption aria-hidden="true">Entre 2 routeurs</figcaption>
+</figure>
+<p>Commande pour R1 :</p>
+<pre class="cisco"><code>ip route &lt;ip du réseau à atteindre&gt; &lt;masque du réseau&gt; &lt;passerelle pour y aller&gt;</code></pre>
+<p>Ex.</p>
+<pre class="cisco"><code>router&gt; en
+router# conf t
+router(config)# ip route 192.168.0.0 255.255.255.0 172.10.25.1
+router(config)# end</code></pre>
+<h3 id="route-static">Route static</h3>
+<figure>
+<img src="../ressources/img/02-bases-reseau/routing-2.png"
+alt="3 Routeurs" />
+<figcaption aria-hidden="true">3 Routeurs</figcaption>
+</figure>
+<p>De R1 à Net1 (sur R1) : Route static</p>
+<pre class="cisco"><code># ip route &lt;NET1&gt; &lt;mask&gt; &lt;P2&gt;
+# ip route &lt;NET1&gt; &lt;mask&gt; &lt;P4&gt;</code></pre>
+<h5 id="configurer-une-route-static-par-défaut">Configurer une route
+static par défaut</h5>
+<pre class="cisco"><code>router(config)# ip route 0.0.0.0 0.0.0.0 209.168.200.226</code></pre>
+<p>S’applique typiquement sur les routeurs de bordures. (ici R0 et
+R2)</p>
+<p><strong>Syntaxe</strong> :
+<code>ip route &lt;reseau&gt; &lt;masque&gt; &lt;ip troncon suivant&gt;</code></p>
+<h3 id="mise-en-place-dun-relais-dhcp">Mise en place d’un relais
+DHCP</h3>
+<figure>
+<img src="../ressources/img/02-bases-reseau/relais-dhcp.png"
+alt="Relais DHCP" />
+<figcaption aria-hidden="true">Relais DHCP</figcaption>
+</figure>
+<h5 id="allumer-le-vlan1-sur-les-switchs">1. Allumer le vlan1 sur les
+switchs</h5>
+<p>Procédure à effectuer sur SWITCH1 et SWITCH2</p>
+<pre class="cisco"><code>switch&gt; enable                     # passer en mode root
+switch# configure terminal         # passer en mode config
+switch(config)# interface vlan1    # accès à config vlan 
+switch(config-if)# no shutdown     # allumer/activer vlan 
+switch(config-if)# exit
+switch(config)# exit
+switch# copy running-config startup-config    # sauvegarder config</code></pre>
+<h5 id="configuration-du-serveur-dhcp">2. Configuration du serveur
+DHCP</h5>
+<p>Sur le serveur DHCP</p>
+<ul>
+<li><p>onglet <strong>DESKTOP</strong> &gt; <strong>IP
+CONFIGURATION</strong></p></li>
+<li><p>bouton <strong>static</strong> : entrer <strong>IP DHCP</strong>
++ <strong>gateway</strong> + <strong>mask</strong></p></li>
+<li><p>onglet <strong>SERVICES</strong> &gt;
+<strong>DHCP</strong></p></li>
+<li><p>Configurer les <strong>pools d’adresses</strong> qu’il
+distribuera à ses différents clients. Nous devons configurer 2 plages
+étant données que ce serveur DHCP servira pour 2 sous-réseaux.</p></li>
+</ul>
+<p>Ici, ajouter les 2 plages suivantes :</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Réseau 1</th>
+<th style="text-align: right;">Réseau 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Nom</td>
+<td style="text-align: right;">10.0.0.0/8</td>
+<td style="text-align: right;">172.16.0.0/16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gateway</td>
+<td style="text-align: right;">10.255.255.254</td>
+<td style="text-align: right;">172.16.255.254</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DNS srv</td>
+<td style="text-align: right;">0.0.0.0</td>
+<td style="text-align: right;">0.0.0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Start ip (rempl. auto)</td>
+<td style="text-align: right;">10.0.0.10</td>
+<td style="text-align: right;">172.16.0.10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Subnet (rempl. auto)</td>
+<td style="text-align: right;">255.0.0.0</td>
+<td style="text-align: right;">255.255.0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Max nbr (rempl. auto)</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TFTP srv (rempl. auto)</td>
+<td style="text-align: right;">0.0.0.0</td>
+<td style="text-align: right;">0.0.0.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ATTENTION</strong></p>
+<ul>
+<li>Il faut modifier les plages par défaut car elle ne peut pas être
+supprimé.</li>
+<li>Attention au remplissage auto des “start ip”. Toujours
+vérifier.</li>
+</ul>
+<figure>
+<img src="../ressources/img/02-bases-reseau/config-dhcp.png"
+alt="config dhcp" />
+<figcaption aria-hidden="true">config dhcp</figcaption>
+</figure>
+<figure>
+<img src="../ressources/img/02-bases-reseau/config-dhcp-1.png"
+alt="config dhcp" />
+<figcaption aria-hidden="true">config dhcp</figcaption>
+</figure>
+<h5 id="configurer-les-interfaces-du-routeur">3. Configurer les
+interfaces du routeur</h5>
+<ol type="1">
+<li>Attribuer une IP à l’interface FastEth0 et FastEth1.</li>
+<li>Ajouter l’IP Helper pour Eth1 (172.16.0.0) c’est-à-dire le
+<em>reseau sans DHCP</em>.</li>
+</ol>
+<p>Grâce à l’option IP HELPER le router pourra relayer la trame de
+diffusion au serveur DHCP.</p>
+<p><strong>Attention</strong> ! On ajoute IP HELPER sur l’interface du
+côté où il n’y a pas de serveur DHCP.</p>
+<pre class="cisco"><code>router&gt; enable
+router# configure terminal
+router(config)# interface fastEthernet 0/0
+router(config-if)# ip address 10.255.255.254 255.0.0.0
+router(config-if)# no shutdown
+router(config-if)# exit
+router(config)# interface fastEthernet 1/0
+router(config)# ip address 172.16.255.254 255.255.0.0</code></pre>
+<p>On indique que les trames de diffusion sont relayées au serveur DHCP,
+soit à 10.255.255.253</p>
+<pre class="cisco"><code>router(config-if)# ip helper-address 10.255.255.253       # ip du dhcp
+router(config-if)# no shutdown
+router(config-if)# exit
+router(config)# exit
+router# copy running-config startup-config</code></pre>
+<h5 id="tester">4. Tester</h5>
+<p>Clic sur PC &gt; onglet <strong>Desktop</strong> &gt; <strong>IP
+Config</strong> &gt; cocher <strong>DHCP</strong></p>
+<h3 id="exercice-1">Exercice 1</h3>
+<figure>
+<img src="../ressources/img/02-bases-reseau/exo-0.png" alt="exo1" />
+<figcaption aria-hidden="true">exo1</figcaption>
+</figure>
+<h4 id="enoncé">Enoncé</h4>
+<ol type="1">
+<li><strong>Routeur</strong> : attribuer une IP static</li>
+<li><strong>DHCP</strong>
+<ul>
+<li>attribuer IP static + activer service DHCP</li>
+<li>ajouter pool (réseau + leur passerelle)</li>
+</ul></li>
+<li><strong>Switch</strong> : activer VLAN 1</li>
+<li><strong>Routeurs</strong>
+<ul>
+<li>routage static (router les réseaux hors-portée)</li>
+<li>ajouter ip helper</li>
+</ul></li>
+<li><strong>Machines</strong> : activer DHCP</li>
+</ol>
+<ul>
+<li><em>Next: TelNet/SSH sur un routeur</em></li>
+<li><em>Next: Mettre en place routage dynamique (OSPF)</em></li>
+</ul>
+<h4 id="détail">Détail</h4>
+<h5 id="attribuer-une-ip-static">1. Attribuer une ip static</h5>
+<ul>
+<li>clic sur Routeur &gt; onglet <strong>CLI</strong></li>
+<li>Entrer les commandes suivantes :</li>
+</ul>
+<pre class="cisco"><code>router&gt; enable
+router# configure terminal
+router(config)# interface GigaEthernet 0/1
+router(config-if)# ip address 10.17.16.1 255.255.240.0
+router(config-if)# end
+router(config)# exit
+router# exit
+router&gt; copy running-config startup-config</code></pre>
+<h5 id="configurer-dhcp">2. Configurer DHCP</h5>
+<ul>
+<li>clic <strong>Serveur</strong> &gt; onglet <strong>Services</strong>
+&gt; <strong>DHCP</strong> &gt; <strong>on</strong></li>
+<li>entrer <strong>nom</strong> + <strong>ip</strong> +
+<strong>subnet</strong> + <strong>startip addr</strong> puis
+<strong>save</strong> (<em>server pool</em>)</li>
+</ul>
+<p>Ex.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">PoolName</th>
+<th style="text-align: right;">Default gateway</th>
+<th style="text-align: right;">Start IP</th>
+<th style="text-align: right;">Mask</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">10.17.16.0/20</td>
+<td style="text-align: right;">10.17.16.1</td>
+<td style="text-align: right;">10.17.16.0</td>
+<td style="text-align: right;">255.255.240.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">192.168.200.0/24</td>
+<td style="text-align: right;">192.168.200.1</td>
+<td style="text-align: right;">192.168.200.0</td>
+<td style="text-align: right;">255.255.255.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">192.168.100.0/24</td>
+<td style="text-align: right;">192.168.100.1</td>
+<td style="text-align: right;">192.168.100.0</td>
+<td style="text-align: right;">255.255.255.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">serverpool</td>
+<td style="text-align: right;">192.168.200.1</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<figure>
+<img src="../ressources/img/02-bases-reseau/exo-02.png"
+alt="illustration" />
+<figcaption aria-hidden="true">illustration</figcaption>
+</figure>
+<h5 id="activer-le-vlan1-sur-chaque-switch">3. Activer le vlan1 sur
+chaque switch</h5>
+<ul>
+<li>clic <strong>Switch</strong> &gt; onglet <strong>CLI</strong></li>
+</ul>
+<pre class="cisco"><code>switch&gt; enable
+switch# configure terminal
+switch(config)# interface vlan1
+switch(config)# no shutdown
+switch(config)# end
+switch(config)# exit
+switch# exit
+switch&gt; copy running-config startup-config</code></pre>
+<h5 id="routeurs-suite">4. Routeurs (suite)</h5>
+<p>Enregistrer les routes statiques pour connaître les réseaux qui sont
+hors-portée.</p>
+<h6 id="routage-via-gui">Routage via GUI</h6>
+<ul>
+<li>onglet <strong>Config</strong> &gt; <strong>Routing</strong> &gt;
+<strong>static</strong></li>
+<li>Network : 10.17.16.0</li>
+<li>Mask : 255.255.240.0</li>
+<li>Next hop: 192.168.100.254</li>
+<li>Sera noté <code>10.17.16.0/20 via 192.168.100.254</code></li>
+</ul>
+<figure>
+<img src="../ressources/img/02-bases-reseau/exo-01.png"
+alt="illustration" />
+<figcaption aria-hidden="true">illustration</figcaption>
+</figure>
+<h6 id="routage-via-cli">Routage via CLI</h6>
+<p><strong>Syntaxe</strong> :</p>
+<pre class="cisco"><code>router(config)# ip route &lt;ip réseau à atteindre&gt; &lt;son masque&gt; &lt;passerelle pour y aller|next hop&gt;
+router(config)# end</code></pre>
+<p><strong>Exemple</strong> :</p>
+<pre class="cisco"><code>router&gt; enable
+router# configure terminal
+router(config)# ip route 192.168.200.0 255.255.255.0 192.168.100.254
+router(config)# end</code></pre>
+<h6 id="ajout-du-helper-ip">Ajout du helper-ip</h6>
+<p>Permet au routeur lointain de connaître l’ip du DHCP.</p>
+<p><strong>Attention</strong> : Sélectionner l’interface qui reçoit le
+broadcast de la requête au DHCP. Ici, <code>G0/1</code> sur
+<code>Routeur1</code>.</p>
+<pre class="cisco"><code>router&gt; enable
+router# configure terminal
+router(config)# interface GigaEthernet 0/1
+router(config)# ip helper-address 192.168.200.2      # ip du dhcp 
+router(config)# end
+router(config)# exit
+router# exit
+router&gt; copy running-config startup-config</code></pre>
+<h5 id="machine">5. Machine</h5>
+<p>Activer l’ip par DHCP sur chaque machine de tous les réseaux.</p>
+<p>clic <strong>PC</strong> &gt; onglet <strong>Desktop</strong> &gt;
+<strong>IP Config</strong> &gt; sélection <strong>DHCP</strong></p>
+<p><link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css"></p>
+</body>
+</html>

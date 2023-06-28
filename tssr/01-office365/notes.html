@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>notes</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#tssr-01---office365">TSSR 01 - Office365</a>
+<ul>
+<li><a href="#microsoft-365">1. Microsoft 365</a></li>
+<li><a href="#word">2. Word</a></li>
+<li><a href="#excel">3. Excel</a></li>
+<li><a href="#exploiter-et-réparer-outlook">4. Exploiter et réparer
+Outlook</a></li>
+</ul></li>
+</ul>
+</nav>
+<p>title: notes - Office365</p>
+<h1 id="tssr-01---office365">TSSR 01 - Office365</h1>
+<p>[TOC]</p>
+<p><strong>Sommaire</strong></p>
+<ol type="1">
+<li>Microsoft 365</li>
+<li>Word</li>
+<li>Excel</li>
+<li>Outlook + savoir le dépanner</li>
+<li>Teams + OneDrive</li>
+</ol>
+<h3 id="microsoft-365">1. Microsoft 365</h3>
+<p><strong>SaaS</strong> : <em>Software as a Service</em>. Les soft sont
+dans le cloud, le client ne pait pas de licence pour une version mais,
+soit il peut les utiliser librement en ligne, soit il pait un
+abonnement.</p>
+<p>Concurrents de Microsoft : Zoho, GSuite, AWS Amazon Web Services,
+HyperOffice, IBM Cloud</p>
+<p><strong>Notes</strong>: Zoho est surtout connu pour son CRM (gestion
+de relation client). <strong><em>A CHECKER</em></strong></p>
+<ul>
+<li>Offre cloud avec plein de soft (Exchange, SharePoint, Office,
+etc.)</li>
+<li>4 datacenters en France</li>
+<li>Multi-plateformes</li>
+<li>Pour les particuliers &amp; les entreprises</li>
+<li>Moins de serveurs sur sites</li>
+</ul>
+<h4 id="les-éléments-de-base">Les éléments de base</h4>
+<h5 id="composition">Composition</h5>
+<p>Exchange, OneDrive, Office365, Teams, SharePoint. Le tout est géré
+par <strong>Azure AD</strong>.</p>
+<h5 id="vocabulaire">Vocabulaire</h5>
+<ul>
+<li>Famille et <strong>plan</strong> : MS365 est dispo en version
+famille (particuliers, asso, entreprise) de plans (Business Essentials,
+E3 Secteur Public, E5 Entreprise)</li>
+<li>Un <strong>Tenant</strong> : c’est <strong>l’ensemble des
+services</strong> (!!!!!) de votre abonnement dans MS365 associé à votre
+<strong>domaine</strong> pour votre entreprise. C’est aussi tous les
+comptes utilisateurs.</li>
+<li><strong>Administrateur global</strong> : C’est celui qui a les plus
+hauts privilèges dans le domaine.</li>
+</ul>
+<h5 id="ex.-création-dun-tenant-ensemble-des-services">ex. Création d’un
+Tenant (ensemble des services)</h5>
+<ol type="1">
+<li>Sélectionnez un plan</li>
+<li>Fournissez une adresse mail valide (ex.
+prenom.nomannée@campus-eni.fr)</li>
+<li>Entrez les données de votre entreprise</li>
+<li>Choisissez le nom de votre Tenant (ex.
+admin@monEntreprise.onmicrosoft.com)</li>
+<li>Validez</li>
+</ol>
+<h5 id="tenant">Tenant</h5>
+<p>Tenant = bulle de votre entreprise au sein de l’espace Office</p>
+<p>https://www.it-connect.fr/office-365-comment-recuperer-le-tenant-name-et-tenant-id/</p>
+<ul>
+<li>Nom de Tenant type :
+<code>NomDeLAdminGlobal@domaine.onmicrosoft.com</code></li>
+<li>Possibilité d’envoyer ou de recevoir des courriels pour ce
+domaine</li>
+<li>Le Tenant n’est pas modifiable</li>
+<li>Afin d’avoir une adresse mail en <code>@votreEntreprise.fr</code> en
+louant un domaine internet pour en créant un domaine personnalisé dans
+MS365.</li>
+</ul>
+<p>Pour déposer un nom de domaine, voir l’AFNIC (organisation officielle
+qui gère les noms de domaines en France).</p>
+<p>https://www.afnic.fr/fr/votre-nom-de-domaine/comment-choisir-et-creer-mon-nom-de-domaine/</p>
+<p>Location d’un domaine : OVH.com, gandi.net, godaddy.com, ipfix,
+etc.</p>
+<h4 id="demotp-création-dun-tenant">Demo/TP : Création d’un Tenant</h4>
+<p>https://products.office.com/fr-fr/business/office-365-enterprise-e5-business-software</p>
+<h3 id="word">2. Word</h3>
+<p>Presentation Ecriture</p>
+<h3 id="excel">3. Excel</h3>
+<h4 id="limitation-dun-classeur">Limitation d’un classeur</h4>
+<p>Les limitations sont liées à la machine et à l’OS</p>
+<ul>
+<li>Nombre de feuilles max : 255</li>
+<li>Nombre de lignes max : 1 048 576 (2^20)</li>
+<li>Nombre de colonnes max : 16 384</li>
+<li>Nom de cellule peut aller de A1 à XFD1048576</li>
+<li>Nom d’une feuille : 31 caractères maximum</li>
+<li>Nombre de caractères dans une cellule :
+<ul>
+<li>Texte : 32 767 caractères (2^15 - 1)</li>
+<li>Formule : 8 192 caractères (2^13)</li>
+<li>Chiffres : 11 caractères affichables. Si plus long, l’écriture passe
+en exponentiel.</li>
+</ul></li>
+</ul>
+<h4 id="quelques-fonctions">Quelques fonctions</h4>
+<ul>
+<li><code>alea()</code> : génére un nombre aléatoire</li>
+<li><code>arrondi()</code> : arrondi à X chiffres après la virgule. Voir
+aussi <code>arrondi.inf()</code>, <code>arrondi.sup()</code></li>
+<li><code>ent()</code> : arrondi à l’entier inférieur</li>
+<li><code>produit()</code> : multiple tous les nombres. Equivalent à
+<code>*</code></li>
+<li><code>somme()</code> : additionne tous les nombres. Equivalent à
+<code>*</code></li>
+<li><code>quotient()</code> : donne la partie entière du résultat d’une
+division</li>
+<li><code>mod()</code> : modulo (reste d’une division)</li>
+</ul>
+<p>… A SUIVRE</p>
+<h3 id="exploiter-et-réparer-outlook">4. Exploiter et réparer
+Outlook</h3>
+<p><strong>Objectifs</strong>:</p>
+<ul>
+<li>Savoir résoudre et expliquer les problèmes de synchronisation des
+ressources en ligne</li>
+<li>Connaître l’utilisation des outils de communication asynchrone</li>
+<li>Paramétrer un logiciel de messagerie</li>
+</ul>
+<h4 id="le-cheminement-dun-courrier">Le cheminement d’un courrier</h4>
+<ol type="1">
+<li>user1 à locationA écrit une lettre à user2 à locationB</li>
+<li>le facteur vient chercher la lettre</li>
+<li>le facteur distribue la lettre au bureau de poste local de
+user1</li>
+<li>le bureau de poste envoie la lettre au centre de tri proche de
+user1</li>
+<li>le centre de tri envoie la lettre au centre de tri proche de
+user2</li>
+<li>le centre de tri de user2 envoie la lettre au bureau de poste de
+user2</li>
+<li>le facteur de user2 lui distribue sa lettre</li>
+<li>user2 peut prendre la lettre dans sa boîte et la lire</li>
+</ol>
+<p><strong>Exemple avec les emails</strong></p>
+<ol type="1">
+<li>envoi du mail par user1 : autrement dit, le mail est soumis au
+serveur de mail par protocole SMTP</li>
+<li>serveur de messagerie de user1 le recoit et le transmet à son tour
+en SMTP au serveur de mail de user2</li>
+<li>le serveur de mail de user2 transmet le mail à user2 en utilisant un
+des protocoles suivants : pop3, imap, https, ActiveSync</li>
+</ol>
+<h4 id="pré-requis-pour-linfrastructure-réseau">Pré-requis pour
+l’infrastructure réseau</h4>
+<p>Ports et protocoles : tous les ports nécessaires doivent être ouverts
+dans le parefeu.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 43%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Protocole</th>
+<th style="text-align: left;">Port non sécurisé</th>
+<th style="text-align: left;">Port TLS/SSL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">HTTP Hypertext Transfert Protocol</td>
+<td style="text-align: left;">80</td>
+<td style="text-align: left;">443</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">POP3 Post Office Protocol</td>
+<td style="text-align: left;">110</td>
+<td style="text-align: left;">995</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IMAP4 Interactive Message Access
+Protocol</td>
+<td style="text-align: left;">143</td>
+<td style="text-align: left;">993</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SMTP Simple Mail Transfer Protocol</td>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Soumission client SMTP</td>
+<td style="text-align: left;">2525 (bloqué par FAI)</td>
+<td style="text-align: left;">587 ou 2525 (465 déprécié)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Le port 465 était le port de soumission en chiffrement implicite
+(465 déprécié et réaffecté à IGMPV sur cisco)</li>
+</ul>
+<h4 id="aparté-les-ports-à-corriger">APARTÉ : Les ports (à
+corriger)</h4>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 23%" />
+<col style="width: 15%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Protocole</th>
+<th style="text-align: left;">TCP/UDP</th>
+<th style="text-align: left;">Port</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">BGP Border Gateway Protocol</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">179</td>
+<td style="text-align: left;">Widely used on public internet and by ISP
+to maintain very large routing tables and traffic processing. BGP is one
+of the few protocols that have been designed to deal with the very large
+routing tables that must exist on the public Internet.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DHCP Dynamic Host Configuration
+Protocol</td>
+<td style="text-align: left;">UDP</td>
+<td style="text-align: left;">67/68</td>
+<td style="text-align: left;">USed on networks that do not use static IP
+address assignment (almost all of them). A DHCP server can be set up
+with a pool of addresses that are available for assignment. When a
+client device is turned on, it can request an IP from the local DHCP
+server which will assign an IP address, if one is available. The
+assignment is not permanent and expires at a configurable interval. If
+an address renewal is not requested and the lease expires, the address
+will be put back into the pool for assignment</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DNS Domain Name System</td>
+<td style="text-align: left;">TCP/UDP</td>
+<td style="text-align: left;">53</td>
+<td style="text-align: left;">Used on public and private networks to
+translate domain names into IP addresses, typically for network
+routing.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FTP File Transfert Protocol</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">20/21</td>
+<td style="text-align: left;">data on port 20, control handled on TCP
+port 21</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FTP over TLS/SSL</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">989/990</td>
+<td style="text-align: left;">FTP with secure connection using either
+SSL or TLS</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HTTP HyperText Transfer Protocol</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">80</td>
+<td style="text-align: left;">Main protocol used by web browsers and is
+thus used by any client that uses files located on these servers</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HTTPS HyperText Transfer Protocol over
+SSL/TLS</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">443</td>
+<td style="text-align: left;">Used in conjonction with HTTP to provide
+the same services but using a secure connection provided by either SSL
+or TLS.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IMAP Internet Message Access Protocol</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">143</td>
+<td style="text-align: left;">IMAP v4 is the second main protocols used
+to retrieve mail from a server. While POP has wider support, IMAP
+supports a wider array of remote mailbox.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IMAP over TLS/SSL</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">193</td>
+<td style="text-align: left;">IMAP over TLS/SSL.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LDAP Lightweight Directory Access
+Protocol</td>
+<td style="text-align: left;">TCP/UDP</td>
+<td style="text-align: left;">389</td>
+<td style="text-align: left;">Provides a mechanism of accessing and
+maintaining distributed deirectory information. Is based on the
+ITU-TX.500 standard but has been simplified ans altered to ork onver
+TCP/IP networks.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NetBIOS</td>
+<td style="text-align: left;">TCP/UDP</td>
+<td style="text-align: left;">137/138/139</td>
+<td style="text-align: left;">Not a protocol in itself but is typically
+used in combination with IP with the NetBIOS over TCP/IP (NBT) protocol.
+NBT has long been the central protocol to interconnect Microsoft Windows
+machines.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NFS Network File System</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Like SMB but for Linux. Not
+crossplatform.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NTP Network Time Protocol</td>
+<td style="text-align: left;">UDP</td>
+<td style="text-align: left;">123</td>
+<td style="text-align: left;">Used to synchronize devices on the
+Internet, ex. for time keeping. Most modern OS support NFT as a basis
+for an accurate clock. Important in networking as it provides an ability
+to easily interrelate troubles from one devie to another as the clock
+are precisely accurate.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">POP3 over SSL/TLS</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">995</td>
+<td style="text-align: left;">POP3 using a secured connection over
+TSL/SSL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">POP3 Post Office Protocol</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">110</td>
+<td style="text-align: left;">One of 2 protocols used to retrieve mails
+from a server. Allows clkient to retrieve the complete content of server
+mailbox and then deleting content from said servers</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RDP Remote Desktop Protocol</td>
+<td style="text-align: left;">TCP/UDP</td>
+<td style="text-align: left;">3389</td>
+<td style="text-align: left;">Used for remote desktop connections</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SMB Server Message Block</td>
+<td style="text-align: left;">TCP/UDP</td>
+<td style="text-align: left;">445</td>
+<td style="text-align: left;">Provides shared access to files, printers
+and serial ports between nodes on a network. Crossplatform.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SMTP chiffrement explicite</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">587</td>
+<td style="text-align: left;">Transfert mail avec chiffrement
+explicite</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SMTP chiffrement implicite</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">465</td>
+<td style="text-align: left;">Transfert mail avec chiffrement
+implicite</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SMTP Simple Mail Transfer Protocol</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">Used for two primary functions : mail
+transfer 1) from source to destination between mail servers, 2) from end
+users to mail system. Port 25 = sans chiffrement</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SNMP Simple Network Management
+Protocol</td>
+<td style="text-align: left;">TCP/UDP</td>
+<td style="text-align: left;">161/162</td>
+<td style="text-align: left;">Used by admins as a method of network
+management. Has a number of different abilities including the ability to
+monitor, configure and control network device. SNMP traps can also be
+configured on network devices to notify a central server when specific
+actions are occuring. Typically used when an alerting condition is
+happening</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SSH Secure Shell</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">Used to manage network devices securely at
+the command level. Secure alternative to Telnet.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Telnet</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">23</td>
+<td style="text-align: left;">Like SSH but unsecure</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TFTP Trivial File Transfer Protocol</td>
+<td style="text-align: left;">UDP</td>
+<td style="text-align: left;">69</td>
+<td style="text-align: left;">Method of file transfer without the
+session establishment requirements that FTP uses. Uses UDP instead of
+TCP, therefore has no way of ensuring the file has been properly
+transferred. The end device must be able to check the file to ensure
+proper transfer. Typically used by devices to upgrade software and
+firmware (ex. Cisco equipment).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>DHCP</strong> : <em>Dynamic Host Configuration Protocol</em>,
+assigns IP addr to client on request. IP taken for a poll of addresses
+set up by sysadmin. IP can expire. Expired IP return to the poll for
+futur assignment.</p>
+<p><strong>UDP</strong> : <em>User Datagram Protocol</em>, One-way,
+packet indépendant, pas de vérification, pas de garantie de réception,
+pas fiable mais rapide. Ex. jeux en ligne.</p>
+<p><strong>TCP</strong> : <em>Transmission Control Protocol</em>,
+paquets sont testés et vérifiés à la réception, fiable mais plus lent.
+Ex. appel téléphonique</p>
+<p><strong>DNS</strong> : <em>Domain Name System</em>, attention pas
+<em><em>service</em></em>. Annuaire qui ait le lien entre les adresses
+IP et les noms de domaines.</p>
+<h5 id="dns">DNS</h5>
+<ul>
+<li>Domain Name System are widely used to on public and private networks
+to translate domain names into IP addresses, typically for network
+routing.</li>
+<li>DNS is hieratical with main root servers that contains databases
+that list the managers of high level TLD (Top Level Domains), such as
+<code>.com</code>.</li>
+<li>These different TLD managers then contain information for the second
+level domains that are typically used by individual users (ex.
+<code>cisco.com</code>).</li>
+<li>A DNS server can also be set up within a private naming services
+between the hosts of the internal network without being part of the
+global system.</li>
+</ul>
+<h5 id="différence-tcpudp">Différence TCP/UDP</h5>
+<h6 id="udp">UDP</h6>
+<p>UDP signifie <strong>User Datagram Protocol</strong>. Ce protocole de
+connexion envoi des packets de données indépendants. On appelle ces
+packets indépendants des <em>datagrams</em>. Ces <em>datagrams</em>
+passent d’un ordinateur à un autre. <strong>Il n’y a pas de garantie sur
+la réception des données</strong>. Ce n’est pas un protocole de
+communication fiable.</p>
+<p>UDP est utile lorsque l’on as pas à vérifier chaque packet. Ce
+protocole est beaucoup plus rapide que le protocole TCP due au fait
+qu’il n’y a <strong>pas de vérifications à la réception</strong>.</p>
+<p>Le meilleur exemple du protocole UDP est l’exemple de l’horloge.
+Imaginez un programme qui envoi l’heure à un ordinateur lorsque celui-ci
+le demande. Si jamais l’ordinateur ne reçois pas le packet, ça n’as pas
+de sens de le renvoyer puis qu’entre temps, l’heure as changée.</p>
+<h6 id="tcp">TCP</h6>
+<p>TCP signifie <strong>Transmission Control Protocol</strong>. C’est
+probablement le protocole le plus utilisé sur internet. TCP est un
+protocole orienté connexion qui assure une certaine sécurité au niveau
+de l’échange des packets. <strong>Les informations sont testées et
+vérifiés</strong>. Ainsi, si un ordinateur ne reçois pas correctement un
+packet, ce-dernier est renvoyé.</p>
+<p>Le protocole TCP établit une communication entre un ordinateur source
+et un ordinateur de destination. Les ports sont reliés via un lien
+jusqu’à ce que la connexion soit terminée. Contrairement à UDP, les
+packets ne sont pas envoyés de manière indépendante, il y a une
+<strong>vérification à la récéption</strong>.</p>
+<p>Un des protocole TCP les plus connu est une conversation
+téléphonique. En effet, il faut bien que tout les packets soit
+réceptionnés. Sinon, la qualité de l’appel seras médiocre.</p>
+<h6 id="comparatif">Comparatif</h6>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">UDP</th>
+<th style="text-align: left;">TCP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Le protocole n’est pas orienté
+connexion</td>
+<td style="text-align: left;">Le protocole est orienté connexion</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Le protocole n’est pas sécurisé</td>
+<td style="text-align: left;">Le protocole est sécurisé</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">UDP envoi des packets indépendants appelés
+datagrams de la source à la destination</td>
+<td style="text-align: left;">Le protocole TCP crée une connexion entre
+une source et une destination</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Les packets peuvent se perdre</td>
+<td style="text-align: left;">Pas de perte de packets, le protocole est
+stable</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">La vitesse est plus importante que la
+stabilité</td>
+<td style="text-align: left;">La sécurité et la stabilité est plus
+importante que la vitesse</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Le header de UDP est de 8 bytes</td>
+<td style="text-align: left;">Le header de TCP est de 20 bytes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">UDP n’effectue aucune vérification</td>
+<td style="text-align: left;">TCP effectue trois vérification de
+récéption</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TCP utilise des méchanismes de détéction
+d’erreur, on peux donc catcher sur ces erreurs</td>
+<td style="text-align: left;">UDP n’as pas de système de vérification,
+on ne peux donc pas les détecter dans le code</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Exemple : un jeux vidéo en ligne</td>
+<td style="text-align: left;">Exemple : un appel téléphonique</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">UDP est utilisé pour les protocoles DNS,
+DHCP, SNMP, RIP, VOIP, TFTP</td>
+<td style="text-align: left;">TCP est utilisé pour les protocoles HTTP,
+HTTPS, FTP, SMTP</td>
+</tr>
+</tbody>
+</table>
+<h5 id="résumé">Résumé</h5>
+<h6 id="file-transfer">File transfer</h6>
+<table>
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 20%" />
+<col style="width: 17%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Protocole</th>
+<th style="text-align: left;">Port</th>
+<th style="text-align: left;">Nom</th>
+<th style="text-align: left;">Alias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">FTP</td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">File Transfert Protocol</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FTPS</td>
+<td style="text-align: left;">21 explicite<br>989/TCP control<br>990/TCP
+data</td>
+<td style="text-align: left;">FTP Secure</td>
+<td style="text-align: left;">FTP over TLS/SSL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TFTP</td>
+<td style="text-align: left;">69</td>
+<td style="text-align: left;">Trivial File Transfer Protocol</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SSH</td>
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">Secure Shell</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Telnet</td>
+<td style="text-align: left;">23</td>
+<td style="text-align: left;">Telnet</td>
+<td style="text-align: left;">Dinosaure</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SMB</td>
+<td style="text-align: left;">445</td>
+<td style="text-align: left;">Server Message Block</td>
+<td style="text-align: left;">Shared access, file &amp; printers</td>
+</tr>
+</tbody>
+</table>
+<h6 id="mailweb">Mail/Web</h6>
+<table>
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 20%" />
+<col style="width: 17%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Protocole</th>
+<th style="text-align: left;">Port</th>
+<th style="text-align: left;">Nom</th>
+<th style="text-align: left;">Alias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">POP3<br>over TLS/SSL</td>
+<td style="text-align: left;">110<br>995</td>
+<td style="text-align: left;">Post Office Protocol</td>
+<td style="text-align: left;">Mail grabbed and kept on client</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IMAP<br>over TLS/SSL</td>
+<td style="text-align: left;">143<br>993</td>
+<td style="text-align: left;">Internet Message Access Protocol</td>
+<td style="text-align: left;">Mail kept on mailserver</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SMTP<br>chiffr. explicite<br>chiffr.
+implicite</td>
+<td style="text-align: left;">25<br>465<br>587</td>
+<td style="text-align: left;">Simple Mail Transfer Protocol</td>
+<td style="text-align: left;">Mail transfer protocol between mail
+systems, and end users</td>
+</tr>
+</tbody>
+</table>
+<h6 id="web">Web</h6>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Protocole</th>
+<th style="text-align: left;">Port</th>
+<th style="text-align: left;">Nom</th>
+<th style="text-align: left;">Alias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">HTTP<br>HTTPS</td>
+<td style="text-align: left;">80<br>443</td>
+<td style="text-align: left;">HyperText Transfer Protocol</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DNS</td>
+<td style="text-align: left;">53</td>
+<td style="text-align: left;">Domain Name System</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DHCP</td>
+<td style="text-align: left;">67/68</td>
+<td style="text-align: left;">Dynamic Host Configuration Protocol</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RDP</td>
+<td style="text-align: left;">3389</td>
+<td style="text-align: left;">Remote Desktop</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css"></p>
+</body>
+</html>

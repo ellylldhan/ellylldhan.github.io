@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+if [[ -z "$1" ]] && [[ ! -f "$1" ]]; then
+	echo "donner un fichier en ldc"
+	exit 1
+fi
+
+foo="$1"
+
+echo 'start... ' $foo
+
+sed -i -E 's/&nbsp;/\ /g' ${foo}
+sed -i -E "s/<span\ style=\"color:\ #[0-9A-Z]+\">//g" ${foo}
+sed -i -E "s/<\/span>//g" ${foo}
+sed -i -e "s/\`//g" ${foo}
+echo 'end.'
