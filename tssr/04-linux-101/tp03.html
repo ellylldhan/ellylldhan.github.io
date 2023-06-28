@@ -1066,9 +1066,9 @@ body .markdown-body
 .highlight .vi{color:teal}
 .highlight .il{color:#009999}
 .highlight .gc{color:#999;background-color:#EAF2F5}
-</style><title>tp07 - redirection</title></head><body><article class="markdown-body"><h2 id="04-linux-101">04 - Linux 101<a class="headerlink" href="#04-linux-101" title="Permanent link"></a></h2>
-<p>Du 14/02 au 18/02 - Formateur : Hasan KURTULUS </p>
-<h3 id="tp-07-redirections-dentreessorties">TP 07 - Redirections d&rsquo;entrées/sorties<a class="headerlink" href="#tp-07-redirections-dentreessorties" title="Permanent link"></a></h3>
+</style><title>tp03 - cat</title></head><body><article class="markdown-body"><h2 id="04-linux-101">04 - Linux 101<a class="headerlink" href="#04-linux-101" title="Permanent link"></a></h2>
+<p>Du 14/02 au 18/02 - Formateur : Hasan KURTULUS  </p>
+<h3 id="tp-03-afficher-le-contenu-des-fichiers">TP 03 - Afficher le contenu des fichiers<a class="headerlink" href="#tp-03-afficher-le-contenu-des-fichiers" title="Permanent link"></a></h3>
 <ul>
 <li>Activer VPN</li>
 <li>Connection à une vm de l&rsquo;ENI en ssh 
@@ -1077,67 +1077,67 @@ body .markdown-body
 </pre></div></li>
 </ul>
 <ol>
-<li>Listez tous les processus qui finissent par un d. Le résultat sera 
-stocké dans $HOME/process/daemons.txt.</li>
+<li>Créez un nouveau fichier appelé MonDeuxiemeFichier à l&rsquo;aide de la commande cat, dont le
+contenu sera :</li>
 </ol>
-<div class="highlight"><pre><span class="nv">$ </span>ps aux <span class="p">|</span> egrep <span class="s2">&quot;d</span><span class="nv">$&quot;</span><span class="s2"></span>
-<span class="s2">root        423  0.0  0.1  19600  7448 ?        Ss   févr.14   0:01 /lib/systemd/systemd-logind</span>
-<span class="s2">systemd+   8052  0.0  0.1  93080  6540 ?        Ssl  févr.14   0:00 /lib/systemd/systemd-timesyncd</span>
-<span class="s2">root       8056  0.0  0.3  39860 12724 ?        Ss   févr.14   0:01 /lib/systemd/systemd-journald</span>
-<span class="s2">root      18299  0.0  0.1  21792  4756 ?        Ss   févr.14   0:00 /lib/systemd/systemd-udevd</span>
-<span class="s2">bind      23362  0.0  0.5 160472 23600 ?        Ssl  févr.14   0:00 /usr/sbin/named -u bind</span>
-<span class="s2">user19    43795  0.0  0.0   8796  3792 pts/7    S+   11:27   0:00 man find</span>
-<span class="s2">user19    43804  0.0  0.0   8796   892 pts/7    S+   11:27   0:00 man find</span>
+<div class="highlight"><pre>Conseil :
+pour bien utiliser la ligne de commande
+faire des étirements de doigts avant chaque repas.
+</pre></div>
 
-<span class="nv">$ </span><span class="s2">mkdir </span><span class="nv">$HOME</span><span class="s2">/process</span>
-<span class="nv">$ </span><span class="s2">ps aux | egrep &quot;</span>d<span class="nv">$&quot;</span> &gt; <span class="nv">$HOME</span>/process/daemons.txt
+<div class="highlight"><pre>$ cat &gt; MonDeuxiemeFichier &lt;&lt; DELIM
+&gt; Conseil :
+&gt; pour bien utiliser la ligne de commande
+&gt; faire des étirements de doigts avant chaque repas.
+&gt; DELIM
+$ cat MonDeuxiemeFichier 
+Conseil :
+pour bien utiliser la ligne de commande
+faire des étirements de doigts avant chaque repas.
 </pre></div>
 
 <ol start="2">
-<li>Recherchez les fichiers dont le nom se termine par .conf à partir de 
-la racine. Cette recherche ne devra être effectuée que sur le système de 
-fichier racine. Le résultat sera affiché à l&rsquo;écran tout en étant stocké 
-dans le fichier $HOME/resultats/fichiers.conf.</li>
+<li>Créez un fichier MonTroisiemeFichier avec cat, contenant le texte :</li>
 </ol>
-<p>Pour rediriger un output à la fois vers l&rsquo;ecran (stdout) et un fichier, il faut utiliser tee en pipe.</p>
-<pre><code>The command you want is named tee:
-```
-foo | tee output.file
-```
-For example, if you only care about stdout:
-```
-ls -a | tee output.file
-```
-If you want to include stderr, do:
-```
-program [arguments...] 2&gt;&amp;1 | tee outfile
-```
-</code></pre>
-<div class="highlight"><pre><span class="nv">$ </span>mkdir <span class="nv">$HOME</span>/resultats
-<span class="nv">$ </span>find / -type f -iname  *.conf 2&gt;/dev/null <span class="p">|</span> tee resultats/fichiers.conf 
-<span class="o">[</span>...<span class="o">]</span>
+<div class="highlight"><pre>Ne pas oublier de lire au moins 4 pages de man avant d&#39;aller se coucher
+</pre></div>
+
+<div class="highlight"><pre>$ cat &gt; MonTroisiemeFichier
+Ne pas oublier de lire au moins 4 pages de man avant d&#39;aller se coucher
+&lt;CTRL-D&gt;
+$ cat MonTroisiemeFichier 
+Ne pas oublier de lire au moins 4 pages de man avant d&#39;aller se coucher
 </pre></div>
 
 <ol start="3">
-<li>La commande précédente a duré un certain temps, comment connaître le 
-temps exact d’exécution de celle-ci ?</li>
+<li>Créez un nouveau fichier fichier2+3 par concaténation des deux fichiers 
+qui viennent d&rsquo;être créés.</li>
 </ol>
-<div class="highlight"><pre><span class="nv">$ </span><span class="nb">time</span> &lt;<span class="nb">command</span>&gt;
-<span class="o">[</span>...<span class="o">]</span>
-real    0m0,291s
-user    0m0,149s
-sys     0m0,139s
+<div class="highlight"><pre>$ cat MonDeuxiemeFichier MonTroisiemeFichier &gt; fichier2+3
+$ cat fichier2+3 
+Conseil :
+pour bien utiliser la ligne de commande
+faire des étirements de doigts avant chaque repas.
+Ne pas oublier de lire au moins 4 pages de man avant d&#39;aller se coucher
 </pre></div>
 
 <ol start="4">
-<li>En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt 
-le nombre de fichiers trouvés au point 2, sans utiliser le fichier 
-fichiers.conf. Le résultat devra comporter uniquement ce nombre (ce 
-résultat sera réutilisé dans des scripts).</li>
+<li>Combien de comptes d&rsquo;utilisateurs ont été créés sur la machine, sachant que le fichier
+contenant les utilisateurs est /etc/passwd et qu&rsquo;une ligne correspond à un utilisateur ?</li>
 </ol>
-<div class="highlight"><pre><span class="nv">$ </span>find / -type f -iname  *.conf 2&gt;/dev/null <span class="p">|</span> wc -l &gt; <span class="nv">$HOME</span>/resultats/compteur.txt 
-113
+<div class="highlight"><pre><span class="nv">$ </span>cat /etc/passwd <span class="p">|</span> wc -l
+62
+<span class="nv">$ </span>wc -l /etc/passwd
+<span class="m">62</span> /etc/passwd
 </pre></div>
 
-<p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/style.css"></p></article></body></html>
+<ol start="5">
+<li>Afficher uniquement les 2 premières lignes du fichier /etc/hosts.</li>
+</ol>
+<div class="highlight"><pre><span class="nv">$ </span>head -2 /etc/hosts
+    127.0.0.1       localhost
+    127.0.1.1       srv-formateur
+</pre></div>
+
+<p><link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css"></p></article></body></html>

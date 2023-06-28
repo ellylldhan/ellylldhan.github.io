@@ -1066,158 +1066,162 @@ body .markdown-body
 .highlight .vi{color:teal}
 .highlight .il{color:#009999}
 .highlight .gc{color:#999;background-color:#EAF2F5}
-</style><title>tp01 - divers</title></head><body><article class="markdown-body"><h2 id="04-linux-101">04 - Linux 101<a class="headerlink" href="#04-linux-101" title="Permanent link"></a></h2>
+</style><title>tp08 - tar</title></head><body><article class="markdown-body"><h2 id="04-linux-101">04 - Linux 101<a class="headerlink" href="#04-linux-101" title="Permanent link"></a></h2>
 <p>Du 14/02 au 18/02 - Formateur : Hasan KURTULUS </p>
 <div class="toc">
 <ul>
 <li><a href="#04-linux-101">04 - Linux 101</a><ul>
-<li><a href="#tp-01-premieres-commandes">TP 01 - Premières commandes</a><ul>
+<li><a href="#tp-08-sauvegarde-de-fichiers">TP 08 - Sauvegarde de fichiers</a><ul>
 <li><a href="#setup">Setup</a></li>
-<li><a href="#1-changer-le-mot-de-passe-et-tester">1. changer le mot de passe et tester</a></li>
-<li><a href="#2-depuis-quand-etes-vous-connecte">2. Depuis quand êtes-vous connecté ?</a></li>
-<li><a href="#3-quels-sont-les-utilisateurs-qui-travaillent-sur-le-serveur">3. Quels sont les utilisateurs qui travaillent sur le serveur ?</a></li>
-<li><a href="#4-quel-est-le-temps-dinactivite-des-utilisateurs-connectes">4. Quel est le temps d&rsquo;inactivité des utilisateurs connectés ?</a></li>
-<li><a href="#5-quel-est-le-numero-de-processus-de-votre-session">5. Quel est le numéro de processus de votre session ?</a></li>
-<li><a href="#6-afficher-details-user-group">6. Afficher détails user &amp; group</a></li>
-<li><a href="#7-afficher-heure">7. Afficher heure</a></li>
-<li><a href="#8-afficher-date-formatee">8. Afficher date formatée</a></li>
-<li><a href="#9-cal">9. cal</a></li>
-<li><a href="#bonus-secondes-depuis-epoch">Bonus : secondes depuis epoch</a></li>
+<li><a href="#questions">Questions</a><ul>
+<li><a href="#1-tar-cvf-creation">1. tar -cvf : Création</a></li>
+<li><a href="#3-tar-czvf-compression-en-gzip-targz">3. tar -czvf : Compression en gzip (tar.gz)</a></li>
+<li><a href="#3-tar-cvjf-compression-en-bzip2-tarbz2">3. tar -cvjf : Compression en bzip2 (tar.bz2)</a></li>
+<li><a href="#4-comparer-les-tailles-darchives-tar-tarbz2-targz">4. Comparer les tailles d&rsquo;archives (tar &gt; tar.bz2 &gt; tar.gz)</a></li>
+<li><a href="#5-tar-xvf-decompression-restauration">5. tar -xvf : Décompression / Restauration</a></li>
+<li><a href="#6-tar-cvf-footar-excludefile-bar-exclusion-de-repertoire">6. tar -cvf foo.tar &ndash;exclude=FILE bar/ : Exclusion de répertoire</a></li>
+<li><a href="#7-tar-unvf-update-only-newer-files-exclude">7. tar -uNvf : update only newer files + exclude</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </div>
-<h3 id="tp-01-premieres-commandes">TP 01 - Premières commandes<a class="headerlink" href="#tp-01-premieres-commandes" title="Permanent link"></a></h3>
+<h3 id="tp-08-sauvegarde-de-fichiers">TP 08 - Sauvegarde de fichiers<a class="headerlink" href="#tp-08-sauvegarde-de-fichiers" title="Permanent link"></a></h3>
 <h4 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link"></a></h4>
 <ul>
 <li>Activer VPN</li>
-<li>Connection à une vm de l&rsquo;ENI en ssh </li>
-</ul>
+<li>Connection à une vm de l&rsquo;ENI en ssh 
 <div class="highlight"><pre><span class="nv">$ </span>ssh user15@10.52.101.21              <span class="c1"># de 6 à 21</span>
 &gt; secret                               <span class="c1"># ou kc</span>
+</pre></div></li>
+</ul>
+<h4 id="questions">Questions<a class="headerlink" href="#questions" title="Permanent link"></a></h4>
+<h5 id="1-tar-cvf-creation">1. tar -cvf : Création<a class="headerlink" href="#1-tar-cvf-creation" title="Permanent link"></a></h5>
+<ol>
+<li>Réaliser une sauvegarde de votre répertoire personnel dans /tmp, en 
+utilisant votre login pour le nommage du fichier, noter sa taille.</li>
+</ol>
+<div class="highlight"><pre><span class="nv">$ </span>tar -cvf /tmp/u15.tar /home/user15
+<span class="o">[</span>...<span class="o">]</span>
+<span class="nv">$ </span>ls -l /tmp/u15.tar 
+-rw-r--r-- <span class="m">1</span> user15 user15 <span class="m">81920</span> févr. <span class="m">15</span> 16:14 /tmp/u15.tar
 </pre></div>
 
-<h4 id="1-changer-le-mot-de-passe-et-tester">1. changer le mot de passe et tester<a class="headerlink" href="#1-changer-le-mot-de-passe-et-tester" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span class="nv">$ </span>passwrd     <span class="c1"># will prompt</span>
+<h5 id="3-tar-czvf-compression-en-gzip-targz">3. tar -czvf : Compression en gzip (tar.gz)<a class="headerlink" href="#3-tar-czvf-compression-en-gzip-targz" title="Permanent link"></a></h5>
+<ol start="2">
+<li>Créer une nouvelle archive de votre répertoire personnel, mais cette 
+fois-ci en la compressant avec gzip, l&rsquo;opération devant être réalisée en 
+une seule instruction.</li>
+</ol>
+<div class="highlight"><pre>tar -czvf name-of-archive.tar.gz /path/to/directory-or-file
 </pre></div>
 
-<h4 id="2-depuis-quand-etes-vous-connecte">2. Depuis quand êtes-vous connecté ?<a class="headerlink" href="#2-depuis-quand-etes-vous-connecte" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span class="nv">$ </span>who -tuH
-NOM      LIGNE        HEURE                   PID COMMENTAIRE
-user01   tty1         2022-02-14 10:32 00:49         671
-eni      pts/0        2022-02-14 10:53   .          <span class="m">1047</span> <span class="o">(</span>10.52.0.254<span class="o">)</span>
-user18   pts/1        2022-02-14 11:05   .          <span class="m">1333</span> <span class="o">(</span>10.52.101.13<span class="o">)</span>
-user20   pts/2        2022-02-14 11:04   .          <span class="m">1231</span> <span class="o">(</span>10.52.101.8<span class="o">)</span>
-user02   pts/3        2022-02-14 11:05 00:03        <span class="m">1343</span> <span class="o">(</span>10.52.101.17<span class="o">)</span>
-user01   pts/4        2022-02-14 11:04 00:04        <span class="m">1251</span> <span class="o">(</span>10.52.101.7<span class="o">)</span>
-user15   pts/5        2022-02-14 11:18   .          <span class="m">1709</span> <span class="o">(</span>172.25.35.73<span class="o">)</span>
-user10   pts/6        2022-02-14 11:04   .          <span class="m">1302</span> <span class="o">(</span>10.52.101.6<span class="o">)</span>
-user19   pts/7        2022-02-14 11:04 00:05        <span class="m">1253</span> <span class="o">(</span>10.52.101.10<span class="o">)</span>
-user13   pts/8        2022-02-14 11:04   .          <span class="m">1289</span> <span class="o">(</span>10.52.101.15<span class="o">)</span>
-user08   pts/9        2022-02-14 10:52   .          <span class="m">1001</span> <span class="o">(</span>10.52.101.18<span class="o">)</span>
-user17   pts/10       2022-02-14 11:08   .          <span class="m">1443</span> <span class="o">(</span>10.52.101.12<span class="o">)</span>
-user07   pts/11       2022-02-14 11:07   .          <span class="m">1374</span> <span class="o">(</span>10.52.101.20<span class="o">)</span>
-user09   pts/12       2022-02-14 11:01   .          <span class="m">1168</span> <span class="o">(</span>10.52.101.20<span class="o">)</span>
-user03   pts/13       2022-02-14 11:08   .          <span class="m">1396</span> <span class="o">(</span>10.52.101.14<span class="o">)</span>
-user04   pts/14       2022-02-14 11:08 00:13        <span class="m">1392</span> <span class="o">(</span>10.52.101.18<span class="o">)</span>
-user16   pts/15       2022-02-14 11:19   .          <span class="m">1739</span> <span class="o">(</span>172.25.35.212<span class="o">)</span>
-user14   pts/16       2022-02-14 11:16   .          <span class="m">1655</span> <span class="o">(</span>10.52.101.3<span class="o">)</span>
+<p>Here’s what those switches actually mean:</p>
+<pre><code>-c: Create an archive.
+-z: Compress the archive with gzip.
+-v: Display progress in the terminal while creating the archive, also known as “verbose” mode. The v is always optional in these commands, but it’s helpful.
+-f: Allows you to specify the filename of the archive.
+</code></pre>
+<div class="highlight"><pre><span class="nv">$ </span>tar -czvf /tmp/u15.tar.gz <span class="nv">$HOME</span>
+<span class="o">[</span>...<span class="o">]</span>
+<span class="nv">$ </span>ls -l /tmp/u15*
+-rw-r--r-- <span class="m">1</span> user15 user15 <span class="m">81920</span> févr. <span class="m">15</span> 16:14 /tmp/u15.tar
+-rw-r--r-- <span class="m">1</span> user15 user15  <span class="m">8206</span> févr. <span class="m">15</span> 16:27 /tmp/u15.tar.gz
 </pre></div>
 
-<h4 id="3-quels-sont-les-utilisateurs-qui-travaillent-sur-le-serveur">3. Quels sont les utilisateurs qui travaillent sur le serveur ?<a class="headerlink" href="#3-quels-sont-les-utilisateurs-qui-travaillent-sur-le-serveur" title="Permanent link"></a></h4>
-<p>Voir colonne NOM</p>
-<h4 id="4-quel-est-le-temps-dinactivite-des-utilisateurs-connectes">4. Quel est le temps d&rsquo;inactivité des utilisateurs connectés ?<a class="headerlink" href="#4-quel-est-le-temps-dinactivite-des-utilisateurs-connectes" title="Permanent link"></a></h4>
-<p>voir colonne HEURE</p>
-<h4 id="5-quel-est-le-numero-de-processus-de-votre-session">5. Quel est le numéro de processus de votre session ?<a class="headerlink" href="#5-quel-est-le-numero-de-processus-de-votre-session" title="Permanent link"></a></h4>
-<p>voir colonne PID (moi: 1709)</p>
-<h4 id="6-afficher-details-user-group">6. Afficher détails user &amp; group<a class="headerlink" href="#6-afficher-details-user-group" title="Permanent link"></a></h4>
+<h5 id="3-tar-cvjf-compression-en-bzip2-tarbz2">3. tar -cvjf : Compression en bzip2 (tar.bz2)<a class="headerlink" href="#3-tar-cvjf-compression-en-bzip2-tarbz2" title="Permanent link"></a></h5>
+<ol start="3">
+<li>Répéter l&rsquo;étape précédente en utilisant cette fois-ci une compression au format bzip2.</li>
+</ol>
+<p>c = create, v = verbose, j = bz2 compression, f = output file name</p>
+<div class="highlight"><pre><span class="nv">$ </span>tar -cvjf /tmp/u15.tar.bz2 <span class="nv">$HOME</span>
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+
+<h5 id="4-comparer-les-tailles-darchives-tar-tarbz2-targz">4. Comparer les tailles d&rsquo;archives (tar &gt; tar.bz2 &gt; tar.gz)<a class="headerlink" href="#4-comparer-les-tailles-darchives-tar-tarbz2-targz" title="Permanent link"></a></h5>
+<ol start="4">
+<li>Comparer la taille des trois archives, laquelle est la moins volumineuse ?</li>
+</ol>
+<div class="highlight"><pre><span class="nv">$ </span>ls -l /tmp/u15*
+-rw-r--r-- <span class="m">1</span> user15 user15 <span class="m">81920</span> févr. <span class="m">15</span> 16:14 u15.tar
+-rw-r--r-- <span class="m">1</span> user15 user15  <span class="m">9160</span> févr. <span class="m">15</span> 18:33 u15.tar.bz2
+-rw-r--r-- <span class="m">1</span> user15 user15  <span class="m">8206</span> févr. <span class="m">15</span> 16:27 u15.tar.gz
+</pre></div>
+
+<h5 id="5-tar-xvf-decompression-restauration">5. tar -xvf : Décompression / Restauration<a class="headerlink" href="#5-tar-xvf-decompression-restauration" title="Permanent link"></a></h5>
+<p>Dans votre répertoire de connexion, créer le répertoire Restaurations.
+Restaurer votre sauvegarde dans ce répertoire en une seule instruction.</p>
+<div class="highlight"><pre><span class="nv">$ </span>mkdir restauration
+<span class="nv">$ </span><span class="nb">cd </span>restauration/
+<span class="nv">$ </span>tar xvf /tmp/u15.tar.gz
+<span class="o">[</span>...<span class="o">]</span>
+<span class="nv">$ </span>ls
+home
+</pre></div>
+
+<h5 id="6-tar-cvf-footar-excludefile-bar-exclusion-de-repertoire">6. tar -cvf foo.tar &ndash;exclude=FILE bar/ : Exclusion de répertoire<a class="headerlink" href="#6-tar-cvf-footar-excludefile-bar-exclusion-de-repertoire" title="Permanent link"></a></h5>
 <ol start="6">
-<li>Afficher vos identifiants d&rsquo;utilisateur et de groupes (UID et GID) et relevez les noms de vos
-groupes d’appartenance.</li>
+<li>Créer une nouvelle sauvegarde, non compressée, en excluant ce répertoire.</li>
 </ol>
-<div class="highlight"><pre><span class="nv">$ </span>id
-<span class="nv">uid</span><span class="o">=</span>1185<span class="o">(</span>user15<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span>1185<span class="o">(</span>user15<span class="o">)</span> <span class="nv">groupes</span><span class="o">=</span>1185<span class="o">(</span>user15<span class="o">)</span>,100<span class="o">(</span>users<span class="o">)</span>,1000<span class="o">(</span>eni<span class="o">)</span>
+<div class="highlight"><pre><span class="nv">$ </span>tar -cvf /tmp/u15_v2.tar --exclude<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/restauration&quot;</span> <span class="nv">$HOME</span>
+<span class="nv">$ </span>ls -l /tmp/u15*
+-rw-r--r-- <span class="m">1</span> user15 user15 <span class="m">81920</span> févr. <span class="m">15</span> 16:14 /tmp/u15.tar
+-rw-r--r-- <span class="m">1</span> user15 user15  <span class="m">9160</span> févr. <span class="m">15</span> 18:33 /tmp/u15.tar.bz2
+-rw-r--r-- <span class="m">1</span> user15 user15  <span class="m">8206</span> févr. <span class="m">15</span> 16:27 /tmp/u15.tar.gz
+-rw-r--r-- <span class="m">1</span> user15 user15 <span class="m">81920</span> févr. <span class="m">15</span> 20:47 /tmp/u15_v2.tar
 </pre></div>
 
-<h4 id="7-afficher-heure">7. Afficher heure<a class="headerlink" href="#7-afficher-heure" title="Permanent link"></a></h4>
+<p>ATTENTION à bien préciser le ou les dossiers à exclure avant l&rsquo;inclusion. </p>
+<h5 id="7-tar-unvf-update-only-newer-files-exclude">7. tar -uNvf : update only newer files + exclude<a class="headerlink" href="#7-tar-unvf-update-only-newer-files-exclude" title="Permanent link"></a></h5>
 <ol start="7">
-<li>A l&rsquo;invite de commande, afficher juste l’heure.</li>
+<li>Créer dans votre répertoire d&rsquo;accueil un nouveau fichier vide et 
+réaliser une mise à jour de votre archive avec votre répertoire d’accueil.</li>
 </ol>
-<div class="highlight"><pre><span class="nv">$ </span>date
-lundi <span class="m">14</span> février 2022, 11:33:43 <span class="o">(</span>UTC+0100<span class="o">)</span>
+<p>Si la taille de l&rsquo;archive a &ldquo;doublé&rdquo;, vous n’avez pas réellement fait une mise à jour.</p>
+<p>Effacez votre archive et recommencez.
+Aidez-vous de la commande vous permettant de lister le contenu de l&rsquo;archive.</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Think of it this way, &ndash;update updates the TAR, not the files in the TAR. 
+  So it is working as designed.</li>
+<li><code>-N</code>, <code>--newer</code>, <code>--after-date=date</code>  Only store files whose data or 
+  status has changed on or after date. If date is a file name, the date 
+  of that file is used.</li>
+</ul>
+<p>Think of it this way, &ndash;update updates the TAR, not the files in the TAR. 
+So it is working as designed.
+<code>-N</code>, <code>--newer</code>, <code>--after-date=date</code>    Only store files whose data or status has changed on or after date. If date is a file name, the date of that file is used.</p>
+<div class="highlight"><pre><span class="nv">$ </span>mkdir <span class="nv">$HOME</span>/dossier_vide
+<span class="nv">$ </span>tar -uNvf /tmp/u15_v2.tar --exclude<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/restauration&quot;</span> <span class="nv">$HOME</span>
+<span class="o">[</span>...<span class="o">]</span> ok
+<span class="nv">$ </span>ls -l /tmp/u15*
+-rw-r--r-- <span class="m">1</span> user15 user15 <span class="m">81920</span> févr. <span class="m">15</span> 16:14 /tmp/u15.tar
+-rw-r--r-- <span class="m">1</span> user15 user15  <span class="m">9160</span> févr. <span class="m">15</span> 18:33 /tmp/u15.tar.bz2
+-rw-r--r-- <span class="m">1</span> user15 user15  <span class="m">8206</span> févr. <span class="m">15</span> 16:27 /tmp/u15.tar.gz
+-rw-r--r-- <span class="m">1</span> user15 user15 <span class="m">81920</span> févr. <span class="m">15</span> 21:32 /tmp/u15_v2.tar
+<span class="nv">$ </span>tar -tf /tmp/u15_v2.tar 
+<span class="o">[</span>...<span class="o">]</span> ok, pas de duplicatas
 </pre></div>
 
-<h4 id="8-afficher-date-formatee">8. Afficher date formatée<a class="headerlink" href="#8-afficher-date-formatee" title="Permanent link"></a></h4>
-<ol start="8">
-<li>A l&rsquo;invite, afficher juste la date, suivant l&rsquo;exemple : lundi 24 septembre 2009</li>
-</ol>
-<p>Voir <code>date --help</code> </p>
-<div class="highlight"><pre><span class="nv">$ </span>date +<span class="s2">&quot;%A %d %B %Y&quot;</span>
-lundi <span class="m">14</span> février 2022
+<p>Script</p>
+<div class="highlight"><pre><span class="ch">#!/bin/sh</span>
+
+rmdir <span class="nv">$HOME</span>/dossier_vide 2&gt;/dev/null
+rm /tmp/u15_v2*
+<span class="nb">echo</span> <span class="s2">&quot;... Création de l&#39;archive&quot;</span>
+tar -cvf /tmp/u15_v2.tar --exclude<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/restauration&quot;</span> <span class="nv">$HOME</span>
+ls -l /tmp/u15*
+<span class="nb">echo</span> <span class="s2">&quot;... Ajout dossier vide&quot;</span>
+mkdir <span class="nv">$HOME</span>/nouveau_dossier
+<span class="nb">echo</span> <span class="s1">&#39;*********************************&#39;</span>
+<span class="nb">echo</span> <span class="s2">&quot;... Update de l&#39;archive&quot;</span>
+tar -uNf /tmp/u15_v2.tar --exclude<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/restauration&quot;</span> <span class="nv">$HOME</span>
+ls -l /tmp/u15*
+tar -tf /tmp/u15_v2.tar
 </pre></div>
 
-<h4 id="9-cal">9. cal<a class="headerlink" href="#9-cal" title="Permanent link"></a></h4>
-<ol start="9">
-<li>Commande cal avec et sans argument :</li>
-</ol>
-<div class="highlight"><pre><span class="nv">$ </span>cal
-    Février <span class="m">2022</span>      
-di lu ma me je ve sa  
-       <span class="m">1</span>  <span class="m">2</span>  <span class="m">3</span>  <span class="m">4</span>  <span class="m">5</span>  
- <span class="m">6</span>  <span class="m">7</span>  <span class="m">8</span>  <span class="m">9</span> <span class="m">10</span> <span class="m">11</span> <span class="m">12</span>  
-<span class="m">13</span> <span class="m">14</span> <span class="m">15</span> <span class="m">16</span> <span class="m">17</span> <span class="m">18</span> <span class="m">19</span>  
-<span class="m">20</span> <span class="m">21</span> <span class="m">22</span> <span class="m">23</span> <span class="m">24</span> <span class="m">25</span> <span class="m">26</span>  
-<span class="m">27</span> <span class="m">28</span>  
-</pre></div>
-
-<p>a) Afficher le calendrier de Janvier 1900 puis celui de toute l’année.</p>
-<div class="highlight"><pre>$ cal 1 1900
-        Janvier 1900      
-    di lu ma me je ve sa  
-        1  2  3  4  5  6  
-     7  8  9 10 11 12 13  
-    14 15 16 17 18 19 20  
-    21 22 23 24 25 26 27  
-    28 29 30 31
-</pre></div>
-
-<p>b) Afficher le calendrier du mois de Janvier de l&rsquo;année courante.    </p>
-<div class="highlight"><pre><span class="nv">$ </span>cal <span class="m">1</span> 2022
-        Janvier <span class="m">2022</span>      
-    di lu ma me je ve sa  
-                       <span class="m">1</span>  
-     <span class="m">2</span>  <span class="m">3</span>  <span class="m">4</span>  <span class="m">5</span>  <span class="m">6</span>  <span class="m">7</span>  <span class="m">8</span>  
-     <span class="m">9</span> <span class="m">10</span> <span class="m">11</span> <span class="m">12</span> <span class="m">13</span> <span class="m">14</span> <span class="m">15</span>  
-    <span class="m">16</span> <span class="m">17</span> <span class="m">18</span> <span class="m">19</span> <span class="m">20</span> <span class="m">21</span> <span class="m">22</span>  
-    <span class="m">23</span> <span class="m">24</span> <span class="m">25</span> <span class="m">26</span> <span class="m">27</span> <span class="m">28</span> <span class="m">29</span>  
-    <span class="m">30</span> 31
-</pre></div>
-
-<p>c) Afficher le calendrier de septembre 1752, quelle est la particularité de ce mois ?</p>
-<div class="highlight"><pre><span class="nv">$ </span>cal <span class="m">9</span> 1752
-   Septembre <span class="m">1752</span>     
-di lu ma me je ve sa  
-       <span class="m">1</span>  <span class="m">2</span> <span class="m">14</span> <span class="m">15</span> <span class="m">16</span>  
-<span class="m">17</span> <span class="m">18</span> <span class="m">19</span> <span class="m">20</span> <span class="m">21</span> <span class="m">22</span> <span class="m">23</span>  
-<span class="m">24</span> <span class="m">25</span> <span class="m">26</span> <span class="m">27</span> <span class="m">28</span> <span class="m">29</span> 30
-</pre></div>
-
-<p>Ca saute de 10 jours à cause passage à un nouveau calendrier.</p>
-<blockquote>
-<p>1752 (MDCCLII) was a leap year starting on Saturday of the Gregorian<br />
-calendar and a leap year starting on Wednesday of the Julian calendar 
-[&hellip;]
-(Wikipedia)</p>
-</blockquote>
-<h4 id="bonus-secondes-depuis-epoch">Bonus : secondes depuis epoch<a class="headerlink" href="#bonus-secondes-depuis-epoch" title="Permanent link"></a></h4>
-<ol start="10">
-<li><strong>BONUS</strong> Combien de secondes se sont écoulées depuis que Unix existe ?</li>
-</ol>
-<div class="highlight"><pre><span class="nv">$ </span>date +%s
-1644835775
-</pre></div>
-
-<p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/style.css"></p></article></body></html>
+<p><link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css"></p></article></body></html>

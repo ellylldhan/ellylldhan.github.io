@@ -1,5 +1,6 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body {
   max-width: 980px;
+  outline: 1300px solid #fff;
   margin: 16px auto;
 }
 
@@ -1065,19 +1066,232 @@ body .markdown-body
 .highlight .vi{color:teal}
 .highlight .il{color:#009999}
 .highlight .gc{color:#999;background-color:#EAF2F5}
-</style><title>README</title></head><body><article class="markdown-body"><h1 id="eni-tssr-18-rds-wds-mdt">ENI TSSR 18 - RDS WDS MDT<a class="headerlink" href="#eni-tssr-18-rds-wds-mdt" title="Permanent link"></a></h1>
-<p>Cours TSSR <em>&ldquo;Services Transverses Microsoft&rdquo;</em> @ ENI (2023)</p>
-<table>
-<tr><th>Dates     :</th><td>du 13/03 au 17/03/2023</td></tr>
-<tr><th>Formateur :</th><td>Mathieu LE MASSON</td></tr>
-</table>
-
-<p>id: 200</p>
-<p><em>200 - Services Transverses Microsoft (RDS/WDS/MDT)</em></p>
-<p><strong>Partager un dossier dans VMWARE</strong></p>
+</style><title>tp06 - vim</title></head><body><article class="markdown-body"><h2 id="04-linux-101">04 - Linux 101<a class="headerlink" href="#04-linux-101" title="Permanent link"></a></h2>
+<p>Du 14/02 au 18/02 - Formateur : Hasan KURTULUS </p>
+<h3 id="tp-06-edition-de-texte-avec-vim">TP 06 - Edition de texte avec vim<a class="headerlink" href="#tp-06-edition-de-texte-avec-vim" title="Permanent link"></a></h3>
+<ul>
+<li>Activer VPN</li>
+<li>Connection à une vm de l&rsquo;ENI en ssh 
+<div class="highlight"><pre><span class="nv">$ </span>ssh user15@10.52.101.21              <span class="c1"># de 6 à 21</span>
+&gt; secret                               <span class="c1"># ou kc</span>
+</pre></div></li>
+</ul>
 <ol>
-<li>VMWARE &gt; <strong>Properties</strong> de la VM &gt; onglet <strong>OPTIONS</strong></li>
-<li>Activer &ldquo;<strong>Shared Folders</strong>&rdquo; &gt; bouton &ldquo;<kbd>Add</kbd>&rdquo; &gt; naviguer vers dossier à partager dans Windows &gt; <kbd>OK</kbd></li>
-<li>Sur la VM &gt; exécuter en tant que <strong>root</strong> <code>vmhgfs-fuse .host:/ /mnt/gfs -o allow_other -o uid=1000</code> </li>
-<li>Naviguer vers <code>/mnt/hgfs/&lt;nom du partage&gt;</code></li>
-</ol></article></body></html>
+<li>Ouvrir le fichier Edition de votre répertoire d&rsquo;accueil avec vi.</li>
+</ol>
+<div class="highlight"><pre><span class="nv">$ </span>vim Edition
+</pre></div>
+
+<ol start="2">
+<li>Le premier Dupont Jean se prénomme en fait Jean-Jacques. Rechercher la première
+occurrence de Dupont Jean.</li>
+</ol>
+<div class="highlight"><pre>/Dupont Jean
+</pre></div>
+
+<ol start="3">
+<li>Déplacez-vous sur le n de Jean puis insérer -Jacques.
+E : goto end WORD
+A : append at eol
+a : append</li>
+</ol>
+<div class="highlight"><pre>/Dupont Jean
+EE
+a
+<span class="nb">type</span> <span class="s1">&#39;-Jacques&#39;</span>
+echap
+:wq
+</pre></div>
+
+<ol start="4">
+<li>De la même manière, rechercher Dupont Pierre et insérer Jean- après 
+vous être placé sur le &lsquo;P&rsquo; de Pierre.
+W : next WORD
+w : next word
+i : insertion</li>
+</ol>
+<div class="highlight"><pre>/Dupont Pierre
+w
+i
+Jean-
+</pre></div>
+
+<ol start="5">
+<li>Replacez-vous en début de fichier.
+H : goto screen top
+L : goto screen bottom</li>
+</ol>
+<div class="highlight"><pre>H
+</pre></div>
+
+<ol start="6">
+<li>Chercher le premier Dupont et insérer sur la ligne précédente votre nom et prénom.
+o : append (open) a new line below the current line
+O : append (open) a new line above the current line</li>
+</ol>
+<div class="highlight"><pre>/Dupont
+O
+Marcel Pythagore 666
+echap
+:w
+</pre></div>
+
+<ol start="7">
+<li>Entrer le nom et le prénom de votre voisin après la ligne du dernier Dupont. 
+Déplacez-vous dans le fichier sur les différentes occurrences avec les 
+touches &lsquo;n&rsquo; et &lsquo;N&rsquo;.
+n : next find
+N : prev find</li>
+</ol>
+<div class="highlight"><pre>/Dupont
+nnnnn
+o
+Micheline Socrates 456789
+echap
+:w
+</pre></div>
+
+<ol start="8">
+<li>Enregistrer les modifications apportées au fichier et sortir de l&rsquo;éditeur.</li>
+</ol>
+<div class="highlight"><pre>:wq
+</pre></div>
+
+<ol start="9">
+<li>Dupont Jean s&rsquo;appelle en fait Merlin-Duval Jean. 
+Recherchez Dupont Jean et changez Dupont par Merlin-Duval.</li>
+</ol>
+<div class="highlight"><pre>:%s/^Dupont Jean /Merlin-Duval Jean /
+</pre></div>
+
+<ol start="10">
+<li>Supprimer la ligne Couteau Jean après l&rsquo;avoir retrouvée.</li>
+</ol>
+<div class="highlight"><pre>/Couteau
+dd
+</pre></div>
+
+<ol start="11">
+<li>Changer tous les Dupont en Durand.</li>
+</ol>
+<div class="highlight"><pre>:%s/^Dupont /Durand /g
+</pre></div>
+
+<ol start="12">
+<li>Déplacer toutes les lignes contenant Durand en fin de fichier.</li>
+</ol>
+<ul>
+<li><code>:10,20t 100</code>     copie les lignes de 10 a 20 a la 100 eme ligne .</li>
+<li><code>:10,20m 100</code>     deplace les lignes de 10 a 20 a la 100 eme ligne .</li>
+<li><code>:10,20y</code>         met dans le buffer les 10 lignes de 10 a 20.</li>
+<li><code>:100,$m 50</code>      deplace les lignes 100 jusqu&rsquo;a la fin du fichier vers la 50 eme ligne.</li>
+<li><code>yy</code>              copie la ligne courante dans le buffer .</li>
+<li><code>p</code>               colle le buffer dans le texte.</li>
+</ul>
+<p>m$ envoie à la fin du fichier
+m100 envoie à la ligne 100</p>
+<div class="highlight"><pre>:g/Durand/m<span class="err">$</span>
+</pre></div>
+
+<ol start="13">
+<li>Ajouter un second Ben Raf, en dupliquant la ligne existante.</li>
+</ol>
+<p>Action contexte sensitif, ou substitution puissance 10
+On peut demander a VI de faire une action sur une phrase uniquement si cette derniere contient un motif textuel.</p>
+<p>Syntaxe: &ldquo;:g/chaine/commande&rdquo;
+- <code>:g/micrisoft/s/windows/linux/g</code>  changes windows par linux uniquement dans les lignes ou &ldquo;micrisoft&rdquo; se trouve .
+- <code>:g/</code>^[ ]*$/d<code>supprime toutes les lignes vides.
+-</code>:g/linux/t 0<code>copie en haut du texte toutes les lignes contenants linux
+-</code>:g/linux/t .<code>copie en haut du texte toutes les lignes contenants linux
+-</code>:g/linux/cd 80<code>centre tous les lignes contenant linux
+-</code>:g!/linux/d<code>efface toutes les lignes ne contenant pas linux
+-</code>:v/linux/d`  idem </p>
+<div class="highlight"><pre>:g/Ben Raf/t .
+</pre></div>
+
+<ol start="14">
+<li>Sans sortir de la session vi, afficher la date et l&rsquo;heure (pour 
+savoir si c&rsquo;est l&rsquo;heure de la pause).</li>
+</ol>
+<p><div class="highlight"><pre>.!date
+</pre></div>
+Insert au curseur (remplace la ligne)</p>
+<ol start="15">
+<li>Créer un fichier .vimrc dans le répertoire de connexion ($HOME), dont 
+le contenu va permettre d&rsquo;afficher les numéros de lignes, de positionner 
+les tabulations tous les 5 caractères et de passer en mode non compatible 
+(Linux uniquement).
+Recherche globale avec remplacement.</li>
+</ol>
+<div class="highlight"><pre><span class="s2">&quot;line numbers</span>
+<span class="s2">set nu</span>
+
+<span class="s2">&quot;</span>tab space
+<span class="nb">set </span><span class="nv">ts</span><span class="o">=</span><span class="m">5</span> <span class="nv">sw</span><span class="o">=</span>5
+
+<span class="s2">&quot;syntax highlight</span>
+<span class="s2">syntax on</span>
+
+<span class="s2">&quot;</span>non compatible
+<span class="nb">set </span>nocompatible
+</pre></div>
+
+<ol start="16">
+<li>Rechercher et remplacez tous les Durand en Dupont.</li>
+</ol>
+<div class="highlight"><pre>:%s/^Durand/Dupont/g
+</pre></div>
+
+<ol start="17">
+<li>Substituer Jean en Jean-Paul.</li>
+</ol>
+<div class="highlight"><pre>:%s/Jean /Jean-Paul /g
+</pre></div>
+
+<ol start="18">
+<li>Substituer Jean en JEAN (sans écrire JEAN dans l&rsquo;expression régulière).</li>
+</ol>
+<h1 id="permet-domettre-lechappement-des-characteres-speciaux">permet d&rsquo;omettre l&rsquo;echappement des characteres spéciaux<a class="headerlink" href="#permet-domettre-lechappement-des-characteres-speciaux" title="Permanent link"></a></h1>
+<div class="highlight"><pre>:%s#Jean#<span class="se">\U</span><span class="p">&amp;</span><span class="c1">#</span>
+:%s/Jean/<span class="se">\U</span><span class="p">&amp;</span>/
+</pre></div>
+
+<ol start="19">
+<li>Substituer JEAN en Jean en modifiant le séparateur de l&rsquo;expression régulière.</li>
+</ol>
+<div class="highlight"><pre>:%s/JEAN/<span class="se">\L</span><span class="p">&amp;</span>/
+</pre></div>
+
+<p>Pas tout à fait ça mais osef</p>
+<ol start="20">
+<li>Substituer Jean en Jean-Jean sur tout le texte.</li>
+</ol>
+<div class="highlight"><pre>:%s/jean/<span class="p">&amp;</span>-<span class="p">&amp;</span>/
+
+:g/Jean/s//Jean-Jean/g
+</pre></div>
+
+<ol start="21">
+<li>Ajouter (033) devant chaque numéro (en fin de ligne) commençant par 1,2 ou 3.
+Exemple : Frederic Thouin (033)124666</li>
+</ol>
+<div class="highlight"><pre>:%s/<span class="se">\&lt;</span><span class="o">[</span>1-3<span class="o">]</span>/<span class="o">(</span>033<span class="o">)</span><span class="p">&amp;</span>/
+</pre></div>
+
+<ol start="22">
+<li>Ajouter 0 (zéro) à la fin de toutes les lignes qui commencent par &lsquo;F&rsquo;.</li>
+</ol>
+<div class="highlight"><pre>:g/^F/s/<span class="nv">$/</span>0/g
+</pre></div>
+
+<ol start="23">
+<li>Bonus : Reformater le texte avec vim sans entrer dans vim, pour toutes 
+les lignes comportant un nom, prénom et numéro de la façon suivante :</li>
+</ol>
+<div class="highlight"><pre>Prénom
+NOM(en MAJUSCULE)
+Tel : numéro de téléphone
+</pre></div>
+
+<p><link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css"></p></article></body></html>

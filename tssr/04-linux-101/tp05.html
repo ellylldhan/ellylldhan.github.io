@@ -1066,9 +1066,9 @@ body .markdown-body
 .highlight .vi{color:teal}
 .highlight .il{color:#009999}
 .highlight .gc{color:#999;background-color:#EAF2F5}
-</style><title>tp03 - cat</title></head><body><article class="markdown-body"><h2 id="04-linux-101">04 - Linux 101<a class="headerlink" href="#04-linux-101" title="Permanent link"></a></h2>
-<p>Du 14/02 au 18/02 - Formateur : Hasan KURTULUS  </p>
-<h3 id="tp-03-afficher-le-contenu-des-fichiers">TP 03 - Afficher le contenu des fichiers<a class="headerlink" href="#tp-03-afficher-le-contenu-des-fichiers" title="Permanent link"></a></h3>
+</style><title>tp05 - recherche</title></head><body><article class="markdown-body"><h2 id="04-linux-101">04 - Linux 101<a class="headerlink" href="#04-linux-101" title="Permanent link"></a></h2>
+<p>Du 14/02 au 18/02 - Formateur : Hasan KURTULUS </p>
+<h3 id="tp-05-recherche-de-contenu-et-de-fichiers">TP 05 - Recherche de contenu et de fichiers<a class="headerlink" href="#tp-05-recherche-de-contenu-et-de-fichiers" title="Permanent link"></a></h3>
 <ul>
 <li>Activer VPN</li>
 <li>Connection à une vm de l&rsquo;ENI en ssh 
@@ -1077,67 +1077,207 @@ body .markdown-body
 </pre></div></li>
 </ul>
 <ol>
-<li>Créez un nouveau fichier appelé MonDeuxiemeFichier à l&rsquo;aide de la commande cat, dont le
-contenu sera :</li>
+<li>Recherchez toutes les lignes contenant Dupont dans le fichier Edition.</li>
 </ol>
-<div class="highlight"><pre>Conseil :
-pour bien utiliser la ligne de commande
-faire des étirements de doigts avant chaque repas.
-</pre></div>
-
-<div class="highlight"><pre>$ cat &gt; MonDeuxiemeFichier &lt;&lt; DELIM
-&gt; Conseil :
-&gt; pour bien utiliser la ligne de commande
-&gt; faire des étirements de doigts avant chaque repas.
-&gt; DELIM
-$ cat MonDeuxiemeFichier 
-Conseil :
-pour bien utiliser la ligne de commande
-faire des étirements de doigts avant chaque repas.
+<div class="highlight"><pre><span class="nv">$ </span>grep Dupont Edition
+Dupont Jean 111111
+Dupont Jean 111111
+Dupont Patrice 222222
+Dupont Jojo 999999
+Dupont Pierre 222222
 </pre></div>
 
 <ol start="2">
-<li>Créez un fichier MonTroisiemeFichier avec cat, contenant le texte :</li>
+<li>Recherchez toutes les lignes contenant dupont quel que soit la casse 
+dans le fichier Edition.</li>
 </ol>
-<div class="highlight"><pre>Ne pas oublier de lire au moins 4 pages de man avant d&#39;aller se coucher
-</pre></div>
-
-<div class="highlight"><pre>$ cat &gt; MonTroisiemeFichier
-Ne pas oublier de lire au moins 4 pages de man avant d&#39;aller se coucher
-&lt;CTRL-D&gt;
-$ cat MonTroisiemeFichier 
-Ne pas oublier de lire au moins 4 pages de man avant d&#39;aller se coucher
+<div class="highlight"><pre><span class="nv">$ </span>grep -i dupont Edition
+Dupont Jean 111111
+Dupont Jean 111111
+Dupont Patrice 222222
+Dupont Jojo 999999
+Dupont Pierre 222222
 </pre></div>
 
 <ol start="3">
-<li>Créez un nouveau fichier fichier2+3 par concaténation des deux fichiers 
-qui viennent d&rsquo;être créés.</li>
+<li>Affichez toutes les lignes non vides du fichier Edition.</li>
 </ol>
-<div class="highlight"><pre>$ cat MonDeuxiemeFichier MonTroisiemeFichier &gt; fichier2+3
-$ cat fichier2+3 
-Conseil :
-pour bien utiliser la ligne de commande
-faire des étirements de doigts avant chaque repas.
-Ne pas oublier de lire au moins 4 pages de man avant d&#39;aller se coucher
+<div class="highlight"><pre><span class="nv">$ </span>grep -n <span class="s2">&quot;\S&quot;</span> Edition
+1:Aboaf Maurice 244748
+2:Adda Jen 239234
+3:Allo Jean-Pierre 255398
+4:Ben Raf 238899
+6:Bernard Jean-Paul 234567
+7:ChasserAt Paul 245678
+8:Cousin Pascal 222222
+9:Froideceaux Michel 252423
+10:Gros Lucien 212121
+11:Cayrol Patrice 123456
+12:Beux Leon 567891
+13:Dupont Jean 111111
+14:Dupont Jean 111111
+16:Dupont Patrice 222222
+17:Dupont Jojo 999999
+18:Dupont Pierre 222222
+19:Pavageau Andre 222222
+20:Serpinet Roland
+22:Holka Tadeusz 333333
+23:Senechal Yves 245646
+24:Gross Parcal 245367
+25:Fiquet Paul 265746
+26:Firon Pascale 123456
+28:Pecheur Francois 223456
+29:Grosbois Anne 123456
+30:Fiancet Henri 098765
+31:Couteau Jean 456378
+32:Causse Claude
+33:Blanche Michele
+34:Sandra Housse
 </pre></div>
 
 <ol start="4">
-<li>Combien de comptes d&rsquo;utilisateurs ont été créés sur la machine, sachant que le fichier
-contenant les utilisateurs est /etc/passwd et qu&rsquo;une ligne correspond à un utilisateur ?</li>
+<li>Listez les fichiers contenant localhost dans le répertoire /etc sans 
+inclure les sous-répertoires.</li>
 </ol>
-<div class="highlight"><pre><span class="nv">$ </span>cat /etc/passwd <span class="p">|</span> wc -l
-62
-<span class="nv">$ </span>wc -l /etc/passwd
-<span class="m">62</span> /etc/passwd
+<div class="highlight"><pre><span class="nv">$ </span>grep -nd localhost /etc/*
+grep: argument « localhost » incorrect pour « --directories »
+Les arguments valables sont :
+  - « <span class="nb">read</span> »
+  - « recurse »
+  - « skip »
+Usage: grep <span class="o">[</span>OPTION<span class="o">]</span>... PATTERNS <span class="o">[</span>FILE<span class="o">]</span>...
+Exécutez « grep --help » pour obtenir des renseignements complémentaires.
+
+<span class="nv">$ </span>grep -nd skip localhost /etc/*
+grep: /etc/gshadow: Permission non accordée
+grep: /etc/gshadow-: Permission non accordée
+/etc/hosts:1:127.0.0.1  localhost
+/etc/hosts:5:::1     localhost ip6-localhost ip6-loopback
+/etc/reportbug.conf:66:# smtphost localhost
+grep: /etc/shadow: Permission non accordée
+grep: /etc/shadow-: Permission non accordée
+grep: /etc/sudoers: Permission non accordée
+
+<span class="nv">$ </span>grep -nd skip localhost /etc/* 2&gt;/dev/null
+/etc/hosts:1:127.0.0.1  localhost
+/etc/hosts:5:::1     localhost ip6-localhost ip6-loopback
+/etc/reportbug.conf:66:# smtphost localhost
 </pre></div>
 
 <ol start="5">
-<li>Afficher uniquement les 2 premières lignes du fichier /etc/hosts.</li>
+<li>Recherchez tous les fichiers standards commençant par ho à partir du répertoire /etc.</li>
 </ol>
-<div class="highlight"><pre><span class="nv">$ </span>head -2 /etc/hosts
-    127.0.0.1       localhost
-    127.0.1.1       srv-formateur
+<div class="highlight"><pre><span class="nv">$ </span>find /etc/ -type f -iname ho* 2&gt;/dev/null
+/etc/host.conf
+/etc/hosts
+/etc/apparmor.d/tunables/home
+/etc/hosts.allow
+/etc/hosts.deny
+/etc/hostname
 </pre></div>
 
-<p><link rel="stylesheet" type="text/css" href=".ressources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href=".ressources/css/style.css"></p></article></body></html>
+<ol start="6">
+<li>Recherchez tous les répertoires depuis votre répertoire personnel.</li>
+</ol>
+<div class="highlight"><pre><span class="nv">$ </span>find ~ -type d
+/home/user15
+/home/user15/Tp
+/home/user15/Tp/KornShell
+/home/user15/Tp/Bourne
+/home/user15/startup rc3
+/home/user15/MonPremierFichier
+/home/user15/bin
+</pre></div>
+
+<ol start="7">
+<li>Recherchez tous les fichiers standards de votre répertoire personnel se terminant par txt et
+en faire une copie avec l&rsquo;extension .save.</li>
+</ol>
+<div class="highlight"><pre><span class="nv">$ </span>find . -type f -iname <span class="s2">&quot;*.txt&quot;</span>
+./test.txt
+./edition3.txt
+<span class="nv">$ </span>find . -type f -iname <span class="s2">&quot;*.txt&quot;</span> -exec cp <span class="s2">&quot;{}&quot;</span> <span class="s2">&quot;{}.save&quot;</span> <span class="se">\;</span>
+<span class="nv">$ </span>ls
+ bin            edition3.txt.save    MonPremierFichier     test.txt.save
+ concat.tar     fichier2+3           MonTroisiemeFichier   Tp
+ Edition        foo                 <span class="s1">&#39;startup rc3&#39;</span>
+ edition3.txt   MonDeuxiemeFichier   test.txt
+</pre></div>
+
+<p>Bonus 1 :
+Recherchez depuis /home les fichiers présents directement à la racine des répertoires personnels
+dont le nom se termine par “ition”.</p>
+<div class="highlight"><pre><span class="nv">$ </span>find /home -type f -iname *ition 2&gt;/dev/null
+/home/user34/Edition  /home/user01/Edition  /home/user19/Edition  /home/user11/Edition
+/home/user25/Edition  /home/user23/Edition  /home/user04/Edition  /home/user09/Edition
+/home/user35/Edition  /home/user13/Edition  /home/user30/Edition  /home/user21/Edition
+/home/user22/Edition  /home/user24/Edition  /home/user18/Edition  /home/user06/Edition  
+/home/user33/Edition  /home/user28/Edition  /home/user16/Edition  /home/user31/Edition  
+/home/user02/TP4/Edition /home/user15/Edition /home/user32/Edition /home/user14/Edition
+/home/user08/Edition  /home/user27/Edition  /home/user29/Edition  /home/user03/Edition
+/home/user20/Edition  /home/user26/Edition  /home/user07/Edition  /home/user17/Edition
+/home/user12/Edition  /home/user05/Edition  /home/user10/Edition
+</pre></div>
+
+<p>Bonus 2 :
+En reprenant les critères du Bonus 1, chaque élément trouvé devra être affiché sur une ligne, seuls
+le nom du fichier (sans son chemin) et le jour de la semaine seront à afficher.</p>
+<div class="highlight"><pre><span class="nv">$ </span>find /home -type f -iname *ition  -exec <span class="nb">echo</span> <span class="k">$(</span>basename <span class="s2">&quot;{}&quot;</span><span class="k">)</span> <span class="k">$(</span>date +<span class="s2">&quot;%A&quot;</span><span class="k">)</span> <span class="se">\;</span> 2&gt;/dev/null
+/home/user34/Edition mardi
+/home/user01/Edition mardi
+/home/user19/Edition mardi
+/home/user11/Edition mardi
+/home/user25/Edition mardi
+/home/user23/Edition mardi
+/home/user04/Edition mardi
+/home/user09/Edition mardi
+/home/user35/Edition mardi
+/home/user13/Edition mardi
+/home/user30/Edition mardi
+/home/user21/Edition mardi
+/home/user22/Edition mardi
+/home/user24/Edition mardi
+/home/user18/Edition mardi
+/home/user06/Edition mardi
+/home/user33/Edition mardi
+/home/user28/Edition mardi
+/home/user16/Edition mardi
+/home/user31/Edition mardi
+/home/user02/TP4/Edition mardi
+/home/user15/Edition mardi
+/home/user32/Edition mardi
+/home/user14/Edition mardi
+/home/user08/Edition mardi
+/home/user27/Edition mardi
+/home/user29/Edition mardi
+/home/user03/Edition mardi
+/home/user20/Edition mardi
+/home/user26/Edition mardi
+/home/user07/Edition mardi
+/home/user17/Edition mardi
+/home/user12/Edition mardi
+/home/user05/Edition mardi
+/home/user10/Edition mardi
+
+<span class="nv">$ </span>find /home -type f -iname *ition -printf <span class="s2">&quot;%p %TA \n&quot;</span> 2&gt;/dev/null
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+
+<p>Bonus 3 :
+Trouvez TOUS les fichiers que votre utilisateur peut modifier sur le système.</p>
+<div class="highlight"><pre><span class="nv">$ </span>find / -writable 2&gt;/dev/null
+<span class="o">[</span>...<span class="o">]</span>
+<span class="nv">$ </span>find / -user user18 -writable 2&gt;/dev/null
+<span class="o">[</span>...<span class="o">]</span>
+<span class="nv">$ </span>find / -user user18 -writable -perm <span class="m">664</span> 2&gt;/dev/null
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+
+<p>Ultra-bonus :
+Trouvez la méthode la plus rapide pour répondre au Bonus 3.</p>
+<div class="highlight"><pre><span class="nv">$ </span>find / -writable 2&gt;/dev/null
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+
+<p><link rel="stylesheet" type="text/css" href="../ressources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../ressources/css/style.css"></p></article></body></html>
