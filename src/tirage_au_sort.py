@@ -11,7 +11,6 @@ cursor = conn.cursor()
 query = cursor.execute("SELECT count(*) FROM qcm")
 row = cursor.fetchone()
 random_numbers = random.sample(range(1, row[0]), 30)
-sql = "SELECT numero, qui, theme, question, reponse FROM qcm WHERE id = ? and actif = 1 and qui not like 'fred'"
 
 # Ouvrir le fichier pour écrire les questions
 with open('tirage_au_sort.html', 'w') as file:
@@ -21,7 +20,7 @@ with open('tirage_au_sort.html', 'w') as file:
 
     file.write(body)
     for number in random_numbers:
-        cursor.execute("SELECT numero, qui, theme, question FROM qcm WHERE id = ?", (number,))
+        cursor.execute("SELECT numero, qui, theme, question FROM qcm WHERE id = ? and actif = 1", (number,))
         row = cursor.fetchone()
         if row:
             numero, qui, theme, question = row
